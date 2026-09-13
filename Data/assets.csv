@@ -1,0 +1,67 @@
+asset_id,name,category,station_id,status,last_inspection_date,next_maintenance_date,latitude,longitude
+AST-0001,Generator #1,Power,MTR,Operational,2026-03-29,2026-08-23,-70.7705,11.72776
+AST-0002,Generator #2,Power,MTR,Operational,2026-03-04,2026-07-24,-70.75816,11.72504
+AST-0003,Snow Vehicle (Piston Bully) #1,Vehicle,MTR,Operational,2026-05-23,2026-09-06,-70.77163,11.73341
+AST-0004,Snow Vehicle (Piston Bully) #2,Vehicle,MTR,Operational,2026-09-02,2027-03-12,-70.76197,11.73169
+AST-0005,Satellite Comms Unit #1,Communication,MTR,Maintenance,2026-05-17,2027-01-04,-70.77587,11.73942
+AST-0006,Fuel Storage Tank #1,Power,MTR,Operational,2026-03-14,2027-01-14,-70.77289,11.74244
+AST-0007,Fuel Storage Tank #2,Power,MTR,Operational,2026-06-14,2026-11-03,-70.77407,11.74025
+AST-0008,Fuel Storage Tank #3,Power,MTR,Maintenance,2026-04-07,2026-11-18,-70.76141,11.73402
+AST-0009,Weather Balloon Launcher #1,Scientific,MTR,Operational,2026-01-15,2026-10-25,-70.77014,11.73587
+AST-0010,Water Desalination Unit #1,Utility,MTR,Operational,2026-01-25,2026-10-27,-70.76191,11.72422
+AST-0011,Medical Ward Freezer #1,Medical,MTR,Missing,2026-07-12,2027-03-07,-70.75889,11.74063
+AST-0012,Battery Bank (Solar) #1,Power,MTR,Operational,2026-06-03,2027-01-21,-70.75932,11.72655
+AST-0013,Battery Bank (Solar) #2,Power,MTR,Operational,2026-06-10,2026-12-24,-70.76196,11.73697
+AST-0014,Spare Filter Cartridge Set #1,Maintenance,MTR,Operational,2026-08-21,2027-02-14,-70.7711,11.73255
+AST-0015,Spare Filter Cartridge Set #2,Maintenance,MTR,Operational,2026-07-01,2027-01-19,-70.75914,11.73882
+AST-0016,Spare Filter Cartridge Set #3,Maintenance,MTR,Maintenance,2026-07-12,2026-10-26,-70.76798,11.72462
+AST-0017,Spare Filter Cartridge Set #4,Maintenance,MTR,Operational,2026-01-18,2026-09-26,-70.76602,11.74099
+AST-0018,GPS Tracking Beacon #1,Navigation,MTR,Operational,2026-03-28,2027-02-15,-70.77321,11.7382
+AST-0019,GPS Tracking Beacon #2,Navigation,MTR,Operational,2026-04-24,2026-12-04,-70.76743,11.73497
+AST-0020,GPS Tracking Beacon #3,Navigation,MTR,Missing,2026-06-08,2026-12-27,-70.77323,11.73317
+AST-0021,GPS Tracking Beacon #4,Navigation,MTR,Maintenance,2026-02-27,2026-06-21,-70.77294,11.7265
+AST-0022,GPS Tracking Beacon #5,Navigation,MTR,Operational,2026-03-18,2027-01-18,-70.7683,11.73522
+AST-0023,Generator #1,Power,BHR,Operational,2026-05-12,2027-05-07,-69.40304,76.20155
+AST-0024,Generator #2,Power,BHR,Operational,2026-03-18,2026-08-13,-69.40336,76.18804
+AST-0025,Snow Vehicle (Piston Bully) #1,Vehicle,BHR,Operational,2026-03-28,2026-12-17,-69.4054,76.19177
+AST-0026,Snow Vehicle (Piston Bully) #2,Vehicle,BHR,Missing,2026-01-07,2026-08-19,-69.39886,76.19285
+AST-0027,Satellite Comms Unit #1,Communication,BHR,Maintenance,2026-08-12,2027-04-11,-69.40395,76.18668
+AST-0028,Fuel Storage Tank #1,Power,BHR,Operational,2026-06-05,2026-11-24,-69.39853,76.19331
+AST-0029,Fuel Storage Tank #2,Power,BHR,Operational,2026-09-08,2027-05-21,-69.41186,76.18996
+AST-0030,Fuel Storage Tank #3,Power,BHR,Operational,2026-02-08,2026-10-13,-69.40928,76.19405
+AST-0031,Weather Balloon Launcher #1,Scientific,BHR,Operational,2026-08-19,2026-12-30,-69.39778,76.20226
+AST-0032,Water Desalination Unit #1,Utility,BHR,Operational,2026-04-25,2026-09-26,-69.40459,76.1937
+AST-0033,Medical Ward Freezer #1,Medical,BHR,Maintenance,2026-07-03,2027-06-28,-69.40564,76.18694
+AST-0034,Battery Bank (Solar) #1,Power,BHR,Operational,2026-04-23,2026-11-01,-69.40612,76.19613
+AST-0035,Battery Bank (Solar) #2,Power,BHR,Maintenance,2026-06-05,2027-04-15,-69.40507,76.18766
+AST-0036,Spare Filter Cartridge Set #1,Maintenance,BHR,Operational,2026-08-23,2027-05-13,-69.40302,76.19447
+AST-0037,Spare Filter Cartridge Set #2,Maintenance,BHR,Operational,2026-09-07,2027-01-11,-69.41292,76.18405
+AST-0038,Spare Filter Cartridge Set #3,Maintenance,BHR,Operational,2026-08-31,2027-05-17,-69.40934,76.19608
+AST-0039,Spare Filter Cartridge Set #4,Maintenance,BHR,Operational,2026-07-16,2026-12-20,-69.39645,76.19422
+AST-0040,GPS Tracking Beacon #1,Navigation,BHR,Maintenance,2026-07-08,2027-06-05,-69.41029,76.18464
+AST-0041,GPS Tracking Beacon #2,Navigation,BHR,Operational,2026-05-21,2027-02-16,-69.40476,76.19728
+AST-0042,GPS Tracking Beacon #3,Navigation,BHR,Operational,2026-03-20,2026-08-07,-69.39954,76.19871
+AST-0043,GPS Tracking Beacon #4,Navigation,BHR,Operational,2026-08-12,2027-03-17,-69.40337,76.1855
+AST-0044,GPS Tracking Beacon #5,Navigation,BHR,Operational,2026-07-24,2027-03-13,-69.39661,76.18421
+AST-0045,Generator #1,Power,HDR,Operational,2026-02-14,2026-07-04,78.93279,11.92982
+AST-0046,Generator #2,Power,HDR,Operational,2026-08-16,2027-03-15,78.92251,11.91737
+AST-0047,Snow Vehicle (Piston Bully) #1,Vehicle,HDR,Operational,2026-05-29,2026-09-26,78.91284,11.92091
+AST-0048,Snow Vehicle (Piston Bully) #2,Vehicle,HDR,Operational,2026-01-14,2026-12-02,78.92673,11.92771
+AST-0049,Satellite Comms Unit #1,Communication,HDR,Operational,2026-02-20,2027-01-25,78.91873,11.93247
+AST-0050,Fuel Storage Tank #1,Power,HDR,Operational,2026-04-13,2026-08-12,78.91394,11.92478
+AST-0051,Fuel Storage Tank #2,Power,HDR,Operational,2026-05-03,2027-04-29,78.93202,11.9147
+AST-0052,Fuel Storage Tank #3,Power,HDR,Operational,2026-07-23,2026-11-25,78.9263,11.9178
+AST-0053,Weather Balloon Launcher #1,Scientific,HDR,Operational,2026-08-09,2027-03-13,78.91359,11.91474
+AST-0054,Water Desalination Unit #1,Utility,HDR,Operational,2026-03-24,2027-03-16,78.91802,11.92649
+AST-0055,Medical Ward Freezer #1,Medical,HDR,Operational,2026-06-20,2027-01-18,78.91542,11.92601
+AST-0056,Battery Bank (Solar) #1,Power,HDR,Damaged,2026-05-14,2027-01-20,78.93151,11.91329
+AST-0057,Battery Bank (Solar) #2,Power,HDR,Operational,2026-04-02,2026-08-21,78.91706,11.9184
+AST-0058,Spare Filter Cartridge Set #1,Maintenance,HDR,Maintenance,2026-01-13,2026-10-08,78.93039,11.92049
+AST-0059,Spare Filter Cartridge Set #2,Maintenance,HDR,Maintenance,2026-07-30,2027-06-09,78.92687,11.92533
+AST-0060,Spare Filter Cartridge Set #3,Maintenance,HDR,Operational,2026-02-14,2027-02-09,78.92914,11.91909
+AST-0061,Spare Filter Cartridge Set #4,Maintenance,HDR,Damaged,2026-03-23,2026-08-13,78.91549,11.91541
+AST-0062,GPS Tracking Beacon #1,Navigation,HDR,Operational,2026-08-12,2027-01-28,78.9249,11.92745
+AST-0063,GPS Tracking Beacon #2,Navigation,HDR,Operational,2026-07-18,2027-02-28,78.91782,11.93126
+AST-0064,GPS Tracking Beacon #3,Navigation,HDR,Operational,2026-08-26,2027-01-10,78.92939,11.91398
+AST-0065,GPS Tracking Beacon #4,Navigation,HDR,Operational,2026-06-15,2026-11-18,78.91804,11.92792
+AST-0066,GPS Tracking Beacon #5,Navigation,HDR,Operational,2026-04-20,2027-02-22,78.91504,11.932

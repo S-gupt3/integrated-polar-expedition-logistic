@@ -1,0 +1,25 @@
+inventory_id,item_name,category,station_id,unit,current_quantity,min_threshold,status,last_updated
+INV-0001,Diesel Fuel,Fuel,MTR,litres,29321,3000,Normal,2026-09-13
+INV-0002,Propane (LPG),Fuel,MTR,kg,3851,400,Normal,2026-09-13
+INV-0003,Medical Oxygen,Medical,MTR,cylinders,99,20,Normal,2026-09-13
+INV-0004,Medical Kit Supplies,Medical,MTR,units,439,50,Normal,2026-09-13
+INV-0005,Dry Rations,Food,MTR,kg,5147,800,Normal,2026-09-13
+INV-0006,Frozen Rations,Food,MTR,kg,4512,500,Normal,2026-09-13
+INV-0007,Potable Water Treatment Tablets,Water,MTR,units,1596,150,Normal,2026-09-13
+INV-0008,Spare Batteries (AA/Lithium),Power,MTR,units,782,100,Normal,2026-09-13
+INV-0009,Diesel Fuel,Fuel,BHR,litres,20426,3000,Normal,2026-09-13
+INV-0010,Propane (LPG),Fuel,BHR,kg,2880,400,Normal,2026-09-13
+INV-0011,Medical Oxygen,Medical,BHR,cylinders,96,20,Normal,2026-09-13
+INV-0012,Medical Kit Supplies,Medical,BHR,units,310,50,Normal,2026-09-13
+INV-0013,Dry Rations,Food,BHR,kg,6262,800,Normal,2026-09-13
+INV-0014,Frozen Rations,Food,BHR,kg,4493,500,Normal,2026-09-13
+INV-0015,Potable Water Treatment Tablets,Water,BHR,units,1920,150,Normal,2026-09-13
+INV-0016,Spare Batteries (AA/Lithium),Power,BHR,units,520,100,Normal,2026-09-13
+INV-0017,Diesel Fuel,Fuel,HDR,litres,23862,3000,Normal,2026-09-13
+INV-0018,Propane (LPG),Fuel,HDR,kg,2430,400,Normal,2026-09-13
+INV-0019,Medical Oxygen,Medical,HDR,cylinders,111,20,Normal,2026-09-13
+INV-0020,Medical Kit Supplies,Medical,HDR,units,470,50,Normal,2026-09-13
+INV-0021,Dry Rations,Food,HDR,kg,5421,800,Normal,2026-09-13
+INV-0022,Frozen Rations,Food,HDR,kg,4448,500,Normal,2026-09-13
+INV-0023,Potable Water Treatment Tablets,Water,HDR,units,1798,150,Normal,2026-09-13
+INV-0024,Spare Batteries (AA/Lithium),Power,HDR,units,786,100,Normal,2026-09-13

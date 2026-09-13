@@ -1,0 +1,4 @@
+station_id,name,region,latitude,longitude,base_headcount_summer,base_headcount_winter
+MTR,Maitri,Antarctica,-70.766,11.7333,65,25
+BHR,Bharati,Antarctica,-69.4041,76.1927,47,20
+HDR,Himadri,Arctic (Svalbard),78.9228,11.9231,12,3
