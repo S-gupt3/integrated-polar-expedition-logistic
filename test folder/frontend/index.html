@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Polar Ops | Command Center</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+</head>
+<body data-page="dashboard">
+  <div id="app-shell"></div>
+  <main class="page-content">
+    <header class="page-header"><div><p class="eyebrow">ISEA-46 / OPERATIONS CONTROL</p><h1>Command center</h1><p class="page-subtitle">A live readiness picture for India's polar research operations.</p></div><div class="header-meta"><span class="live-indicator">Systems nominal</span><span>13 Sep 2026</span></div></header>
+    <section class="hero-status card"><div><p class="eyebrow">EXPEDITION READINESS</p><strong class="readiness-number">87<span>%</span></strong><p>Stable operation with 3 areas requiring attention.</p><div class="progress"><span style="width:87%"></span></div></div><div class="hero-facts"><div><span>Active station</span><strong>Maitri</strong></div><div><span>Operation phase</span><strong>Winter ops</strong></div><div><span>Next review</span><strong>18 Sep</strong></div></div></section>
+    <section class="kpi-grid" aria-label="Operational summary"><article class="kpi card"><span>Total assets</span><strong id="kpi-total-assets">...</strong><small>+3.2% this month</small></article><article class="kpi card"><span>Operational assets</span><strong id="kpi-operational">...</strong><small>88.3% of total fleet</small></article><article class="kpi card"><span>Critical stock</span><strong id="kpi-critical-stock" class="text-red">...</strong><small>Items below threshold</small></article><article class="kpi card"><span>Needs attention</span><strong id="kpi-alerts" class="text-yellow">...</strong><small>Open operational alerts</small></article></section>
+    <section class="dashboard-columns"><article class="card panel-card"><div class="panel-heading"><div><h2>Asset health</h2><p>Current status across all stations</p></div><a href="assets.html" class="link-arrow">View assets &rarr;</a></div><div class="chart-box"><canvas id="assetHealthChart"></canvas></div></article><article class="card panel-card"><div class="panel-heading"><div><h2>Critical attention</h2><p>Priority actions for the command team</p></div><a href="inventory.html" class="link-arrow">View stock &rarr;</a></div><ul id="alert-list" class="alert-list"><li class="loading">Loading alerts...</li></ul></article></section>
+    <section class="dashboard-columns"><article class="card panel-card map-card"><div class="panel-heading"><div><h2>Operations map</h2><p>Research stations and operating picture</p></div></div><div id="operations-map"></div></article><article class="card panel-card"><div class="panel-heading"><div><h2>Inventory consumption</h2><p>Daily usage volume</p></div><a href="analytics.html" class="link-arrow">Open analytics &rarr;</a></div><div class="chart-box trend-chart"><canvas id="consumptionChart"></canvas></div></article></section>
+  </main>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="js/api.js"></script><script src="js/utils.js"></script><script src="js/layout.js"></script><script src="js/dashboard.js"></script>
+</body>
+</html>
