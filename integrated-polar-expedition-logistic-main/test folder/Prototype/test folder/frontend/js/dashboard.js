@@ -1,0 +1,13 @@
+async function initDashboard() {
+  const [assets, inventory, analytics] = await Promise.all([getAssets(), getInventory(), getAnalytics()]);
+  document.getElementById('kpi-total-assets').textContent = '1,248';
+  document.getElementById('kpi-operational').textContent = '1,102';
+  document.getElementById('kpi-critical-stock').textContent = inventory.filter((item) => item.status === 'Critical').length;
+  document.getElementById('kpi-alerts').textContent = '4';
+  const alerts = [{ level: 'red', title: 'Medical kits below critical threshold', meta: 'Bharati / 12 kits remaining' }, { level: 'yellow', title: 'Generator GEN-104 due for inspection', meta: 'Maitri / scheduled in 7 days' }, { level: 'yellow', title: 'Shipment SH-204 is delayed', meta: 'Supply route / 18 hours behind plan' }, { level: 'green', title: 'Fuel delivery received', meta: 'Maitri / resolved 2 hours ago' }];
+  document.getElementById('alert-list').innerHTML = alerts.map((alert) => `<li><span class="alert-icon ${alert.level}">${iconForStatus(alert.level === 'green' ? 'resolved' : 'alert')}</span><div class="alert-copy"><strong>${alert.title}</strong><small>${alert.meta}</small></div></li>`).join('');
+  new Chart(document.getElementById('assetHealthChart'), { type: 'doughnut', data: { labels: ['Operational', 'Maintenance', 'Damaged', 'Missing'], datasets: [{ data: [82, 9, 5, 2], backgroundColor: ['#64c59b', '#efb35a', '#e87968', '#8a9aa2'], borderWidth: 0 }] }, options: { cutout: '68%', plugins: { legend: { position: 'bottom', labels: { boxWidth: 8, font: { size: 10 } } } } } });
+  new Chart(document.getElementById('consumptionChart'), { type: 'line', data: { labels: analytics.consumption.map((point) => point.day), datasets: [{ data: analytics.consumption.map((point) => point.value), borderColor: '#319f7b', backgroundColor: '#dff2e9', fill: true, tension: .35, pointRadius: 2 }] }, options: { maintainAspectRatio: false, plugins: { legend: { display: false } }, scales: { x: { grid: { display: false } }, y: { grid: { color: '#e7efec' } } } } });
+  const map = L.map('operations-map', { zoomControl: false }).setView([-35, 65], 2); L.control.zoom({ position: 'bottomright' }).addTo(map); L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { attribution: '&copy; OpenStreetMap' }).addTo(map); [{ name: 'Maitri', position: [-70.76, 11.73], detail: 'Antarctic research station' }, { name: 'Bharati', position: [-69.4, 76.18], detail: 'Antarctic research station' }, { name: 'Himadri', position: [78.92, 11.93], detail: 'Arctic research station' }].forEach((station) => L.marker(station.position).addTo(map).bindPopup(`<strong>${station.name}</strong><br>${station.detail}`));
+}
+initDashboard();
