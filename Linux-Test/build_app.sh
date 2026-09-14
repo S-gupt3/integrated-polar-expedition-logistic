@@ -11,7 +11,7 @@ fi
 rm -rf dist build PLOROPSIS.spec
 
 # Build
-yinstaller --noconsole --name "PLOROPSIS" \
+pyinstaller --noconsole --name "PLOROPSIS" \
     --add-data "test folder/frontend:test folder/frontend" \
     --add-data "test folder/frontend/assets/icons:test folder/frontend/assets/icons" \
     --add-data "config.json:." \
