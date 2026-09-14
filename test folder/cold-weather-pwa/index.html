@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#000000">
+  <meta name="description" content="Offline-ready field operations console for extreme cold weather.">
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="styles.css">
+  <title>Field Console</title>
+</head>
+<body>
+  <main class="app-shell">
+    <header class="app-header">
+      <div>
+        <p class="eyebrow">FIELD CONSOLE</p>
+        <h1>Operations</h1>
+      </div>
+      <div class="header-actions">
+        <p class="connection-status" id="connectionStatus" role="status">ONLINE</p>
+        <button class="theme-toggle" id="themeToggle" type="button" aria-pressed="false">Light mode</button>
+      </div>
+    </header>
+
+    <section class="status-panel" aria-labelledby="statusHeading">
+      <p class="eyebrow">CURRENT STATUS</p>
+      <h2 id="statusHeading">All systems ready</h2>
+      <p id="statusDetail">Last checked just now. Data is stored on this device.</p>
+    </section>
+
+    <section class="command-panel" aria-labelledby="commandHeading">
+      <h2 id="commandHeading">Quick command</h2>
+      <button class="voice-button" id="voiceButton" type="button" aria-describedby="voiceHelp">
+        <span class="voice-icon" aria-hidden="true">MIC</span>
+        <span id="voiceLabel">Voice command</span>
+      </button>
+      <p id="voiceHelp">Press once, speak clearly, then wait for the result.</p>
+      <p class="transcript" id="transcript" aria-live="polite">No command recorded.</p>
+    </section>
+
+    <section class="action-list" aria-labelledby="actionHeading">
+      <h2 id="actionHeading">Critical actions</h2>
+      <button class="action-button" type="button" data-action="Emergency beacon prepared">Prepare emergency beacon</button>
+      <button class="action-button" type="button" data-action="Location saved locally">Save current location</button>
+      <button class="action-button" type="button" data-action="Supply request queued">Queue supply request</button>
+    </section>
+  </main>
+
+  <nav class="bottom-nav" aria-label="Primary navigation">
+    <a class="nav-item active" href="#operations" aria-current="page">Operations</a>
+    <a class="nav-item" href="#map">Map</a>
+    <a class="nav-item" href="#log">Log</a>
+  </nav>
+
+  <script src="app.js" defer></script>
+</body>
+</html>
