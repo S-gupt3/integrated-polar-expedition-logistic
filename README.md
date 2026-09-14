@@ -1,6 +1,3 @@
-# PLOROPSIS — README.md
-
-```markdown
 # PLOROPSIS
 
 **Polar Logistics & Operations System for Polar Integrated Support**
@@ -21,10 +18,10 @@ It combines three specialized modules into a single executable:
 
 | Module | Purpose |
 | :--- | :--- |
-| **`backend/`** | Core logistics — stations, assets, inventory, consumption logs |
-| **`backend03/`** | Days of Autonomy (DoA) calculation engine |
-| **`drift mapping/`** | Ice drift prediction and GIS reference data |
-| **`test folder/frontend/`** | Unified web dashboard (the anchor UI) |
+| `backend/` | Core logistics — stations, assets, inventory, consumption logs |
+| `backend03/` | Days of Autonomy (DoA) calculation engine |
+| `drift mapping/` | Ice drift prediction and GIS reference data |
+| `test folder/frontend/` | Unified web dashboard (the anchor UI) |
 
 All modules are wired into a single FastAPI server, served through one frontend, and packaged as a double-click executable for field deployment.
 
@@ -69,27 +66,27 @@ All modules are wired into a single FastAPI server, served through one frontend,
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
-│                    PLOROPSIS Frontend                       │
-│              (test folder/frontend/)                        │
-│   index.html • dashboard • assets • inventory • analytics   │
-└──────────────────────────┬──────────────────────────────────┘
-                           │ HTTP /api/*
-                           ▼
+│                    PLOROPSIS Frontend                        │
+│              (test folder/frontend/)                         │
+│   index.html • dashboard • assets • inventory • analytics    │
+└──────────────────────────┬────────────────────────────────────┘
+                            │ HTTP /api/*
+                            ▼
 ┌─────────────────────────────────────────────────────────────┐
-│                  Unified FastAPI Server                     │
-│                      (app.py)                               │
-├─────────────────┬──────────────────┬────────────────────────┤
-│  /api/stations  │ /api/inventory   │  /api/drift/predict    │
-│  /api/assets    │ /api/inventory-  │  /api/drift/history    │
-│  /api/consump-  │   doa            │  /api/drift/stations   │
-│   tion-logs     │ /api/assets-     │  /api/drift/tiles      │
-│                 │   registry       │                        │
-└────────┬────────┴────────┬─────────┴──────────┬─────────────┘
-         │                 │                    │
-         ▼                 ▼                    ▼
+│                  Unified FastAPI Server                      │
+│                      (app.py)                                │
+├─────────────────┬──────────────────┬─────────────────────────┤
+│  /api/stations   │ /api/inventory   │  /api/drift/predict     │
+│  /api/assets     │ /api/inventory-  │  /api/drift/history     │
+│  /api/consump-   │   doa            │  /api/drift/stations    │
+│   tion-logs      │ /api/assets-     │  /api/drift/tiles       │
+│                  │   registry       │                         │
+└────────┬─────────┴────────┬─────────┴──────────┬──────────────┘
+         │                  │                    │
+         ▼                  ▼                    ▼
 ┌─────────────────────────────────────────────────────────────┐
-│                      MySQL (polar_db)                       │
-│   stations • assets • inventory • consumption_logs          │
+│                      MySQL (polar_db)                        │
+│   stations • assets • inventory • consumption_logs           │
 └─────────────────────────────────────────────────────────────┘
 ```
 
@@ -107,7 +104,7 @@ All modules are wired into a single FastAPI server, served through one frontend,
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 integrated-polar-expedition-logistic/
@@ -117,43 +114,43 @@ integrated-polar-expedition-logistic/
 ├── requirements.txt            # Python dependencies
 │
 ├── backend/                    # Core logistics module
-│   ├── router.py              #   → FastAPI router (stations, assets, inventory)
-│   ├── main.py                #   → Standalone version (legacy)
-│   ├── schema.sql             #   → Database schema
-│   └── import_csv_to_mysql.py #   → CSV → MySQL migration tool
+│   ├── router.py               #   → FastAPI router (stations, assets, inventory)
+│   ├── main.py                 #   → Standalone version (legacy)
+│   ├── schema.sql              #   → Database schema
+│   └── import_csv_to_mysql.py  #   → CSV → MySQL migration tool
 │
 ├── backend03/                  # DoA calculation engine
-│   ├── router.py              #   → FastAPI router (inventory-doa, assets-registry)
-│   └── app.py                 #   → Standalone version (legacy)
+│   ├── router.py               #   → FastAPI router (inventory-doa, assets-registry)
+│   └── app.py                  #   → Standalone version (legacy)
 │
-├── drift mapping/              # Ice drift prediction module
-│   ├── router.py              #   → FastAPI router (drift endpoints)
-│   ├── ice_drift_engine.py    #   → Core drift calculations
+├── drift mapping/               # Ice drift prediction module
+│   ├── router.py                #   → FastAPI router (drift endpoints)
+│   ├── ice_drift_engine.py      #   → Core drift calculations
 │   └── gis_real_reference_data.py
 │
-├── test folder/                # Frontend anchor
+├── test folder/                 # Frontend anchor
 │   └── frontend/
-│       ├── index.html         #   → Main dashboard
-│       ├── analytics.html     #   → Analytics view
-│       ├── assets.html        #   → Asset registry view
-│       ├── inventory.html     #   → Inventory view
-│       ├── css/               #   → Stylesheets
+│       ├── index.html          #   → Main dashboard
+│       ├── analytics.html      #   → Analytics view
+│       ├── assets.html         #   → Asset registry view
+│       ├── inventory.html      #   → Inventory view
+│       ├── css/                #   → Stylesheets
 │       └── js/
-│           ├── api.js         #   → Unified API client (PLOROPSIS_API)
-│           ├── dashboard.js   #   → Dashboard logic
-│           ├── inventory.js   #   → Inventory view logic
+│           ├── api.js          #   → Unified API client (PLOROPSIS_API)
+│           ├── dashboard.js    #   → Dashboard logic
+│           ├── inventory.js    #   → Inventory view logic
 │           └── ...
 │
-├── Data/                       # Source CSVs (for initial import)
+├── Data/                        # Source CSVs (for initial import)
 │   ├── stations.csv
 │   ├── assets.csv
 │   ├── inventory.csv
 │   └── consumption_logs.csv
 │
-├── build_app.bat               # Build Windows executable
-├── build_app.sh                # Build Linux binary
-├── run_app.bat                 # Dev mode (Windows)
-└── run_app.sh                  # Dev mode (Linux)
+├── build_app.bat                # Build Windows executable
+├── build_app.sh                 # Build Linux binary
+├── run_app.bat                  # Dev mode (Windows)
+└── run_app.sh                   # Dev mode (Linux)
 ```
 
 ---
@@ -166,16 +163,19 @@ integrated-polar-expedition-logistic/
 - **Git** (for cloning)
 
 ### 1. Clone the Repository
+
 ```bash
 git clone https://github.com/S-gupt3/integrated-polar-expedition-logistic.git
 cd integrated-polar-expedition-logistic
 ```
 
 ### 2. Set Up the Database
+
 ```bash
 # Create the database and user
 mysql -u root -p
 ```
+
 ```sql
 CREATE DATABASE polar_db;
 CREATE USER 'python_user'@'localhost' IDENTIFIED BY '1729';
@@ -191,6 +191,8 @@ mysql -u python_user -p polar_db < backend/schema.sql
 # Import CSV data (optional but recommended)
 python backend/import_csv_to_mysql.py
 ```
+
+> **Security note:** the sample credentials above (`python_user` / `1729`) are placeholders for local development only. Use a strong, unique password — and keep it out of version control — for any shared or field-deployed instance.
 
 ### 3. Run in Development Mode
 
@@ -300,7 +302,7 @@ All endpoints are prefixed with `/api/`. Interactive docs at `http://localhost:5
 
 ---
 
-## How DoA is Calculated
+## How DoA Is Calculated
 
 ```
 daily_rate     = average(quantity_used) over last 14 logged days, per item per station
@@ -320,10 +322,10 @@ This is a **live projection** — `days_remaining` is computed on every request 
 The drift engine uses a simplified ice dynamics model:
 
 ```
-drift_distance = base_rate × days × random_variation
+drift_distance  = base_rate × days × random_variation
 drift_direction = station-specific bias + random_variation
-new_position   = current_position + (distance × direction)
-confidence     = max(0.5, 1.0 - days/30)
+new_position    = current_position + (distance × direction)
+confidence      = max(0.5, 1.0 - days / 30)
 ```
 
 | Ice Condition | Base Drift Rate |
@@ -372,7 +374,7 @@ const interval = api.startInventoryPolling((data) => {
 - If adding new modules, update `build_app.bat` / `build_app.sh` with `--hidden-import=<module>`
 
 ### Port 5000 already in use
-- Edit `config.json` and change `server_port` to another value (e.g., 5001)
+- Edit `config.json` and change `server_port` to another value (e.g., `5001`)
 - Restart the application
 
 ---
@@ -410,6 +412,12 @@ When shipping PLOROPSIS to a field station:
 
 ---
 
+## License
+
+...
+
+---
+
 <div align="center">
 
 **PLOROPSIS** — *Keeping India's polar stations supplied, safe, and one step ahead of the ice.*
@@ -417,24 +425,3 @@ When shipping PLOROPSIS to a field station:
 Built for the heroes at Maitri, Bharati, and Himadri
 
 </div>
-```
-
----
-
-### What's Included in This README:
-
-1. **Clear project identity** — PLOROPSIS name, tagline, and purpose
-2. **Feature overview** — all four modules explained
-3. **Architecture diagram** — visual overview of how everything connects
-4. **Tech stack table** — quick reference
-5. **Full project structure** — annotated tree
-6. **Step-by-step quick start** — from clone to running
-7. **Configuration guide** — every `config.json` field explained
-8. **Complete API reference** — all endpoints organized by module
-9. **Technical explanations** — DoA math and drift model
-10. **Frontend usage examples** — how to call the API from JS
-11. **Troubleshooting section** — common issues and fixes
-12. **Distribution checklist** — what to ship to field stations
-13. **Contributing guidelines** — how to work on the project
-
-This README serves as both **project documentation** and **deployment guide** — everything a developer or field operator needs to understand, run, and distribute PLOROPSIS.
