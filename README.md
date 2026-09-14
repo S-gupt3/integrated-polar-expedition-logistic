@@ -4,7 +4,7 @@
 
 > A unified, offline-first command center for India's polar expedition logistics — tracking assets, predicting ice drift, and computing real-time "Days of Autonomy" for research stations **Maitri**, **Bharati**, and **Himadri**.
 
-Built for the **ISEA-46** operation as part of the integrated polar expedition logistics system.
+Built for the polar operations as part of the integrated polar expedition logistics system.
 
 ---
 
@@ -414,7 +414,9 @@ When shipping PLOROPSIS to a field station:
 
 ## License
 
-...
+MIT License
+
+Copyright (c) 2026 Versus-DEV
 
 ---
 
