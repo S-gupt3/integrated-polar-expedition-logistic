@@ -15,7 +15,7 @@ from datetime import datetime, timezone
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
-from fastapi.responses import HTMLResponse
+from fastapi.responses import HTMLResponse, FileResponse
 import uvicorn
 
 # Import routers from modules
@@ -112,6 +112,20 @@ def health():
 # frontend from test folder/frontend/
 FRONTEND_DIR = os.path.join(BUNDLE_DIR, "test folder", "frontend")
 
+@app.get("/favicon.ico", include_in_schema=False)
+async def favicon():
+    """Serves the favicon.ico from the frontend directory."""
+    favicon_path = os.path.join(FRONTEND_DIR, "favicon.ico")
+    if os.path.exists(favicon_path):
+        return FileResponse(favicon_path, media_type="image/x-icon")
+    
+    # Fallback to PNG if .ico is missing
+    png_path = os.path.join(FRONTEND_DIR, "assets", "icons", "favicon-32x32.png")
+    if os.path.exists(png_path):
+        return FileResponse(png_path, media_type="image/png")
+        
+    raise HTTPException(status_code=404, detail="Favicon not found")
+
 @app.get("/", response_class=HTMLResponse)
 def index():
     index_path = os.path.join(FRONTEND_DIR, "index.html")
@@ -132,10 +146,14 @@ def serve_page(page_name: str):
             return f.read()
     return HTMLResponse(content=f"<h1>Page {page_name}.html not found</h1>", status_code=404)
 
-# Mount static files (css, js, images)
+# Mount static files (css, js, images, icons)
 if os.path.isdir(FRONTEND_DIR):
     app.mount("/css", StaticFiles(directory=os.path.join(FRONTEND_DIR, "css")), name="css")
     app.mount("/js", StaticFiles(directory=os.path.join(FRONTEND_DIR, "js")), name="js")
+   
+    assets_dir = os.path.join(FRONTEND_DIR, "assets")
+    if os.path.isdir(assets_dir):
+        app.mount("/assets", StaticFiles(directory=assets_dir), name="assets")
 
 # Startup
 def open_browser_delayed():
