@@ -1,5 +1,5 @@
 #!/bin/bash
-echo "Starting Polar Command Center (DEV MODE)..."
+echo "Starting PLOROPSIS (DEV MODE)..."
 
 if [ ! -d "venv" ]; then
     echo "Creating virtual environment..."
