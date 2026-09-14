@@ -1,6 +1,6 @@
 @echo off
 echo ========================================
-echo  Building Polar Command Center (Windows)
+echo  Building PLOROPSIS (Windows)
 echo ========================================
 
 :: Check PyInstaller
@@ -13,10 +13,10 @@ if %errorlevel% neq 0 (
 :: Clean previous build
 if exist "dist" rmdir /s /q dist
 if exist "build" rmdir /s /q build
-if exist "PolarCommandCenter.spec" del PolarCommandCenter.spec
+if exist "PLOROPSIS.spec" del PLOROPSIS.spec
 
-:: Build (semicolon for Windows path separator)
-pyinstaller --noconsole --name "PolarCommandCenter" ^
+:: Build
+pyinstaller --noconsole --name "PLOROPSIS" ^
     --add-data "test folder/frontend;test folder/frontend" ^
     --add-data "config.json;." ^
     --hidden-import=pymysql ^
@@ -41,11 +41,11 @@ if %errorlevel% neq 0 (
 )
 
 :: Copy config.json next to the exe
-copy config.json dist\PolarCommandCenter\ >nul 2>&1
+copy config.json dist\PLOROPSIS\ >nul 2>&1
 
 echo.
 echo ========================================
 echo  Build successful!
-echo  Output: dist\PolarCommandCenter\PolarCommandCenter.exe
+echo  Output: dist\PLOROPSIS\PLOROPSIS.exe
 echo ========================================
 pause
