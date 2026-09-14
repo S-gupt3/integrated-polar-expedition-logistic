@@ -30,8 +30,10 @@ mysql -u python_user -p polar_db < schema.sql
 ### c) (Optional) Load sample data
 If you want the demo/sample records (`stations.csv`, `assets.csv`, `inventory.csv`, `consumption_logs.csv`) instead of starting from an empty database:
 
+```bash
 cd Data
 python import_csv_to_mysql.py
+```
 
 
 This needs `pip install pymysql` and edits to the `DB_CONFIG` at the top of `import_csv_to_mysql.py` if your username/password differ from the defaults. Skip this step entirely if you'd rather start empty.
