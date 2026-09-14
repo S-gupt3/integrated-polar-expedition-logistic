@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Polar Command Center — DoA & Assets</title>
+<style>
+  :root {
+    --bg: #0b0e11; --card-bg: #14181d; --border: #2a3138;
+    --text-primary: #f5f7fa; --text-dim: #9aa5b1;
+    --good: #2ecc71; --warning: #f5a623; --critical: #ff3b3b;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; padding: 24px; background: var(--bg); color: var(--text-primary);
+         font-family: -apple-system, "Segoe UI", Roboto, sans-serif; }
+  h1 { font-size: 22px; margin: 0 0 4px 0; letter-spacing: 0.5px; }
+  h2 { font-size: 17px; margin: 36px 0 4px 0; }
+  .subtitle { color: var(--text-dim); font-size: 14px; margin: 0 0 4px 0; }
+
+  .station-block { margin-bottom: 26px; }
+  .station-title { font-size: 14px; font-weight: 800; text-transform: uppercase;
+                    letter-spacing: 1px; color: var(--text-dim); margin: 18px 0 10px 0;
+                    border-bottom: 1px solid var(--border); padding-bottom: 6px;
+                    display: flex; align-items: center; justify-content: space-between;
+                    cursor: pointer; user-select: none; }
+  .station-title .chevron { transition: transform .25s ease; font-size: 12px; }
+  .station-title.collapsed .chevron { transform: rotate(-90deg); }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 14px;
+          overflow: hidden; max-height: 2000px; transition: max-height .3s ease, opacity .2s ease; opacity: 1; }
+  .grid.collapsed { max-height: 0; opacity: 0; gap: 0; }
+
+  .card { background: var(--card-bg); border: 2px solid var(--border); border-radius: 14px;
+          padding: 16px; cursor: pointer; transition: border-color .3s, transform .15s; }
+  .card:hover { transform: translateY(-2px); }
+  .card[data-status="critical"] { border-color: var(--critical); }
+  .card[data-status="warning"]  { border-color: var(--warning); }
+  .card[data-status="good"]     { border-color: var(--good); }
+
+  .card-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; gap: 8px; }
+  .item-name { font-size: 14px; font-weight: 700; line-height: 1.2; }
+  .status-pill { font-size: 10px; font-weight: 700; padding: 3px 8px; border-radius: 999px;
+                 text-transform: uppercase; white-space: nowrap; }
+  .status-pill[data-status="critical"] { background: var(--critical); color: #fff; }
+  .status-pill[data-status="warning"]  { background: var(--warning); color: #1a1a1a; }
+  .status-pill[data-status="good"]     { background: var(--good); color: #06210f; }
+
+  .days-remaining { font-size: 32px; font-weight: 800; line-height: 1; font-variant-numeric: tabular-nums; }
+  .days-remaining[data-status="critical"] { color: var(--critical); }
+  .days-remaining[data-status="warning"]  { color: var(--warning); }
+  .days-remaining[data-status="good"]     { color: var(--good); }
+  .days-label { color: var(--text-dim); font-size: 11px; margin-bottom: 10px; }
+
+  .gauge-track { height: 12px; background: #232a31; border-radius: 6px; overflow: hidden; margin-bottom: 8px; }
+  .gauge-fill { height: 100%; border-radius: 6px; transition: width .6s, background .3s; }
+  .gauge-fill[data-status="critical"] { background: var(--critical); }
+  .gauge-fill[data-status="warning"]  { background: var(--warning); }
+  .gauge-fill[data-status="good"]     { background: var(--good); }
+
+  .stock-detail { display: flex; justify-content: space-between; font-size: 11px; color: var(--text-dim); }
+  .click-hint { margin-top: 8px; font-size: 10px; color: var(--text-dim); text-align: right; }
+
+  /* asset card variant */
+  .asset-card .item-name { text-transform: none; }
+  .asset-meta { font-size: 11px; color: var(--text-dim); margin-top: 4px; }
+
+  .last-updated { margin-top: 8px; font-size: 12px; color: var(--text-dim); text-align: right; }
+  #error-banner { display:none; background:#3a1414; border:2px solid var(--critical); border-radius:10px;
+                  padding:14px 18px; margin-bottom:20px; font-size:14px; }
+
+  .overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.7);
+             align-items: center; justify-content: center; z-index: 10; }
+  .overlay.open { display: flex; }
+  .modal { background: var(--card-bg); border: 2px solid var(--border); border-radius: 16px;
+           padding: 24px; width: min(440px, 90vw); }
+  .modal-title { font-size: 20px; font-weight: 800; margin-bottom: 4px; }
+  .modal-subtitle { color: var(--text-dim); font-size: 13px; margin-bottom: 18px; }
+  .detail-row { display: flex; justify-content: space-between; align-items: center;
+                padding: 10px 0; border-bottom: 1px solid var(--border); font-size: 14px; }
+  .detail-row:last-of-type { border-bottom: none; }
+  .detail-key { color: var(--text-dim); font-size: 12px; }
+  .close-btn { margin-top: 18px; width: 100%; padding: 14px; background: var(--border);
+               color: var(--text-primary); border: none; border-radius: 10px;
+               font-size: 15px; font-weight: 700; cursor: pointer; min-height: 48px; }
+</style>
+</head>
+<body>
+
+  <h1>Polar Expedition Command Center</h1>
+  <p class="subtitle">Days of Autonomy — live per-resource countdown, computed from real consumption logs</p>
+
+  <div id="error-banner"></div>
+
+  <h2>Resource Consumption (DoA)</h2>
+  <div id="inventory-dashboard"></div>
+  <div class="last-updated" id="inv-updated">—</div>
+
+  <h2>Asset Registry</h2>
+  <div id="asset-dashboard"></div>
+  <div class="last-updated" id="asset-updated">—</div>
+
+  <div class="overlay" id="overlay">
+    <div class="modal">
+      <div class="modal-title" id="modal-title">—</div>
+      <div class="modal-subtitle" id="modal-subtitle">—</div>
+      <div id="modal-body"></div>
+      <button class="close-btn" onclick="closeModal()">Close</button>
+    </div>
+  </div>
+
+<script>
+const INVENTORY_URL = "http://localhost:5000/api/inventory";
+const ASSETS_URL = "http://localhost:5000/api/assets";
+const POLL_MS = 3000;
+const GAUGE_MAX_DAYS = 60;
+
+// Tracks which station sections are collapsed, so it survives the
+// re-render that happens every poll tick (all expanded by default).
+// Separate maps for the two sections since a station name can appear in both.
+const collapsedInventoryStations = {};
+const collapsedAssetStations = {};
+
+function toggleInventoryStation(station) {
+  collapsedInventoryStations[station] = !collapsedInventoryStations[station];
+  const titleEl = document.querySelector(`.station-title[data-inv-station="${station}"]`);
+  const gridEl = document.querySelector(`.grid[data-inv-station="${station}"]`);
+  if (titleEl) titleEl.classList.toggle("collapsed", collapsedInventoryStations[station]);
+  if (gridEl) gridEl.classList.toggle("collapsed", collapsedInventoryStations[station]);
+}
+
+function toggleAssetStation(station) {
+  collapsedAssetStations[station] = !collapsedAssetStations[station];
+  const titleEl = document.querySelector(`.station-title[data-asset-station="${station}"]`);
+  const gridEl = document.querySelector(`.grid[data-asset-station="${station}"]`);
+  if (titleEl) titleEl.classList.toggle("collapsed", collapsedAssetStations[station]);
+  if (gridEl) gridEl.classList.toggle("collapsed", collapsedAssetStations[station]);
+}
+
+async function fetchJSON(url) {
+  const res = await fetch(url);
+  if (!res.ok) throw new Error(`Backend responded with ${res.status} ${res.statusText}`);
+  return res.json();
+}
+
+function groupBy(items, keyFn) {
+  return items.reduce((acc, item) => {
+    const k = keyFn(item);
+    (acc[k] = acc[k] || []).push(item);
+    return acc;
+  }, {});
+}
+
+function renderInventoryCard(item) {
+  const pct = Math.min(100, (item.days_remaining / GAUGE_MAX_DAYS) * 100);
+  const card = document.createElement("div");
+  card.className = "card";
+  card.setAttribute("data-status", item.status);
+  card.onclick = () => openInventoryModal(item);
+  card.innerHTML = `
+    <div class="card-head">
+      <span class="item-name">${item.name}</span>
+      <span class="status-pill" data-status="${item.status}">${item.status}</span>
+    </div>
+    <div class="days-remaining" data-status="${item.status}">${item.days_remaining}</div>
+    <div class="days-label">days remaining · ${item.category}</div>
+    <div class="gauge-track"><div class="gauge-fill" data-status="${item.status}" style="width:${pct}%"></div></div>
+    <div class="stock-detail">
+      <span>${item.current_quantity.toFixed(1)} ${item.unit}</span>
+      <span>−${item.daily_rate}/day</span>
+    </div>
+    <div class="click-hint">tap for responsible team ▸</div>
+  `;
+  return card;
+}
+
+function renderAssetCard(asset) {
+  const status = asset.status === "Operational" ? "good"
+    : asset.status === "Maintenance" ? "warning" : "critical";
+  const card = document.createElement("div");
+  card.className = "card asset-card";
+  card.setAttribute("data-status", status);
+  card.onclick = () => openAssetModal(asset);
+  card.innerHTML = `
+    <div class="card-head">
+      <span class="item-name">${asset.name}</span>
+      <span class="status-pill" data-status="${status}">${asset.status}</span>
+    </div>
+    <div class="asset-meta">${asset.category}</div>
+    <div class="asset-meta">Next maintenance: ${asset.next_maintenance_date}</div>
+    <div class="click-hint">tap for details ▸</div>
+  `;
+  return card;
+}
+
+function renderInventory(items) {
+  const root = document.getElementById("inventory-dashboard");
+  root.innerHTML = "";
+  const byStation = groupBy(items, i => i.station);
+  Object.keys(byStation).sort().forEach(station => {
+    const isCollapsed = !!collapsedInventoryStations[station];
+    const block = document.createElement("div");
+    block.className = "station-block";
+    block.innerHTML = `
+      <div class="station-title${isCollapsed ? " collapsed" : ""}" data-inv-station="${station}">
+        <span>${station}</span><span class="chevron">▾</span>
+      </div>`;
+    block.querySelector(".station-title").onclick = () => toggleInventoryStation(station);
+    const grid = document.createElement("div");
+    grid.className = "grid" + (isCollapsed ? " collapsed" : "");
+    grid.setAttribute("data-inv-station", station);
+    byStation[station].forEach(item => grid.appendChild(renderInventoryCard(item)));
+    block.appendChild(grid);
+    root.appendChild(block);
+  });
+  document.getElementById("inv-updated").textContent = "Last updated: " + new Date().toLocaleTimeString();
+}
+
+function renderAssets(assets) {
+  const root = document.getElementById("asset-dashboard");
+  root.innerHTML = "";
+  const byStation = groupBy(assets, a => a.station);
+  Object.keys(byStation).sort().forEach(station => {
+    const isCollapsed = !!collapsedAssetStations[station];
+    const block = document.createElement("div");
+    block.className = "station-block";
+    block.innerHTML = `
+      <div class="station-title${isCollapsed ? " collapsed" : ""}" data-asset-station="${station}">
+        <span>${station}</span><span class="chevron">▾</span>
+      </div>`;
+    block.querySelector(".station-title").onclick = () => toggleAssetStation(station);
+    const grid = document.createElement("div");
+    grid.className = "grid" + (isCollapsed ? " collapsed" : "");
+    grid.setAttribute("data-asset-station", station);
+    byStation[station].forEach(a => grid.appendChild(renderAssetCard(a)));
+    block.appendChild(grid);
+    root.appendChild(block);
+  });
+  document.getElementById("asset-updated").textContent = "Last updated: " + new Date().toLocaleTimeString();
+}
+
+function openInventoryModal(item) {
+  document.getElementById("modal-title").textContent = item.name;
+  document.getElementById("modal-subtitle").textContent =
+    `${item.station} · ${item.days_remaining} days remaining (${item.status})`;
+  document.getElementById("modal-body").innerHTML = item.roles.map(role => `
+    <div class="detail-row"><span>${role}</span><span class="detail-key">responsible</span></div>
+  `).join("") + `
+    <div class="detail-row"><span>Min. threshold</span><span class="detail-key">${item.min_threshold} ${item.unit}</span></div>
+    <div class="detail-row"><span>Avg. daily use</span><span class="detail-key">${item.daily_rate} ${item.unit}/day</span></div>
+  `;
+  document.getElementById("overlay").classList.add("open");
+}
+
+function openAssetModal(asset) {
+  document.getElementById("modal-title").textContent = asset.name;
+  document.getElementById("modal-subtitle").textContent = `${asset.station} · ${asset.category}`;
+  document.getElementById("modal-body").innerHTML = `
+    <div class="detail-row"><span>Status</span><span class="detail-key">${asset.status}</span></div>
+    <div class="detail-row"><span>Last inspection</span><span class="detail-key">${asset.last_inspection_date}</span></div>
+    <div class="detail-row"><span>Next maintenance</span><span class="detail-key">${asset.next_maintenance_date}</span></div>
+    <div class="detail-row"><span>Coordinates</span><span class="detail-key">${asset.latitude.toFixed(4)}, ${asset.longitude.toFixed(4)}</span></div>
+  `;
+  document.getElementById("overlay").classList.add("open");
+}
+
+function closeModal() {
+  document.getElementById("overlay").classList.remove("open");
+}
+
+function setError(message) {
+  const banner = document.getElementById("error-banner");
+  if (message) { banner.textContent = "⚠ " + message; banner.style.display = "block"; }
+  else { banner.style.display = "none"; }
+}
+
+async function tick() {
+  try {
+    const [inventory, assets] = await Promise.all([fetchJSON(INVENTORY_URL), fetchJSON(ASSETS_URL)]);
+    setError(null);
+    renderInventory(inventory);
+    renderAssets(assets);
+  } catch (err) {
+    console.error(err);
+    setError(`Can't reach the backend at ${INVENTORY_URL} — is "python app.py" running? (${err.message})`);
+  }
+}
+
+tick();
+setInterval(tick, POLL_MS);
+</script>
+
+</body>
+</html>

@@ -1,0 +1,2881 @@
+log_id,station_id,item_name,date,quantity_used,unit,active_headcount,temperature_c
+LOG-000001,MTR,Diesel Fuel,2026-05-16,359.92,litres,26,-0.4
+LOG-000002,MTR,Propane (LPG),2026-05-16,32.49,kg,26,-0.4
+LOG-000003,MTR,Medical Oxygen,2026-05-16,1.24,cylinders,26,-0.4
+LOG-000004,MTR,Medical Kit Supplies,2026-05-16,1.61,units,26,-0.4
+LOG-000005,MTR,Dry Rations,2026-05-16,25.09,kg,26,-0.4
+LOG-000006,MTR,Frozen Rations,2026-05-16,23.92,kg,26,-0.4
+LOG-000007,MTR,Potable Water Treatment Tablets,2026-05-16,3.06,units,26,-0.4
+LOG-000008,MTR,Spare Batteries (AA/Lithium),2026-05-16,2.37,units,26,-0.4
+LOG-000009,MTR,Diesel Fuel,2026-05-17,298.07,litres,24,0.0
+LOG-000010,MTR,Propane (LPG),2026-05-17,23.98,kg,24,0.0
+LOG-000011,MTR,Medical Oxygen,2026-05-17,1.15,cylinders,24,0.0
+LOG-000012,MTR,Medical Kit Supplies,2026-05-17,2.16,units,24,0.0
+LOG-000013,MTR,Dry Rations,2026-05-17,29.9,kg,24,0.0
+LOG-000014,MTR,Frozen Rations,2026-05-17,22.18,kg,24,0.0
+LOG-000015,MTR,Potable Water Treatment Tablets,2026-05-17,3.04,units,24,0.0
+LOG-000016,MTR,Spare Batteries (AA/Lithium),2026-05-17,3.09,units,24,0.0
+LOG-000017,MTR,Diesel Fuel,2026-05-18,236.79,litres,23,0.4
+LOG-000018,MTR,Propane (LPG),2026-05-18,18.93,kg,23,0.4
+LOG-000019,MTR,Medical Oxygen,2026-05-18,0.78,cylinders,23,0.4
+LOG-000020,MTR,Medical Kit Supplies,2026-05-18,1.38,units,23,0.4
+LOG-000021,MTR,Dry Rations,2026-05-18,29.15,kg,23,0.4
+LOG-000022,MTR,Frozen Rations,2026-05-18,17.02,kg,23,0.4
+LOG-000023,MTR,Potable Water Treatment Tablets,2026-05-18,4.19,units,23,0.4
+LOG-000024,MTR,Spare Batteries (AA/Lithium),2026-05-18,3.15,units,23,0.4
+LOG-000025,MTR,Diesel Fuel,2026-05-19,195.41,litres,24,0.8
+LOG-000026,MTR,Propane (LPG),2026-05-19,21.98,kg,24,0.8
+LOG-000027,MTR,Medical Oxygen,2026-05-19,0.72,cylinders,24,0.8
+LOG-000028,MTR,Medical Kit Supplies,2026-05-19,2.24,units,24,0.8
+LOG-000029,MTR,Dry Rations,2026-05-19,30.88,kg,24,0.8
+LOG-000030,MTR,Frozen Rations,2026-05-19,17.08,kg,24,0.8
+LOG-000031,MTR,Potable Water Treatment Tablets,2026-05-19,3.94,units,24,0.8
+LOG-000032,MTR,Spare Batteries (AA/Lithium),2026-05-19,2.16,units,24,0.8
+LOG-000033,MTR,Diesel Fuel,2026-05-20,269.65,litres,27,1.2
+LOG-000034,MTR,Propane (LPG),2026-05-20,22.05,kg,27,1.2
+LOG-000035,MTR,Medical Oxygen,2026-05-20,1.25,cylinders,27,1.2
+LOG-000036,MTR,Medical Kit Supplies,2026-05-20,1.7,units,27,1.2
+LOG-000037,MTR,Dry Rations,2026-05-20,30.57,kg,27,1.2
+LOG-000038,MTR,Frozen Rations,2026-05-20,26.82,kg,27,1.2
+LOG-000039,MTR,Potable Water Treatment Tablets,2026-05-20,2.8,units,27,1.2
+LOG-000040,MTR,Spare Batteries (AA/Lithium),2026-05-20,2.96,units,27,1.2
+LOG-000041,MTR,Diesel Fuel,2026-05-21,309.28,litres,25,1.6
+LOG-000042,MTR,Propane (LPG),2026-05-21,24.71,kg,25,1.6
+LOG-000043,MTR,Medical Oxygen,2026-05-21,0.95,cylinders,25,1.6
+LOG-000044,MTR,Medical Kit Supplies,2026-05-21,1.89,units,25,1.6
+LOG-000045,MTR,Dry Rations,2026-05-21,26.35,kg,25,1.6
+LOG-000046,MTR,Frozen Rations,2026-05-21,20.77,kg,25,1.6
+LOG-000047,MTR,Potable Water Treatment Tablets,2026-05-21,3.14,units,25,1.6
+LOG-000048,MTR,Spare Batteries (AA/Lithium),2026-05-21,3.02,units,25,1.6
+LOG-000049,MTR,Diesel Fuel,2026-05-22,255.75,litres,23,2.0
+LOG-000050,MTR,Propane (LPG),2026-05-22,29.53,kg,23,2.0
+LOG-000051,MTR,Medical Oxygen,2026-05-22,0.93,cylinders,23,2.0
+LOG-000052,MTR,Medical Kit Supplies,2026-05-22,2.23,units,23,2.0
+LOG-000053,MTR,Dry Rations,2026-05-22,27.48,kg,23,2.0
+LOG-000054,MTR,Frozen Rations,2026-05-22,15.61,kg,23,2.0
+LOG-000055,MTR,Potable Water Treatment Tablets,2026-05-22,3.29,units,23,2.0
+LOG-000056,MTR,Spare Batteries (AA/Lithium),2026-05-22,3.33,units,23,2.0
+LOG-000057,MTR,Diesel Fuel,2026-05-23,293.47,litres,25,2.4
+LOG-000058,MTR,Propane (LPG),2026-05-23,29.95,kg,25,2.4
+LOG-000059,MTR,Medical Oxygen,2026-05-23,0.59,cylinders,25,2.4
+LOG-000060,MTR,Medical Kit Supplies,2026-05-23,2.38,units,25,2.4
+LOG-000061,MTR,Dry Rations,2026-05-23,27.57,kg,25,2.4
+LOG-000062,MTR,Frozen Rations,2026-05-23,21.67,kg,25,2.4
+LOG-000063,MTR,Potable Water Treatment Tablets,2026-05-23,3.32,units,25,2.4
+LOG-000064,MTR,Spare Batteries (AA/Lithium),2026-05-23,2.99,units,25,2.4
+LOG-000065,MTR,Diesel Fuel,2026-05-24,236.62,litres,27,2.8
+LOG-000066,MTR,Propane (LPG),2026-05-24,28.41,kg,27,2.8
+LOG-000067,MTR,Medical Oxygen,2026-05-24,1.3,cylinders,27,2.8
+LOG-000068,MTR,Medical Kit Supplies,2026-05-24,2.26,units,27,2.8
+LOG-000069,MTR,Dry Rations,2026-05-24,34.05,kg,27,2.8
+LOG-000070,MTR,Frozen Rations,2026-05-24,22.85,kg,27,2.8
+LOG-000071,MTR,Potable Water Treatment Tablets,2026-05-24,3.51,units,27,2.8
+LOG-000072,MTR,Spare Batteries (AA/Lithium),2026-05-24,2.83,units,27,2.8
+LOG-000073,MTR,Diesel Fuel,2026-05-25,225.93,litres,23,3.1
+LOG-000074,MTR,Propane (LPG),2026-05-25,21.3,kg,23,3.1
+LOG-000075,MTR,Medical Oxygen,2026-05-25,1.0,cylinders,23,3.1
+LOG-000076,MTR,Medical Kit Supplies,2026-05-25,1.85,units,23,3.1
+LOG-000077,MTR,Dry Rations,2026-05-25,23.66,kg,23,3.1
+LOG-000078,MTR,Frozen Rations,2026-05-25,17.86,kg,23,3.1
+LOG-000079,MTR,Potable Water Treatment Tablets,2026-05-25,3.85,units,23,3.1
+LOG-000080,MTR,Spare Batteries (AA/Lithium),2026-05-25,2.33,units,23,3.1
+LOG-000081,MTR,Diesel Fuel,2026-05-26,286.87,litres,24,3.5
+LOG-000082,MTR,Propane (LPG),2026-05-26,23.29,kg,24,3.5
+LOG-000083,MTR,Medical Oxygen,2026-05-26,0.96,cylinders,24,3.5
+LOG-000084,MTR,Medical Kit Supplies,2026-05-26,1.94,units,24,3.5
+LOG-000085,MTR,Dry Rations,2026-05-26,22.5,kg,24,3.5
+LOG-000086,MTR,Frozen Rations,2026-05-26,23.54,kg,24,3.5
+LOG-000087,MTR,Potable Water Treatment Tablets,2026-05-26,2.96,units,24,3.5
+LOG-000088,MTR,Spare Batteries (AA/Lithium),2026-05-26,1.95,units,24,3.5
+LOG-000089,MTR,Diesel Fuel,2026-05-27,213.22,litres,24,3.8
+LOG-000090,MTR,Propane (LPG),2026-05-27,19.87,kg,24,3.8
+LOG-000091,MTR,Medical Oxygen,2026-05-27,1.19,cylinders,24,3.8
+LOG-000092,MTR,Medical Kit Supplies,2026-05-27,1.93,units,24,3.8
+LOG-000093,MTR,Dry Rations,2026-05-27,28.98,kg,24,3.8
+LOG-000094,MTR,Frozen Rations,2026-05-27,18.77,kg,24,3.8
+LOG-000095,MTR,Potable Water Treatment Tablets,2026-05-27,4.53,units,24,3.8
+LOG-000096,MTR,Spare Batteries (AA/Lithium),2026-05-27,2.58,units,24,3.8
+LOG-000097,MTR,Diesel Fuel,2026-05-28,285.12,litres,26,4.2
+LOG-000098,MTR,Propane (LPG),2026-05-28,24.61,kg,26,4.2
+LOG-000099,MTR,Medical Oxygen,2026-05-28,1.03,cylinders,26,4.2
+LOG-000100,MTR,Medical Kit Supplies,2026-05-28,1.31,units,26,4.2
+LOG-000101,MTR,Dry Rations,2026-05-28,31.21,kg,26,4.2
+LOG-000102,MTR,Frozen Rations,2026-05-28,23.61,kg,26,4.2
+LOG-000103,MTR,Potable Water Treatment Tablets,2026-05-28,2.88,units,26,4.2
+LOG-000104,MTR,Spare Batteries (AA/Lithium),2026-05-28,2.41,units,26,4.2
+LOG-000105,MTR,Diesel Fuel,2026-05-29,307.79,litres,24,4.5
+LOG-000106,MTR,Propane (LPG),2026-05-29,29.22,kg,24,4.5
+LOG-000107,MTR,Medical Oxygen,2026-05-29,0.81,cylinders,24,4.5
+LOG-000108,MTR,Medical Kit Supplies,2026-05-29,1.87,units,24,4.5
+LOG-000109,MTR,Dry Rations,2026-05-29,30.41,kg,24,4.5
+LOG-000110,MTR,Frozen Rations,2026-05-29,15.57,kg,24,4.5
+LOG-000111,MTR,Potable Water Treatment Tablets,2026-05-29,2.72,units,24,4.5
+LOG-000112,MTR,Spare Batteries (AA/Lithium),2026-05-29,2.32,units,24,4.5
+LOG-000113,MTR,Diesel Fuel,2026-05-30,376.04,litres,27,4.8
+LOG-000114,MTR,Propane (LPG),2026-05-30,31.25,kg,27,4.8
+LOG-000115,MTR,Medical Oxygen,2026-05-30,1.31,cylinders,27,4.8
+LOG-000116,MTR,Medical Kit Supplies,2026-05-30,2.55,units,27,4.8
+LOG-000117,MTR,Dry Rations,2026-05-30,30.92,kg,27,4.8
+LOG-000118,MTR,Frozen Rations,2026-05-30,23.97,kg,27,4.8
+LOG-000119,MTR,Potable Water Treatment Tablets,2026-05-30,4.06,units,27,4.8
+LOG-000120,MTR,Spare Batteries (AA/Lithium),2026-05-30,3.59,units,27,4.8
+LOG-000121,MTR,Diesel Fuel,2026-05-31,288.24,litres,27,5.1
+LOG-000122,MTR,Propane (LPG),2026-05-31,24.18,kg,27,5.1
+LOG-000123,MTR,Medical Oxygen,2026-05-31,1.24,cylinders,27,5.1
+LOG-000124,MTR,Medical Kit Supplies,2026-05-31,1.96,units,27,5.1
+LOG-000125,MTR,Dry Rations,2026-05-31,32.42,kg,27,5.1
+LOG-000126,MTR,Frozen Rations,2026-05-31,25.27,kg,27,5.1
+LOG-000127,MTR,Potable Water Treatment Tablets,2026-05-31,3.45,units,27,5.1
+LOG-000128,MTR,Spare Batteries (AA/Lithium),2026-05-31,3.45,units,27,5.1
+LOG-000129,MTR,Diesel Fuel,2026-06-01,305.77,litres,26,5.4
+LOG-000130,MTR,Propane (LPG),2026-06-01,25.08,kg,26,5.4
+LOG-000131,MTR,Medical Oxygen,2026-06-01,0.58,cylinders,26,5.4
+LOG-000132,MTR,Medical Kit Supplies,2026-06-01,1.67,units,26,5.4
+LOG-000133,MTR,Dry Rations,2026-06-01,26.23,kg,26,5.4
+LOG-000134,MTR,Frozen Rations,2026-06-01,18.92,kg,26,5.4
+LOG-000135,MTR,Potable Water Treatment Tablets,2026-06-01,4.0,units,26,5.4
+LOG-000136,MTR,Spare Batteries (AA/Lithium),2026-06-01,1.66,units,26,5.4
+LOG-000137,MTR,Diesel Fuel,2026-06-02,247.16,litres,24,5.7
+LOG-000138,MTR,Propane (LPG),2026-06-02,21.4,kg,24,5.7
+LOG-000139,MTR,Medical Oxygen,2026-06-02,0.63,cylinders,24,5.7
+LOG-000140,MTR,Medical Kit Supplies,2026-06-02,1.7,units,24,5.7
+LOG-000141,MTR,Dry Rations,2026-06-02,24.78,kg,24,5.7
+LOG-000142,MTR,Frozen Rations,2026-06-02,18.87,kg,24,5.7
+LOG-000143,MTR,Potable Water Treatment Tablets,2026-06-02,2.55,units,24,5.7
+LOG-000144,MTR,Spare Batteries (AA/Lithium),2026-06-02,3.2,units,24,5.7
+LOG-000145,MTR,Diesel Fuel,2026-06-03,349.15,litres,26,6.0
+LOG-000146,MTR,Propane (LPG),2026-06-03,29.91,kg,26,6.0
+LOG-000147,MTR,Medical Oxygen,2026-06-03,1.06,cylinders,26,6.0
+LOG-000148,MTR,Medical Kit Supplies,2026-06-03,2.41,units,26,6.0
+LOG-000149,MTR,Dry Rations,2026-06-03,31.36,kg,26,6.0
+LOG-000150,MTR,Frozen Rations,2026-06-03,19.56,kg,26,6.0
+LOG-000151,MTR,Potable Water Treatment Tablets,2026-06-03,2.62,units,26,6.0
+LOG-000152,MTR,Spare Batteries (AA/Lithium),2026-06-03,2.21,units,26,6.0
+LOG-000153,MTR,Diesel Fuel,2026-06-04,341.14,litres,26,6.3
+LOG-000154,MTR,Propane (LPG),2026-06-04,35.67,kg,26,6.3
+LOG-000155,MTR,Medical Oxygen,2026-06-04,0.85,cylinders,26,6.3
+LOG-000156,MTR,Medical Kit Supplies,2026-06-04,2.27,units,26,6.3
+LOG-000157,MTR,Dry Rations,2026-06-04,29.08,kg,26,6.3
+LOG-000158,MTR,Frozen Rations,2026-06-04,21.87,kg,26,6.3
+LOG-000159,MTR,Potable Water Treatment Tablets,2026-06-04,3.17,units,26,6.3
+LOG-000160,MTR,Spare Batteries (AA/Lithium),2026-06-04,1.87,units,26,6.3
+LOG-000161,MTR,Diesel Fuel,2026-06-05,283.76,litres,26,6.6
+LOG-000162,MTR,Propane (LPG),2026-06-05,26.87,kg,26,6.6
+LOG-000163,MTR,Medical Oxygen,2026-06-05,1.04,cylinders,26,6.6
+LOG-000164,MTR,Medical Kit Supplies,2026-06-05,2.34,units,26,6.6
+LOG-000165,MTR,Dry Rations,2026-06-05,30.93,kg,26,6.6
+LOG-000166,MTR,Frozen Rations,2026-06-05,24.34,kg,26,6.6
+LOG-000167,MTR,Potable Water Treatment Tablets,2026-06-05,4.99,units,26,6.6
+LOG-000168,MTR,Spare Batteries (AA/Lithium),2026-06-05,3.85,units,26,6.6
+LOG-000169,MTR,Diesel Fuel,2026-06-06,220.37,litres,27,6.8
+LOG-000170,MTR,Propane (LPG),2026-06-06,27.98,kg,27,6.8
+LOG-000171,MTR,Medical Oxygen,2026-06-06,1.0,cylinders,27,6.8
+LOG-000172,MTR,Medical Kit Supplies,2026-06-06,1.39,units,27,6.8
+LOG-000173,MTR,Dry Rations,2026-06-06,31.24,kg,27,6.8
+LOG-000174,MTR,Frozen Rations,2026-06-06,17.67,kg,27,6.8
+LOG-000175,MTR,Potable Water Treatment Tablets,2026-06-06,3.95,units,27,6.8
+LOG-000176,MTR,Spare Batteries (AA/Lithium),2026-06-06,1.49,units,27,6.8
+LOG-000177,MTR,Diesel Fuel,2026-06-07,259.07,litres,26,7.1
+LOG-000178,MTR,Propane (LPG),2026-06-07,27.89,kg,26,7.1
+LOG-000179,MTR,Medical Oxygen,2026-06-07,0.78,cylinders,26,7.1
+LOG-000180,MTR,Medical Kit Supplies,2026-06-07,2.44,units,26,7.1
+LOG-000181,MTR,Dry Rations,2026-06-07,26.29,kg,26,7.1
+LOG-000182,MTR,Frozen Rations,2026-06-07,25.49,kg,26,7.1
+LOG-000183,MTR,Potable Water Treatment Tablets,2026-06-07,3.7,units,26,7.1
+LOG-000184,MTR,Spare Batteries (AA/Lithium),2026-06-07,3.47,units,26,7.1
+LOG-000185,MTR,Diesel Fuel,2026-06-08,211.02,litres,26,7.3
+LOG-000186,MTR,Propane (LPG),2026-06-08,29.21,kg,26,7.3
+LOG-000187,MTR,Medical Oxygen,2026-06-08,1.3,cylinders,26,7.3
+LOG-000188,MTR,Medical Kit Supplies,2026-06-08,1.75,units,26,7.3
+LOG-000189,MTR,Dry Rations,2026-06-08,30.16,kg,26,7.3
+LOG-000190,MTR,Frozen Rations,2026-06-08,23.72,kg,26,7.3
+LOG-000191,MTR,Potable Water Treatment Tablets,2026-06-08,4.29,units,26,7.3
+LOG-000192,MTR,Spare Batteries (AA/Lithium),2026-06-08,3.26,units,26,7.3
+LOG-000193,MTR,Diesel Fuel,2026-06-09,220.71,litres,24,7.5
+LOG-000194,MTR,Propane (LPG),2026-06-09,19.49,kg,24,7.5
+LOG-000195,MTR,Medical Oxygen,2026-06-09,0.59,cylinders,24,7.5
+LOG-000196,MTR,Medical Kit Supplies,2026-06-09,1.35,units,24,7.5
+LOG-000197,MTR,Dry Rations,2026-06-09,28.03,kg,24,7.5
+LOG-000198,MTR,Frozen Rations,2026-06-09,19.81,kg,24,7.5
+LOG-000199,MTR,Potable Water Treatment Tablets,2026-06-09,2.92,units,24,7.5
+LOG-000200,MTR,Spare Batteries (AA/Lithium),2026-06-09,2.88,units,24,7.5
+LOG-000201,MTR,Diesel Fuel,2026-06-10,225.17,litres,25,7.7
+LOG-000202,MTR,Propane (LPG),2026-06-10,29.11,kg,25,7.7
+LOG-000203,MTR,Medical Oxygen,2026-06-10,1.06,cylinders,25,7.7
+LOG-000204,MTR,Medical Kit Supplies,2026-06-10,1.39,units,25,7.7
+LOG-000205,MTR,Dry Rations,2026-06-10,30.69,kg,25,7.7
+LOG-000206,MTR,Frozen Rations,2026-06-10,24.65,kg,25,7.7
+LOG-000207,MTR,Potable Water Treatment Tablets,2026-06-10,2.77,units,25,7.7
+LOG-000208,MTR,Spare Batteries (AA/Lithium),2026-06-10,1.31,units,25,7.7
+LOG-000209,MTR,Diesel Fuel,2026-06-11,286.37,litres,25,7.9
+LOG-000210,MTR,Propane (LPG),2026-06-11,33.62,kg,25,7.9
+LOG-000211,MTR,Medical Oxygen,2026-06-11,0.78,cylinders,25,7.9
+LOG-000212,MTR,Medical Kit Supplies,2026-06-11,2.43,units,25,7.9
+LOG-000213,MTR,Dry Rations,2026-06-11,24.48,kg,25,7.9
+LOG-000214,MTR,Frozen Rations,2026-06-11,20.92,kg,25,7.9
+LOG-000215,MTR,Potable Water Treatment Tablets,2026-06-11,4.58,units,25,7.9
+LOG-000216,MTR,Spare Batteries (AA/Lithium),2026-06-11,1.86,units,25,7.9
+LOG-000217,MTR,Diesel Fuel,2026-06-12,327.54,litres,25,8.1
+LOG-000218,MTR,Propane (LPG),2026-06-12,29.01,kg,25,8.1
+LOG-000219,MTR,Medical Oxygen,2026-06-12,0.59,cylinders,25,8.1
+LOG-000220,MTR,Medical Kit Supplies,2026-06-12,2.48,units,25,8.1
+LOG-000221,MTR,Dry Rations,2026-06-12,30.33,kg,25,8.1
+LOG-000222,MTR,Frozen Rations,2026-06-12,18.47,kg,25,8.1
+LOG-000223,MTR,Potable Water Treatment Tablets,2026-06-12,3.57,units,25,8.1
+LOG-000224,MTR,Spare Batteries (AA/Lithium),2026-06-12,2.18,units,25,8.1
+LOG-000225,MTR,Diesel Fuel,2026-06-13,320.9,litres,27,8.3
+LOG-000226,MTR,Propane (LPG),2026-06-13,21.8,kg,27,8.3
+LOG-000227,MTR,Medical Oxygen,2026-06-13,0.88,cylinders,27,8.3
+LOG-000228,MTR,Medical Kit Supplies,2026-06-13,2.01,units,27,8.3
+LOG-000229,MTR,Dry Rations,2026-06-13,28.98,kg,27,8.3
+LOG-000230,MTR,Frozen Rations,2026-06-13,20.11,kg,27,8.3
+LOG-000231,MTR,Potable Water Treatment Tablets,2026-06-13,5.11,units,27,8.3
+LOG-000232,MTR,Spare Batteries (AA/Lithium),2026-06-13,2.59,units,27,8.3
+LOG-000233,MTR,Diesel Fuel,2026-06-14,254.71,litres,24,8.5
+LOG-000234,MTR,Propane (LPG),2026-06-14,29.77,kg,24,8.5
+LOG-000235,MTR,Medical Oxygen,2026-06-14,1.18,cylinders,24,8.5
+LOG-000236,MTR,Medical Kit Supplies,2026-06-14,1.52,units,24,8.5
+LOG-000237,MTR,Dry Rations,2026-06-14,29.36,kg,24,8.5
+LOG-000238,MTR,Frozen Rations,2026-06-14,19.57,kg,24,8.5
+LOG-000239,MTR,Potable Water Treatment Tablets,2026-06-14,3.56,units,24,8.5
+LOG-000240,MTR,Spare Batteries (AA/Lithium),2026-06-14,2.25,units,24,8.5
+LOG-000241,MTR,Diesel Fuel,2026-06-15,259.48,litres,27,8.7
+LOG-000242,MTR,Propane (LPG),2026-06-15,35.4,kg,27,8.7
+LOG-000243,MTR,Medical Oxygen,2026-06-15,1.21,cylinders,27,8.7
+LOG-000244,MTR,Medical Kit Supplies,2026-06-15,1.47,units,27,8.7
+LOG-000245,MTR,Dry Rations,2026-06-15,33.82,kg,27,8.7
+LOG-000246,MTR,Frozen Rations,2026-06-15,18.83,kg,27,8.7
+LOG-000247,MTR,Potable Water Treatment Tablets,2026-06-15,3.95,units,27,8.7
+LOG-000248,MTR,Spare Batteries (AA/Lithium),2026-06-15,3.0,units,27,8.7
+LOG-000249,MTR,Diesel Fuel,2026-06-16,260.48,litres,26,8.8
+LOG-000250,MTR,Propane (LPG),2026-06-16,28.51,kg,26,8.8
+LOG-000251,MTR,Medical Oxygen,2026-06-16,0.77,cylinders,26,8.8
+LOG-000252,MTR,Medical Kit Supplies,2026-06-16,1.93,units,26,8.8
+LOG-000253,MTR,Dry Rations,2026-06-16,27.09,kg,26,8.8
+LOG-000254,MTR,Frozen Rations,2026-06-16,18.29,kg,26,8.8
+LOG-000255,MTR,Potable Water Treatment Tablets,2026-06-16,3.33,units,26,8.8
+LOG-000256,MTR,Spare Batteries (AA/Lithium),2026-06-16,2.85,units,26,8.8
+LOG-000257,MTR,Diesel Fuel,2026-06-17,283.37,litres,25,9.0
+LOG-000258,MTR,Propane (LPG),2026-06-17,27.75,kg,25,9.0
+LOG-000259,MTR,Medical Oxygen,2026-06-17,0.64,cylinders,25,9.0
+LOG-000260,MTR,Medical Kit Supplies,2026-06-17,1.55,units,25,9.0
+LOG-000261,MTR,Dry Rations,2026-06-17,26.56,kg,25,9.0
+LOG-000262,MTR,Frozen Rations,2026-06-17,20.55,kg,25,9.0
+LOG-000263,MTR,Potable Water Treatment Tablets,2026-06-17,3.1,units,25,9.0
+LOG-000264,MTR,Spare Batteries (AA/Lithium),2026-06-17,2.44,units,25,9.0
+LOG-000265,MTR,Diesel Fuel,2026-06-18,277.92,litres,26,9.1
+LOG-000266,MTR,Propane (LPG),2026-06-18,21.07,kg,26,9.1
+LOG-000267,MTR,Medical Oxygen,2026-06-18,0.75,cylinders,26,9.1
+LOG-000268,MTR,Medical Kit Supplies,2026-06-18,1.83,units,26,9.1
+LOG-000269,MTR,Dry Rations,2026-06-18,25.93,kg,26,9.1
+LOG-000270,MTR,Frozen Rations,2026-06-18,22.51,kg,26,9.1
+LOG-000271,MTR,Potable Water Treatment Tablets,2026-06-18,3.56,units,26,9.1
+LOG-000272,MTR,Spare Batteries (AA/Lithium),2026-06-18,2.74,units,26,9.1
+LOG-000273,MTR,Diesel Fuel,2026-06-19,263.83,litres,25,9.3
+LOG-000274,MTR,Propane (LPG),2026-06-19,31.19,kg,25,9.3
+LOG-000275,MTR,Medical Oxygen,2026-06-19,0.75,cylinders,25,9.3
+LOG-000276,MTR,Medical Kit Supplies,2026-06-19,2.13,units,25,9.3
+LOG-000277,MTR,Dry Rations,2026-06-19,25.21,kg,25,9.3
+LOG-000278,MTR,Frozen Rations,2026-06-19,17.51,kg,25,9.3
+LOG-000279,MTR,Potable Water Treatment Tablets,2026-06-19,2.8,units,25,9.3
+LOG-000280,MTR,Spare Batteries (AA/Lithium),2026-06-19,1.73,units,25,9.3
+LOG-000281,MTR,Diesel Fuel,2026-06-20,286.52,litres,23,9.4
+LOG-000282,MTR,Propane (LPG),2026-06-20,31.52,kg,23,9.4
+LOG-000283,MTR,Medical Oxygen,2026-06-20,0.94,cylinders,23,9.4
+LOG-000284,MTR,Medical Kit Supplies,2026-06-20,1.37,units,23,9.4
+LOG-000285,MTR,Dry Rations,2026-06-20,27.5,kg,23,9.4
+LOG-000286,MTR,Frozen Rations,2026-06-20,16.34,kg,23,9.4
+LOG-000287,MTR,Potable Water Treatment Tablets,2026-06-20,3.66,units,23,9.4
+LOG-000288,MTR,Spare Batteries (AA/Lithium),2026-06-20,2.9,units,23,9.4
+LOG-000289,MTR,Diesel Fuel,2026-06-21,261.85,litres,27,9.5
+LOG-000290,MTR,Propane (LPG),2026-06-21,23.23,kg,27,9.5
+LOG-000291,MTR,Medical Oxygen,2026-06-21,0.7,cylinders,27,9.5
+LOG-000292,MTR,Medical Kit Supplies,2026-06-21,1.66,units,27,9.5
+LOG-000293,MTR,Dry Rations,2026-06-21,26.24,kg,27,9.5
+LOG-000294,MTR,Frozen Rations,2026-06-21,16.35,kg,27,9.5
+LOG-000295,MTR,Potable Water Treatment Tablets,2026-06-21,4.14,units,27,9.5
+LOG-000296,MTR,Spare Batteries (AA/Lithium),2026-06-21,2.09,units,27,9.5
+LOG-000297,MTR,Diesel Fuel,2026-06-22,260.36,litres,23,9.6
+LOG-000298,MTR,Propane (LPG),2026-06-22,28.02,kg,23,9.6
+LOG-000299,MTR,Medical Oxygen,2026-06-22,0.55,cylinders,23,9.6
+LOG-000300,MTR,Medical Kit Supplies,2026-06-22,2.15,units,23,9.6
+LOG-000301,MTR,Dry Rations,2026-06-22,25.22,kg,23,9.6
+LOG-000302,MTR,Frozen Rations,2026-06-22,21.83,kg,23,9.6
+LOG-000303,MTR,Potable Water Treatment Tablets,2026-06-22,3.62,units,23,9.6
+LOG-000304,MTR,Spare Batteries (AA/Lithium),2026-06-22,2.23,units,23,9.6
+LOG-000305,MTR,Diesel Fuel,2026-06-23,261.15,litres,26,9.7
+LOG-000306,MTR,Propane (LPG),2026-06-23,35.86,kg,26,9.7
+LOG-000307,MTR,Medical Oxygen,2026-06-23,0.72,cylinders,26,9.7
+LOG-000308,MTR,Medical Kit Supplies,2026-06-23,2.42,units,26,9.7
+LOG-000309,MTR,Dry Rations,2026-06-23,24.59,kg,26,9.7
+LOG-000310,MTR,Frozen Rations,2026-06-23,16.28,kg,26,9.7
+LOG-000311,MTR,Potable Water Treatment Tablets,2026-06-23,3.88,units,26,9.7
+LOG-000312,MTR,Spare Batteries (AA/Lithium),2026-06-23,2.8,units,26,9.7
+LOG-000313,MTR,Diesel Fuel,2026-06-24,204.94,litres,23,9.7
+LOG-000314,MTR,Propane (LPG),2026-06-24,29.59,kg,23,9.7
+LOG-000315,MTR,Medical Oxygen,2026-06-24,1.11,cylinders,23,9.7
+LOG-000316,MTR,Medical Kit Supplies,2026-06-24,1.25,units,23,9.7
+LOG-000317,MTR,Dry Rations,2026-06-24,22.98,kg,23,9.7
+LOG-000318,MTR,Frozen Rations,2026-06-24,18.93,kg,23,9.7
+LOG-000319,MTR,Potable Water Treatment Tablets,2026-06-24,3.26,units,23,9.7
+LOG-000320,MTR,Spare Batteries (AA/Lithium),2026-06-24,2.52,units,23,9.7
+LOG-000321,MTR,Diesel Fuel,2026-06-25,252.56,litres,27,9.8
+LOG-000322,MTR,Propane (LPG),2026-06-25,30.07,kg,27,9.8
+LOG-000323,MTR,Medical Oxygen,2026-06-25,0.9,cylinders,27,9.8
+LOG-000324,MTR,Medical Kit Supplies,2026-06-25,1.95,units,27,9.8
+LOG-000325,MTR,Dry Rations,2026-06-25,33.59,kg,27,9.8
+LOG-000326,MTR,Frozen Rations,2026-06-25,26.89,kg,27,9.8
+LOG-000327,MTR,Potable Water Treatment Tablets,2026-06-25,3.52,units,27,9.8
+LOG-000328,MTR,Spare Batteries (AA/Lithium),2026-06-25,3.03,units,27,9.8
+LOG-000329,MTR,Diesel Fuel,2026-06-26,371.54,litres,27,9.9
+LOG-000330,MTR,Propane (LPG),2026-06-26,23.21,kg,27,9.9
+LOG-000331,MTR,Medical Oxygen,2026-06-26,1.16,cylinders,27,9.9
+LOG-000332,MTR,Medical Kit Supplies,2026-06-26,2.19,units,27,9.9
+LOG-000333,MTR,Dry Rations,2026-06-26,27.16,kg,27,9.9
+LOG-000334,MTR,Frozen Rations,2026-06-26,17.08,kg,27,9.9
+LOG-000335,MTR,Potable Water Treatment Tablets,2026-06-26,3.35,units,27,9.9
+LOG-000336,MTR,Spare Batteries (AA/Lithium),2026-06-26,2.84,units,27,9.9
+LOG-000337,MTR,Diesel Fuel,2026-06-27,192.39,litres,24,9.9
+LOG-000338,MTR,Propane (LPG),2026-06-27,25.69,kg,24,9.9
+LOG-000339,MTR,Medical Oxygen,2026-06-27,0.91,cylinders,24,9.9
+LOG-000340,MTR,Medical Kit Supplies,2026-06-27,1.55,units,24,9.9
+LOG-000341,MTR,Dry Rations,2026-06-27,23.82,kg,24,9.9
+LOG-000342,MTR,Frozen Rations,2026-06-27,21.19,kg,24,9.9
+LOG-000343,MTR,Potable Water Treatment Tablets,2026-06-27,4.09,units,24,9.9
+LOG-000344,MTR,Spare Batteries (AA/Lithium),2026-06-27,2.29,units,24,9.9
+LOG-000345,MTR,Diesel Fuel,2026-06-28,325.04,litres,24,10.0
+LOG-000346,MTR,Propane (LPG),2026-06-28,30.54,kg,24,10.0
+LOG-000347,MTR,Medical Oxygen,2026-06-28,0.93,cylinders,24,10.0
+LOG-000348,MTR,Medical Kit Supplies,2026-06-28,1.99,units,24,10.0
+LOG-000349,MTR,Dry Rations,2026-06-28,30.56,kg,24,10.0
+LOG-000350,MTR,Frozen Rations,2026-06-28,18.48,kg,24,10.0
+LOG-000351,MTR,Potable Water Treatment Tablets,2026-06-28,3.71,units,24,10.0
+LOG-000352,MTR,Spare Batteries (AA/Lithium),2026-06-28,2.75,units,24,10.0
+LOG-000353,MTR,Diesel Fuel,2026-06-29,323.99,litres,25,10.0
+LOG-000354,MTR,Propane (LPG),2026-06-29,21.07,kg,25,10.0
+LOG-000355,MTR,Medical Oxygen,2026-06-29,0.62,cylinders,25,10.0
+LOG-000356,MTR,Medical Kit Supplies,2026-06-29,1.63,units,25,10.0
+LOG-000357,MTR,Dry Rations,2026-06-29,29.99,kg,25,10.0
+LOG-000358,MTR,Frozen Rations,2026-06-29,20.69,kg,25,10.0
+LOG-000359,MTR,Potable Water Treatment Tablets,2026-06-29,3.22,units,25,10.0
+LOG-000360,MTR,Spare Batteries (AA/Lithium),2026-06-29,1.56,units,25,10.0
+LOG-000361,MTR,Diesel Fuel,2026-06-30,304.96,litres,25,10.0
+LOG-000362,MTR,Propane (LPG),2026-06-30,34.14,kg,25,10.0
+LOG-000363,MTR,Medical Oxygen,2026-06-30,0.88,cylinders,25,10.0
+LOG-000364,MTR,Medical Kit Supplies,2026-06-30,1.87,units,25,10.0
+LOG-000365,MTR,Dry Rations,2026-06-30,23.3,kg,25,10.0
+LOG-000366,MTR,Frozen Rations,2026-06-30,15.4,kg,25,10.0
+LOG-000367,MTR,Potable Water Treatment Tablets,2026-06-30,3.58,units,25,10.0
+LOG-000368,MTR,Spare Batteries (AA/Lithium),2026-06-30,2.06,units,25,10.0
+LOG-000369,MTR,Diesel Fuel,2026-07-01,203.88,litres,25,10.0
+LOG-000370,MTR,Propane (LPG),2026-07-01,23.43,kg,25,10.0
+LOG-000371,MTR,Medical Oxygen,2026-07-01,1.01,cylinders,25,10.0
+LOG-000372,MTR,Medical Kit Supplies,2026-07-01,2.33,units,25,10.0
+LOG-000373,MTR,Dry Rations,2026-07-01,28.37,kg,25,10.0
+LOG-000374,MTR,Frozen Rations,2026-07-01,15.21,kg,25,10.0
+LOG-000375,MTR,Potable Water Treatment Tablets,2026-07-01,4.41,units,25,10.0
+LOG-000376,MTR,Spare Batteries (AA/Lithium),2026-07-01,3.3,units,25,10.0
+LOG-000377,MTR,Diesel Fuel,2026-07-02,222.52,litres,27,10.0
+LOG-000378,MTR,Propane (LPG),2026-07-02,33.85,kg,27,10.0
+LOG-000379,MTR,Medical Oxygen,2026-07-02,0.92,cylinders,27,10.0
+LOG-000380,MTR,Medical Kit Supplies,2026-07-02,2.23,units,27,10.0
+LOG-000381,MTR,Dry Rations,2026-07-02,34.19,kg,27,10.0
+LOG-000382,MTR,Frozen Rations,2026-07-02,18.16,kg,27,10.0
+LOG-000383,MTR,Potable Water Treatment Tablets,2026-07-02,4.28,units,27,10.0
+LOG-000384,MTR,Spare Batteries (AA/Lithium),2026-07-02,3.06,units,27,10.0
+LOG-000385,MTR,Diesel Fuel,2026-07-03,359.17,litres,26,10.0
+LOG-000386,MTR,Propane (LPG),2026-07-03,28.13,kg,26,10.0
+LOG-000387,MTR,Medical Oxygen,2026-07-03,0.84,cylinders,26,10.0
+LOG-000388,MTR,Medical Kit Supplies,2026-07-03,1.72,units,26,10.0
+LOG-000389,MTR,Dry Rations,2026-07-03,24.49,kg,26,10.0
+LOG-000390,MTR,Frozen Rations,2026-07-03,17.27,kg,26,10.0
+LOG-000391,MTR,Potable Water Treatment Tablets,2026-07-03,3.67,units,26,10.0
+LOG-000392,MTR,Spare Batteries (AA/Lithium),2026-07-03,2.59,units,26,10.0
+LOG-000393,MTR,Diesel Fuel,2026-07-04,334.92,litres,26,10.0
+LOG-000394,MTR,Propane (LPG),2026-07-04,29.38,kg,26,10.0
+LOG-000395,MTR,Medical Oxygen,2026-07-04,0.87,cylinders,26,10.0
+LOG-000396,MTR,Medical Kit Supplies,2026-07-04,1.71,units,26,10.0
+LOG-000397,MTR,Dry Rations,2026-07-04,26.76,kg,26,10.0
+LOG-000398,MTR,Frozen Rations,2026-07-04,25.69,kg,26,10.0
+LOG-000399,MTR,Potable Water Treatment Tablets,2026-07-04,3.65,units,26,10.0
+LOG-000400,MTR,Spare Batteries (AA/Lithium),2026-07-04,2.64,units,26,10.0
+LOG-000401,MTR,Diesel Fuel,2026-07-05,274.76,litres,23,9.9
+LOG-000402,MTR,Propane (LPG),2026-07-05,25.89,kg,23,9.9
+LOG-000403,MTR,Medical Oxygen,2026-07-05,0.75,cylinders,23,9.9
+LOG-000404,MTR,Medical Kit Supplies,2026-07-05,1.37,units,23,9.9
+LOG-000405,MTR,Dry Rations,2026-07-05,24.03,kg,23,9.9
+LOG-000406,MTR,Frozen Rations,2026-07-05,20.76,kg,23,9.9
+LOG-000407,MTR,Potable Water Treatment Tablets,2026-07-05,3.74,units,23,9.9
+LOG-000408,MTR,Spare Batteries (AA/Lithium),2026-07-05,2.9,units,23,9.9
+LOG-000409,MTR,Diesel Fuel,2026-07-06,230.46,litres,24,9.9
+LOG-000410,MTR,Propane (LPG),2026-07-06,21.09,kg,24,9.9
+LOG-000411,MTR,Medical Oxygen,2026-07-06,0.69,cylinders,24,9.9
+LOG-000412,MTR,Medical Kit Supplies,2026-07-06,2.26,units,24,9.9
+LOG-000413,MTR,Dry Rations,2026-07-06,26.25,kg,24,9.9
+LOG-000414,MTR,Frozen Rations,2026-07-06,14.68,kg,24,9.9
+LOG-000415,MTR,Potable Water Treatment Tablets,2026-07-06,3.91,units,24,9.9
+LOG-000416,MTR,Spare Batteries (AA/Lithium),2026-07-06,3.12,units,24,9.9
+LOG-000417,MTR,Diesel Fuel,2026-07-07,236.75,litres,24,9.8
+LOG-000418,MTR,Propane (LPG),2026-07-07,19.4,kg,24,9.8
+LOG-000419,MTR,Medical Oxygen,2026-07-07,0.77,cylinders,24,9.8
+LOG-000420,MTR,Medical Kit Supplies,2026-07-07,1.47,units,24,9.8
+LOG-000421,MTR,Dry Rations,2026-07-07,29.68,kg,24,9.8
+LOG-000422,MTR,Frozen Rations,2026-07-07,15.49,kg,24,9.8
+LOG-000423,MTR,Potable Water Treatment Tablets,2026-07-07,4.67,units,24,9.8
+LOG-000424,MTR,Spare Batteries (AA/Lithium),2026-07-07,2.75,units,24,9.8
+LOG-000425,MTR,Diesel Fuel,2026-07-08,263.77,litres,24,9.7
+LOG-000426,MTR,Propane (LPG),2026-07-08,29.52,kg,24,9.7
+LOG-000427,MTR,Medical Oxygen,2026-07-08,0.85,cylinders,24,9.7
+LOG-000428,MTR,Medical Kit Supplies,2026-07-08,1.53,units,24,9.7
+LOG-000429,MTR,Dry Rations,2026-07-08,29.61,kg,24,9.7
+LOG-000430,MTR,Frozen Rations,2026-07-08,23.81,kg,24,9.7
+LOG-000431,MTR,Potable Water Treatment Tablets,2026-07-08,2.98,units,24,9.7
+LOG-000432,MTR,Spare Batteries (AA/Lithium),2026-07-08,2.52,units,24,9.7
+LOG-000433,MTR,Diesel Fuel,2026-07-09,237.74,litres,26,9.7
+LOG-000434,MTR,Propane (LPG),2026-07-09,30.15,kg,26,9.7
+LOG-000435,MTR,Medical Oxygen,2026-07-09,1.1,cylinders,26,9.7
+LOG-000436,MTR,Medical Kit Supplies,2026-07-09,1.48,units,26,9.7
+LOG-000437,MTR,Dry Rations,2026-07-09,24.13,kg,26,9.7
+LOG-000438,MTR,Frozen Rations,2026-07-09,23.64,kg,26,9.7
+LOG-000439,MTR,Potable Water Treatment Tablets,2026-07-09,4.82,units,26,9.7
+LOG-000440,MTR,Spare Batteries (AA/Lithium),2026-07-09,2.18,units,26,9.7
+LOG-000441,MTR,Diesel Fuel,2026-07-10,259.28,litres,27,9.6
+LOG-000442,MTR,Propane (LPG),2026-07-10,21.64,kg,27,9.6
+LOG-000443,MTR,Medical Oxygen,2026-07-10,1.13,cylinders,27,9.6
+LOG-000444,MTR,Medical Kit Supplies,2026-07-10,2.48,units,27,9.6
+LOG-000445,MTR,Dry Rations,2026-07-10,30.56,kg,27,9.6
+LOG-000446,MTR,Frozen Rations,2026-07-10,23.33,kg,27,9.6
+LOG-000447,MTR,Potable Water Treatment Tablets,2026-07-10,5.04,units,27,9.6
+LOG-000448,MTR,Spare Batteries (AA/Lithium),2026-07-10,2.56,units,27,9.6
+LOG-000449,MTR,Diesel Fuel,2026-07-11,261.84,litres,26,9.5
+LOG-000450,MTR,Propane (LPG),2026-07-11,29.41,kg,26,9.5
+LOG-000451,MTR,Medical Oxygen,2026-07-11,0.94,cylinders,26,9.5
+LOG-000452,MTR,Medical Kit Supplies,2026-07-11,1.89,units,26,9.5
+LOG-000453,MTR,Dry Rations,2026-07-11,26.75,kg,26,9.5
+LOG-000454,MTR,Frozen Rations,2026-07-11,17.56,kg,26,9.5
+LOG-000455,MTR,Potable Water Treatment Tablets,2026-07-11,4.41,units,26,9.5
+LOG-000456,MTR,Spare Batteries (AA/Lithium),2026-07-11,2.79,units,26,9.5
+LOG-000457,MTR,Diesel Fuel,2026-07-12,315.27,litres,24,9.4
+LOG-000458,MTR,Propane (LPG),2026-07-12,25.12,kg,24,9.4
+LOG-000459,MTR,Medical Oxygen,2026-07-12,0.71,cylinders,24,9.4
+LOG-000460,MTR,Medical Kit Supplies,2026-07-12,1.77,units,24,9.4
+LOG-000461,MTR,Dry Rations,2026-07-12,30.37,kg,24,9.4
+LOG-000462,MTR,Frozen Rations,2026-07-12,18.06,kg,24,9.4
+LOG-000463,MTR,Potable Water Treatment Tablets,2026-07-12,4.77,units,24,9.4
+LOG-000464,MTR,Spare Batteries (AA/Lithium),2026-07-12,3.1,units,24,9.4
+LOG-000465,MTR,Diesel Fuel,2026-07-13,263.33,litres,24,9.3
+LOG-000466,MTR,Propane (LPG),2026-07-13,19.73,kg,24,9.3
+LOG-000467,MTR,Medical Oxygen,2026-07-13,0.84,cylinders,24,9.3
+LOG-000468,MTR,Medical Kit Supplies,2026-07-13,1.91,units,24,9.3
+LOG-000469,MTR,Dry Rations,2026-07-13,29.95,kg,24,9.3
+LOG-000470,MTR,Frozen Rations,2026-07-13,22.79,kg,24,9.3
+LOG-000471,MTR,Potable Water Treatment Tablets,2026-07-13,3.46,units,24,9.3
+LOG-000472,MTR,Spare Batteries (AA/Lithium),2026-07-13,2.46,units,24,9.3
+LOG-000473,MTR,Diesel Fuel,2026-07-14,210.39,litres,26,9.1
+LOG-000474,MTR,Propane (LPG),2026-07-14,23.05,kg,26,9.1
+LOG-000475,MTR,Medical Oxygen,2026-07-14,1.2,cylinders,26,9.1
+LOG-000476,MTR,Medical Kit Supplies,2026-07-14,2.56,units,26,9.1
+LOG-000477,MTR,Dry Rations,2026-07-14,24.18,kg,26,9.1
+LOG-000478,MTR,Frozen Rations,2026-07-14,23.73,kg,26,9.1
+LOG-000479,MTR,Potable Water Treatment Tablets,2026-07-14,3.29,units,26,9.1
+LOG-000480,MTR,Spare Batteries (AA/Lithium),2026-07-14,2.92,units,26,9.1
+LOG-000481,MTR,Diesel Fuel,2026-07-15,309.37,litres,26,9.0
+LOG-000482,MTR,Propane (LPG),2026-07-15,34.09,kg,26,9.0
+LOG-000483,MTR,Medical Oxygen,2026-07-15,1.18,cylinders,26,9.0
+LOG-000484,MTR,Medical Kit Supplies,2026-07-15,2.42,units,26,9.0
+LOG-000485,MTR,Dry Rations,2026-07-15,27.35,kg,26,9.0
+LOG-000486,MTR,Frozen Rations,2026-07-15,18.89,kg,26,9.0
+LOG-000487,MTR,Potable Water Treatment Tablets,2026-07-15,4.47,units,26,9.0
+LOG-000488,MTR,Spare Batteries (AA/Lithium),2026-07-15,3.27,units,26,9.0
+LOG-000489,MTR,Diesel Fuel,2026-07-16,221.82,litres,27,8.8
+LOG-000490,MTR,Propane (LPG),2026-07-16,22.71,kg,27,8.8
+LOG-000491,MTR,Medical Oxygen,2026-07-16,1.05,cylinders,27,8.8
+LOG-000492,MTR,Medical Kit Supplies,2026-07-16,2.59,units,27,8.8
+LOG-000493,MTR,Dry Rations,2026-07-16,35.07,kg,27,8.8
+LOG-000494,MTR,Frozen Rations,2026-07-16,24.27,kg,27,8.8
+LOG-000495,MTR,Potable Water Treatment Tablets,2026-07-16,3.87,units,27,8.8
+LOG-000496,MTR,Spare Batteries (AA/Lithium),2026-07-16,1.62,units,27,8.8
+LOG-000497,MTR,Diesel Fuel,2026-07-17,245.23,litres,23,8.7
+LOG-000498,MTR,Propane (LPG),2026-07-17,27.98,kg,23,8.7
+LOG-000499,MTR,Medical Oxygen,2026-07-17,1.08,cylinders,23,8.7
+LOG-000500,MTR,Medical Kit Supplies,2026-07-17,1.2,units,23,8.7
+LOG-000501,MTR,Dry Rations,2026-07-17,28.02,kg,23,8.7
+LOG-000502,MTR,Frozen Rations,2026-07-17,16.5,kg,23,8.7
+LOG-000503,MTR,Potable Water Treatment Tablets,2026-07-17,3.16,units,23,8.7
+LOG-000504,MTR,Spare Batteries (AA/Lithium),2026-07-17,1.48,units,23,8.7
+LOG-000505,MTR,Diesel Fuel,2026-07-18,282.75,litres,27,8.5
+LOG-000506,MTR,Propane (LPG),2026-07-18,32.65,kg,27,8.5
+LOG-000507,MTR,Medical Oxygen,2026-07-18,0.69,cylinders,27,8.5
+LOG-000508,MTR,Medical Kit Supplies,2026-07-18,1.59,units,27,8.5
+LOG-000509,MTR,Dry Rations,2026-07-18,30.88,kg,27,8.5
+LOG-000510,MTR,Frozen Rations,2026-07-18,20.33,kg,27,8.5
+LOG-000511,MTR,Potable Water Treatment Tablets,2026-07-18,4.54,units,27,8.5
+LOG-000512,MTR,Spare Batteries (AA/Lithium),2026-07-18,2.69,units,27,8.5
+LOG-000513,MTR,Diesel Fuel,2026-07-19,239.19,litres,27,8.3
+LOG-000514,MTR,Propane (LPG),2026-07-19,29.07,kg,27,8.3
+LOG-000515,MTR,Medical Oxygen,2026-07-19,0.75,cylinders,27,8.3
+LOG-000516,MTR,Medical Kit Supplies,2026-07-19,1.69,units,27,8.3
+LOG-000517,MTR,Dry Rations,2026-07-19,24.4,kg,27,8.3
+LOG-000518,MTR,Frozen Rations,2026-07-19,24.89,kg,27,8.3
+LOG-000519,MTR,Potable Water Treatment Tablets,2026-07-19,5.13,units,27,8.3
+LOG-000520,MTR,Spare Batteries (AA/Lithium),2026-07-19,3.18,units,27,8.3
+LOG-000521,MTR,Diesel Fuel,2026-07-20,202.64,litres,24,8.1
+LOG-000522,MTR,Propane (LPG),2026-07-20,32.81,kg,24,8.1
+LOG-000523,MTR,Medical Oxygen,2026-07-20,1.19,cylinders,24,8.1
+LOG-000524,MTR,Medical Kit Supplies,2026-07-20,1.56,units,24,8.1
+LOG-000525,MTR,Dry Rations,2026-07-20,30.84,kg,24,8.1
+LOG-000526,MTR,Frozen Rations,2026-07-20,21.03,kg,24,8.1
+LOG-000527,MTR,Potable Water Treatment Tablets,2026-07-20,3.5,units,24,8.1
+LOG-000528,MTR,Spare Batteries (AA/Lithium),2026-07-20,1.93,units,24,8.1
+LOG-000529,MTR,Diesel Fuel,2026-07-21,341.12,litres,26,7.9
+LOG-000530,MTR,Propane (LPG),2026-07-21,22.46,kg,26,7.9
+LOG-000531,MTR,Medical Oxygen,2026-07-21,0.82,cylinders,26,7.9
+LOG-000532,MTR,Medical Kit Supplies,2026-07-21,1.77,units,26,7.9
+LOG-000533,MTR,Dry Rations,2026-07-21,26.48,kg,26,7.9
+LOG-000534,MTR,Frozen Rations,2026-07-21,22.87,kg,26,7.9
+LOG-000535,MTR,Potable Water Treatment Tablets,2026-07-21,2.66,units,26,7.9
+LOG-000536,MTR,Spare Batteries (AA/Lithium),2026-07-21,3.46,units,26,7.9
+LOG-000537,MTR,Diesel Fuel,2026-07-22,250.82,litres,26,7.7
+LOG-000538,MTR,Propane (LPG),2026-07-22,29.63,kg,26,7.7
+LOG-000539,MTR,Medical Oxygen,2026-07-22,1.05,cylinders,26,7.7
+LOG-000540,MTR,Medical Kit Supplies,2026-07-22,2.27,units,26,7.7
+LOG-000541,MTR,Dry Rations,2026-07-22,23.91,kg,26,7.7
+LOG-000542,MTR,Frozen Rations,2026-07-22,21.91,kg,26,7.7
+LOG-000543,MTR,Potable Water Treatment Tablets,2026-07-22,3.89,units,26,7.7
+LOG-000544,MTR,Spare Batteries (AA/Lithium),2026-07-22,3.65,units,26,7.7
+LOG-000545,MTR,Diesel Fuel,2026-07-23,316.36,litres,25,7.5
+LOG-000546,MTR,Propane (LPG),2026-07-23,23.45,kg,25,7.5
+LOG-000547,MTR,Medical Oxygen,2026-07-23,1.1,cylinders,25,7.5
+LOG-000548,MTR,Medical Kit Supplies,2026-07-23,1.52,units,25,7.5
+LOG-000549,MTR,Dry Rations,2026-07-23,24.4,kg,25,7.5
+LOG-000550,MTR,Frozen Rations,2026-07-23,17.51,kg,25,7.5
+LOG-000551,MTR,Potable Water Treatment Tablets,2026-07-23,4.39,units,25,7.5
+LOG-000552,MTR,Spare Batteries (AA/Lithium),2026-07-23,3.17,units,25,7.5
+LOG-000553,MTR,Diesel Fuel,2026-07-24,282.47,litres,24,7.3
+LOG-000554,MTR,Propane (LPG),2026-07-24,32.21,kg,24,7.3
+LOG-000555,MTR,Medical Oxygen,2026-07-24,0.95,cylinders,24,7.3
+LOG-000556,MTR,Medical Kit Supplies,2026-07-24,1.57,units,24,7.3
+LOG-000557,MTR,Dry Rations,2026-07-24,25.83,kg,24,7.3
+LOG-000558,MTR,Frozen Rations,2026-07-24,19.96,kg,24,7.3
+LOG-000559,MTR,Potable Water Treatment Tablets,2026-07-24,4.16,units,24,7.3
+LOG-000560,MTR,Spare Batteries (AA/Lithium),2026-07-24,1.42,units,24,7.3
+LOG-000561,MTR,Diesel Fuel,2026-07-25,249.01,litres,25,7.1
+LOG-000562,MTR,Propane (LPG),2026-07-25,26.23,kg,25,7.1
+LOG-000563,MTR,Medical Oxygen,2026-07-25,0.65,cylinders,25,7.1
+LOG-000564,MTR,Medical Kit Supplies,2026-07-25,2.23,units,25,7.1
+LOG-000565,MTR,Dry Rations,2026-07-25,31.26,kg,25,7.1
+LOG-000566,MTR,Frozen Rations,2026-07-25,18.66,kg,25,7.1
+LOG-000567,MTR,Potable Water Treatment Tablets,2026-07-25,3.75,units,25,7.1
+LOG-000568,MTR,Spare Batteries (AA/Lithium),2026-07-25,1.93,units,25,7.1
+LOG-000569,MTR,Diesel Fuel,2026-07-26,229.0,litres,24,6.8
+LOG-000570,MTR,Propane (LPG),2026-07-26,31.08,kg,24,6.8
+LOG-000571,MTR,Medical Oxygen,2026-07-26,0.83,cylinders,24,6.8
+LOG-000572,MTR,Medical Kit Supplies,2026-07-26,2.17,units,24,6.8
+LOG-000573,MTR,Dry Rations,2026-07-26,28.77,kg,24,6.8
+LOG-000574,MTR,Frozen Rations,2026-07-26,17.65,kg,24,6.8
+LOG-000575,MTR,Potable Water Treatment Tablets,2026-07-26,2.68,units,24,6.8
+LOG-000576,MTR,Spare Batteries (AA/Lithium),2026-07-26,3.51,units,24,6.8
+LOG-000577,MTR,Diesel Fuel,2026-07-27,300.6,litres,24,6.6
+LOG-000578,MTR,Propane (LPG),2026-07-27,22.45,kg,24,6.6
+LOG-000579,MTR,Medical Oxygen,2026-07-27,0.97,cylinders,24,6.6
+LOG-000580,MTR,Medical Kit Supplies,2026-07-27,2.01,units,24,6.6
+LOG-000581,MTR,Dry Rations,2026-07-27,25.42,kg,24,6.6
+LOG-000582,MTR,Frozen Rations,2026-07-27,22.52,kg,24,6.6
+LOG-000583,MTR,Potable Water Treatment Tablets,2026-07-27,3.74,units,24,6.6
+LOG-000584,MTR,Spare Batteries (AA/Lithium),2026-07-27,1.42,units,24,6.6
+LOG-000585,MTR,Diesel Fuel,2026-07-28,210.17,litres,26,6.3
+LOG-000586,MTR,Propane (LPG),2026-07-28,29.17,kg,26,6.3
+LOG-000587,MTR,Medical Oxygen,2026-07-28,0.87,cylinders,26,6.3
+LOG-000588,MTR,Medical Kit Supplies,2026-07-28,2.17,units,26,6.3
+LOG-000589,MTR,Dry Rations,2026-07-28,30.39,kg,26,6.3
+LOG-000590,MTR,Frozen Rations,2026-07-28,21.68,kg,26,6.3
+LOG-000591,MTR,Potable Water Treatment Tablets,2026-07-28,4.74,units,26,6.3
+LOG-000592,MTR,Spare Batteries (AA/Lithium),2026-07-28,3.74,units,26,6.3
+LOG-000593,MTR,Diesel Fuel,2026-07-29,277.13,litres,23,6.0
+LOG-000594,MTR,Propane (LPG),2026-07-29,24.91,kg,23,6.0
+LOG-000595,MTR,Medical Oxygen,2026-07-29,0.89,cylinders,23,6.0
+LOG-000596,MTR,Medical Kit Supplies,2026-07-29,2.23,units,23,6.0
+LOG-000597,MTR,Dry Rations,2026-07-29,23.72,kg,23,6.0
+LOG-000598,MTR,Frozen Rations,2026-07-29,19.41,kg,23,6.0
+LOG-000599,MTR,Potable Water Treatment Tablets,2026-07-29,3.79,units,23,6.0
+LOG-000600,MTR,Spare Batteries (AA/Lithium),2026-07-29,2.61,units,23,6.0
+LOG-000601,MTR,Diesel Fuel,2026-07-30,349.86,litres,26,5.7
+LOG-000602,MTR,Propane (LPG),2026-07-30,25.51,kg,26,5.7
+LOG-000603,MTR,Medical Oxygen,2026-07-30,0.84,cylinders,26,5.7
+LOG-000604,MTR,Medical Kit Supplies,2026-07-30,1.48,units,26,5.7
+LOG-000605,MTR,Dry Rations,2026-07-30,33.24,kg,26,5.7
+LOG-000606,MTR,Frozen Rations,2026-07-30,18.77,kg,26,5.7
+LOG-000607,MTR,Potable Water Treatment Tablets,2026-07-30,3.88,units,26,5.7
+LOG-000608,MTR,Spare Batteries (AA/Lithium),2026-07-30,1.55,units,26,5.7
+LOG-000609,MTR,Diesel Fuel,2026-07-31,237.98,litres,27,5.4
+LOG-000610,MTR,Propane (LPG),2026-07-31,28.95,kg,27,5.4
+LOG-000611,MTR,Medical Oxygen,2026-07-31,1.08,cylinders,27,5.4
+LOG-000612,MTR,Medical Kit Supplies,2026-07-31,2.35,units,27,5.4
+LOG-000613,MTR,Dry Rations,2026-07-31,34.52,kg,27,5.4
+LOG-000614,MTR,Frozen Rations,2026-07-31,20.73,kg,27,5.4
+LOG-000615,MTR,Potable Water Treatment Tablets,2026-07-31,4.7,units,27,5.4
+LOG-000616,MTR,Spare Batteries (AA/Lithium),2026-07-31,1.77,units,27,5.4
+LOG-000617,MTR,Diesel Fuel,2026-08-01,310.17,litres,26,5.1
+LOG-000618,MTR,Propane (LPG),2026-08-01,33.81,kg,26,5.1
+LOG-000619,MTR,Medical Oxygen,2026-08-01,1.0,cylinders,26,5.1
+LOG-000620,MTR,Medical Kit Supplies,2026-08-01,2.52,units,26,5.1
+LOG-000621,MTR,Dry Rations,2026-08-01,26.31,kg,26,5.1
+LOG-000622,MTR,Frozen Rations,2026-08-01,22.78,kg,26,5.1
+LOG-000623,MTR,Potable Water Treatment Tablets,2026-08-01,3.16,units,26,5.1
+LOG-000624,MTR,Spare Batteries (AA/Lithium),2026-08-01,2.46,units,26,5.1
+LOG-000625,MTR,Diesel Fuel,2026-08-02,315.18,litres,24,4.8
+LOG-000626,MTR,Propane (LPG),2026-08-02,20.63,kg,24,4.8
+LOG-000627,MTR,Medical Oxygen,2026-08-02,0.97,cylinders,24,4.8
+LOG-000628,MTR,Medical Kit Supplies,2026-08-02,1.85,units,24,4.8
+LOG-000629,MTR,Dry Rations,2026-08-02,30.99,kg,24,4.8
+LOG-000630,MTR,Frozen Rations,2026-08-02,17.84,kg,24,4.8
+LOG-000631,MTR,Potable Water Treatment Tablets,2026-08-02,3.36,units,24,4.8
+LOG-000632,MTR,Spare Batteries (AA/Lithium),2026-08-02,1.66,units,24,4.8
+LOG-000633,MTR,Diesel Fuel,2026-08-03,314.96,litres,23,4.5
+LOG-000634,MTR,Propane (LPG),2026-08-03,29.77,kg,23,4.5
+LOG-000635,MTR,Medical Oxygen,2026-08-03,0.52,cylinders,23,4.5
+LOG-000636,MTR,Medical Kit Supplies,2026-08-03,1.39,units,23,4.5
+LOG-000637,MTR,Dry Rations,2026-08-03,26.58,kg,23,4.5
+LOG-000638,MTR,Frozen Rations,2026-08-03,22.73,kg,23,4.5
+LOG-000639,MTR,Potable Water Treatment Tablets,2026-08-03,2.42,units,23,4.5
+LOG-000640,MTR,Spare Batteries (AA/Lithium),2026-08-03,1.92,units,23,4.5
+LOG-000641,MTR,Diesel Fuel,2026-08-04,305.32,litres,24,4.2
+LOG-000642,MTR,Propane (LPG),2026-08-04,22.15,kg,24,4.2
+LOG-000643,MTR,Medical Oxygen,2026-08-04,1.08,cylinders,24,4.2
+LOG-000644,MTR,Medical Kit Supplies,2026-08-04,1.87,units,24,4.2
+LOG-000645,MTR,Dry Rations,2026-08-04,27.23,kg,24,4.2
+LOG-000646,MTR,Frozen Rations,2026-08-04,22.21,kg,24,4.2
+LOG-000647,MTR,Potable Water Treatment Tablets,2026-08-04,2.96,units,24,4.2
+LOG-000648,MTR,Spare Batteries (AA/Lithium),2026-08-04,3.06,units,24,4.2
+LOG-000649,MTR,Diesel Fuel,2026-08-05,216.46,litres,27,3.8
+LOG-000650,MTR,Propane (LPG),2026-08-05,35.51,kg,27,3.8
+LOG-000651,MTR,Medical Oxygen,2026-08-05,0.66,cylinders,27,3.8
+LOG-000652,MTR,Medical Kit Supplies,2026-08-05,1.53,units,27,3.8
+LOG-000653,MTR,Dry Rations,2026-08-05,27.01,kg,27,3.8
+LOG-000654,MTR,Frozen Rations,2026-08-05,18.08,kg,27,3.8
+LOG-000655,MTR,Potable Water Treatment Tablets,2026-08-05,4.48,units,27,3.8
+LOG-000656,MTR,Spare Batteries (AA/Lithium),2026-08-05,1.42,units,27,3.8
+LOG-000657,MTR,Diesel Fuel,2026-08-06,233.44,litres,23,3.5
+LOG-000658,MTR,Propane (LPG),2026-08-06,29.28,kg,23,3.5
+LOG-000659,MTR,Medical Oxygen,2026-08-06,0.87,cylinders,23,3.5
+LOG-000660,MTR,Medical Kit Supplies,2026-08-06,1.17,units,23,3.5
+LOG-000661,MTR,Dry Rations,2026-08-06,23.14,kg,23,3.5
+LOG-000662,MTR,Frozen Rations,2026-08-06,14.97,kg,23,3.5
+LOG-000663,MTR,Potable Water Treatment Tablets,2026-08-06,3.27,units,23,3.5
+LOG-000664,MTR,Spare Batteries (AA/Lithium),2026-08-06,1.41,units,23,3.5
+LOG-000665,MTR,Diesel Fuel,2026-08-07,249.72,litres,23,3.1
+LOG-000666,MTR,Propane (LPG),2026-08-07,29.14,kg,23,3.1
+LOG-000667,MTR,Medical Oxygen,2026-08-07,0.81,cylinders,23,3.1
+LOG-000668,MTR,Medical Kit Supplies,2026-08-07,1.28,units,23,3.1
+LOG-000669,MTR,Dry Rations,2026-08-07,25.34,kg,23,3.1
+LOG-000670,MTR,Frozen Rations,2026-08-07,22.5,kg,23,3.1
+LOG-000671,MTR,Potable Water Treatment Tablets,2026-08-07,2.4,units,23,3.1
+LOG-000672,MTR,Spare Batteries (AA/Lithium),2026-08-07,2.95,units,23,3.1
+LOG-000673,MTR,Diesel Fuel,2026-08-08,264.86,litres,27,2.8
+LOG-000674,MTR,Propane (LPG),2026-08-08,32.02,kg,27,2.8
+LOG-000675,MTR,Medical Oxygen,2026-08-08,0.57,cylinders,27,2.8
+LOG-000676,MTR,Medical Kit Supplies,2026-08-08,2.7,units,27,2.8
+LOG-000677,MTR,Dry Rations,2026-08-08,33.45,kg,27,2.8
+LOG-000678,MTR,Frozen Rations,2026-08-08,20.8,kg,27,2.8
+LOG-000679,MTR,Potable Water Treatment Tablets,2026-08-08,2.99,units,27,2.8
+LOG-000680,MTR,Spare Batteries (AA/Lithium),2026-08-08,3.27,units,27,2.8
+LOG-000681,MTR,Diesel Fuel,2026-08-09,219.46,litres,26,2.4
+LOG-000682,MTR,Propane (LPG),2026-08-09,22.06,kg,26,2.4
+LOG-000683,MTR,Medical Oxygen,2026-08-09,0.99,cylinders,26,2.4
+LOG-000684,MTR,Medical Kit Supplies,2026-08-09,1.39,units,26,2.4
+LOG-000685,MTR,Dry Rations,2026-08-09,26.26,kg,26,2.4
+LOG-000686,MTR,Frozen Rations,2026-08-09,22.18,kg,26,2.4
+LOG-000687,MTR,Potable Water Treatment Tablets,2026-08-09,4.03,units,26,2.4
+LOG-000688,MTR,Spare Batteries (AA/Lithium),2026-08-09,2.15,units,26,2.4
+LOG-000689,MTR,Diesel Fuel,2026-08-10,301.95,litres,27,2.0
+LOG-000690,MTR,Propane (LPG),2026-08-10,28.95,kg,27,2.0
+LOG-000691,MTR,Medical Oxygen,2026-08-10,1.03,cylinders,27,2.0
+LOG-000692,MTR,Medical Kit Supplies,2026-08-10,1.48,units,27,2.0
+LOG-000693,MTR,Dry Rations,2026-08-10,31.88,kg,27,2.0
+LOG-000694,MTR,Frozen Rations,2026-08-10,25.41,kg,27,2.0
+LOG-000695,MTR,Potable Water Treatment Tablets,2026-08-10,4.46,units,27,2.0
+LOG-000696,MTR,Spare Batteries (AA/Lithium),2026-08-10,3.43,units,27,2.0
+LOG-000697,MTR,Diesel Fuel,2026-08-11,253.93,litres,24,1.6
+LOG-000698,MTR,Propane (LPG),2026-08-11,31.99,kg,24,1.6
+LOG-000699,MTR,Medical Oxygen,2026-08-11,0.78,cylinders,24,1.6
+LOG-000700,MTR,Medical Kit Supplies,2026-08-11,2.19,units,24,1.6
+LOG-000701,MTR,Dry Rations,2026-08-11,25.43,kg,24,1.6
+LOG-000702,MTR,Frozen Rations,2026-08-11,21.4,kg,24,1.6
+LOG-000703,MTR,Potable Water Treatment Tablets,2026-08-11,3.15,units,24,1.6
+LOG-000704,MTR,Spare Batteries (AA/Lithium),2026-08-11,1.95,units,24,1.6
+LOG-000705,MTR,Diesel Fuel,2026-08-12,256.15,litres,25,1.2
+LOG-000706,MTR,Propane (LPG),2026-08-12,22.29,kg,25,1.2
+LOG-000707,MTR,Medical Oxygen,2026-08-12,1.19,cylinders,25,1.2
+LOG-000708,MTR,Medical Kit Supplies,2026-08-12,1.33,units,25,1.2
+LOG-000709,MTR,Dry Rations,2026-08-12,30.82,kg,25,1.2
+LOG-000710,MTR,Frozen Rations,2026-08-12,15.93,kg,25,1.2
+LOG-000711,MTR,Potable Water Treatment Tablets,2026-08-12,2.74,units,25,1.2
+LOG-000712,MTR,Spare Batteries (AA/Lithium),2026-08-12,3.1,units,25,1.2
+LOG-000713,MTR,Diesel Fuel,2026-08-13,272.12,litres,24,0.8
+LOG-000714,MTR,Propane (LPG),2026-08-13,27.65,kg,24,0.8
+LOG-000715,MTR,Medical Oxygen,2026-08-13,0.88,cylinders,24,0.8
+LOG-000716,MTR,Medical Kit Supplies,2026-08-13,1.6,units,24,0.8
+LOG-000717,MTR,Dry Rations,2026-08-13,22.77,kg,24,0.8
+LOG-000718,MTR,Frozen Rations,2026-08-13,17.79,kg,24,0.8
+LOG-000719,MTR,Potable Water Treatment Tablets,2026-08-13,4.0,units,24,0.8
+LOG-000720,MTR,Spare Batteries (AA/Lithium),2026-08-13,3.0,units,24,0.8
+LOG-000721,MTR,Diesel Fuel,2026-08-14,317.64,litres,23,0.4
+LOG-000722,MTR,Propane (LPG),2026-08-14,26.69,kg,23,0.4
+LOG-000723,MTR,Medical Oxygen,2026-08-14,0.7,cylinders,23,0.4
+LOG-000724,MTR,Medical Kit Supplies,2026-08-14,1.81,units,23,0.4
+LOG-000725,MTR,Dry Rations,2026-08-14,22.66,kg,23,0.4
+LOG-000726,MTR,Frozen Rations,2026-08-14,19.84,kg,23,0.4
+LOG-000727,MTR,Potable Water Treatment Tablets,2026-08-14,2.82,units,23,0.4
+LOG-000728,MTR,Spare Batteries (AA/Lithium),2026-08-14,1.4,units,23,0.4
+LOG-000729,MTR,Diesel Fuel,2026-08-15,275.54,litres,27,0.0
+LOG-000730,MTR,Propane (LPG),2026-08-15,33.95,kg,27,0.0
+LOG-000731,MTR,Medical Oxygen,2026-08-15,1.01,cylinders,27,0.0
+LOG-000732,MTR,Medical Kit Supplies,2026-08-15,2.44,units,27,0.0
+LOG-000733,MTR,Dry Rations,2026-08-15,33.43,kg,27,0.0
+LOG-000734,MTR,Frozen Rations,2026-08-15,26.73,kg,27,0.0
+LOG-000735,MTR,Potable Water Treatment Tablets,2026-08-15,4.91,units,27,0.0
+LOG-000736,MTR,Spare Batteries (AA/Lithium),2026-08-15,3.01,units,27,0.0
+LOG-000737,MTR,Diesel Fuel,2026-08-16,220.25,litres,27,-0.4
+LOG-000738,MTR,Propane (LPG),2026-08-16,36.65,kg,27,-0.4
+LOG-000739,MTR,Medical Oxygen,2026-08-16,1.21,cylinders,27,-0.4
+LOG-000740,MTR,Medical Kit Supplies,2026-08-16,1.71,units,27,-0.4
+LOG-000741,MTR,Dry Rations,2026-08-16,26.25,kg,27,-0.4
+LOG-000742,MTR,Frozen Rations,2026-08-16,23.79,kg,27,-0.4
+LOG-000743,MTR,Potable Water Treatment Tablets,2026-08-16,3.53,units,27,-0.4
+LOG-000744,MTR,Spare Batteries (AA/Lithium),2026-08-16,2.27,units,27,-0.4
+LOG-000745,MTR,Diesel Fuel,2026-08-17,209.03,litres,23,-0.8
+LOG-000746,MTR,Propane (LPG),2026-08-17,20.38,kg,23,-0.8
+LOG-000747,MTR,Medical Oxygen,2026-08-17,0.91,cylinders,23,-0.8
+LOG-000748,MTR,Medical Kit Supplies,2026-08-17,1.23,units,23,-0.8
+LOG-000749,MTR,Dry Rations,2026-08-17,27.52,kg,23,-0.8
+LOG-000750,MTR,Frozen Rations,2026-08-17,22.74,kg,23,-0.8
+LOG-000751,MTR,Potable Water Treatment Tablets,2026-08-17,2.51,units,23,-0.8
+LOG-000752,MTR,Spare Batteries (AA/Lithium),2026-08-17,2.37,units,23,-0.8
+LOG-000753,MTR,Diesel Fuel,2026-08-18,273.49,litres,26,-1.3
+LOG-000754,MTR,Propane (LPG),2026-08-18,26.12,kg,26,-1.3
+LOG-000755,MTR,Medical Oxygen,2026-08-18,0.81,cylinders,26,-1.3
+LOG-000756,MTR,Medical Kit Supplies,2026-08-18,2.24,units,26,-1.3
+LOG-000757,MTR,Dry Rations,2026-08-18,31.48,kg,26,-1.3
+LOG-000758,MTR,Frozen Rations,2026-08-18,21.5,kg,26,-1.3
+LOG-000759,MTR,Potable Water Treatment Tablets,2026-08-18,2.82,units,26,-1.3
+LOG-000760,MTR,Spare Batteries (AA/Lithium),2026-08-18,1.44,units,26,-1.3
+LOG-000761,MTR,Diesel Fuel,2026-08-19,300.64,litres,24,-1.7
+LOG-000762,MTR,Propane (LPG),2026-08-19,19.92,kg,24,-1.7
+LOG-000763,MTR,Medical Oxygen,2026-08-19,0.54,cylinders,24,-1.7
+LOG-000764,MTR,Medical Kit Supplies,2026-08-19,1.73,units,24,-1.7
+LOG-000765,MTR,Dry Rations,2026-08-19,25.67,kg,24,-1.7
+LOG-000766,MTR,Frozen Rations,2026-08-19,20.23,kg,24,-1.7
+LOG-000767,MTR,Potable Water Treatment Tablets,2026-08-19,3.39,units,24,-1.7
+LOG-000768,MTR,Spare Batteries (AA/Lithium),2026-08-19,1.72,units,24,-1.7
+LOG-000769,MTR,Diesel Fuel,2026-08-20,234.44,litres,27,-2.2
+LOG-000770,MTR,Propane (LPG),2026-08-20,28.56,kg,27,-2.2
+LOG-000771,MTR,Medical Oxygen,2026-08-20,0.77,cylinders,27,-2.2
+LOG-000772,MTR,Medical Kit Supplies,2026-08-20,2.27,units,27,-2.2
+LOG-000773,MTR,Dry Rations,2026-08-20,29.56,kg,27,-2.2
+LOG-000774,MTR,Frozen Rations,2026-08-20,23.41,kg,27,-2.2
+LOG-000775,MTR,Potable Water Treatment Tablets,2026-08-20,2.82,units,27,-2.2
+LOG-000776,MTR,Spare Batteries (AA/Lithium),2026-08-20,2.42,units,27,-2.2
+LOG-000777,MTR,Diesel Fuel,2026-08-21,224.87,litres,27,-2.6
+LOG-000778,MTR,Propane (LPG),2026-08-21,24.91,kg,27,-2.6
+LOG-000779,MTR,Medical Oxygen,2026-08-21,1.31,cylinders,27,-2.6
+LOG-000780,MTR,Medical Kit Supplies,2026-08-21,2.39,units,27,-2.6
+LOG-000781,MTR,Dry Rations,2026-08-21,32.55,kg,27,-2.6
+LOG-000782,MTR,Frozen Rations,2026-08-21,19.33,kg,27,-2.6
+LOG-000783,MTR,Potable Water Treatment Tablets,2026-08-21,3.02,units,27,-2.6
+LOG-000784,MTR,Spare Batteries (AA/Lithium),2026-08-21,2.69,units,27,-2.6
+LOG-000785,MTR,Diesel Fuel,2026-08-22,235.41,litres,26,-3.1
+LOG-000786,MTR,Propane (LPG),2026-08-22,26.73,kg,26,-3.1
+LOG-000787,MTR,Medical Oxygen,2026-08-22,1.07,cylinders,26,-3.1
+LOG-000788,MTR,Medical Kit Supplies,2026-08-22,1.95,units,26,-3.1
+LOG-000789,MTR,Dry Rations,2026-08-22,32.07,kg,26,-3.1
+LOG-000790,MTR,Frozen Rations,2026-08-22,23.98,kg,26,-3.1
+LOG-000791,MTR,Potable Water Treatment Tablets,2026-08-22,2.79,units,26,-3.1
+LOG-000792,MTR,Spare Batteries (AA/Lithium),2026-08-22,3.54,units,26,-3.1
+LOG-000793,MTR,Diesel Fuel,2026-08-23,244.2,litres,23,-3.6
+LOG-000794,MTR,Propane (LPG),2026-08-23,24.74,kg,23,-3.6
+LOG-000795,MTR,Medical Oxygen,2026-08-23,0.51,cylinders,23,-3.6
+LOG-000796,MTR,Medical Kit Supplies,2026-08-23,1.51,units,23,-3.6
+LOG-000797,MTR,Dry Rations,2026-08-23,24.65,kg,23,-3.6
+LOG-000798,MTR,Frozen Rations,2026-08-23,17.52,kg,23,-3.6
+LOG-000799,MTR,Potable Water Treatment Tablets,2026-08-23,3.77,units,23,-3.6
+LOG-000800,MTR,Spare Batteries (AA/Lithium),2026-08-23,1.82,units,23,-3.6
+LOG-000801,MTR,Diesel Fuel,2026-08-24,211.25,litres,26,-4.1
+LOG-000802,MTR,Propane (LPG),2026-08-24,25.87,kg,26,-4.1
+LOG-000803,MTR,Medical Oxygen,2026-08-24,1.15,cylinders,26,-4.1
+LOG-000804,MTR,Medical Kit Supplies,2026-08-24,2.1,units,26,-4.1
+LOG-000805,MTR,Dry Rations,2026-08-24,32.05,kg,26,-4.1
+LOG-000806,MTR,Frozen Rations,2026-08-24,25.17,kg,26,-4.1
+LOG-000807,MTR,Potable Water Treatment Tablets,2026-08-24,2.83,units,26,-4.1
+LOG-000808,MTR,Spare Batteries (AA/Lithium),2026-08-24,3.5,units,26,-4.1
+LOG-000809,MTR,Diesel Fuel,2026-08-25,254.74,litres,24,-4.5
+LOG-000810,MTR,Propane (LPG),2026-08-25,24.97,kg,24,-4.5
+LOG-000811,MTR,Medical Oxygen,2026-08-25,0.54,cylinders,24,-4.5
+LOG-000812,MTR,Medical Kit Supplies,2026-08-25,2.24,units,24,-4.5
+LOG-000813,MTR,Dry Rations,2026-08-25,28.76,kg,24,-4.5
+LOG-000814,MTR,Frozen Rations,2026-08-25,16.53,kg,24,-4.5
+LOG-000815,MTR,Potable Water Treatment Tablets,2026-08-25,4.27,units,24,-4.5
+LOG-000816,MTR,Spare Batteries (AA/Lithium),2026-08-25,1.38,units,24,-4.5
+LOG-000817,MTR,Diesel Fuel,2026-08-26,257.22,litres,23,-5.0
+LOG-000818,MTR,Propane (LPG),2026-08-26,21.08,kg,23,-5.0
+LOG-000819,MTR,Medical Oxygen,2026-08-26,1.0,cylinders,23,-5.0
+LOG-000820,MTR,Medical Kit Supplies,2026-08-26,1.55,units,23,-5.0
+LOG-000821,MTR,Dry Rations,2026-08-26,29.52,kg,23,-5.0
+LOG-000822,MTR,Frozen Rations,2026-08-26,19.74,kg,23,-5.0
+LOG-000823,MTR,Potable Water Treatment Tablets,2026-08-26,2.64,units,23,-5.0
+LOG-000824,MTR,Spare Batteries (AA/Lithium),2026-08-26,1.39,units,23,-5.0
+LOG-000825,MTR,Diesel Fuel,2026-08-27,229.59,litres,25,-5.5
+LOG-000826,MTR,Propane (LPG),2026-08-27,29.04,kg,25,-5.5
+LOG-000827,MTR,Medical Oxygen,2026-08-27,1.07,cylinders,25,-5.5
+LOG-000828,MTR,Medical Kit Supplies,2026-08-27,2.07,units,25,-5.5
+LOG-000829,MTR,Dry Rations,2026-08-27,24.27,kg,25,-5.5
+LOG-000830,MTR,Frozen Rations,2026-08-27,22.73,kg,25,-5.5
+LOG-000831,MTR,Potable Water Treatment Tablets,2026-08-27,3.74,units,25,-5.5
+LOG-000832,MTR,Spare Batteries (AA/Lithium),2026-08-27,3.14,units,25,-5.5
+LOG-000833,MTR,Diesel Fuel,2026-08-28,288.72,litres,27,-6.0
+LOG-000834,MTR,Propane (LPG),2026-08-28,36.57,kg,27,-6.0
+LOG-000835,MTR,Medical Oxygen,2026-08-28,1.0,cylinders,27,-6.0
+LOG-000836,MTR,Medical Kit Supplies,2026-08-28,2.21,units,27,-6.0
+LOG-000837,MTR,Dry Rations,2026-08-28,31.04,kg,27,-6.0
+LOG-000838,MTR,Frozen Rations,2026-08-28,25.53,kg,27,-6.0
+LOG-000839,MTR,Potable Water Treatment Tablets,2026-08-28,4.39,units,27,-6.0
+LOG-000840,MTR,Spare Batteries (AA/Lithium),2026-08-28,1.76,units,27,-6.0
+LOG-000841,MTR,Diesel Fuel,2026-08-29,248.71,litres,23,-6.6
+LOG-000842,MTR,Propane (LPG),2026-08-29,27.11,kg,23,-6.6
+LOG-000843,MTR,Medical Oxygen,2026-08-29,1.01,cylinders,23,-6.6
+LOG-000844,MTR,Medical Kit Supplies,2026-08-29,1.83,units,23,-6.6
+LOG-000845,MTR,Dry Rations,2026-08-29,23.94,kg,23,-6.6
+LOG-000846,MTR,Frozen Rations,2026-08-29,14.48,kg,23,-6.6
+LOG-000847,MTR,Potable Water Treatment Tablets,2026-08-29,3.36,units,23,-6.6
+LOG-000848,MTR,Spare Batteries (AA/Lithium),2026-08-29,1.24,units,23,-6.6
+LOG-000849,MTR,Diesel Fuel,2026-08-30,324.75,litres,25,-7.1
+LOG-000850,MTR,Propane (LPG),2026-08-30,21.15,kg,25,-7.1
+LOG-000851,MTR,Medical Oxygen,2026-08-30,1.15,cylinders,25,-7.1
+LOG-000852,MTR,Medical Kit Supplies,2026-08-30,2.32,units,25,-7.1
+LOG-000853,MTR,Dry Rations,2026-08-30,28.65,kg,25,-7.1
+LOG-000854,MTR,Frozen Rations,2026-08-30,20.07,kg,25,-7.1
+LOG-000855,MTR,Potable Water Treatment Tablets,2026-08-30,3.66,units,25,-7.1
+LOG-000856,MTR,Spare Batteries (AA/Lithium),2026-08-30,2.64,units,25,-7.1
+LOG-000857,MTR,Diesel Fuel,2026-08-31,246.06,litres,23,-7.6
+LOG-000858,MTR,Propane (LPG),2026-08-31,29.58,kg,23,-7.6
+LOG-000859,MTR,Medical Oxygen,2026-08-31,0.91,cylinders,23,-7.6
+LOG-000860,MTR,Medical Kit Supplies,2026-08-31,1.52,units,23,-7.6
+LOG-000861,MTR,Dry Rations,2026-08-31,25.08,kg,23,-7.6
+LOG-000862,MTR,Frozen Rations,2026-08-31,15.19,kg,23,-7.6
+LOG-000863,MTR,Potable Water Treatment Tablets,2026-08-31,2.44,units,23,-7.6
+LOG-000864,MTR,Spare Batteries (AA/Lithium),2026-08-31,1.39,units,23,-7.6
+LOG-000865,MTR,Diesel Fuel,2026-09-01,347.36,litres,25,-8.1
+LOG-000866,MTR,Propane (LPG),2026-09-01,21.26,kg,25,-8.1
+LOG-000867,MTR,Medical Oxygen,2026-09-01,0.98,cylinders,25,-8.1
+LOG-000868,MTR,Medical Kit Supplies,2026-09-01,1.3,units,25,-8.1
+LOG-000869,MTR,Dry Rations,2026-09-01,29.58,kg,25,-8.1
+LOG-000870,MTR,Frozen Rations,2026-09-01,24.91,kg,25,-8.1
+LOG-000871,MTR,Potable Water Treatment Tablets,2026-09-01,3.81,units,25,-8.1
+LOG-000872,MTR,Spare Batteries (AA/Lithium),2026-09-01,2.77,units,25,-8.1
+LOG-000873,MTR,Diesel Fuel,2026-09-02,255.93,litres,25,-8.6
+LOG-000874,MTR,Propane (LPG),2026-09-02,24.24,kg,25,-8.6
+LOG-000875,MTR,Medical Oxygen,2026-09-02,0.81,cylinders,25,-8.6
+LOG-000876,MTR,Medical Kit Supplies,2026-09-02,1.67,units,25,-8.6
+LOG-000877,MTR,Dry Rations,2026-09-02,28.48,kg,25,-8.6
+LOG-000878,MTR,Frozen Rations,2026-09-02,22.89,kg,25,-8.6
+LOG-000879,MTR,Potable Water Treatment Tablets,2026-09-02,4.12,units,25,-8.6
+LOG-000880,MTR,Spare Batteries (AA/Lithium),2026-09-02,1.41,units,25,-8.6
+LOG-000881,MTR,Diesel Fuel,2026-09-03,261.0,litres,23,-9.2
+LOG-000882,MTR,Propane (LPG),2026-09-03,23.73,kg,23,-9.2
+LOG-000883,MTR,Medical Oxygen,2026-09-03,0.63,cylinders,23,-9.2
+LOG-000884,MTR,Medical Kit Supplies,2026-09-03,2.13,units,23,-9.2
+LOG-000885,MTR,Dry Rations,2026-09-03,29.57,kg,23,-9.2
+LOG-000886,MTR,Frozen Rations,2026-09-03,19.34,kg,23,-9.2
+LOG-000887,MTR,Potable Water Treatment Tablets,2026-09-03,2.65,units,23,-9.2
+LOG-000888,MTR,Spare Batteries (AA/Lithium),2026-09-03,1.34,units,23,-9.2
+LOG-000889,MTR,Diesel Fuel,2026-09-04,324.01,litres,24,-9.7
+LOG-000890,MTR,Propane (LPG),2026-09-04,23.67,kg,24,-9.7
+LOG-000891,MTR,Medical Oxygen,2026-09-04,0.95,cylinders,24,-9.7
+LOG-000892,MTR,Medical Kit Supplies,2026-09-04,1.99,units,24,-9.7
+LOG-000893,MTR,Dry Rations,2026-09-04,22.84,kg,24,-9.7
+LOG-000894,MTR,Frozen Rations,2026-09-04,21.2,kg,24,-9.7
+LOG-000895,MTR,Potable Water Treatment Tablets,2026-09-04,2.6,units,24,-9.7
+LOG-000896,MTR,Spare Batteries (AA/Lithium),2026-09-04,2.54,units,24,-9.7
+LOG-000897,MTR,Diesel Fuel,2026-09-05,321.98,litres,25,-10.3
+LOG-000898,MTR,Propane (LPG),2026-09-05,30.05,kg,25,-10.3
+LOG-000899,MTR,Medical Oxygen,2026-09-05,1.12,cylinders,25,-10.3
+LOG-000900,MTR,Medical Kit Supplies,2026-09-05,2.17,units,25,-10.3
+LOG-000901,MTR,Dry Rations,2026-09-05,29.35,kg,25,-10.3
+LOG-000902,MTR,Frozen Rations,2026-09-05,20.26,kg,25,-10.3
+LOG-000903,MTR,Potable Water Treatment Tablets,2026-09-05,4.12,units,25,-10.3
+LOG-000904,MTR,Spare Batteries (AA/Lithium),2026-09-05,2.31,units,25,-10.3
+LOG-000905,MTR,Diesel Fuel,2026-09-06,202.73,litres,25,-10.8
+LOG-000906,MTR,Propane (LPG),2026-09-06,24.63,kg,25,-10.8
+LOG-000907,MTR,Medical Oxygen,2026-09-06,1.21,cylinders,25,-10.8
+LOG-000908,MTR,Medical Kit Supplies,2026-09-06,1.68,units,25,-10.8
+LOG-000909,MTR,Dry Rations,2026-09-06,30.16,kg,25,-10.8
+LOG-000910,MTR,Frozen Rations,2026-09-06,16.92,kg,25,-10.8
+LOG-000911,MTR,Potable Water Treatment Tablets,2026-09-06,5.0,units,25,-10.8
+LOG-000912,MTR,Spare Batteries (AA/Lithium),2026-09-06,1.64,units,25,-10.8
+LOG-000913,MTR,Diesel Fuel,2026-09-07,326.66,litres,25,-11.4
+LOG-000914,MTR,Propane (LPG),2026-09-07,21.52,kg,25,-11.4
+LOG-000915,MTR,Medical Oxygen,2026-09-07,1.08,cylinders,25,-11.4
+LOG-000916,MTR,Medical Kit Supplies,2026-09-07,2.29,units,25,-11.4
+LOG-000917,MTR,Dry Rations,2026-09-07,31.34,kg,25,-11.4
+LOG-000918,MTR,Frozen Rations,2026-09-07,15.38,kg,25,-11.4
+LOG-000919,MTR,Potable Water Treatment Tablets,2026-09-07,3.34,units,25,-11.4
+LOG-000920,MTR,Spare Batteries (AA/Lithium),2026-09-07,3.17,units,25,-11.4
+LOG-000921,MTR,Diesel Fuel,2026-09-08,278.0,litres,24,-11.9
+LOG-000922,MTR,Propane (LPG),2026-09-08,21.42,kg,24,-11.9
+LOG-000923,MTR,Medical Oxygen,2026-09-08,0.61,cylinders,24,-11.9
+LOG-000924,MTR,Medical Kit Supplies,2026-09-08,2.03,units,24,-11.9
+LOG-000925,MTR,Dry Rations,2026-09-08,27.6,kg,24,-11.9
+LOG-000926,MTR,Frozen Rations,2026-09-08,23.07,kg,24,-11.9
+LOG-000927,MTR,Potable Water Treatment Tablets,2026-09-08,4.13,units,24,-11.9
+LOG-000928,MTR,Spare Batteries (AA/Lithium),2026-09-08,1.3,units,24,-11.9
+LOG-000929,MTR,Diesel Fuel,2026-09-09,301.45,litres,25,-12.5
+LOG-000930,MTR,Propane (LPG),2026-09-09,23.56,kg,25,-12.5
+LOG-000931,MTR,Medical Oxygen,2026-09-09,0.83,cylinders,25,-12.5
+LOG-000932,MTR,Medical Kit Supplies,2026-09-09,1.61,units,25,-12.5
+LOG-000933,MTR,Dry Rations,2026-09-09,29.99,kg,25,-12.5
+LOG-000934,MTR,Frozen Rations,2026-09-09,19.49,kg,25,-12.5
+LOG-000935,MTR,Potable Water Treatment Tablets,2026-09-09,3.84,units,25,-12.5
+LOG-000936,MTR,Spare Batteries (AA/Lithium),2026-09-09,2.02,units,25,-12.5
+LOG-000937,MTR,Diesel Fuel,2026-09-10,349.02,litres,26,-13.0
+LOG-000938,MTR,Propane (LPG),2026-09-10,23.83,kg,26,-13.0
+LOG-000939,MTR,Medical Oxygen,2026-09-10,1.05,cylinders,26,-13.0
+LOG-000940,MTR,Medical Kit Supplies,2026-09-10,2.04,units,26,-13.0
+LOG-000941,MTR,Dry Rations,2026-09-10,27.98,kg,26,-13.0
+LOG-000942,MTR,Frozen Rations,2026-09-10,23.6,kg,26,-13.0
+LOG-000943,MTR,Potable Water Treatment Tablets,2026-09-10,4.62,units,26,-13.0
+LOG-000944,MTR,Spare Batteries (AA/Lithium),2026-09-10,2.61,units,26,-13.0
+LOG-000945,MTR,Diesel Fuel,2026-09-11,358.74,litres,26,-13.6
+LOG-000946,MTR,Propane (LPG),2026-09-11,33.54,kg,26,-13.6
+LOG-000947,MTR,Medical Oxygen,2026-09-11,1.14,cylinders,26,-13.6
+LOG-000948,MTR,Medical Kit Supplies,2026-09-11,1.48,units,26,-13.6
+LOG-000949,MTR,Dry Rations,2026-09-11,26.0,kg,26,-13.6
+LOG-000950,MTR,Frozen Rations,2026-09-11,22.27,kg,26,-13.6
+LOG-000951,MTR,Potable Water Treatment Tablets,2026-09-11,4.87,units,26,-13.6
+LOG-000952,MTR,Spare Batteries (AA/Lithium),2026-09-11,2.74,units,26,-13.6
+LOG-000953,MTR,Diesel Fuel,2026-09-12,282.17,litres,23,-14.2
+LOG-000954,MTR,Propane (LPG),2026-09-12,25.52,kg,23,-14.2
+LOG-000955,MTR,Medical Oxygen,2026-09-12,0.55,cylinders,23,-14.2
+LOG-000956,MTR,Medical Kit Supplies,2026-09-12,1.25,units,23,-14.2
+LOG-000957,MTR,Dry Rations,2026-09-12,22.17,kg,23,-14.2
+LOG-000958,MTR,Frozen Rations,2026-09-12,17.93,kg,23,-14.2
+LOG-000959,MTR,Potable Water Treatment Tablets,2026-09-12,3.48,units,23,-14.2
+LOG-000960,MTR,Spare Batteries (AA/Lithium),2026-09-12,3.06,units,23,-14.2
+LOG-000961,BHR,Diesel Fuel,2026-05-16,246.21,litres,18,-0.4
+LOG-000962,BHR,Propane (LPG),2026-05-16,16.8,kg,18,-0.4
+LOG-000963,BHR,Medical Oxygen,2026-05-16,0.6,cylinders,18,-0.4
+LOG-000964,BHR,Medical Kit Supplies,2026-05-16,1.21,units,18,-0.4
+LOG-000965,BHR,Dry Rations,2026-05-16,16.39,kg,18,-0.4
+LOG-000966,BHR,Frozen Rations,2026-05-16,11.18,kg,18,-0.4
+LOG-000967,BHR,Potable Water Treatment Tablets,2026-05-16,2.7,units,18,-0.4
+LOG-000968,BHR,Spare Batteries (AA/Lithium),2026-05-16,1.32,units,18,-0.4
+LOG-000969,BHR,Diesel Fuel,2026-05-17,184.49,litres,18,0.0
+LOG-000970,BHR,Propane (LPG),2026-05-17,14.7,kg,18,0.0
+LOG-000971,BHR,Medical Oxygen,2026-05-17,0.86,cylinders,18,0.0
+LOG-000972,BHR,Medical Kit Supplies,2026-05-17,1.66,units,18,0.0
+LOG-000973,BHR,Dry Rations,2026-05-17,20.88,kg,18,0.0
+LOG-000974,BHR,Frozen Rations,2026-05-17,16.5,kg,18,0.0
+LOG-000975,BHR,Potable Water Treatment Tablets,2026-05-17,2.05,units,18,0.0
+LOG-000976,BHR,Spare Batteries (AA/Lithium),2026-05-17,1.42,units,18,0.0
+LOG-000977,BHR,Diesel Fuel,2026-05-18,255.71,litres,21,0.4
+LOG-000978,BHR,Propane (LPG),2026-05-18,18.55,kg,21,0.4
+LOG-000979,BHR,Medical Oxygen,2026-05-18,0.86,cylinders,21,0.4
+LOG-000980,BHR,Medical Kit Supplies,2026-05-18,1.52,units,21,0.4
+LOG-000981,BHR,Dry Rations,2026-05-18,18.94,kg,21,0.4
+LOG-000982,BHR,Frozen Rations,2026-05-18,13.27,kg,21,0.4
+LOG-000983,BHR,Potable Water Treatment Tablets,2026-05-18,2.64,units,21,0.4
+LOG-000984,BHR,Spare Batteries (AA/Lithium),2026-05-18,2.8,units,21,0.4
+LOG-000985,BHR,Diesel Fuel,2026-05-19,300.11,litres,22,0.8
+LOG-000986,BHR,Propane (LPG),2026-05-19,25.64,kg,22,0.8
+LOG-000987,BHR,Medical Oxygen,2026-05-19,0.72,cylinders,22,0.8
+LOG-000988,BHR,Medical Kit Supplies,2026-05-19,1.95,units,22,0.8
+LOG-000989,BHR,Dry Rations,2026-05-19,21.89,kg,22,0.8
+LOG-000990,BHR,Frozen Rations,2026-05-19,14.27,kg,22,0.8
+LOG-000991,BHR,Potable Water Treatment Tablets,2026-05-19,2.72,units,22,0.8
+LOG-000992,BHR,Spare Batteries (AA/Lithium),2026-05-19,2.51,units,22,0.8
+LOG-000993,BHR,Diesel Fuel,2026-05-20,236.34,litres,22,1.2
+LOG-000994,BHR,Propane (LPG),2026-05-20,19.06,kg,22,1.2
+LOG-000995,BHR,Medical Oxygen,2026-05-20,1.04,cylinders,22,1.2
+LOG-000996,BHR,Medical Kit Supplies,2026-05-20,1.76,units,22,1.2
+LOG-000997,BHR,Dry Rations,2026-05-20,19.94,kg,22,1.2
+LOG-000998,BHR,Frozen Rations,2026-05-20,17.74,kg,22,1.2
+LOG-000999,BHR,Potable Water Treatment Tablets,2026-05-20,2.73,units,22,1.2
+LOG-001000,BHR,Spare Batteries (AA/Lithium),2026-05-20,1.42,units,22,1.2
+LOG-001001,BHR,Diesel Fuel,2026-05-21,168.2,litres,21,1.6
+LOG-001002,BHR,Propane (LPG),2026-05-21,21.25,kg,21,1.6
+LOG-001003,BHR,Medical Oxygen,2026-05-21,0.78,cylinders,21,1.6
+LOG-001004,BHR,Medical Kit Supplies,2026-05-21,1.25,units,21,1.6
+LOG-001005,BHR,Dry Rations,2026-05-21,24.51,kg,21,1.6
+LOG-001006,BHR,Frozen Rations,2026-05-21,17.0,kg,21,1.6
+LOG-001007,BHR,Potable Water Treatment Tablets,2026-05-21,2.86,units,21,1.6
+LOG-001008,BHR,Spare Batteries (AA/Lithium),2026-05-21,3.05,units,21,1.6
+LOG-001009,BHR,Diesel Fuel,2026-05-22,242.97,litres,22,2.0
+LOG-001010,BHR,Propane (LPG),2026-05-22,30.65,kg,22,2.0
+LOG-001011,BHR,Medical Oxygen,2026-05-22,0.81,cylinders,22,2.0
+LOG-001012,BHR,Medical Kit Supplies,2026-05-22,1.53,units,22,2.0
+LOG-001013,BHR,Dry Rations,2026-05-22,23.94,kg,22,2.0
+LOG-001014,BHR,Frozen Rations,2026-05-22,18.79,kg,22,2.0
+LOG-001015,BHR,Potable Water Treatment Tablets,2026-05-22,4.36,units,22,2.0
+LOG-001016,BHR,Spare Batteries (AA/Lithium),2026-05-22,1.66,units,22,2.0
+LOG-001017,BHR,Diesel Fuel,2026-05-23,182.57,litres,18,2.4
+LOG-001018,BHR,Propane (LPG),2026-05-23,15.13,kg,18,2.4
+LOG-001019,BHR,Medical Oxygen,2026-05-23,0.49,cylinders,18,2.4
+LOG-001020,BHR,Medical Kit Supplies,2026-05-23,1.49,units,18,2.4
+LOG-001021,BHR,Dry Rations,2026-05-23,16.95,kg,18,2.4
+LOG-001022,BHR,Frozen Rations,2026-05-23,14.99,kg,18,2.4
+LOG-001023,BHR,Potable Water Treatment Tablets,2026-05-23,3.16,units,18,2.4
+LOG-001024,BHR,Spare Batteries (AA/Lithium),2026-05-23,1.14,units,18,2.4
+LOG-001025,BHR,Diesel Fuel,2026-05-24,225.52,litres,20,2.8
+LOG-001026,BHR,Propane (LPG),2026-05-24,25.76,kg,20,2.8
+LOG-001027,BHR,Medical Oxygen,2026-05-24,0.51,cylinders,20,2.8
+LOG-001028,BHR,Medical Kit Supplies,2026-05-24,1.78,units,20,2.8
+LOG-001029,BHR,Dry Rations,2026-05-24,21.72,kg,20,2.8
+LOG-001030,BHR,Frozen Rations,2026-05-24,17.56,kg,20,2.8
+LOG-001031,BHR,Potable Water Treatment Tablets,2026-05-24,3.26,units,20,2.8
+LOG-001032,BHR,Spare Batteries (AA/Lithium),2026-05-24,2.62,units,20,2.8
+LOG-001033,BHR,Diesel Fuel,2026-05-25,221.33,litres,18,3.1
+LOG-001034,BHR,Propane (LPG),2026-05-25,24.59,kg,18,3.1
+LOG-001035,BHR,Medical Oxygen,2026-05-25,0.38,cylinders,18,3.1
+LOG-001036,BHR,Medical Kit Supplies,2026-05-25,1.08,units,18,3.1
+LOG-001037,BHR,Dry Rations,2026-05-25,21.9,kg,18,3.1
+LOG-001038,BHR,Frozen Rations,2026-05-25,17.18,kg,18,3.1
+LOG-001039,BHR,Potable Water Treatment Tablets,2026-05-25,2.37,units,18,3.1
+LOG-001040,BHR,Spare Batteries (AA/Lithium),2026-05-25,1.46,units,18,3.1
+LOG-001041,BHR,Diesel Fuel,2026-05-26,292.63,litres,21,3.5
+LOG-001042,BHR,Propane (LPG),2026-05-26,23.64,kg,21,3.5
+LOG-001043,BHR,Medical Oxygen,2026-05-26,0.58,cylinders,21,3.5
+LOG-001044,BHR,Medical Kit Supplies,2026-05-26,1.84,units,21,3.5
+LOG-001045,BHR,Dry Rations,2026-05-26,20.51,kg,21,3.5
+LOG-001046,BHR,Frozen Rations,2026-05-26,15.6,kg,21,3.5
+LOG-001047,BHR,Potable Water Treatment Tablets,2026-05-26,3.74,units,21,3.5
+LOG-001048,BHR,Spare Batteries (AA/Lithium),2026-05-26,2.87,units,21,3.5
+LOG-001049,BHR,Diesel Fuel,2026-05-27,192.79,litres,20,3.8
+LOG-001050,BHR,Propane (LPG),2026-05-27,25.59,kg,20,3.8
+LOG-001051,BHR,Medical Oxygen,2026-05-27,0.66,cylinders,20,3.8
+LOG-001052,BHR,Medical Kit Supplies,2026-05-27,1.4,units,20,3.8
+LOG-001053,BHR,Dry Rations,2026-05-27,21.52,kg,20,3.8
+LOG-001054,BHR,Frozen Rations,2026-05-27,19.65,kg,20,3.8
+LOG-001055,BHR,Potable Water Treatment Tablets,2026-05-27,2.68,units,20,3.8
+LOG-001056,BHR,Spare Batteries (AA/Lithium),2026-05-27,1.37,units,20,3.8
+LOG-001057,BHR,Diesel Fuel,2026-05-28,214.29,litres,21,4.2
+LOG-001058,BHR,Propane (LPG),2026-05-28,26.85,kg,21,4.2
+LOG-001059,BHR,Medical Oxygen,2026-05-28,0.59,cylinders,21,4.2
+LOG-001060,BHR,Medical Kit Supplies,2026-05-28,1.14,units,21,4.2
+LOG-001061,BHR,Dry Rations,2026-05-28,22.47,kg,21,4.2
+LOG-001062,BHR,Frozen Rations,2026-05-28,16.22,kg,21,4.2
+LOG-001063,BHR,Potable Water Treatment Tablets,2026-05-28,4.19,units,21,4.2
+LOG-001064,BHR,Spare Batteries (AA/Lithium),2026-05-28,1.43,units,21,4.2
+LOG-001065,BHR,Diesel Fuel,2026-05-29,198.55,litres,20,4.5
+LOG-001066,BHR,Propane (LPG),2026-05-29,16.96,kg,20,4.5
+LOG-001067,BHR,Medical Oxygen,2026-05-29,0.8,cylinders,20,4.5
+LOG-001068,BHR,Medical Kit Supplies,2026-05-29,1.31,units,20,4.5
+LOG-001069,BHR,Dry Rations,2026-05-29,22.82,kg,20,4.5
+LOG-001070,BHR,Frozen Rations,2026-05-29,15.41,kg,20,4.5
+LOG-001071,BHR,Potable Water Treatment Tablets,2026-05-29,3.38,units,20,4.5
+LOG-001072,BHR,Spare Batteries (AA/Lithium),2026-05-29,1.7,units,20,4.5
+LOG-001073,BHR,Diesel Fuel,2026-05-30,222.5,litres,18,4.8
+LOG-001074,BHR,Propane (LPG),2026-05-30,24.25,kg,18,4.8
+LOG-001075,BHR,Medical Oxygen,2026-05-30,0.69,cylinders,18,4.8
+LOG-001076,BHR,Medical Kit Supplies,2026-05-30,1.29,units,18,4.8
+LOG-001077,BHR,Dry Rations,2026-05-30,20.8,kg,18,4.8
+LOG-001078,BHR,Frozen Rations,2026-05-30,16.5,kg,18,4.8
+LOG-001079,BHR,Potable Water Treatment Tablets,2026-05-30,1.9,units,18,4.8
+LOG-001080,BHR,Spare Batteries (AA/Lithium),2026-05-30,2.11,units,18,4.8
+LOG-001081,BHR,Diesel Fuel,2026-05-31,213.78,litres,21,5.1
+LOG-001082,BHR,Propane (LPG),2026-05-31,26.89,kg,21,5.1
+LOG-001083,BHR,Medical Oxygen,2026-05-31,0.85,cylinders,21,5.1
+LOG-001084,BHR,Medical Kit Supplies,2026-05-31,2.05,units,21,5.1
+LOG-001085,BHR,Dry Rations,2026-05-31,20.1,kg,21,5.1
+LOG-001086,BHR,Frozen Rations,2026-05-31,17.7,kg,21,5.1
+LOG-001087,BHR,Potable Water Treatment Tablets,2026-05-31,3.74,units,21,5.1
+LOG-001088,BHR,Spare Batteries (AA/Lithium),2026-05-31,1.12,units,21,5.1
+LOG-001089,BHR,Diesel Fuel,2026-06-01,169.49,litres,18,5.4
+LOG-001090,BHR,Propane (LPG),2026-06-01,21.37,kg,18,5.4
+LOG-001091,BHR,Medical Oxygen,2026-06-01,0.56,cylinders,18,5.4
+LOG-001092,BHR,Medical Kit Supplies,2026-06-01,1.75,units,18,5.4
+LOG-001093,BHR,Dry Rations,2026-06-01,16.43,kg,18,5.4
+LOG-001094,BHR,Frozen Rations,2026-06-01,11.9,kg,18,5.4
+LOG-001095,BHR,Potable Water Treatment Tablets,2026-06-01,2.61,units,18,5.4
+LOG-001096,BHR,Spare Batteries (AA/Lithium),2026-06-01,1.57,units,18,5.4
+LOG-001097,BHR,Diesel Fuel,2026-06-02,264.15,litres,21,5.7
+LOG-001098,BHR,Propane (LPG),2026-06-02,24.03,kg,21,5.7
+LOG-001099,BHR,Medical Oxygen,2026-06-02,0.75,cylinders,21,5.7
+LOG-001100,BHR,Medical Kit Supplies,2026-06-02,1.47,units,21,5.7
+LOG-001101,BHR,Dry Rations,2026-06-02,24.36,kg,21,5.7
+LOG-001102,BHR,Frozen Rations,2026-06-02,14.7,kg,21,5.7
+LOG-001103,BHR,Potable Water Treatment Tablets,2026-06-02,2.34,units,21,5.7
+LOG-001104,BHR,Spare Batteries (AA/Lithium),2026-06-02,2.59,units,21,5.7
+LOG-001105,BHR,Diesel Fuel,2026-06-03,233.24,litres,21,6.0
+LOG-001106,BHR,Propane (LPG),2026-06-03,28.31,kg,21,6.0
+LOG-001107,BHR,Medical Oxygen,2026-06-03,0.49,cylinders,21,6.0
+LOG-001108,BHR,Medical Kit Supplies,2026-06-03,1.86,units,21,6.0
+LOG-001109,BHR,Dry Rations,2026-06-03,24.81,kg,21,6.0
+LOG-001110,BHR,Frozen Rations,2026-06-03,14.4,kg,21,6.0
+LOG-001111,BHR,Potable Water Treatment Tablets,2026-06-03,3.38,units,21,6.0
+LOG-001112,BHR,Spare Batteries (AA/Lithium),2026-06-03,2.51,units,21,6.0
+LOG-001113,BHR,Diesel Fuel,2026-06-04,193.22,litres,21,6.3
+LOG-001114,BHR,Propane (LPG),2026-06-04,18.51,kg,21,6.3
+LOG-001115,BHR,Medical Oxygen,2026-06-04,0.47,cylinders,21,6.3
+LOG-001116,BHR,Medical Kit Supplies,2026-06-04,1.23,units,21,6.3
+LOG-001117,BHR,Dry Rations,2026-06-04,24.89,kg,21,6.3
+LOG-001118,BHR,Frozen Rations,2026-06-04,20.98,kg,21,6.3
+LOG-001119,BHR,Potable Water Treatment Tablets,2026-06-04,3.8,units,21,6.3
+LOG-001120,BHR,Spare Batteries (AA/Lithium),2026-06-04,3.08,units,21,6.3
+LOG-001121,BHR,Diesel Fuel,2026-06-05,240.14,litres,20,6.6
+LOG-001122,BHR,Propane (LPG),2026-06-05,24.51,kg,20,6.6
+LOG-001123,BHR,Medical Oxygen,2026-06-05,0.73,cylinders,20,6.6
+LOG-001124,BHR,Medical Kit Supplies,2026-06-05,1.29,units,20,6.6
+LOG-001125,BHR,Dry Rations,2026-06-05,20.4,kg,20,6.6
+LOG-001126,BHR,Frozen Rations,2026-06-05,13.26,kg,20,6.6
+LOG-001127,BHR,Potable Water Treatment Tablets,2026-06-05,3.42,units,20,6.6
+LOG-001128,BHR,Spare Batteries (AA/Lithium),2026-06-05,2.4,units,20,6.6
+LOG-001129,BHR,Diesel Fuel,2026-06-06,242.48,litres,19,6.8
+LOG-001130,BHR,Propane (LPG),2026-06-06,21.0,kg,19,6.8
+LOG-001131,BHR,Medical Oxygen,2026-06-06,0.45,cylinders,19,6.8
+LOG-001132,BHR,Medical Kit Supplies,2026-06-06,1.14,units,19,6.8
+LOG-001133,BHR,Dry Rations,2026-06-06,18.16,kg,19,6.8
+LOG-001134,BHR,Frozen Rations,2026-06-06,17.41,kg,19,6.8
+LOG-001135,BHR,Potable Water Treatment Tablets,2026-06-06,1.95,units,19,6.8
+LOG-001136,BHR,Spare Batteries (AA/Lithium),2026-06-06,2.0,units,19,6.8
+LOG-001137,BHR,Diesel Fuel,2026-06-07,216.09,litres,20,7.1
+LOG-001138,BHR,Propane (LPG),2026-06-07,27.8,kg,20,7.1
+LOG-001139,BHR,Medical Oxygen,2026-06-07,0.48,cylinders,20,7.1
+LOG-001140,BHR,Medical Kit Supplies,2026-06-07,1.88,units,20,7.1
+LOG-001141,BHR,Dry Rations,2026-06-07,18.53,kg,20,7.1
+LOG-001142,BHR,Frozen Rations,2026-06-07,15.19,kg,20,7.1
+LOG-001143,BHR,Potable Water Treatment Tablets,2026-06-07,3.43,units,20,7.1
+LOG-001144,BHR,Spare Batteries (AA/Lithium),2026-06-07,1.96,units,20,7.1
+LOG-001145,BHR,Diesel Fuel,2026-06-08,264.91,litres,21,7.3
+LOG-001146,BHR,Propane (LPG),2026-06-08,27.17,kg,21,7.3
+LOG-001147,BHR,Medical Oxygen,2026-06-08,0.47,cylinders,21,7.3
+LOG-001148,BHR,Medical Kit Supplies,2026-06-08,2.07,units,21,7.3
+LOG-001149,BHR,Dry Rations,2026-06-08,24.3,kg,21,7.3
+LOG-001150,BHR,Frozen Rations,2026-06-08,16.38,kg,21,7.3
+LOG-001151,BHR,Potable Water Treatment Tablets,2026-06-08,3.53,units,21,7.3
+LOG-001152,BHR,Spare Batteries (AA/Lithium),2026-06-08,1.77,units,21,7.3
+LOG-001153,BHR,Diesel Fuel,2026-06-09,260.45,litres,22,7.5
+LOG-001154,BHR,Propane (LPG),2026-06-09,20.0,kg,22,7.5
+LOG-001155,BHR,Medical Oxygen,2026-06-09,1.08,cylinders,22,7.5
+LOG-001156,BHR,Medical Kit Supplies,2026-06-09,1.58,units,22,7.5
+LOG-001157,BHR,Dry Rations,2026-06-09,27.81,kg,22,7.5
+LOG-001158,BHR,Frozen Rations,2026-06-09,13.69,kg,22,7.5
+LOG-001159,BHR,Potable Water Treatment Tablets,2026-06-09,2.47,units,22,7.5
+LOG-001160,BHR,Spare Batteries (AA/Lithium),2026-06-09,1.44,units,22,7.5
+LOG-001161,BHR,Diesel Fuel,2026-06-10,170.46,litres,19,7.7
+LOG-001162,BHR,Propane (LPG),2026-06-10,25.86,kg,19,7.7
+LOG-001163,BHR,Medical Oxygen,2026-06-10,0.51,cylinders,19,7.7
+LOG-001164,BHR,Medical Kit Supplies,2026-06-10,1.85,units,19,7.7
+LOG-001165,BHR,Dry Rations,2026-06-10,21.04,kg,19,7.7
+LOG-001166,BHR,Frozen Rations,2026-06-10,13.56,kg,19,7.7
+LOG-001167,BHR,Potable Water Treatment Tablets,2026-06-10,2.05,units,19,7.7
+LOG-001168,BHR,Spare Batteries (AA/Lithium),2026-06-10,1.32,units,19,7.7
+LOG-001169,BHR,Diesel Fuel,2026-06-11,212.23,litres,22,7.9
+LOG-001170,BHR,Propane (LPG),2026-06-11,25.85,kg,22,7.9
+LOG-001171,BHR,Medical Oxygen,2026-06-11,0.85,cylinders,22,7.9
+LOG-001172,BHR,Medical Kit Supplies,2026-06-11,1.2,units,22,7.9
+LOG-001173,BHR,Dry Rations,2026-06-11,25.44,kg,22,7.9
+LOG-001174,BHR,Frozen Rations,2026-06-11,18.41,kg,22,7.9
+LOG-001175,BHR,Potable Water Treatment Tablets,2026-06-11,3.48,units,22,7.9
+LOG-001176,BHR,Spare Batteries (AA/Lithium),2026-06-11,1.48,units,22,7.9
+LOG-001177,BHR,Diesel Fuel,2026-06-12,271.12,litres,22,8.1
+LOG-001178,BHR,Propane (LPG),2026-06-12,25.59,kg,22,8.1
+LOG-001179,BHR,Medical Oxygen,2026-06-12,1.0,cylinders,22,8.1
+LOG-001180,BHR,Medical Kit Supplies,2026-06-12,1.72,units,22,8.1
+LOG-001181,BHR,Dry Rations,2026-06-12,27.06,kg,22,8.1
+LOG-001182,BHR,Frozen Rations,2026-06-12,13.45,kg,22,8.1
+LOG-001183,BHR,Potable Water Treatment Tablets,2026-06-12,2.3,units,22,8.1
+LOG-001184,BHR,Spare Batteries (AA/Lithium),2026-06-12,2.51,units,22,8.1
+LOG-001185,BHR,Diesel Fuel,2026-06-13,210.93,litres,22,8.3
+LOG-001186,BHR,Propane (LPG),2026-06-13,20.38,kg,22,8.3
+LOG-001187,BHR,Medical Oxygen,2026-06-13,0.82,cylinders,22,8.3
+LOG-001188,BHR,Medical Kit Supplies,2026-06-13,1.78,units,22,8.3
+LOG-001189,BHR,Dry Rations,2026-06-13,20.07,kg,22,8.3
+LOG-001190,BHR,Frozen Rations,2026-06-13,21.02,kg,22,8.3
+LOG-001191,BHR,Potable Water Treatment Tablets,2026-06-13,3.4,units,22,8.3
+LOG-001192,BHR,Spare Batteries (AA/Lithium),2026-06-13,2.51,units,22,8.3
+LOG-001193,BHR,Diesel Fuel,2026-06-14,217.95,litres,20,8.5
+LOG-001194,BHR,Propane (LPG),2026-06-14,25.66,kg,20,8.5
+LOG-001195,BHR,Medical Oxygen,2026-06-14,0.81,cylinders,20,8.5
+LOG-001196,BHR,Medical Kit Supplies,2026-06-14,1.3,units,20,8.5
+LOG-001197,BHR,Dry Rations,2026-06-14,18.58,kg,20,8.5
+LOG-001198,BHR,Frozen Rations,2026-06-14,12.48,kg,20,8.5
+LOG-001199,BHR,Potable Water Treatment Tablets,2026-06-14,2.88,units,20,8.5
+LOG-001200,BHR,Spare Batteries (AA/Lithium),2026-06-14,1.97,units,20,8.5
+LOG-001201,BHR,Diesel Fuel,2026-06-15,190.78,litres,19,8.7
+LOG-001202,BHR,Propane (LPG),2026-06-15,16.84,kg,19,8.7
+LOG-001203,BHR,Medical Oxygen,2026-06-15,0.87,cylinders,19,8.7
+LOG-001204,BHR,Medical Kit Supplies,2026-06-15,1.25,units,19,8.7
+LOG-001205,BHR,Dry Rations,2026-06-15,24.61,kg,19,8.7
+LOG-001206,BHR,Frozen Rations,2026-06-15,14.02,kg,19,8.7
+LOG-001207,BHR,Potable Water Treatment Tablets,2026-06-15,2.66,units,19,8.7
+LOG-001208,BHR,Spare Batteries (AA/Lithium),2026-06-15,2.4,units,19,8.7
+LOG-001209,BHR,Diesel Fuel,2026-06-16,250.14,litres,22,8.8
+LOG-001210,BHR,Propane (LPG),2026-06-16,21.81,kg,22,8.8
+LOG-001211,BHR,Medical Oxygen,2026-06-16,0.75,cylinders,22,8.8
+LOG-001212,BHR,Medical Kit Supplies,2026-06-16,1.39,units,22,8.8
+LOG-001213,BHR,Dry Rations,2026-06-16,21.98,kg,22,8.8
+LOG-001214,BHR,Frozen Rations,2026-06-16,14.05,kg,22,8.8
+LOG-001215,BHR,Potable Water Treatment Tablets,2026-06-16,2.84,units,22,8.8
+LOG-001216,BHR,Spare Batteries (AA/Lithium),2026-06-16,1.95,units,22,8.8
+LOG-001217,BHR,Diesel Fuel,2026-06-17,231.19,litres,22,9.0
+LOG-001218,BHR,Propane (LPG),2026-06-17,30.31,kg,22,9.0
+LOG-001219,BHR,Medical Oxygen,2026-06-17,1.04,cylinders,22,9.0
+LOG-001220,BHR,Medical Kit Supplies,2026-06-17,1.99,units,22,9.0
+LOG-001221,BHR,Dry Rations,2026-06-17,28.02,kg,22,9.0
+LOG-001222,BHR,Frozen Rations,2026-06-17,19.55,kg,22,9.0
+LOG-001223,BHR,Potable Water Treatment Tablets,2026-06-17,2.62,units,22,9.0
+LOG-001224,BHR,Spare Batteries (AA/Lithium),2026-06-17,1.45,units,22,9.0
+LOG-001225,BHR,Diesel Fuel,2026-06-18,237.62,litres,22,9.1
+LOG-001226,BHR,Propane (LPG),2026-06-18,29.2,kg,22,9.1
+LOG-001227,BHR,Medical Oxygen,2026-06-18,0.77,cylinders,22,9.1
+LOG-001228,BHR,Medical Kit Supplies,2026-06-18,1.2,units,22,9.1
+LOG-001229,BHR,Dry Rations,2026-06-18,23.26,kg,22,9.1
+LOG-001230,BHR,Frozen Rations,2026-06-18,17.22,kg,22,9.1
+LOG-001231,BHR,Potable Water Treatment Tablets,2026-06-18,2.73,units,22,9.1
+LOG-001232,BHR,Spare Batteries (AA/Lithium),2026-06-18,2.38,units,22,9.1
+LOG-001233,BHR,Diesel Fuel,2026-06-19,149.46,litres,18,9.3
+LOG-001234,BHR,Propane (LPG),2026-06-19,19.74,kg,18,9.3
+LOG-001235,BHR,Medical Oxygen,2026-06-19,0.84,cylinders,18,9.3
+LOG-001236,BHR,Medical Kit Supplies,2026-06-19,1.49,units,18,9.3
+LOG-001237,BHR,Dry Rations,2026-06-19,19.59,kg,18,9.3
+LOG-001238,BHR,Frozen Rations,2026-06-19,14.66,kg,18,9.3
+LOG-001239,BHR,Potable Water Treatment Tablets,2026-06-19,3.32,units,18,9.3
+LOG-001240,BHR,Spare Batteries (AA/Lithium),2026-06-19,1.68,units,18,9.3
+LOG-001241,BHR,Diesel Fuel,2026-06-20,247.3,litres,20,9.4
+LOG-001242,BHR,Propane (LPG),2026-06-20,25.17,kg,20,9.4
+LOG-001243,BHR,Medical Oxygen,2026-06-20,0.62,cylinders,20,9.4
+LOG-001244,BHR,Medical Kit Supplies,2026-06-20,1.4,units,20,9.4
+LOG-001245,BHR,Dry Rations,2026-06-20,22.56,kg,20,9.4
+LOG-001246,BHR,Frozen Rations,2026-06-20,13.56,kg,20,9.4
+LOG-001247,BHR,Potable Water Treatment Tablets,2026-06-20,3.11,units,20,9.4
+LOG-001248,BHR,Spare Batteries (AA/Lithium),2026-06-20,1.15,units,20,9.4
+LOG-001249,BHR,Diesel Fuel,2026-06-21,235.45,litres,22,9.5
+LOG-001250,BHR,Propane (LPG),2026-06-21,24.86,kg,22,9.5
+LOG-001251,BHR,Medical Oxygen,2026-06-21,0.98,cylinders,22,9.5
+LOG-001252,BHR,Medical Kit Supplies,2026-06-21,1.79,units,22,9.5
+LOG-001253,BHR,Dry Rations,2026-06-21,25.18,kg,22,9.5
+LOG-001254,BHR,Frozen Rations,2026-06-21,14.33,kg,22,9.5
+LOG-001255,BHR,Potable Water Treatment Tablets,2026-06-21,2.41,units,22,9.5
+LOG-001256,BHR,Spare Batteries (AA/Lithium),2026-06-21,1.92,units,22,9.5
+LOG-001257,BHR,Diesel Fuel,2026-06-22,226.94,litres,20,9.6
+LOG-001258,BHR,Propane (LPG),2026-06-22,20.39,kg,20,9.6
+LOG-001259,BHR,Medical Oxygen,2026-06-22,0.49,cylinders,20,9.6
+LOG-001260,BHR,Medical Kit Supplies,2026-06-22,1.6,units,20,9.6
+LOG-001261,BHR,Dry Rations,2026-06-22,21.21,kg,20,9.6
+LOG-001262,BHR,Frozen Rations,2026-06-22,12.32,kg,20,9.6
+LOG-001263,BHR,Potable Water Treatment Tablets,2026-06-22,2.08,units,20,9.6
+LOG-001264,BHR,Spare Batteries (AA/Lithium),2026-06-22,2.43,units,20,9.6
+LOG-001265,BHR,Diesel Fuel,2026-06-23,233.44,litres,21,9.7
+LOG-001266,BHR,Propane (LPG),2026-06-23,18.68,kg,21,9.7
+LOG-001267,BHR,Medical Oxygen,2026-06-23,0.98,cylinders,21,9.7
+LOG-001268,BHR,Medical Kit Supplies,2026-06-23,1.2,units,21,9.7
+LOG-001269,BHR,Dry Rations,2026-06-23,26.72,kg,21,9.7
+LOG-001270,BHR,Frozen Rations,2026-06-23,15.28,kg,21,9.7
+LOG-001271,BHR,Potable Water Treatment Tablets,2026-06-23,2.93,units,21,9.7
+LOG-001272,BHR,Spare Batteries (AA/Lithium),2026-06-23,2.34,units,21,9.7
+LOG-001273,BHR,Diesel Fuel,2026-06-24,231.25,litres,20,9.7
+LOG-001274,BHR,Propane (LPG),2026-06-24,22.09,kg,20,9.7
+LOG-001275,BHR,Medical Oxygen,2026-06-24,0.71,cylinders,20,9.7
+LOG-001276,BHR,Medical Kit Supplies,2026-06-24,1.49,units,20,9.7
+LOG-001277,BHR,Dry Rations,2026-06-24,22.5,kg,20,9.7
+LOG-001278,BHR,Frozen Rations,2026-06-24,15.8,kg,20,9.7
+LOG-001279,BHR,Potable Water Treatment Tablets,2026-06-24,2.03,units,20,9.7
+LOG-001280,BHR,Spare Batteries (AA/Lithium),2026-06-24,1.66,units,20,9.7
+LOG-001281,BHR,Diesel Fuel,2026-06-25,249.83,litres,18,9.8
+LOG-001282,BHR,Propane (LPG),2026-06-25,20.7,kg,18,9.8
+LOG-001283,BHR,Medical Oxygen,2026-06-25,0.79,cylinders,18,9.8
+LOG-001284,BHR,Medical Kit Supplies,2026-06-25,1.55,units,18,9.8
+LOG-001285,BHR,Dry Rations,2026-06-25,21.15,kg,18,9.8
+LOG-001286,BHR,Frozen Rations,2026-06-25,10.99,kg,18,9.8
+LOG-001287,BHR,Potable Water Treatment Tablets,2026-06-25,2.65,units,18,9.8
+LOG-001288,BHR,Spare Batteries (AA/Lithium),2026-06-25,2.64,units,18,9.8
+LOG-001289,BHR,Diesel Fuel,2026-06-26,252.25,litres,22,9.9
+LOG-001290,BHR,Propane (LPG),2026-06-26,27.12,kg,22,9.9
+LOG-001291,BHR,Medical Oxygen,2026-06-26,0.83,cylinders,22,9.9
+LOG-001292,BHR,Medical Kit Supplies,2026-06-26,1.29,units,22,9.9
+LOG-001293,BHR,Dry Rations,2026-06-26,25.34,kg,22,9.9
+LOG-001294,BHR,Frozen Rations,2026-06-26,18.65,kg,22,9.9
+LOG-001295,BHR,Potable Water Treatment Tablets,2026-06-26,4.05,units,22,9.9
+LOG-001296,BHR,Spare Batteries (AA/Lithium),2026-06-26,1.43,units,22,9.9
+LOG-001297,BHR,Diesel Fuel,2026-06-27,155.6,litres,19,9.9
+LOG-001298,BHR,Propane (LPG),2026-06-27,26.01,kg,19,9.9
+LOG-001299,BHR,Medical Oxygen,2026-06-27,0.44,cylinders,19,9.9
+LOG-001300,BHR,Medical Kit Supplies,2026-06-27,0.97,units,19,9.9
+LOG-001301,BHR,Dry Rations,2026-06-27,19.48,kg,19,9.9
+LOG-001302,BHR,Frozen Rations,2026-06-27,12.55,kg,19,9.9
+LOG-001303,BHR,Potable Water Treatment Tablets,2026-06-27,3.21,units,19,9.9
+LOG-001304,BHR,Spare Batteries (AA/Lithium),2026-06-27,1.73,units,19,9.9
+LOG-001305,BHR,Diesel Fuel,2026-06-28,297.51,litres,22,10.0
+LOG-001306,BHR,Propane (LPG),2026-06-28,29.12,kg,22,10.0
+LOG-001307,BHR,Medical Oxygen,2026-06-28,0.93,cylinders,22,10.0
+LOG-001308,BHR,Medical Kit Supplies,2026-06-28,1.17,units,22,10.0
+LOG-001309,BHR,Dry Rations,2026-06-28,21.02,kg,22,10.0
+LOG-001310,BHR,Frozen Rations,2026-06-28,15.02,kg,22,10.0
+LOG-001311,BHR,Potable Water Treatment Tablets,2026-06-28,2.92,units,22,10.0
+LOG-001312,BHR,Spare Batteries (AA/Lithium),2026-06-28,2.56,units,22,10.0
+LOG-001313,BHR,Diesel Fuel,2026-06-29,225.74,litres,22,10.0
+LOG-001314,BHR,Propane (LPG),2026-06-29,30.23,kg,22,10.0
+LOG-001315,BHR,Medical Oxygen,2026-06-29,0.74,cylinders,22,10.0
+LOG-001316,BHR,Medical Kit Supplies,2026-06-29,1.69,units,22,10.0
+LOG-001317,BHR,Dry Rations,2026-06-29,24.61,kg,22,10.0
+LOG-001318,BHR,Frozen Rations,2026-06-29,19.15,kg,22,10.0
+LOG-001319,BHR,Potable Water Treatment Tablets,2026-06-29,4.11,units,22,10.0
+LOG-001320,BHR,Spare Batteries (AA/Lithium),2026-06-29,2.6,units,22,10.0
+LOG-001321,BHR,Diesel Fuel,2026-06-30,233.21,litres,20,10.0
+LOG-001322,BHR,Propane (LPG),2026-06-30,18.31,kg,20,10.0
+LOG-001323,BHR,Medical Oxygen,2026-06-30,0.55,cylinders,20,10.0
+LOG-001324,BHR,Medical Kit Supplies,2026-06-30,1.56,units,20,10.0
+LOG-001325,BHR,Dry Rations,2026-06-30,19.8,kg,20,10.0
+LOG-001326,BHR,Frozen Rations,2026-06-30,19.78,kg,20,10.0
+LOG-001327,BHR,Potable Water Treatment Tablets,2026-06-30,2.6,units,20,10.0
+LOG-001328,BHR,Spare Batteries (AA/Lithium),2026-06-30,1.58,units,20,10.0
+LOG-001329,BHR,Diesel Fuel,2026-07-01,230.69,litres,19,10.0
+LOG-001330,BHR,Propane (LPG),2026-07-01,20.77,kg,19,10.0
+LOG-001331,BHR,Medical Oxygen,2026-07-01,0.65,cylinders,19,10.0
+LOG-001332,BHR,Medical Kit Supplies,2026-07-01,1.48,units,19,10.0
+LOG-001333,BHR,Dry Rations,2026-07-01,24.2,kg,19,10.0
+LOG-001334,BHR,Frozen Rations,2026-07-01,16.88,kg,19,10.0
+LOG-001335,BHR,Potable Water Treatment Tablets,2026-07-01,2.45,units,19,10.0
+LOG-001336,BHR,Spare Batteries (AA/Lithium),2026-07-01,2.04,units,19,10.0
+LOG-001337,BHR,Diesel Fuel,2026-07-02,226.12,litres,22,10.0
+LOG-001338,BHR,Propane (LPG),2026-07-02,30.54,kg,22,10.0
+LOG-001339,BHR,Medical Oxygen,2026-07-02,0.98,cylinders,22,10.0
+LOG-001340,BHR,Medical Kit Supplies,2026-07-02,2.15,units,22,10.0
+LOG-001341,BHR,Dry Rations,2026-07-02,26.88,kg,22,10.0
+LOG-001342,BHR,Frozen Rations,2026-07-02,15.76,kg,22,10.0
+LOG-001343,BHR,Potable Water Treatment Tablets,2026-07-02,2.83,units,22,10.0
+LOG-001344,BHR,Spare Batteries (AA/Lithium),2026-07-02,2.67,units,22,10.0
+LOG-001345,BHR,Diesel Fuel,2026-07-03,270.88,litres,20,10.0
+LOG-001346,BHR,Propane (LPG),2026-07-03,23.87,kg,20,10.0
+LOG-001347,BHR,Medical Oxygen,2026-07-03,0.85,cylinders,20,10.0
+LOG-001348,BHR,Medical Kit Supplies,2026-07-03,1.21,units,20,10.0
+LOG-001349,BHR,Dry Rations,2026-07-03,24.62,kg,20,10.0
+LOG-001350,BHR,Frozen Rations,2026-07-03,14.17,kg,20,10.0
+LOG-001351,BHR,Potable Water Treatment Tablets,2026-07-03,3.12,units,20,10.0
+LOG-001352,BHR,Spare Batteries (AA/Lithium),2026-07-03,1.54,units,20,10.0
+LOG-001353,BHR,Diesel Fuel,2026-07-04,210.49,litres,18,10.0
+LOG-001354,BHR,Propane (LPG),2026-07-04,20.74,kg,18,10.0
+LOG-001355,BHR,Medical Oxygen,2026-07-04,0.49,cylinders,18,10.0
+LOG-001356,BHR,Medical Kit Supplies,2026-07-04,1.5,units,18,10.0
+LOG-001357,BHR,Dry Rations,2026-07-04,20.02,kg,18,10.0
+LOG-001358,BHR,Frozen Rations,2026-07-04,15.39,kg,18,10.0
+LOG-001359,BHR,Potable Water Treatment Tablets,2026-07-04,1.89,units,18,10.0
+LOG-001360,BHR,Spare Batteries (AA/Lithium),2026-07-04,1.64,units,18,10.0
+LOG-001361,BHR,Diesel Fuel,2026-07-05,180.67,litres,21,9.9
+LOG-001362,BHR,Propane (LPG),2026-07-05,26.51,kg,21,9.9
+LOG-001363,BHR,Medical Oxygen,2026-07-05,0.42,cylinders,21,9.9
+LOG-001364,BHR,Medical Kit Supplies,2026-07-05,1.63,units,21,9.9
+LOG-001365,BHR,Dry Rations,2026-07-05,26.7,kg,21,9.9
+LOG-001366,BHR,Frozen Rations,2026-07-05,16.02,kg,21,9.9
+LOG-001367,BHR,Potable Water Treatment Tablets,2026-07-05,4.06,units,21,9.9
+LOG-001368,BHR,Spare Batteries (AA/Lithium),2026-07-05,2.89,units,21,9.9
+LOG-001369,BHR,Diesel Fuel,2026-07-06,249.97,litres,21,9.9
+LOG-001370,BHR,Propane (LPG),2026-07-06,26.32,kg,21,9.9
+LOG-001371,BHR,Medical Oxygen,2026-07-06,0.6,cylinders,21,9.9
+LOG-001372,BHR,Medical Kit Supplies,2026-07-06,1.35,units,21,9.9
+LOG-001373,BHR,Dry Rations,2026-07-06,19.4,kg,21,9.9
+LOG-001374,BHR,Frozen Rations,2026-07-06,19.06,kg,21,9.9
+LOG-001375,BHR,Potable Water Treatment Tablets,2026-07-06,3.47,units,21,9.9
+LOG-001376,BHR,Spare Batteries (AA/Lithium),2026-07-06,1.54,units,21,9.9
+LOG-001377,BHR,Diesel Fuel,2026-07-07,242.63,litres,18,9.8
+LOG-001378,BHR,Propane (LPG),2026-07-07,16.29,kg,18,9.8
+LOG-001379,BHR,Medical Oxygen,2026-07-07,0.84,cylinders,18,9.8
+LOG-001380,BHR,Medical Kit Supplies,2026-07-07,1.06,units,18,9.8
+LOG-001381,BHR,Dry Rations,2026-07-07,22.82,kg,18,9.8
+LOG-001382,BHR,Frozen Rations,2026-07-07,17.98,kg,18,9.8
+LOG-001383,BHR,Potable Water Treatment Tablets,2026-07-07,2.51,units,18,9.8
+LOG-001384,BHR,Spare Batteries (AA/Lithium),2026-07-07,1.79,units,18,9.8
+LOG-001385,BHR,Diesel Fuel,2026-07-08,265.21,litres,20,9.7
+LOG-001386,BHR,Propane (LPG),2026-07-08,16.11,kg,20,9.7
+LOG-001387,BHR,Medical Oxygen,2026-07-08,0.74,cylinders,20,9.7
+LOG-001388,BHR,Medical Kit Supplies,2026-07-08,1.11,units,20,9.7
+LOG-001389,BHR,Dry Rations,2026-07-08,25.86,kg,20,9.7
+LOG-001390,BHR,Frozen Rations,2026-07-08,14.28,kg,20,9.7
+LOG-001391,BHR,Potable Water Treatment Tablets,2026-07-08,3.98,units,20,9.7
+LOG-001392,BHR,Spare Batteries (AA/Lithium),2026-07-08,2.09,units,20,9.7
+LOG-001393,BHR,Diesel Fuel,2026-07-09,280.05,litres,21,9.7
+LOG-001394,BHR,Propane (LPG),2026-07-09,18.49,kg,21,9.7
+LOG-001395,BHR,Medical Oxygen,2026-07-09,0.74,cylinders,21,9.7
+LOG-001396,BHR,Medical Kit Supplies,2026-07-09,1.34,units,21,9.7
+LOG-001397,BHR,Dry Rations,2026-07-09,25.69,kg,21,9.7
+LOG-001398,BHR,Frozen Rations,2026-07-09,15.38,kg,21,9.7
+LOG-001399,BHR,Potable Water Treatment Tablets,2026-07-09,3.64,units,21,9.7
+LOG-001400,BHR,Spare Batteries (AA/Lithium),2026-07-09,2.41,units,21,9.7
+LOG-001401,BHR,Diesel Fuel,2026-07-10,153.61,litres,19,9.6
+LOG-001402,BHR,Propane (LPG),2026-07-10,19.04,kg,19,9.6
+LOG-001403,BHR,Medical Oxygen,2026-07-10,0.55,cylinders,19,9.6
+LOG-001404,BHR,Medical Kit Supplies,2026-07-10,1.59,units,19,9.6
+LOG-001405,BHR,Dry Rations,2026-07-10,18.57,kg,19,9.6
+LOG-001406,BHR,Frozen Rations,2026-07-10,16.04,kg,19,9.6
+LOG-001407,BHR,Potable Water Treatment Tablets,2026-07-10,3.11,units,19,9.6
+LOG-001408,BHR,Spare Batteries (AA/Lithium),2026-07-10,1.72,units,19,9.6
+LOG-001409,BHR,Diesel Fuel,2026-07-11,232.93,litres,21,9.5
+LOG-001410,BHR,Propane (LPG),2026-07-11,17.89,kg,21,9.5
+LOG-001411,BHR,Medical Oxygen,2026-07-11,0.84,cylinders,21,9.5
+LOG-001412,BHR,Medical Kit Supplies,2026-07-11,1.24,units,21,9.5
+LOG-001413,BHR,Dry Rations,2026-07-11,20.08,kg,21,9.5
+LOG-001414,BHR,Frozen Rations,2026-07-11,15.32,kg,21,9.5
+LOG-001415,BHR,Potable Water Treatment Tablets,2026-07-11,2.62,units,21,9.5
+LOG-001416,BHR,Spare Batteries (AA/Lithium),2026-07-11,1.6,units,21,9.5
+LOG-001417,BHR,Diesel Fuel,2026-07-12,202.93,litres,19,9.4
+LOG-001418,BHR,Propane (LPG),2026-07-12,18.24,kg,19,9.4
+LOG-001419,BHR,Medical Oxygen,2026-07-12,0.57,cylinders,19,9.4
+LOG-001420,BHR,Medical Kit Supplies,2026-07-12,1.5,units,19,9.4
+LOG-001421,BHR,Dry Rations,2026-07-12,21.45,kg,19,9.4
+LOG-001422,BHR,Frozen Rations,2026-07-12,13.39,kg,19,9.4
+LOG-001423,BHR,Potable Water Treatment Tablets,2026-07-12,2.58,units,19,9.4
+LOG-001424,BHR,Spare Batteries (AA/Lithium),2026-07-12,1.4,units,19,9.4
+LOG-001425,BHR,Diesel Fuel,2026-07-13,194.26,litres,18,9.3
+LOG-001426,BHR,Propane (LPG),2026-07-13,16.12,kg,18,9.3
+LOG-001427,BHR,Medical Oxygen,2026-07-13,0.73,cylinders,18,9.3
+LOG-001428,BHR,Medical Kit Supplies,2026-07-13,1.73,units,18,9.3
+LOG-001429,BHR,Dry Rations,2026-07-13,22.59,kg,18,9.3
+LOG-001430,BHR,Frozen Rations,2026-07-13,16.34,kg,18,9.3
+LOG-001431,BHR,Potable Water Treatment Tablets,2026-07-13,3.04,units,18,9.3
+LOG-001432,BHR,Spare Batteries (AA/Lithium),2026-07-13,2.05,units,18,9.3
+LOG-001433,BHR,Diesel Fuel,2026-07-14,204.11,litres,20,9.1
+LOG-001434,BHR,Propane (LPG),2026-07-14,18.65,kg,20,9.1
+LOG-001435,BHR,Medical Oxygen,2026-07-14,0.97,cylinders,20,9.1
+LOG-001436,BHR,Medical Kit Supplies,2026-07-14,1.48,units,20,9.1
+LOG-001437,BHR,Dry Rations,2026-07-14,21.64,kg,20,9.1
+LOG-001438,BHR,Frozen Rations,2026-07-14,19.91,kg,20,9.1
+LOG-001439,BHR,Potable Water Treatment Tablets,2026-07-14,2.75,units,20,9.1
+LOG-001440,BHR,Spare Batteries (AA/Lithium),2026-07-14,2.4,units,20,9.1
+LOG-001441,BHR,Diesel Fuel,2026-07-15,263.43,litres,21,9.0
+LOG-001442,BHR,Propane (LPG),2026-07-15,26.91,kg,21,9.0
+LOG-001443,BHR,Medical Oxygen,2026-07-15,0.94,cylinders,21,9.0
+LOG-001444,BHR,Medical Kit Supplies,2026-07-15,1.85,units,21,9.0
+LOG-001445,BHR,Dry Rations,2026-07-15,24.61,kg,21,9.0
+LOG-001446,BHR,Frozen Rations,2026-07-15,17.6,kg,21,9.0
+LOG-001447,BHR,Potable Water Treatment Tablets,2026-07-15,3.75,units,21,9.0
+LOG-001448,BHR,Spare Batteries (AA/Lithium),2026-07-15,2.15,units,21,9.0
+LOG-001449,BHR,Diesel Fuel,2026-07-16,268.9,litres,22,8.8
+LOG-001450,BHR,Propane (LPG),2026-07-16,18.63,kg,22,8.8
+LOG-001451,BHR,Medical Oxygen,2026-07-16,0.81,cylinders,22,8.8
+LOG-001452,BHR,Medical Kit Supplies,2026-07-16,1.17,units,22,8.8
+LOG-001453,BHR,Dry Rations,2026-07-16,24.62,kg,22,8.8
+LOG-001454,BHR,Frozen Rations,2026-07-16,17.65,kg,22,8.8
+LOG-001455,BHR,Potable Water Treatment Tablets,2026-07-16,3.46,units,22,8.8
+LOG-001456,BHR,Spare Batteries (AA/Lithium),2026-07-16,1.43,units,22,8.8
+LOG-001457,BHR,Diesel Fuel,2026-07-17,262.54,litres,20,8.7
+LOG-001458,BHR,Propane (LPG),2026-07-17,21.3,kg,20,8.7
+LOG-001459,BHR,Medical Oxygen,2026-07-17,0.81,cylinders,20,8.7
+LOG-001460,BHR,Medical Kit Supplies,2026-07-17,1.72,units,20,8.7
+LOG-001461,BHR,Dry Rations,2026-07-17,21.91,kg,20,8.7
+LOG-001462,BHR,Frozen Rations,2026-07-17,19.19,kg,20,8.7
+LOG-001463,BHR,Potable Water Treatment Tablets,2026-07-17,2.89,units,20,8.7
+LOG-001464,BHR,Spare Batteries (AA/Lithium),2026-07-17,1.11,units,20,8.7
+LOG-001465,BHR,Diesel Fuel,2026-07-18,210.51,litres,19,8.5
+LOG-001466,BHR,Propane (LPG),2026-07-18,20.41,kg,19,8.5
+LOG-001467,BHR,Medical Oxygen,2026-07-18,0.41,cylinders,19,8.5
+LOG-001468,BHR,Medical Kit Supplies,2026-07-18,1.39,units,19,8.5
+LOG-001469,BHR,Dry Rations,2026-07-18,23.23,kg,19,8.5
+LOG-001470,BHR,Frozen Rations,2026-07-18,16.9,kg,19,8.5
+LOG-001471,BHR,Potable Water Treatment Tablets,2026-07-18,2.65,units,19,8.5
+LOG-001472,BHR,Spare Batteries (AA/Lithium),2026-07-18,2.5,units,19,8.5
+LOG-001473,BHR,Diesel Fuel,2026-07-19,217.93,litres,19,8.3
+LOG-001474,BHR,Propane (LPG),2026-07-19,15.72,kg,19,8.3
+LOG-001475,BHR,Medical Oxygen,2026-07-19,0.58,cylinders,19,8.3
+LOG-001476,BHR,Medical Kit Supplies,2026-07-19,1.01,units,19,8.3
+LOG-001477,BHR,Dry Rations,2026-07-19,24.66,kg,19,8.3
+LOG-001478,BHR,Frozen Rations,2026-07-19,18.5,kg,19,8.3
+LOG-001479,BHR,Potable Water Treatment Tablets,2026-07-19,2.03,units,19,8.3
+LOG-001480,BHR,Spare Batteries (AA/Lithium),2026-07-19,2.72,units,19,8.3
+LOG-001481,BHR,Diesel Fuel,2026-07-20,175.01,litres,18,8.1
+LOG-001482,BHR,Propane (LPG),2026-07-20,16.34,kg,18,8.1
+LOG-001483,BHR,Medical Oxygen,2026-07-20,0.43,cylinders,18,8.1
+LOG-001484,BHR,Medical Kit Supplies,2026-07-20,1.48,units,18,8.1
+LOG-001485,BHR,Dry Rations,2026-07-20,21.45,kg,18,8.1
+LOG-001486,BHR,Frozen Rations,2026-07-20,17.74,kg,18,8.1
+LOG-001487,BHR,Potable Water Treatment Tablets,2026-07-20,2.47,units,18,8.1
+LOG-001488,BHR,Spare Batteries (AA/Lithium),2026-07-20,2.5,units,18,8.1
+LOG-001489,BHR,Diesel Fuel,2026-07-21,277.57,litres,21,7.9
+LOG-001490,BHR,Propane (LPG),2026-07-21,28.23,kg,21,7.9
+LOG-001491,BHR,Medical Oxygen,2026-07-21,0.66,cylinders,21,7.9
+LOG-001492,BHR,Medical Kit Supplies,2026-07-21,1.77,units,21,7.9
+LOG-001493,BHR,Dry Rations,2026-07-21,24.46,kg,21,7.9
+LOG-001494,BHR,Frozen Rations,2026-07-21,17.13,kg,21,7.9
+LOG-001495,BHR,Potable Water Treatment Tablets,2026-07-21,3.47,units,21,7.9
+LOG-001496,BHR,Spare Batteries (AA/Lithium),2026-07-21,1.78,units,21,7.9
+LOG-001497,BHR,Diesel Fuel,2026-07-22,265.18,litres,19,7.7
+LOG-001498,BHR,Propane (LPG),2026-07-22,19.68,kg,19,7.7
+LOG-001499,BHR,Medical Oxygen,2026-07-22,0.45,cylinders,19,7.7
+LOG-001500,BHR,Medical Kit Supplies,2026-07-22,1.88,units,19,7.7
+LOG-001501,BHR,Dry Rations,2026-07-22,23.44,kg,19,7.7
+LOG-001502,BHR,Frozen Rations,2026-07-22,17.15,kg,19,7.7
+LOG-001503,BHR,Potable Water Treatment Tablets,2026-07-22,3.76,units,19,7.7
+LOG-001504,BHR,Spare Batteries (AA/Lithium),2026-07-22,1.83,units,19,7.7
+LOG-001505,BHR,Diesel Fuel,2026-07-23,231.98,litres,22,7.5
+LOG-001506,BHR,Propane (LPG),2026-07-23,22.61,kg,22,7.5
+LOG-001507,BHR,Medical Oxygen,2026-07-23,0.59,cylinders,22,7.5
+LOG-001508,BHR,Medical Kit Supplies,2026-07-23,1.61,units,22,7.5
+LOG-001509,BHR,Dry Rations,2026-07-23,21.17,kg,22,7.5
+LOG-001510,BHR,Frozen Rations,2026-07-23,14.86,kg,22,7.5
+LOG-001511,BHR,Potable Water Treatment Tablets,2026-07-23,4.13,units,22,7.5
+LOG-001512,BHR,Spare Batteries (AA/Lithium),2026-07-23,2.78,units,22,7.5
+LOG-001513,BHR,Diesel Fuel,2026-07-24,231.42,litres,18,7.3
+LOG-001514,BHR,Propane (LPG),2026-07-24,18.93,kg,18,7.3
+LOG-001515,BHR,Medical Oxygen,2026-07-24,0.77,cylinders,18,7.3
+LOG-001516,BHR,Medical Kit Supplies,2026-07-24,1.7,units,18,7.3
+LOG-001517,BHR,Dry Rations,2026-07-24,16.31,kg,18,7.3
+LOG-001518,BHR,Frozen Rations,2026-07-24,12.28,kg,18,7.3
+LOG-001519,BHR,Potable Water Treatment Tablets,2026-07-24,1.98,units,18,7.3
+LOG-001520,BHR,Spare Batteries (AA/Lithium),2026-07-24,0.96,units,18,7.3
+LOG-001521,BHR,Diesel Fuel,2026-07-25,264.71,litres,22,7.1
+LOG-001522,BHR,Propane (LPG),2026-07-25,29.11,kg,22,7.1
+LOG-001523,BHR,Medical Oxygen,2026-07-25,0.6,cylinders,22,7.1
+LOG-001524,BHR,Medical Kit Supplies,2026-07-25,1.15,units,22,7.1
+LOG-001525,BHR,Dry Rations,2026-07-25,23.66,kg,22,7.1
+LOG-001526,BHR,Frozen Rations,2026-07-25,17.95,kg,22,7.1
+LOG-001527,BHR,Potable Water Treatment Tablets,2026-07-25,3.86,units,22,7.1
+LOG-001528,BHR,Spare Batteries (AA/Lithium),2026-07-25,2.81,units,22,7.1
+LOG-001529,BHR,Diesel Fuel,2026-07-26,209.44,litres,19,6.8
+LOG-001530,BHR,Propane (LPG),2026-07-26,18.5,kg,19,6.8
+LOG-001531,BHR,Medical Oxygen,2026-07-26,0.84,cylinders,19,6.8
+LOG-001532,BHR,Medical Kit Supplies,2026-07-26,1.64,units,19,6.8
+LOG-001533,BHR,Dry Rations,2026-07-26,19.52,kg,19,6.8
+LOG-001534,BHR,Frozen Rations,2026-07-26,15.94,kg,19,6.8
+LOG-001535,BHR,Potable Water Treatment Tablets,2026-07-26,3.18,units,19,6.8
+LOG-001536,BHR,Spare Batteries (AA/Lithium),2026-07-26,1.56,units,19,6.8
+LOG-001537,BHR,Diesel Fuel,2026-07-27,265.15,litres,20,6.6
+LOG-001538,BHR,Propane (LPG),2026-07-27,27.83,kg,20,6.6
+LOG-001539,BHR,Medical Oxygen,2026-07-27,0.71,cylinders,20,6.6
+LOG-001540,BHR,Medical Kit Supplies,2026-07-27,1.41,units,20,6.6
+LOG-001541,BHR,Dry Rations,2026-07-27,20.2,kg,20,6.6
+LOG-001542,BHR,Frozen Rations,2026-07-27,16.45,kg,20,6.6
+LOG-001543,BHR,Potable Water Treatment Tablets,2026-07-27,3.18,units,20,6.6
+LOG-001544,BHR,Spare Batteries (AA/Lithium),2026-07-27,2.47,units,20,6.6
+LOG-001545,BHR,Diesel Fuel,2026-07-28,223.36,litres,19,6.3
+LOG-001546,BHR,Propane (LPG),2026-07-28,20.07,kg,19,6.3
+LOG-001547,BHR,Medical Oxygen,2026-07-28,0.66,cylinders,19,6.3
+LOG-001548,BHR,Medical Kit Supplies,2026-07-28,1.87,units,19,6.3
+LOG-001549,BHR,Dry Rations,2026-07-28,24.26,kg,19,6.3
+LOG-001550,BHR,Frozen Rations,2026-07-28,16.5,kg,19,6.3
+LOG-001551,BHR,Potable Water Treatment Tablets,2026-07-28,3.39,units,19,6.3
+LOG-001552,BHR,Spare Batteries (AA/Lithium),2026-07-28,1.56,units,19,6.3
+LOG-001553,BHR,Diesel Fuel,2026-07-29,219.44,litres,21,6.0
+LOG-001554,BHR,Propane (LPG),2026-07-29,20.58,kg,21,6.0
+LOG-001555,BHR,Medical Oxygen,2026-07-29,0.54,cylinders,21,6.0
+LOG-001556,BHR,Medical Kit Supplies,2026-07-29,1.61,units,21,6.0
+LOG-001557,BHR,Dry Rations,2026-07-29,20.92,kg,21,6.0
+LOG-001558,BHR,Frozen Rations,2026-07-29,14.49,kg,21,6.0
+LOG-001559,BHR,Potable Water Treatment Tablets,2026-07-29,3.9,units,21,6.0
+LOG-001560,BHR,Spare Batteries (AA/Lithium),2026-07-29,1.35,units,21,6.0
+LOG-001561,BHR,Diesel Fuel,2026-07-30,283.26,litres,21,5.7
+LOG-001562,BHR,Propane (LPG),2026-07-30,23.89,kg,21,5.7
+LOG-001563,BHR,Medical Oxygen,2026-07-30,1.03,cylinders,21,5.7
+LOG-001564,BHR,Medical Kit Supplies,2026-07-30,1.64,units,21,5.7
+LOG-001565,BHR,Dry Rations,2026-07-30,20.03,kg,21,5.7
+LOG-001566,BHR,Frozen Rations,2026-07-30,14.64,kg,21,5.7
+LOG-001567,BHR,Potable Water Treatment Tablets,2026-07-30,2.53,units,21,5.7
+LOG-001568,BHR,Spare Batteries (AA/Lithium),2026-07-30,2.41,units,21,5.7
+LOG-001569,BHR,Diesel Fuel,2026-07-31,274.74,litres,21,5.4
+LOG-001570,BHR,Propane (LPG),2026-07-31,17.97,kg,21,5.4
+LOG-001571,BHR,Medical Oxygen,2026-07-31,0.88,cylinders,21,5.4
+LOG-001572,BHR,Medical Kit Supplies,2026-07-31,1.25,units,21,5.4
+LOG-001573,BHR,Dry Rations,2026-07-31,21.16,kg,21,5.4
+LOG-001574,BHR,Frozen Rations,2026-07-31,18.26,kg,21,5.4
+LOG-001575,BHR,Potable Water Treatment Tablets,2026-07-31,3.37,units,21,5.4
+LOG-001576,BHR,Spare Batteries (AA/Lithium),2026-07-31,2.88,units,21,5.4
+LOG-001577,BHR,Diesel Fuel,2026-08-01,243.73,litres,19,5.1
+LOG-001578,BHR,Propane (LPG),2026-08-01,21.9,kg,19,5.1
+LOG-001579,BHR,Medical Oxygen,2026-08-01,0.76,cylinders,19,5.1
+LOG-001580,BHR,Medical Kit Supplies,2026-08-01,1.16,units,19,5.1
+LOG-001581,BHR,Dry Rations,2026-08-01,18.69,kg,19,5.1
+LOG-001582,BHR,Frozen Rations,2026-08-01,18.29,kg,19,5.1
+LOG-001583,BHR,Potable Water Treatment Tablets,2026-08-01,2.48,units,19,5.1
+LOG-001584,BHR,Spare Batteries (AA/Lithium),2026-08-01,2.68,units,19,5.1
+LOG-001585,BHR,Diesel Fuel,2026-08-02,258.84,litres,19,4.8
+LOG-001586,BHR,Propane (LPG),2026-08-02,26.17,kg,19,4.8
+LOG-001587,BHR,Medical Oxygen,2026-08-02,0.45,cylinders,19,4.8
+LOG-001588,BHR,Medical Kit Supplies,2026-08-02,1.9,units,19,4.8
+LOG-001589,BHR,Dry Rations,2026-08-02,20.74,kg,19,4.8
+LOG-001590,BHR,Frozen Rations,2026-08-02,13.24,kg,19,4.8
+LOG-001591,BHR,Potable Water Treatment Tablets,2026-08-02,3.05,units,19,4.8
+LOG-001592,BHR,Spare Batteries (AA/Lithium),2026-08-02,1.34,units,19,4.8
+LOG-001593,BHR,Diesel Fuel,2026-08-03,214.94,litres,19,4.5
+LOG-001594,BHR,Propane (LPG),2026-08-03,24.04,kg,19,4.5
+LOG-001595,BHR,Medical Oxygen,2026-08-03,0.6,cylinders,19,4.5
+LOG-001596,BHR,Medical Kit Supplies,2026-08-03,1.46,units,19,4.5
+LOG-001597,BHR,Dry Rations,2026-08-03,19.83,kg,19,4.5
+LOG-001598,BHR,Frozen Rations,2026-08-03,13.39,kg,19,4.5
+LOG-001599,BHR,Potable Water Treatment Tablets,2026-08-03,2.87,units,19,4.5
+LOG-001600,BHR,Spare Batteries (AA/Lithium),2026-08-03,1.89,units,19,4.5
+LOG-001601,BHR,Diesel Fuel,2026-08-04,230.7,litres,18,4.2
+LOG-001602,BHR,Propane (LPG),2026-08-04,22.2,kg,18,4.2
+LOG-001603,BHR,Medical Oxygen,2026-08-04,0.77,cylinders,18,4.2
+LOG-001604,BHR,Medical Kit Supplies,2026-08-04,1.19,units,18,4.2
+LOG-001605,BHR,Dry Rations,2026-08-04,17.66,kg,18,4.2
+LOG-001606,BHR,Frozen Rations,2026-08-04,13.05,kg,18,4.2
+LOG-001607,BHR,Potable Water Treatment Tablets,2026-08-04,1.88,units,18,4.2
+LOG-001608,BHR,Spare Batteries (AA/Lithium),2026-08-04,2.46,units,18,4.2
+LOG-001609,BHR,Diesel Fuel,2026-08-05,153.85,litres,19,3.8
+LOG-001610,BHR,Propane (LPG),2026-08-05,21.51,kg,19,3.8
+LOG-001611,BHR,Medical Oxygen,2026-08-05,0.71,cylinders,19,3.8
+LOG-001612,BHR,Medical Kit Supplies,2026-08-05,1.63,units,19,3.8
+LOG-001613,BHR,Dry Rations,2026-08-05,19.34,kg,19,3.8
+LOG-001614,BHR,Frozen Rations,2026-08-05,12.89,kg,19,3.8
+LOG-001615,BHR,Potable Water Treatment Tablets,2026-08-05,2.34,units,19,3.8
+LOG-001616,BHR,Spare Batteries (AA/Lithium),2026-08-05,2.03,units,19,3.8
+LOG-001617,BHR,Diesel Fuel,2026-08-06,208.92,litres,19,3.5
+LOG-001618,BHR,Propane (LPG),2026-08-06,22.66,kg,19,3.5
+LOG-001619,BHR,Medical Oxygen,2026-08-06,0.77,cylinders,19,3.5
+LOG-001620,BHR,Medical Kit Supplies,2026-08-06,1.19,units,19,3.5
+LOG-001621,BHR,Dry Rations,2026-08-06,23.34,kg,19,3.5
+LOG-001622,BHR,Frozen Rations,2026-08-06,18.75,kg,19,3.5
+LOG-001623,BHR,Potable Water Treatment Tablets,2026-08-06,3.12,units,19,3.5
+LOG-001624,BHR,Spare Batteries (AA/Lithium),2026-08-06,1.88,units,19,3.5
+LOG-001625,BHR,Diesel Fuel,2026-08-07,235.54,litres,19,3.1
+LOG-001626,BHR,Propane (LPG),2026-08-07,19.21,kg,19,3.1
+LOG-001627,BHR,Medical Oxygen,2026-08-07,0.46,cylinders,19,3.1
+LOG-001628,BHR,Medical Kit Supplies,2026-08-07,1.47,units,19,3.1
+LOG-001629,BHR,Dry Rations,2026-08-07,18.5,kg,19,3.1
+LOG-001630,BHR,Frozen Rations,2026-08-07,18.16,kg,19,3.1
+LOG-001631,BHR,Potable Water Treatment Tablets,2026-08-07,3.78,units,19,3.1
+LOG-001632,BHR,Spare Batteries (AA/Lithium),2026-08-07,2.77,units,19,3.1
+LOG-001633,BHR,Diesel Fuel,2026-08-08,180.46,litres,22,2.8
+LOG-001634,BHR,Propane (LPG),2026-08-08,28.78,kg,22,2.8
+LOG-001635,BHR,Medical Oxygen,2026-08-08,1.06,cylinders,22,2.8
+LOG-001636,BHR,Medical Kit Supplies,2026-08-08,1.84,units,22,2.8
+LOG-001637,BHR,Dry Rations,2026-08-08,26.53,kg,22,2.8
+LOG-001638,BHR,Frozen Rations,2026-08-08,16.83,kg,22,2.8
+LOG-001639,BHR,Potable Water Treatment Tablets,2026-08-08,4.05,units,22,2.8
+LOG-001640,BHR,Spare Batteries (AA/Lithium),2026-08-08,1.61,units,22,2.8
+LOG-001641,BHR,Diesel Fuel,2026-08-09,153.04,litres,19,2.4
+LOG-001642,BHR,Propane (LPG),2026-08-09,20.97,kg,19,2.4
+LOG-001643,BHR,Medical Oxygen,2026-08-09,0.59,cylinders,19,2.4
+LOG-001644,BHR,Medical Kit Supplies,2026-08-09,1.54,units,19,2.4
+LOG-001645,BHR,Dry Rations,2026-08-09,22.17,kg,19,2.4
+LOG-001646,BHR,Frozen Rations,2026-08-09,16.09,kg,19,2.4
+LOG-001647,BHR,Potable Water Treatment Tablets,2026-08-09,2.82,units,19,2.4
+LOG-001648,BHR,Spare Batteries (AA/Lithium),2026-08-09,1.88,units,19,2.4
+LOG-001649,BHR,Diesel Fuel,2026-08-10,201.48,litres,18,2.0
+LOG-001650,BHR,Propane (LPG),2026-08-10,18.84,kg,18,2.0
+LOG-001651,BHR,Medical Oxygen,2026-08-10,0.37,cylinders,18,2.0
+LOG-001652,BHR,Medical Kit Supplies,2026-08-10,1.55,units,18,2.0
+LOG-001653,BHR,Dry Rations,2026-08-10,20.06,kg,18,2.0
+LOG-001654,BHR,Frozen Rations,2026-08-10,12.86,kg,18,2.0
+LOG-001655,BHR,Potable Water Treatment Tablets,2026-08-10,2.7,units,18,2.0
+LOG-001656,BHR,Spare Batteries (AA/Lithium),2026-08-10,2.16,units,18,2.0
+LOG-001657,BHR,Diesel Fuel,2026-08-11,269.58,litres,21,1.6
+LOG-001658,BHR,Propane (LPG),2026-08-11,28.26,kg,21,1.6
+LOG-001659,BHR,Medical Oxygen,2026-08-11,0.49,cylinders,21,1.6
+LOG-001660,BHR,Medical Kit Supplies,2026-08-11,1.15,units,21,1.6
+LOG-001661,BHR,Dry Rations,2026-08-11,20.15,kg,21,1.6
+LOG-001662,BHR,Frozen Rations,2026-08-11,14.21,kg,21,1.6
+LOG-001663,BHR,Potable Water Treatment Tablets,2026-08-11,3.21,units,21,1.6
+LOG-001664,BHR,Spare Batteries (AA/Lithium),2026-08-11,2.76,units,21,1.6
+LOG-001665,BHR,Diesel Fuel,2026-08-12,255.39,litres,20,1.2
+LOG-001666,BHR,Propane (LPG),2026-08-12,16.95,kg,20,1.2
+LOG-001667,BHR,Medical Oxygen,2026-08-12,0.98,cylinders,20,1.2
+LOG-001668,BHR,Medical Kit Supplies,2026-08-12,1.46,units,20,1.2
+LOG-001669,BHR,Dry Rations,2026-08-12,19.95,kg,20,1.2
+LOG-001670,BHR,Frozen Rations,2026-08-12,17.58,kg,20,1.2
+LOG-001671,BHR,Potable Water Treatment Tablets,2026-08-12,2.6,units,20,1.2
+LOG-001672,BHR,Spare Batteries (AA/Lithium),2026-08-12,2.66,units,20,1.2
+LOG-001673,BHR,Diesel Fuel,2026-08-13,214.6,litres,18,0.8
+LOG-001674,BHR,Propane (LPG),2026-08-13,23.67,kg,18,0.8
+LOG-001675,BHR,Medical Oxygen,2026-08-13,0.77,cylinders,18,0.8
+LOG-001676,BHR,Medical Kit Supplies,2026-08-13,0.98,units,18,0.8
+LOG-001677,BHR,Dry Rations,2026-08-13,18.93,kg,18,0.8
+LOG-001678,BHR,Frozen Rations,2026-08-13,14.78,kg,18,0.8
+LOG-001679,BHR,Potable Water Treatment Tablets,2026-08-13,1.9,units,18,0.8
+LOG-001680,BHR,Spare Batteries (AA/Lithium),2026-08-13,0.92,units,18,0.8
+LOG-001681,BHR,Diesel Fuel,2026-08-14,161.43,litres,19,0.4
+LOG-001682,BHR,Propane (LPG),2026-08-14,24.84,kg,19,0.4
+LOG-001683,BHR,Medical Oxygen,2026-08-14,0.75,cylinders,19,0.4
+LOG-001684,BHR,Medical Kit Supplies,2026-08-14,1.26,units,19,0.4
+LOG-001685,BHR,Dry Rations,2026-08-14,24.53,kg,19,0.4
+LOG-001686,BHR,Frozen Rations,2026-08-14,18.8,kg,19,0.4
+LOG-001687,BHR,Potable Water Treatment Tablets,2026-08-14,3.6,units,19,0.4
+LOG-001688,BHR,Spare Batteries (AA/Lithium),2026-08-14,2.7,units,19,0.4
+LOG-001689,BHR,Diesel Fuel,2026-08-15,176.1,litres,19,0.0
+LOG-001690,BHR,Propane (LPG),2026-08-15,25.1,kg,19,0.0
+LOG-001691,BHR,Medical Oxygen,2026-08-15,0.89,cylinders,19,0.0
+LOG-001692,BHR,Medical Kit Supplies,2026-08-15,1.4,units,19,0.0
+LOG-001693,BHR,Dry Rations,2026-08-15,17.45,kg,19,0.0
+LOG-001694,BHR,Frozen Rations,2026-08-15,11.97,kg,19,0.0
+LOG-001695,BHR,Potable Water Treatment Tablets,2026-08-15,3.66,units,19,0.0
+LOG-001696,BHR,Spare Batteries (AA/Lithium),2026-08-15,2.66,units,19,0.0
+LOG-001697,BHR,Diesel Fuel,2026-08-16,262.87,litres,22,-0.4
+LOG-001698,BHR,Propane (LPG),2026-08-16,19.97,kg,22,-0.4
+LOG-001699,BHR,Medical Oxygen,2026-08-16,1.0,cylinders,22,-0.4
+LOG-001700,BHR,Medical Kit Supplies,2026-08-16,1.12,units,22,-0.4
+LOG-001701,BHR,Dry Rations,2026-08-16,21.62,kg,22,-0.4
+LOG-001702,BHR,Frozen Rations,2026-08-16,14.47,kg,22,-0.4
+LOG-001703,BHR,Potable Water Treatment Tablets,2026-08-16,4.01,units,22,-0.4
+LOG-001704,BHR,Spare Batteries (AA/Lithium),2026-08-16,2.91,units,22,-0.4
+LOG-001705,BHR,Diesel Fuel,2026-08-17,176.32,litres,18,-0.8
+LOG-001706,BHR,Propane (LPG),2026-08-17,20.49,kg,18,-0.8
+LOG-001707,BHR,Medical Oxygen,2026-08-17,0.67,cylinders,18,-0.8
+LOG-001708,BHR,Medical Kit Supplies,2026-08-17,1.66,units,18,-0.8
+LOG-001709,BHR,Dry Rations,2026-08-17,21.07,kg,18,-0.8
+LOG-001710,BHR,Frozen Rations,2026-08-17,14.69,kg,18,-0.8
+LOG-001711,BHR,Potable Water Treatment Tablets,2026-08-17,2.49,units,18,-0.8
+LOG-001712,BHR,Spare Batteries (AA/Lithium),2026-08-17,2.23,units,18,-0.8
+LOG-001713,BHR,Diesel Fuel,2026-08-18,198.09,litres,18,-1.3
+LOG-001714,BHR,Propane (LPG),2026-08-18,24.92,kg,18,-1.3
+LOG-001715,BHR,Medical Oxygen,2026-08-18,0.39,cylinders,18,-1.3
+LOG-001716,BHR,Medical Kit Supplies,2026-08-18,1.29,units,18,-1.3
+LOG-001717,BHR,Dry Rations,2026-08-18,22.24,kg,18,-1.3
+LOG-001718,BHR,Frozen Rations,2026-08-18,13.25,kg,18,-1.3
+LOG-001719,BHR,Potable Water Treatment Tablets,2026-08-18,3.18,units,18,-1.3
+LOG-001720,BHR,Spare Batteries (AA/Lithium),2026-08-18,2.62,units,18,-1.3
+LOG-001721,BHR,Diesel Fuel,2026-08-19,290.08,litres,21,-1.7
+LOG-001722,BHR,Propane (LPG),2026-08-19,20.91,kg,21,-1.7
+LOG-001723,BHR,Medical Oxygen,2026-08-19,0.82,cylinders,21,-1.7
+LOG-001724,BHR,Medical Kit Supplies,2026-08-19,1.87,units,21,-1.7
+LOG-001725,BHR,Dry Rations,2026-08-19,22.68,kg,21,-1.7
+LOG-001726,BHR,Frozen Rations,2026-08-19,14.52,kg,21,-1.7
+LOG-001727,BHR,Potable Water Treatment Tablets,2026-08-19,3.26,units,21,-1.7
+LOG-001728,BHR,Spare Batteries (AA/Lithium),2026-08-19,1.84,units,21,-1.7
+LOG-001729,BHR,Diesel Fuel,2026-08-20,229.49,litres,19,-2.2
+LOG-001730,BHR,Propane (LPG),2026-08-20,22.73,kg,19,-2.2
+LOG-001731,BHR,Medical Oxygen,2026-08-20,0.43,cylinders,19,-2.2
+LOG-001732,BHR,Medical Kit Supplies,2026-08-20,1.54,units,19,-2.2
+LOG-001733,BHR,Dry Rations,2026-08-20,23.17,kg,19,-2.2
+LOG-001734,BHR,Frozen Rations,2026-08-20,16.82,kg,19,-2.2
+LOG-001735,BHR,Potable Water Treatment Tablets,2026-08-20,2.06,units,19,-2.2
+LOG-001736,BHR,Spare Batteries (AA/Lithium),2026-08-20,1.24,units,19,-2.2
+LOG-001737,BHR,Diesel Fuel,2026-08-21,236.32,litres,19,-2.6
+LOG-001738,BHR,Propane (LPG),2026-08-21,18.81,kg,19,-2.6
+LOG-001739,BHR,Medical Oxygen,2026-08-21,0.44,cylinders,19,-2.6
+LOG-001740,BHR,Medical Kit Supplies,2026-08-21,0.95,units,19,-2.6
+LOG-001741,BHR,Dry Rations,2026-08-21,19.44,kg,19,-2.6
+LOG-001742,BHR,Frozen Rations,2026-08-21,14.14,kg,19,-2.6
+LOG-001743,BHR,Potable Water Treatment Tablets,2026-08-21,2.41,units,19,-2.6
+LOG-001744,BHR,Spare Batteries (AA/Lithium),2026-08-21,1.2,units,19,-2.6
+LOG-001745,BHR,Diesel Fuel,2026-08-22,201.13,litres,19,-3.1
+LOG-001746,BHR,Propane (LPG),2026-08-22,21.55,kg,19,-3.1
+LOG-001747,BHR,Medical Oxygen,2026-08-22,0.67,cylinders,19,-3.1
+LOG-001748,BHR,Medical Kit Supplies,2026-08-22,1.05,units,19,-3.1
+LOG-001749,BHR,Dry Rations,2026-08-22,17.78,kg,19,-3.1
+LOG-001750,BHR,Frozen Rations,2026-08-22,15.61,kg,19,-3.1
+LOG-001751,BHR,Potable Water Treatment Tablets,2026-08-22,3.03,units,19,-3.1
+LOG-001752,BHR,Spare Batteries (AA/Lithium),2026-08-22,2.44,units,19,-3.1
+LOG-001753,BHR,Diesel Fuel,2026-08-23,169.55,litres,21,-3.6
+LOG-001754,BHR,Propane (LPG),2026-08-23,22.01,kg,21,-3.6
+LOG-001755,BHR,Medical Oxygen,2026-08-23,0.91,cylinders,21,-3.6
+LOG-001756,BHR,Medical Kit Supplies,2026-08-23,1.81,units,21,-3.6
+LOG-001757,BHR,Dry Rations,2026-08-23,23.6,kg,21,-3.6
+LOG-001758,BHR,Frozen Rations,2026-08-23,20.94,kg,21,-3.6
+LOG-001759,BHR,Potable Water Treatment Tablets,2026-08-23,2.61,units,21,-3.6
+LOG-001760,BHR,Spare Batteries (AA/Lithium),2026-08-23,2.14,units,21,-3.6
+LOG-001761,BHR,Diesel Fuel,2026-08-24,189.36,litres,21,-4.1
+LOG-001762,BHR,Propane (LPG),2026-08-24,20.19,kg,21,-4.1
+LOG-001763,BHR,Medical Oxygen,2026-08-24,0.59,cylinders,21,-4.1
+LOG-001764,BHR,Medical Kit Supplies,2026-08-24,1.2,units,21,-4.1
+LOG-001765,BHR,Dry Rations,2026-08-24,20.3,kg,21,-4.1
+LOG-001766,BHR,Frozen Rations,2026-08-24,14.92,kg,21,-4.1
+LOG-001767,BHR,Potable Water Treatment Tablets,2026-08-24,2.73,units,21,-4.1
+LOG-001768,BHR,Spare Batteries (AA/Lithium),2026-08-24,2.69,units,21,-4.1
+LOG-001769,BHR,Diesel Fuel,2026-08-25,190.2,litres,20,-4.5
+LOG-001770,BHR,Propane (LPG),2026-08-25,18.96,kg,20,-4.5
+LOG-001771,BHR,Medical Oxygen,2026-08-25,0.78,cylinders,20,-4.5
+LOG-001772,BHR,Medical Kit Supplies,2026-08-25,1.59,units,20,-4.5
+LOG-001773,BHR,Dry Rations,2026-08-25,19.56,kg,20,-4.5
+LOG-001774,BHR,Frozen Rations,2026-08-25,12.86,kg,20,-4.5
+LOG-001775,BHR,Potable Water Treatment Tablets,2026-08-25,2.61,units,20,-4.5
+LOG-001776,BHR,Spare Batteries (AA/Lithium),2026-08-25,2.9,units,20,-4.5
+LOG-001777,BHR,Diesel Fuel,2026-08-26,260.99,litres,20,-5.0
+LOG-001778,BHR,Propane (LPG),2026-08-26,20.56,kg,20,-5.0
+LOG-001779,BHR,Medical Oxygen,2026-08-26,0.92,cylinders,20,-5.0
+LOG-001780,BHR,Medical Kit Supplies,2026-08-26,1.44,units,20,-5.0
+LOG-001781,BHR,Dry Rations,2026-08-26,21.44,kg,20,-5.0
+LOG-001782,BHR,Frozen Rations,2026-08-26,18.59,kg,20,-5.0
+LOG-001783,BHR,Potable Water Treatment Tablets,2026-08-26,3.3,units,20,-5.0
+LOG-001784,BHR,Spare Batteries (AA/Lithium),2026-08-26,2.19,units,20,-5.0
+LOG-001785,BHR,Diesel Fuel,2026-08-27,198.48,litres,20,-5.5
+LOG-001786,BHR,Propane (LPG),2026-08-27,27.37,kg,20,-5.5
+LOG-001787,BHR,Medical Oxygen,2026-08-27,0.52,cylinders,20,-5.5
+LOG-001788,BHR,Medical Kit Supplies,2026-08-27,1.31,units,20,-5.5
+LOG-001789,BHR,Dry Rations,2026-08-27,25.72,kg,20,-5.5
+LOG-001790,BHR,Frozen Rations,2026-08-27,19.75,kg,20,-5.5
+LOG-001791,BHR,Potable Water Treatment Tablets,2026-08-27,2.58,units,20,-5.5
+LOG-001792,BHR,Spare Batteries (AA/Lithium),2026-08-27,2.39,units,20,-5.5
+LOG-001793,BHR,Diesel Fuel,2026-08-28,289.94,litres,21,-6.0
+LOG-001794,BHR,Propane (LPG),2026-08-28,26.65,kg,21,-6.0
+LOG-001795,BHR,Medical Oxygen,2026-08-28,0.63,cylinders,21,-6.0
+LOG-001796,BHR,Medical Kit Supplies,2026-08-28,1.34,units,21,-6.0
+LOG-001797,BHR,Dry Rations,2026-08-28,25.5,kg,21,-6.0
+LOG-001798,BHR,Frozen Rations,2026-08-28,15.67,kg,21,-6.0
+LOG-001799,BHR,Potable Water Treatment Tablets,2026-08-28,4.06,units,21,-6.0
+LOG-001800,BHR,Spare Batteries (AA/Lithium),2026-08-28,1.47,units,21,-6.0
+LOG-001801,BHR,Diesel Fuel,2026-08-29,199.75,litres,22,-6.6
+LOG-001802,BHR,Propane (LPG),2026-08-29,27.73,kg,22,-6.6
+LOG-001803,BHR,Medical Oxygen,2026-08-29,0.46,cylinders,22,-6.6
+LOG-001804,BHR,Medical Kit Supplies,2026-08-29,1.9,units,22,-6.6
+LOG-001805,BHR,Dry Rations,2026-08-29,28.1,kg,22,-6.6
+LOG-001806,BHR,Frozen Rations,2026-08-29,15.04,kg,22,-6.6
+LOG-001807,BHR,Potable Water Treatment Tablets,2026-08-29,3.95,units,22,-6.6
+LOG-001808,BHR,Spare Batteries (AA/Lithium),2026-08-29,2.93,units,22,-6.6
+LOG-001809,BHR,Diesel Fuel,2026-08-30,232.45,litres,18,-7.1
+LOG-001810,BHR,Propane (LPG),2026-08-30,22.99,kg,18,-7.1
+LOG-001811,BHR,Medical Oxygen,2026-08-30,0.58,cylinders,18,-7.1
+LOG-001812,BHR,Medical Kit Supplies,2026-08-30,1.35,units,18,-7.1
+LOG-001813,BHR,Dry Rations,2026-08-30,20.76,kg,18,-7.1
+LOG-001814,BHR,Frozen Rations,2026-08-30,12.54,kg,18,-7.1
+LOG-001815,BHR,Potable Water Treatment Tablets,2026-08-30,2.99,units,18,-7.1
+LOG-001816,BHR,Spare Batteries (AA/Lithium),2026-08-30,2.19,units,18,-7.1
+LOG-001817,BHR,Diesel Fuel,2026-08-31,177.32,litres,21,-7.6
+LOG-001818,BHR,Propane (LPG),2026-08-31,29.28,kg,21,-7.6
+LOG-001819,BHR,Medical Oxygen,2026-08-31,0.72,cylinders,21,-7.6
+LOG-001820,BHR,Medical Kit Supplies,2026-08-31,1.47,units,21,-7.6
+LOG-001821,BHR,Dry Rations,2026-08-31,23.16,kg,21,-7.6
+LOG-001822,BHR,Frozen Rations,2026-08-31,20.33,kg,21,-7.6
+LOG-001823,BHR,Potable Water Treatment Tablets,2026-08-31,3.55,units,21,-7.6
+LOG-001824,BHR,Spare Batteries (AA/Lithium),2026-08-31,2.19,units,21,-7.6
+LOG-001825,BHR,Diesel Fuel,2026-09-01,244.2,litres,20,-8.1
+LOG-001826,BHR,Propane (LPG),2026-09-01,25.75,kg,20,-8.1
+LOG-001827,BHR,Medical Oxygen,2026-09-01,0.76,cylinders,20,-8.1
+LOG-001828,BHR,Medical Kit Supplies,2026-09-01,1.91,units,20,-8.1
+LOG-001829,BHR,Dry Rations,2026-09-01,18.87,kg,20,-8.1
+LOG-001830,BHR,Frozen Rations,2026-09-01,13.99,kg,20,-8.1
+LOG-001831,BHR,Potable Water Treatment Tablets,2026-09-01,3.33,units,20,-8.1
+LOG-001832,BHR,Spare Batteries (AA/Lithium),2026-09-01,1.33,units,20,-8.1
+LOG-001833,BHR,Diesel Fuel,2026-09-02,181.85,litres,22,-8.6
+LOG-001834,BHR,Propane (LPG),2026-09-02,30.58,kg,22,-8.6
+LOG-001835,BHR,Medical Oxygen,2026-09-02,0.89,cylinders,22,-8.6
+LOG-001836,BHR,Medical Kit Supplies,2026-09-02,1.54,units,22,-8.6
+LOG-001837,BHR,Dry Rations,2026-09-02,26.42,kg,22,-8.6
+LOG-001838,BHR,Frozen Rations,2026-09-02,21.7,kg,22,-8.6
+LOG-001839,BHR,Potable Water Treatment Tablets,2026-09-02,3.15,units,22,-8.6
+LOG-001840,BHR,Spare Batteries (AA/Lithium),2026-09-02,1.12,units,22,-8.6
+LOG-001841,BHR,Diesel Fuel,2026-09-03,186.64,litres,20,-9.2
+LOG-001842,BHR,Propane (LPG),2026-09-03,24.96,kg,20,-9.2
+LOG-001843,BHR,Medical Oxygen,2026-09-03,0.73,cylinders,20,-9.2
+LOG-001844,BHR,Medical Kit Supplies,2026-09-03,1.69,units,20,-9.2
+LOG-001845,BHR,Dry Rations,2026-09-03,19.77,kg,20,-9.2
+LOG-001846,BHR,Frozen Rations,2026-09-03,14.99,kg,20,-9.2
+LOG-001847,BHR,Potable Water Treatment Tablets,2026-09-03,2.93,units,20,-9.2
+LOG-001848,BHR,Spare Batteries (AA/Lithium),2026-09-03,2.36,units,20,-9.2
+LOG-001849,BHR,Diesel Fuel,2026-09-04,195.9,litres,22,-9.7
+LOG-001850,BHR,Propane (LPG),2026-09-04,30.77,kg,22,-9.7
+LOG-001851,BHR,Medical Oxygen,2026-09-04,0.76,cylinders,22,-9.7
+LOG-001852,BHR,Medical Kit Supplies,2026-09-04,1.42,units,22,-9.7
+LOG-001853,BHR,Dry Rations,2026-09-04,27.9,kg,22,-9.7
+LOG-001854,BHR,Frozen Rations,2026-09-04,13.96,kg,22,-9.7
+LOG-001855,BHR,Potable Water Treatment Tablets,2026-09-04,4.03,units,22,-9.7
+LOG-001856,BHR,Spare Batteries (AA/Lithium),2026-09-04,2.71,units,22,-9.7
+LOG-001857,BHR,Diesel Fuel,2026-09-05,197.43,litres,20,-10.3
+LOG-001858,BHR,Propane (LPG),2026-09-05,21.46,kg,20,-10.3
+LOG-001859,BHR,Medical Oxygen,2026-09-05,0.52,cylinders,20,-10.3
+LOG-001860,BHR,Medical Kit Supplies,2026-09-05,1.48,units,20,-10.3
+LOG-001861,BHR,Dry Rations,2026-09-05,21.81,kg,20,-10.3
+LOG-001862,BHR,Frozen Rations,2026-09-05,15.51,kg,20,-10.3
+LOG-001863,BHR,Potable Water Treatment Tablets,2026-09-05,3.39,units,20,-10.3
+LOG-001864,BHR,Spare Batteries (AA/Lithium),2026-09-05,1.64,units,20,-10.3
+LOG-001865,BHR,Diesel Fuel,2026-09-06,165.36,litres,20,-10.8
+LOG-001866,BHR,Propane (LPG),2026-09-06,24.53,kg,20,-10.8
+LOG-001867,BHR,Medical Oxygen,2026-09-06,0.41,cylinders,20,-10.8
+LOG-001868,BHR,Medical Kit Supplies,2026-09-06,1.34,units,20,-10.8
+LOG-001869,BHR,Dry Rations,2026-09-06,18.87,kg,20,-10.8
+LOG-001870,BHR,Frozen Rations,2026-09-06,18.4,kg,20,-10.8
+LOG-001871,BHR,Potable Water Treatment Tablets,2026-09-06,3.86,units,20,-10.8
+LOG-001872,BHR,Spare Batteries (AA/Lithium),2026-09-06,2.48,units,20,-10.8
+LOG-001873,BHR,Diesel Fuel,2026-09-07,199.03,litres,22,-11.4
+LOG-001874,BHR,Propane (LPG),2026-09-07,19.71,kg,22,-11.4
+LOG-001875,BHR,Medical Oxygen,2026-09-07,0.81,cylinders,22,-11.4
+LOG-001876,BHR,Medical Kit Supplies,2026-09-07,2.15,units,22,-11.4
+LOG-001877,BHR,Dry Rations,2026-09-07,21.84,kg,22,-11.4
+LOG-001878,BHR,Frozen Rations,2026-09-07,16.76,kg,22,-11.4
+LOG-001879,BHR,Potable Water Treatment Tablets,2026-09-07,2.61,units,22,-11.4
+LOG-001880,BHR,Spare Batteries (AA/Lithium),2026-09-07,2.51,units,22,-11.4
+LOG-001881,BHR,Diesel Fuel,2026-09-08,217.84,litres,21,-11.9
+LOG-001882,BHR,Propane (LPG),2026-09-08,26.09,kg,21,-11.9
+LOG-001883,BHR,Medical Oxygen,2026-09-08,0.98,cylinders,21,-11.9
+LOG-001884,BHR,Medical Kit Supplies,2026-09-08,1.52,units,21,-11.9
+LOG-001885,BHR,Dry Rations,2026-09-08,22.51,kg,21,-11.9
+LOG-001886,BHR,Frozen Rations,2026-09-08,12.64,kg,21,-11.9
+LOG-001887,BHR,Potable Water Treatment Tablets,2026-09-08,2.55,units,21,-11.9
+LOG-001888,BHR,Spare Batteries (AA/Lithium),2026-09-08,1.63,units,21,-11.9
+LOG-001889,BHR,Diesel Fuel,2026-09-09,206.35,litres,18,-12.5
+LOG-001890,BHR,Propane (LPG),2026-09-09,23.03,kg,18,-12.5
+LOG-001891,BHR,Medical Oxygen,2026-09-09,0.65,cylinders,18,-12.5
+LOG-001892,BHR,Medical Kit Supplies,2026-09-09,1.23,units,18,-12.5
+LOG-001893,BHR,Dry Rations,2026-09-09,17.62,kg,18,-12.5
+LOG-001894,BHR,Frozen Rations,2026-09-09,11.62,kg,18,-12.5
+LOG-001895,BHR,Potable Water Treatment Tablets,2026-09-09,3.01,units,18,-12.5
+LOG-001896,BHR,Spare Batteries (AA/Lithium),2026-09-09,1.78,units,18,-12.5
+LOG-001897,BHR,Diesel Fuel,2026-09-10,231.64,litres,20,-13.0
+LOG-001898,BHR,Propane (LPG),2026-09-10,23.34,kg,20,-13.0
+LOG-001899,BHR,Medical Oxygen,2026-09-10,0.75,cylinders,20,-13.0
+LOG-001900,BHR,Medical Kit Supplies,2026-09-10,1.35,units,20,-13.0
+LOG-001901,BHR,Dry Rations,2026-09-10,24.76,kg,20,-13.0
+LOG-001902,BHR,Frozen Rations,2026-09-10,16.94,kg,20,-13.0
+LOG-001903,BHR,Potable Water Treatment Tablets,2026-09-10,3.63,units,20,-13.0
+LOG-001904,BHR,Spare Batteries (AA/Lithium),2026-09-10,2.41,units,20,-13.0
+LOG-001905,BHR,Diesel Fuel,2026-09-11,270.24,litres,20,-13.6
+LOG-001906,BHR,Propane (LPG),2026-09-11,23.08,kg,20,-13.6
+LOG-001907,BHR,Medical Oxygen,2026-09-11,0.8,cylinders,20,-13.6
+LOG-001908,BHR,Medical Kit Supplies,2026-09-11,1.31,units,20,-13.6
+LOG-001909,BHR,Dry Rations,2026-09-11,19.91,kg,20,-13.6
+LOG-001910,BHR,Frozen Rations,2026-09-11,12.94,kg,20,-13.6
+LOG-001911,BHR,Potable Water Treatment Tablets,2026-09-11,2.75,units,20,-13.6
+LOG-001912,BHR,Spare Batteries (AA/Lithium),2026-09-11,1.28,units,20,-13.6
+LOG-001913,BHR,Diesel Fuel,2026-09-12,220.7,litres,21,-14.2
+LOG-001914,BHR,Propane (LPG),2026-09-12,18.54,kg,21,-14.2
+LOG-001915,BHR,Medical Oxygen,2026-09-12,0.66,cylinders,21,-14.2
+LOG-001916,BHR,Medical Kit Supplies,2026-09-12,1.25,units,21,-14.2
+LOG-001917,BHR,Dry Rations,2026-09-12,24.24,kg,21,-14.2
+LOG-001918,BHR,Frozen Rations,2026-09-12,18.42,kg,21,-14.2
+LOG-001919,BHR,Potable Water Treatment Tablets,2026-09-12,3.46,units,21,-14.2
+LOG-001920,BHR,Spare Batteries (AA/Lithium),2026-09-12,3.15,units,21,-14.2
+LOG-001921,HDR,Diesel Fuel,2026-05-16,135.34,litres,14,-27.4
+LOG-001922,HDR,Propane (LPG),2026-05-16,14.63,kg,14,-27.4
+LOG-001923,HDR,Medical Oxygen,2026-05-16,0.36,cylinders,14,-27.4
+LOG-001924,HDR,Medical Kit Supplies,2026-05-16,1.29,units,14,-27.4
+LOG-001925,HDR,Dry Rations,2026-05-16,16.07,kg,14,-27.4
+LOG-001926,HDR,Frozen Rations,2026-05-16,13.25,kg,14,-27.4
+LOG-001927,HDR,Potable Water Treatment Tablets,2026-05-16,2.73,units,14,-27.4
+LOG-001928,HDR,Spare Batteries (AA/Lithium),2026-05-16,1.38,units,14,-27.4
+LOG-001929,HDR,Diesel Fuel,2026-05-17,152.72,litres,11,-27.7
+LOG-001930,HDR,Propane (LPG),2026-05-17,16.33,kg,11,-27.7
+LOG-001931,HDR,Medical Oxygen,2026-05-17,0.39,cylinders,11,-27.7
+LOG-001932,HDR,Medical Kit Supplies,2026-05-17,0.82,units,11,-27.7
+LOG-001933,HDR,Dry Rations,2026-05-17,12.91,kg,11,-27.7
+LOG-001934,HDR,Frozen Rations,2026-05-17,8.43,kg,11,-27.7
+LOG-001935,HDR,Potable Water Treatment Tablets,2026-05-17,2.02,units,11,-27.7
+LOG-001936,HDR,Spare Batteries (AA/Lithium),2026-05-17,1.09,units,11,-27.7
+LOG-001937,HDR,Diesel Fuel,2026-05-18,123.04,litres,10,-28.0
+LOG-001938,HDR,Propane (LPG),2026-05-18,13.8,kg,10,-28.0
+LOG-001939,HDR,Medical Oxygen,2026-05-18,0.27,cylinders,10,-28.0
+LOG-001940,HDR,Medical Kit Supplies,2026-05-18,0.52,units,10,-28.0
+LOG-001941,HDR,Dry Rations,2026-05-18,9.9,kg,10,-28.0
+LOG-001942,HDR,Frozen Rations,2026-05-18,7.15,kg,10,-28.0
+LOG-001943,HDR,Potable Water Treatment Tablets,2026-05-18,1.78,units,10,-28.0
+LOG-001944,HDR,Spare Batteries (AA/Lithium),2026-05-18,1.07,units,10,-28.0
+LOG-001945,HDR,Diesel Fuel,2026-05-19,159.07,litres,13,-28.3
+LOG-001946,HDR,Propane (LPG),2026-05-19,12.22,kg,13,-28.3
+LOG-001947,HDR,Medical Oxygen,2026-05-19,0.3,cylinders,13,-28.3
+LOG-001948,HDR,Medical Kit Supplies,2026-05-19,1.15,units,13,-28.3
+LOG-001949,HDR,Dry Rations,2026-05-19,15.98,kg,13,-28.3
+LOG-001950,HDR,Frozen Rations,2026-05-19,9.71,kg,13,-28.3
+LOG-001951,HDR,Potable Water Treatment Tablets,2026-05-19,2.37,units,13,-28.3
+LOG-001952,HDR,Spare Batteries (AA/Lithium),2026-05-19,0.7,units,13,-28.3
+LOG-001953,HDR,Diesel Fuel,2026-05-20,159.22,litres,13,-28.6
+LOG-001954,HDR,Propane (LPG),2026-05-20,19.68,kg,13,-28.6
+LOG-001955,HDR,Medical Oxygen,2026-05-20,0.3,cylinders,13,-28.6
+LOG-001956,HDR,Medical Kit Supplies,2026-05-20,1.19,units,13,-28.6
+LOG-001957,HDR,Dry Rations,2026-05-20,15.61,kg,13,-28.6
+LOG-001958,HDR,Frozen Rations,2026-05-20,9.35,kg,13,-28.6
+LOG-001959,HDR,Potable Water Treatment Tablets,2026-05-20,2.6,units,13,-28.6
+LOG-001960,HDR,Spare Batteries (AA/Lithium),2026-05-20,1.23,units,13,-28.6
+LOG-001961,HDR,Diesel Fuel,2026-05-21,172.15,litres,12,-28.9
+LOG-001962,HDR,Propane (LPG),2026-05-21,11.14,kg,12,-28.9
+LOG-001963,HDR,Medical Oxygen,2026-05-21,0.55,cylinders,12,-28.9
+LOG-001964,HDR,Medical Kit Supplies,2026-05-21,0.67,units,12,-28.9
+LOG-001965,HDR,Dry Rations,2026-05-21,14.7,kg,12,-28.9
+LOG-001966,HDR,Frozen Rations,2026-05-21,8.21,kg,12,-28.9
+LOG-001967,HDR,Potable Water Treatment Tablets,2026-05-21,2.09,units,12,-28.9
+LOG-001968,HDR,Spare Batteries (AA/Lithium),2026-05-21,1.43,units,12,-28.9
+LOG-001969,HDR,Diesel Fuel,2026-05-22,180.35,litres,14,-29.2
+LOG-001970,HDR,Propane (LPG),2026-05-22,13.75,kg,14,-29.2
+LOG-001971,HDR,Medical Oxygen,2026-05-22,0.34,cylinders,14,-29.2
+LOG-001972,HDR,Medical Kit Supplies,2026-05-22,0.84,units,14,-29.2
+LOG-001973,HDR,Dry Rations,2026-05-22,13.76,kg,14,-29.2
+LOG-001974,HDR,Frozen Rations,2026-05-22,8.73,kg,14,-29.2
+LOG-001975,HDR,Potable Water Treatment Tablets,2026-05-22,1.89,units,14,-29.2
+LOG-001976,HDR,Spare Batteries (AA/Lithium),2026-05-22,1.09,units,14,-29.2
+LOG-001977,HDR,Diesel Fuel,2026-05-23,138.0,litres,14,-29.4
+LOG-001978,HDR,Propane (LPG),2026-05-23,21.25,kg,14,-29.4
+LOG-001979,HDR,Medical Oxygen,2026-05-23,0.4,cylinders,14,-29.4
+LOG-001980,HDR,Medical Kit Supplies,2026-05-23,1.1,units,14,-29.4
+LOG-001981,HDR,Dry Rations,2026-05-23,17.93,kg,14,-29.4
+LOG-001982,HDR,Frozen Rations,2026-05-23,11.28,kg,14,-29.4
+LOG-001983,HDR,Potable Water Treatment Tablets,2026-05-23,2.66,units,14,-29.4
+LOG-001984,HDR,Spare Batteries (AA/Lithium),2026-05-23,1.84,units,14,-29.4
+LOG-001985,HDR,Diesel Fuel,2026-05-24,166.24,litres,11,-29.7
+LOG-001986,HDR,Propane (LPG),2026-05-24,15.34,kg,11,-29.7
+LOG-001987,HDR,Medical Oxygen,2026-05-24,0.52,cylinders,11,-29.7
+LOG-001988,HDR,Medical Kit Supplies,2026-05-24,1.1,units,11,-29.7
+LOG-001989,HDR,Dry Rations,2026-05-24,13.72,kg,11,-29.7
+LOG-001990,HDR,Frozen Rations,2026-05-24,7.16,kg,11,-29.7
+LOG-001991,HDR,Potable Water Treatment Tablets,2026-05-24,2.05,units,11,-29.7
+LOG-001992,HDR,Spare Batteries (AA/Lithium),2026-05-24,0.82,units,11,-29.7
+LOG-001993,HDR,Diesel Fuel,2026-05-25,171.22,litres,12,-30.0
+LOG-001994,HDR,Propane (LPG),2026-05-25,16.59,kg,12,-30.0
+LOG-001995,HDR,Medical Oxygen,2026-05-25,0.48,cylinders,12,-30.0
+LOG-001996,HDR,Medical Kit Supplies,2026-05-25,0.89,units,12,-30.0
+LOG-001997,HDR,Dry Rations,2026-05-25,13.57,kg,12,-30.0
+LOG-001998,HDR,Frozen Rations,2026-05-25,8.49,kg,12,-30.0
+LOG-001999,HDR,Potable Water Treatment Tablets,2026-05-25,1.7,units,12,-30.0
+LOG-002000,HDR,Spare Batteries (AA/Lithium),2026-05-25,1.14,units,12,-30.0
+LOG-002001,HDR,Diesel Fuel,2026-05-26,114.8,litres,10,-30.2
+LOG-002002,HDR,Propane (LPG),2026-05-26,13.77,kg,10,-30.2
+LOG-002003,HDR,Medical Oxygen,2026-05-26,0.41,cylinders,10,-30.2
+LOG-002004,HDR,Medical Kit Supplies,2026-05-26,0.94,units,10,-30.2
+LOG-002005,HDR,Dry Rations,2026-05-26,10.82,kg,10,-30.2
+LOG-002006,HDR,Frozen Rations,2026-05-26,7.95,kg,10,-30.2
+LOG-002007,HDR,Potable Water Treatment Tablets,2026-05-26,1.58,units,10,-30.2
+LOG-002008,HDR,Spare Batteries (AA/Lithium),2026-05-26,1.37,units,10,-30.2
+LOG-002009,HDR,Diesel Fuel,2026-05-27,136.86,litres,10,-30.5
+LOG-002010,HDR,Propane (LPG),2026-05-27,11.88,kg,10,-30.5
+LOG-002011,HDR,Medical Oxygen,2026-05-27,0.4,cylinders,10,-30.5
+LOG-002012,HDR,Medical Kit Supplies,2026-05-27,0.68,units,10,-30.5
+LOG-002013,HDR,Dry Rations,2026-05-27,9.25,kg,10,-30.5
+LOG-002014,HDR,Frozen Rations,2026-05-27,8.14,kg,10,-30.5
+LOG-002015,HDR,Potable Water Treatment Tablets,2026-05-27,1.22,units,10,-30.5
+LOG-002016,HDR,Spare Batteries (AA/Lithium),2026-05-27,0.93,units,10,-30.5
+LOG-002017,HDR,Diesel Fuel,2026-05-28,133.56,litres,11,-30.7
+LOG-002018,HDR,Propane (LPG),2026-05-28,12.1,kg,11,-30.7
+LOG-002019,HDR,Medical Oxygen,2026-05-28,0.31,cylinders,11,-30.7
+LOG-002020,HDR,Medical Kit Supplies,2026-05-28,0.85,units,11,-30.7
+LOG-002021,HDR,Dry Rations,2026-05-28,10.47,kg,11,-30.7
+LOG-002022,HDR,Frozen Rations,2026-05-28,10.35,kg,11,-30.7
+LOG-002023,HDR,Potable Water Treatment Tablets,2026-05-28,1.97,units,11,-30.7
+LOG-002024,HDR,Spare Batteries (AA/Lithium),2026-05-28,1.53,units,11,-30.7
+LOG-002025,HDR,Diesel Fuel,2026-05-29,91.86,litres,10,-31.0
+LOG-002026,HDR,Propane (LPG),2026-05-29,13.05,kg,10,-31.0
+LOG-002027,HDR,Medical Oxygen,2026-05-29,0.45,cylinders,10,-31.0
+LOG-002028,HDR,Medical Kit Supplies,2026-05-29,0.51,units,10,-31.0
+LOG-002029,HDR,Dry Rations,2026-05-29,12.72,kg,10,-31.0
+LOG-002030,HDR,Frozen Rations,2026-05-29,6.63,kg,10,-31.0
+LOG-002031,HDR,Potable Water Treatment Tablets,2026-05-29,1.46,units,10,-31.0
+LOG-002032,HDR,Spare Batteries (AA/Lithium),2026-05-29,1.49,units,10,-31.0
+LOG-002033,HDR,Diesel Fuel,2026-05-30,133.2,litres,13,-31.2
+LOG-002034,HDR,Propane (LPG),2026-05-30,17.54,kg,13,-31.2
+LOG-002035,HDR,Medical Oxygen,2026-05-30,0.31,cylinders,13,-31.2
+LOG-002036,HDR,Medical Kit Supplies,2026-05-30,1.07,units,13,-31.2
+LOG-002037,HDR,Dry Rations,2026-05-30,12.53,kg,13,-31.2
+LOG-002038,HDR,Frozen Rations,2026-05-30,12.65,kg,13,-31.2
+LOG-002039,HDR,Potable Water Treatment Tablets,2026-05-30,1.66,units,13,-31.2
+LOG-002040,HDR,Spare Batteries (AA/Lithium),2026-05-30,1.5,units,13,-31.2
+LOG-002041,HDR,Diesel Fuel,2026-05-31,113.55,litres,12,-31.4
+LOG-002042,HDR,Propane (LPG),2026-05-31,16.02,kg,12,-31.4
+LOG-002043,HDR,Medical Oxygen,2026-05-31,0.47,cylinders,12,-31.4
+LOG-002044,HDR,Medical Kit Supplies,2026-05-31,0.63,units,12,-31.4
+LOG-002045,HDR,Dry Rations,2026-05-31,13.8,kg,12,-31.4
+LOG-002046,HDR,Frozen Rations,2026-05-31,10.68,kg,12,-31.4
+LOG-002047,HDR,Potable Water Treatment Tablets,2026-05-31,2.11,units,12,-31.4
+LOG-002048,HDR,Spare Batteries (AA/Lithium),2026-05-31,1.12,units,12,-31.4
+LOG-002049,HDR,Diesel Fuel,2026-06-01,136.4,litres,10,-31.6
+LOG-002050,HDR,Propane (LPG),2026-06-01,8.94,kg,10,-31.6
+LOG-002051,HDR,Medical Oxygen,2026-06-01,0.34,cylinders,10,-31.6
+LOG-002052,HDR,Medical Kit Supplies,2026-06-01,0.57,units,10,-31.6
+LOG-002053,HDR,Dry Rations,2026-06-01,9.9,kg,10,-31.6
+LOG-002054,HDR,Frozen Rations,2026-06-01,8.72,kg,10,-31.6
+LOG-002055,HDR,Potable Water Treatment Tablets,2026-06-01,1.01,units,10,-31.6
+LOG-002056,HDR,Spare Batteries (AA/Lithium),2026-06-01,1.2,units,10,-31.6
+LOG-002057,HDR,Diesel Fuel,2026-06-02,155.73,litres,10,-31.8
+LOG-002058,HDR,Propane (LPG),2026-06-02,11.78,kg,10,-31.8
+LOG-002059,HDR,Medical Oxygen,2026-06-02,0.24,cylinders,10,-31.8
+LOG-002060,HDR,Medical Kit Supplies,2026-06-02,0.54,units,10,-31.8
+LOG-002061,HDR,Dry Rations,2026-06-02,10.53,kg,10,-31.8
+LOG-002062,HDR,Frozen Rations,2026-06-02,8.92,kg,10,-31.8
+LOG-002063,HDR,Potable Water Treatment Tablets,2026-06-02,1.1,units,10,-31.8
+LOG-002064,HDR,Spare Batteries (AA/Lithium),2026-06-02,0.81,units,10,-31.8
+LOG-002065,HDR,Diesel Fuel,2026-06-03,118.68,litres,12,-32.1
+LOG-002066,HDR,Propane (LPG),2026-06-03,17.0,kg,12,-32.1
+LOG-002067,HDR,Medical Oxygen,2026-06-03,0.51,cylinders,12,-32.1
+LOG-002068,HDR,Medical Kit Supplies,2026-06-03,0.68,units,12,-32.1
+LOG-002069,HDR,Dry Rations,2026-06-03,15.57,kg,12,-32.1
+LOG-002070,HDR,Frozen Rations,2026-06-03,7.89,kg,12,-32.1
+LOG-002071,HDR,Potable Water Treatment Tablets,2026-06-03,1.84,units,12,-32.1
+LOG-002072,HDR,Spare Batteries (AA/Lithium),2026-06-03,0.61,units,12,-32.1
+LOG-002073,HDR,Diesel Fuel,2026-06-04,131.44,litres,11,-32.3
+LOG-002074,HDR,Propane (LPG),2026-06-04,15.24,kg,11,-32.3
+LOG-002075,HDR,Medical Oxygen,2026-06-04,0.43,cylinders,11,-32.3
+LOG-002076,HDR,Medical Kit Supplies,2026-06-04,0.63,units,11,-32.3
+LOG-002077,HDR,Dry Rations,2026-06-04,11.71,kg,11,-32.3
+LOG-002078,HDR,Frozen Rations,2026-06-04,9.62,kg,11,-32.3
+LOG-002079,HDR,Potable Water Treatment Tablets,2026-06-04,2.05,units,11,-32.3
+LOG-002080,HDR,Spare Batteries (AA/Lithium),2026-06-04,0.65,units,11,-32.3
+LOG-002081,HDR,Diesel Fuel,2026-06-05,99.36,litres,10,-32.4
+LOG-002082,HDR,Propane (LPG),2026-06-05,9.82,kg,10,-32.4
+LOG-002083,HDR,Medical Oxygen,2026-06-05,0.42,cylinders,10,-32.4
+LOG-002084,HDR,Medical Kit Supplies,2026-06-05,0.68,units,10,-32.4
+LOG-002085,HDR,Dry Rations,2026-06-05,10.72,kg,10,-32.4
+LOG-002086,HDR,Frozen Rations,2026-06-05,9.16,kg,10,-32.4
+LOG-002087,HDR,Potable Water Treatment Tablets,2026-06-05,1.25,units,10,-32.4
+LOG-002088,HDR,Spare Batteries (AA/Lithium),2026-06-05,1.14,units,10,-32.4
+LOG-002089,HDR,Diesel Fuel,2026-06-06,140.21,litres,11,-32.6
+LOG-002090,HDR,Propane (LPG),2026-06-06,14.37,kg,11,-32.6
+LOG-002091,HDR,Medical Oxygen,2026-06-06,0.42,cylinders,11,-32.6
+LOG-002092,HDR,Medical Kit Supplies,2026-06-06,0.98,units,11,-32.6
+LOG-002093,HDR,Dry Rations,2026-06-06,12.94,kg,11,-32.6
+LOG-002094,HDR,Frozen Rations,2026-06-06,10.33,kg,11,-32.6
+LOG-002095,HDR,Potable Water Treatment Tablets,2026-06-06,1.82,units,11,-32.6
+LOG-002096,HDR,Spare Batteries (AA/Lithium),2026-06-06,0.88,units,11,-32.6
+LOG-002097,HDR,Diesel Fuel,2026-06-07,183.84,litres,14,-32.8
+LOG-002098,HDR,Propane (LPG),2026-06-07,14.42,kg,14,-32.8
+LOG-002099,HDR,Medical Oxygen,2026-06-07,0.44,cylinders,14,-32.8
+LOG-002100,HDR,Medical Kit Supplies,2026-06-07,1.15,units,14,-32.8
+LOG-002101,HDR,Dry Rations,2026-06-07,16.99,kg,14,-32.8
+LOG-002102,HDR,Frozen Rations,2026-06-07,12.85,kg,14,-32.8
+LOG-002103,HDR,Potable Water Treatment Tablets,2026-06-07,1.74,units,14,-32.8
+LOG-002104,HDR,Spare Batteries (AA/Lithium),2026-06-07,1.24,units,14,-32.8
+LOG-002105,HDR,Diesel Fuel,2026-06-08,136.7,litres,11,-33.0
+LOG-002106,HDR,Propane (LPG),2026-06-08,14.37,kg,11,-33.0
+LOG-002107,HDR,Medical Oxygen,2026-06-08,0.39,cylinders,11,-33.0
+LOG-002108,HDR,Medical Kit Supplies,2026-06-08,1.09,units,11,-33.0
+LOG-002109,HDR,Dry Rations,2026-06-08,14.24,kg,11,-33.0
+LOG-002110,HDR,Frozen Rations,2026-06-08,10.71,kg,11,-33.0
+LOG-002111,HDR,Potable Water Treatment Tablets,2026-06-08,1.25,units,11,-33.0
+LOG-002112,HDR,Spare Batteries (AA/Lithium),2026-06-08,1.5,units,11,-33.0
+LOG-002113,HDR,Diesel Fuel,2026-06-09,166.66,litres,14,-33.1
+LOG-002114,HDR,Propane (LPG),2026-06-09,17.86,kg,14,-33.1
+LOG-002115,HDR,Medical Oxygen,2026-06-09,0.35,cylinders,14,-33.1
+LOG-002116,HDR,Medical Kit Supplies,2026-06-09,1.03,units,14,-33.1
+LOG-002117,HDR,Dry Rations,2026-06-09,18.13,kg,14,-33.1
+LOG-002118,HDR,Frozen Rations,2026-06-09,8.81,kg,14,-33.1
+LOG-002119,HDR,Potable Water Treatment Tablets,2026-06-09,2.22,units,14,-33.1
+LOG-002120,HDR,Spare Batteries (AA/Lithium),2026-06-09,0.72,units,14,-33.1
+LOG-002121,HDR,Diesel Fuel,2026-06-10,102.68,litres,11,-33.3
+LOG-002122,HDR,Propane (LPG),2026-06-10,10.42,kg,11,-33.3
+LOG-002123,HDR,Medical Oxygen,2026-06-10,0.48,cylinders,11,-33.3
+LOG-002124,HDR,Medical Kit Supplies,2026-06-10,0.83,units,11,-33.3
+LOG-002125,HDR,Dry Rations,2026-06-10,12.67,kg,11,-33.3
+LOG-002126,HDR,Frozen Rations,2026-06-10,8.8,kg,11,-33.3
+LOG-002127,HDR,Potable Water Treatment Tablets,2026-06-10,1.56,units,11,-33.3
+LOG-002128,HDR,Spare Batteries (AA/Lithium),2026-06-10,1.32,units,11,-33.3
+LOG-002129,HDR,Diesel Fuel,2026-06-11,134.42,litres,10,-33.5
+LOG-002130,HDR,Propane (LPG),2026-06-11,12.74,kg,10,-33.5
+LOG-002131,HDR,Medical Oxygen,2026-06-11,0.25,cylinders,10,-33.5
+LOG-002132,HDR,Medical Kit Supplies,2026-06-11,0.54,units,10,-33.5
+LOG-002133,HDR,Dry Rations,2026-06-11,9.32,kg,10,-33.5
+LOG-002134,HDR,Frozen Rations,2026-06-11,9.68,kg,10,-33.5
+LOG-002135,HDR,Potable Water Treatment Tablets,2026-06-11,1.97,units,10,-33.5
+LOG-002136,HDR,Spare Batteries (AA/Lithium),2026-06-11,0.66,units,10,-33.5
+LOG-002137,HDR,Diesel Fuel,2026-06-12,141.01,litres,12,-33.6
+LOG-002138,HDR,Propane (LPG),2026-06-12,16.09,kg,12,-33.6
+LOG-002139,HDR,Medical Oxygen,2026-06-12,0.54,cylinders,12,-33.6
+LOG-002140,HDR,Medical Kit Supplies,2026-06-12,1.01,units,12,-33.6
+LOG-002141,HDR,Dry Rations,2026-06-12,11.12,kg,12,-33.6
+LOG-002142,HDR,Frozen Rations,2026-06-12,10.55,kg,12,-33.6
+LOG-002143,HDR,Potable Water Treatment Tablets,2026-06-12,2.08,units,12,-33.6
+LOG-002144,HDR,Spare Batteries (AA/Lithium),2026-06-12,1.62,units,12,-33.6
+LOG-002145,HDR,Diesel Fuel,2026-06-13,107.64,litres,10,-33.7
+LOG-002146,HDR,Propane (LPG),2026-06-13,15.4,kg,10,-33.7
+LOG-002147,HDR,Medical Oxygen,2026-06-13,0.23,cylinders,10,-33.7
+LOG-002148,HDR,Medical Kit Supplies,2026-06-13,0.81,units,10,-33.7
+LOG-002149,HDR,Dry Rations,2026-06-13,9.22,kg,10,-33.7
+LOG-002150,HDR,Frozen Rations,2026-06-13,8.66,kg,10,-33.7
+LOG-002151,HDR,Potable Water Treatment Tablets,2026-06-13,1.66,units,10,-33.7
+LOG-002152,HDR,Spare Batteries (AA/Lithium),2026-06-13,0.68,units,10,-33.7
+LOG-002153,HDR,Diesel Fuel,2026-06-14,139.5,litres,10,-33.9
+LOG-002154,HDR,Propane (LPG),2026-06-14,13.91,kg,10,-33.9
+LOG-002155,HDR,Medical Oxygen,2026-06-14,0.25,cylinders,10,-33.9
+LOG-002156,HDR,Medical Kit Supplies,2026-06-14,0.98,units,10,-33.9
+LOG-002157,HDR,Dry Rations,2026-06-14,11.09,kg,10,-33.9
+LOG-002158,HDR,Frozen Rations,2026-06-14,9.13,kg,10,-33.9
+LOG-002159,HDR,Potable Water Treatment Tablets,2026-06-14,1.72,units,10,-33.9
+LOG-002160,HDR,Spare Batteries (AA/Lithium),2026-06-14,0.67,units,10,-33.9
+LOG-002161,HDR,Diesel Fuel,2026-06-15,156.73,litres,11,-34.0
+LOG-002162,HDR,Propane (LPG),2026-06-15,16.6,kg,11,-34.0
+LOG-002163,HDR,Medical Oxygen,2026-06-15,0.46,cylinders,11,-34.0
+LOG-002164,HDR,Medical Kit Supplies,2026-06-15,0.61,units,11,-34.0
+LOG-002165,HDR,Dry Rations,2026-06-15,13.86,kg,11,-34.0
+LOG-002166,HDR,Frozen Rations,2026-06-15,8.07,kg,11,-34.0
+LOG-002167,HDR,Potable Water Treatment Tablets,2026-06-15,1.57,units,11,-34.0
+LOG-002168,HDR,Spare Batteries (AA/Lithium),2026-06-15,1.13,units,11,-34.0
+LOG-002169,HDR,Diesel Fuel,2026-06-16,168.05,litres,12,-34.1
+LOG-002170,HDR,Propane (LPG),2026-06-16,15.69,kg,12,-34.1
+LOG-002171,HDR,Medical Oxygen,2026-06-16,0.27,cylinders,12,-34.1
+LOG-002172,HDR,Medical Kit Supplies,2026-06-16,0.87,units,12,-34.1
+LOG-002173,HDR,Dry Rations,2026-06-16,12.53,kg,12,-34.1
+LOG-002174,HDR,Frozen Rations,2026-06-16,9.6,kg,12,-34.1
+LOG-002175,HDR,Potable Water Treatment Tablets,2026-06-16,1.88,units,12,-34.1
+LOG-002176,HDR,Spare Batteries (AA/Lithium),2026-06-16,1.04,units,12,-34.1
+LOG-002177,HDR,Diesel Fuel,2026-06-17,173.22,litres,12,-34.2
+LOG-002178,HDR,Propane (LPG),2026-06-17,18.32,kg,12,-34.2
+LOG-002179,HDR,Medical Oxygen,2026-06-17,0.48,cylinders,12,-34.2
+LOG-002180,HDR,Medical Kit Supplies,2026-06-17,0.67,units,12,-34.2
+LOG-002181,HDR,Dry Rations,2026-06-17,14.36,kg,12,-34.2
+LOG-002182,HDR,Frozen Rations,2026-06-17,7.21,kg,12,-34.2
+LOG-002183,HDR,Potable Water Treatment Tablets,2026-06-17,2.23,units,12,-34.2
+LOG-002184,HDR,Spare Batteries (AA/Lithium),2026-06-17,0.61,units,12,-34.2
+LOG-002185,HDR,Diesel Fuel,2026-06-18,123.79,litres,10,-34.3
+LOG-002186,HDR,Propane (LPG),2026-06-18,11.77,kg,10,-34.3
+LOG-002187,HDR,Medical Oxygen,2026-06-18,0.25,cylinders,10,-34.3
+LOG-002188,HDR,Medical Kit Supplies,2026-06-18,0.97,units,10,-34.3
+LOG-002189,HDR,Dry Rations,2026-06-18,12.43,kg,10,-34.3
+LOG-002190,HDR,Frozen Rations,2026-06-18,8.21,kg,10,-34.3
+LOG-002191,HDR,Potable Water Treatment Tablets,2026-06-18,1.91,units,10,-34.3
+LOG-002192,HDR,Spare Batteries (AA/Lithium),2026-06-18,1.24,units,10,-34.3
+LOG-002193,HDR,Diesel Fuel,2026-06-19,139.01,litres,13,-34.4
+LOG-002194,HDR,Propane (LPG),2026-06-19,14.11,kg,13,-34.4
+LOG-002195,HDR,Medical Oxygen,2026-06-19,0.62,cylinders,13,-34.4
+LOG-002196,HDR,Medical Kit Supplies,2026-06-19,0.86,units,13,-34.4
+LOG-002197,HDR,Dry Rations,2026-06-19,16.0,kg,13,-34.4
+LOG-002198,HDR,Frozen Rations,2026-06-19,10.77,kg,13,-34.4
+LOG-002199,HDR,Potable Water Treatment Tablets,2026-06-19,1.46,units,13,-34.4
+LOG-002200,HDR,Spare Batteries (AA/Lithium),2026-06-19,1.53,units,13,-34.4
+LOG-002201,HDR,Diesel Fuel,2026-06-20,103.92,litres,10,-34.5
+LOG-002202,HDR,Propane (LPG),2026-06-20,14.69,kg,10,-34.5
+LOG-002203,HDR,Medical Oxygen,2026-06-20,0.49,cylinders,10,-34.5
+LOG-002204,HDR,Medical Kit Supplies,2026-06-20,0.98,units,10,-34.5
+LOG-002205,HDR,Dry Rations,2026-06-20,9.28,kg,10,-34.5
+LOG-002206,HDR,Frozen Rations,2026-06-20,7.86,kg,10,-34.5
+LOG-002207,HDR,Potable Water Treatment Tablets,2026-06-20,1.28,units,10,-34.5
+LOG-002208,HDR,Spare Batteries (AA/Lithium),2026-06-20,1.34,units,10,-34.5
+LOG-002209,HDR,Diesel Fuel,2026-06-21,117.14,litres,12,-34.6
+LOG-002210,HDR,Propane (LPG),2026-06-21,14.77,kg,12,-34.6
+LOG-002211,HDR,Medical Oxygen,2026-06-21,0.37,cylinders,12,-34.6
+LOG-002212,HDR,Medical Kit Supplies,2026-06-21,0.77,units,12,-34.6
+LOG-002213,HDR,Dry Rations,2026-06-21,14.57,kg,12,-34.6
+LOG-002214,HDR,Frozen Rations,2026-06-21,10.75,kg,12,-34.6
+LOG-002215,HDR,Potable Water Treatment Tablets,2026-06-21,1.49,units,12,-34.6
+LOG-002216,HDR,Spare Batteries (AA/Lithium),2026-06-21,1.04,units,12,-34.6
+LOG-002217,HDR,Diesel Fuel,2026-06-22,208.56,litres,13,-34.7
+LOG-002218,HDR,Propane (LPG),2026-06-22,18.87,kg,13,-34.7
+LOG-002219,HDR,Medical Oxygen,2026-06-22,0.55,cylinders,13,-34.7
+LOG-002220,HDR,Medical Kit Supplies,2026-06-22,1.01,units,13,-34.7
+LOG-002221,HDR,Dry Rations,2026-06-22,15.84,kg,13,-34.7
+LOG-002222,HDR,Frozen Rations,2026-06-22,8.58,kg,13,-34.7
+LOG-002223,HDR,Potable Water Treatment Tablets,2026-06-22,2.51,units,13,-34.7
+LOG-002224,HDR,Spare Batteries (AA/Lithium),2026-06-22,0.68,units,13,-34.7
+LOG-002225,HDR,Diesel Fuel,2026-06-23,161.84,litres,14,-34.7
+LOG-002226,HDR,Propane (LPG),2026-06-23,20.94,kg,14,-34.7
+LOG-002227,HDR,Medical Oxygen,2026-06-23,0.65,cylinders,14,-34.7
+LOG-002228,HDR,Medical Kit Supplies,2026-06-23,1.37,units,14,-34.7
+LOG-002229,HDR,Dry Rations,2026-06-23,12.61,kg,14,-34.7
+LOG-002230,HDR,Frozen Rations,2026-06-23,12.08,kg,14,-34.7
+LOG-002231,HDR,Potable Water Treatment Tablets,2026-06-23,2.59,units,14,-34.7
+LOG-002232,HDR,Spare Batteries (AA/Lithium),2026-06-23,1.72,units,14,-34.7
+LOG-002233,HDR,Diesel Fuel,2026-06-24,105.97,litres,10,-34.8
+LOG-002234,HDR,Propane (LPG),2026-06-24,15.96,kg,10,-34.8
+LOG-002235,HDR,Medical Oxygen,2026-06-24,0.33,cylinders,10,-34.8
+LOG-002236,HDR,Medical Kit Supplies,2026-06-24,0.98,units,10,-34.8
+LOG-002237,HDR,Dry Rations,2026-06-24,12.89,kg,10,-34.8
+LOG-002238,HDR,Frozen Rations,2026-06-24,6.57,kg,10,-34.8
+LOG-002239,HDR,Potable Water Treatment Tablets,2026-06-24,1.28,units,10,-34.8
+LOG-002240,HDR,Spare Batteries (AA/Lithium),2026-06-24,0.54,units,10,-34.8
+LOG-002241,HDR,Diesel Fuel,2026-06-25,169.01,litres,11,-34.8
+LOG-002242,HDR,Propane (LPG),2026-06-25,14.04,kg,11,-34.8
+LOG-002243,HDR,Medical Oxygen,2026-06-25,0.45,cylinders,11,-34.8
+LOG-002244,HDR,Medical Kit Supplies,2026-06-25,0.75,units,11,-34.8
+LOG-002245,HDR,Dry Rations,2026-06-25,14.19,kg,11,-34.8
+LOG-002246,HDR,Frozen Rations,2026-06-25,6.97,kg,11,-34.8
+LOG-002247,HDR,Potable Water Treatment Tablets,2026-06-25,1.21,units,11,-34.8
+LOG-002248,HDR,Spare Batteries (AA/Lithium),2026-06-25,0.7,units,11,-34.8
+LOG-002249,HDR,Diesel Fuel,2026-06-26,126.2,litres,13,-34.9
+LOG-002250,HDR,Propane (LPG),2026-06-26,17.04,kg,13,-34.9
+LOG-002251,HDR,Medical Oxygen,2026-06-26,0.43,cylinders,13,-34.9
+LOG-002252,HDR,Medical Kit Supplies,2026-06-26,1.28,units,13,-34.9
+LOG-002253,HDR,Dry Rations,2026-06-26,12.93,kg,13,-34.9
+LOG-002254,HDR,Frozen Rations,2026-06-26,9.16,kg,13,-34.9
+LOG-002255,HDR,Potable Water Treatment Tablets,2026-06-26,1.71,units,13,-34.9
+LOG-002256,HDR,Spare Batteries (AA/Lithium),2026-06-26,1.69,units,13,-34.9
+LOG-002257,HDR,Diesel Fuel,2026-06-27,136.62,litres,12,-34.9
+LOG-002258,HDR,Propane (LPG),2026-06-27,13.28,kg,12,-34.9
+LOG-002259,HDR,Medical Oxygen,2026-06-27,0.27,cylinders,12,-34.9
+LOG-002260,HDR,Medical Kit Supplies,2026-06-27,0.72,units,12,-34.9
+LOG-002261,HDR,Dry Rations,2026-06-27,14.54,kg,12,-34.9
+LOG-002262,HDR,Frozen Rations,2026-06-27,10.01,kg,12,-34.9
+LOG-002263,HDR,Potable Water Treatment Tablets,2026-06-27,1.39,units,12,-34.9
+LOG-002264,HDR,Spare Batteries (AA/Lithium),2026-06-27,0.8,units,12,-34.9
+LOG-002265,HDR,Diesel Fuel,2026-06-28,147.77,litres,13,-35.0
+LOG-002266,HDR,Propane (LPG),2026-06-28,13.04,kg,13,-35.0
+LOG-002267,HDR,Medical Oxygen,2026-06-28,0.4,cylinders,13,-35.0
+LOG-002268,HDR,Medical Kit Supplies,2026-06-28,1.15,units,13,-35.0
+LOG-002269,HDR,Dry Rations,2026-06-28,14.05,kg,13,-35.0
+LOG-002270,HDR,Frozen Rations,2026-06-28,10.21,kg,13,-35.0
+LOG-002271,HDR,Potable Water Treatment Tablets,2026-06-28,2.41,units,13,-35.0
+LOG-002272,HDR,Spare Batteries (AA/Lithium),2026-06-28,0.77,units,13,-35.0
+LOG-002273,HDR,Diesel Fuel,2026-06-29,178.82,litres,12,-35.0
+LOG-002274,HDR,Propane (LPG),2026-06-29,16.81,kg,12,-35.0
+LOG-002275,HDR,Medical Oxygen,2026-06-29,0.25,cylinders,12,-35.0
+LOG-002276,HDR,Medical Kit Supplies,2026-06-29,1.1,units,12,-35.0
+LOG-002277,HDR,Dry Rations,2026-06-29,12.37,kg,12,-35.0
+LOG-002278,HDR,Frozen Rations,2026-06-29,7.64,kg,12,-35.0
+LOG-002279,HDR,Potable Water Treatment Tablets,2026-06-29,1.5,units,12,-35.0
+LOG-002280,HDR,Spare Batteries (AA/Lithium),2026-06-29,1.03,units,12,-35.0
+LOG-002281,HDR,Diesel Fuel,2026-06-30,133.53,litres,14,-35.0
+LOG-002282,HDR,Propane (LPG),2026-06-30,15.77,kg,14,-35.0
+LOG-002283,HDR,Medical Oxygen,2026-06-30,0.62,cylinders,14,-35.0
+LOG-002284,HDR,Medical Kit Supplies,2026-06-30,0.82,units,14,-35.0
+LOG-002285,HDR,Dry Rations,2026-06-30,17.93,kg,14,-35.0
+LOG-002286,HDR,Frozen Rations,2026-06-30,13.19,kg,14,-35.0
+LOG-002287,HDR,Potable Water Treatment Tablets,2026-06-30,2.18,units,14,-35.0
+LOG-002288,HDR,Spare Batteries (AA/Lithium),2026-06-30,1.47,units,14,-35.0
+LOG-002289,HDR,Diesel Fuel,2026-07-01,123.88,litres,10,-35.0
+LOG-002290,HDR,Propane (LPG),2026-07-01,14.75,kg,10,-35.0
+LOG-002291,HDR,Medical Oxygen,2026-07-01,0.24,cylinders,10,-35.0
+LOG-002292,HDR,Medical Kit Supplies,2026-07-01,0.51,units,10,-35.0
+LOG-002293,HDR,Dry Rations,2026-07-01,12.32,kg,10,-35.0
+LOG-002294,HDR,Frozen Rations,2026-07-01,9.93,kg,10,-35.0
+LOG-002295,HDR,Potable Water Treatment Tablets,2026-07-01,1.13,units,10,-35.0
+LOG-002296,HDR,Spare Batteries (AA/Lithium),2026-07-01,1.32,units,10,-35.0
+LOG-002297,HDR,Diesel Fuel,2026-07-02,167.22,litres,12,-35.0
+LOG-002298,HDR,Propane (LPG),2026-07-02,18.8,kg,12,-35.0
+LOG-002299,HDR,Medical Oxygen,2026-07-02,0.27,cylinders,12,-35.0
+LOG-002300,HDR,Medical Kit Supplies,2026-07-02,0.95,units,12,-35.0
+LOG-002301,HDR,Dry Rations,2026-07-02,15.2,kg,12,-35.0
+LOG-002302,HDR,Frozen Rations,2026-07-02,7.56,kg,12,-35.0
+LOG-002303,HDR,Potable Water Treatment Tablets,2026-07-02,2.4,units,12,-35.0
+LOG-002304,HDR,Spare Batteries (AA/Lithium),2026-07-02,0.84,units,12,-35.0
+LOG-002305,HDR,Diesel Fuel,2026-07-03,192.19,litres,13,-35.0
+LOG-002306,HDR,Propane (LPG),2026-07-03,12.79,kg,13,-35.0
+LOG-002307,HDR,Medical Oxygen,2026-07-03,0.59,cylinders,13,-35.0
+LOG-002308,HDR,Medical Kit Supplies,2026-07-03,1.18,units,13,-35.0
+LOG-002309,HDR,Dry Rations,2026-07-03,12.34,kg,13,-35.0
+LOG-002310,HDR,Frozen Rations,2026-07-03,12.7,kg,13,-35.0
+LOG-002311,HDR,Potable Water Treatment Tablets,2026-07-03,1.37,units,13,-35.0
+LOG-002312,HDR,Spare Batteries (AA/Lithium),2026-07-03,1.85,units,13,-35.0
+LOG-002313,HDR,Diesel Fuel,2026-07-04,193.31,litres,13,-35.0
+LOG-002314,HDR,Propane (LPG),2026-07-04,15.5,kg,13,-35.0
+LOG-002315,HDR,Medical Oxygen,2026-07-04,0.27,cylinders,13,-35.0
+LOG-002316,HDR,Medical Kit Supplies,2026-07-04,1.09,units,13,-35.0
+LOG-002317,HDR,Dry Rations,2026-07-04,12.6,kg,13,-35.0
+LOG-002318,HDR,Frozen Rations,2026-07-04,8.92,kg,13,-35.0
+LOG-002319,HDR,Potable Water Treatment Tablets,2026-07-04,1.54,units,13,-35.0
+LOG-002320,HDR,Spare Batteries (AA/Lithium),2026-07-04,1.01,units,13,-35.0
+LOG-002321,HDR,Diesel Fuel,2026-07-05,103.83,litres,11,-35.0
+LOG-002322,HDR,Propane (LPG),2026-07-05,14.82,kg,11,-35.0
+LOG-002323,HDR,Medical Oxygen,2026-07-05,0.3,cylinders,11,-35.0
+LOG-002324,HDR,Medical Kit Supplies,2026-07-05,0.71,units,11,-35.0
+LOG-002325,HDR,Dry Rations,2026-07-05,11.71,kg,11,-35.0
+LOG-002326,HDR,Frozen Rations,2026-07-05,9.02,kg,11,-35.0
+LOG-002327,HDR,Potable Water Treatment Tablets,2026-07-05,1.17,units,11,-35.0
+LOG-002328,HDR,Spare Batteries (AA/Lithium),2026-07-05,0.86,units,11,-35.0
+LOG-002329,HDR,Diesel Fuel,2026-07-06,132.9,litres,11,-34.9
+LOG-002330,HDR,Propane (LPG),2026-07-06,14.98,kg,11,-34.9
+LOG-002331,HDR,Medical Oxygen,2026-07-06,0.48,cylinders,11,-34.9
+LOG-002332,HDR,Medical Kit Supplies,2026-07-06,0.69,units,11,-34.9
+LOG-002333,HDR,Dry Rations,2026-07-06,14.27,kg,11,-34.9
+LOG-002334,HDR,Frozen Rations,2026-07-06,8.99,kg,11,-34.9
+LOG-002335,HDR,Potable Water Treatment Tablets,2026-07-06,1.12,units,11,-34.9
+LOG-002336,HDR,Spare Batteries (AA/Lithium),2026-07-06,0.97,units,11,-34.9
+LOG-002337,HDR,Diesel Fuel,2026-07-07,149.99,litres,12,-34.9
+LOG-002338,HDR,Propane (LPG),2026-07-07,17.5,kg,12,-34.9
+LOG-002339,HDR,Medical Oxygen,2026-07-07,0.36,cylinders,12,-34.9
+LOG-002340,HDR,Medical Kit Supplies,2026-07-07,0.94,units,12,-34.9
+LOG-002341,HDR,Dry Rations,2026-07-07,12.34,kg,12,-34.9
+LOG-002342,HDR,Frozen Rations,2026-07-07,8.5,kg,12,-34.9
+LOG-002343,HDR,Potable Water Treatment Tablets,2026-07-07,1.23,units,12,-34.9
+LOG-002344,HDR,Spare Batteries (AA/Lithium),2026-07-07,1.32,units,12,-34.9
+LOG-002345,HDR,Diesel Fuel,2026-07-08,153.54,litres,10,-34.8
+LOG-002346,HDR,Propane (LPG),2026-07-08,14.55,kg,10,-34.8
+LOG-002347,HDR,Medical Oxygen,2026-07-08,0.22,cylinders,10,-34.8
+LOG-002348,HDR,Medical Kit Supplies,2026-07-08,1.0,units,10,-34.8
+LOG-002349,HDR,Dry Rations,2026-07-08,11.12,kg,10,-34.8
+LOG-002350,HDR,Frozen Rations,2026-07-08,9.07,kg,10,-34.8
+LOG-002351,HDR,Potable Water Treatment Tablets,2026-07-08,2.0,units,10,-34.8
+LOG-002352,HDR,Spare Batteries (AA/Lithium),2026-07-08,1.47,units,10,-34.8
+LOG-002353,HDR,Diesel Fuel,2026-07-09,108.91,litres,10,-34.8
+LOG-002354,HDR,Propane (LPG),2026-07-09,10.85,kg,10,-34.8
+LOG-002355,HDR,Medical Oxygen,2026-07-09,0.36,cylinders,10,-34.8
+LOG-002356,HDR,Medical Kit Supplies,2026-07-09,0.9,units,10,-34.8
+LOG-002357,HDR,Dry Rations,2026-07-09,11.95,kg,10,-34.8
+LOG-002358,HDR,Frozen Rations,2026-07-09,9.06,kg,10,-34.8
+LOG-002359,HDR,Potable Water Treatment Tablets,2026-07-09,1.95,units,10,-34.8
+LOG-002360,HDR,Spare Batteries (AA/Lithium),2026-07-09,1.08,units,10,-34.8
+LOG-002361,HDR,Diesel Fuel,2026-07-10,151.03,litres,13,-34.7
+LOG-002362,HDR,Propane (LPG),2026-07-10,19.44,kg,13,-34.7
+LOG-002363,HDR,Medical Oxygen,2026-07-10,0.59,cylinders,13,-34.7
+LOG-002364,HDR,Medical Kit Supplies,2026-07-10,0.76,units,13,-34.7
+LOG-002365,HDR,Dry Rations,2026-07-10,14.78,kg,13,-34.7
+LOG-002366,HDR,Frozen Rations,2026-07-10,11.99,kg,13,-34.7
+LOG-002367,HDR,Potable Water Treatment Tablets,2026-07-10,2.21,units,13,-34.7
+LOG-002368,HDR,Spare Batteries (AA/Lithium),2026-07-10,1.84,units,13,-34.7
+LOG-002369,HDR,Diesel Fuel,2026-07-11,140.17,litres,10,-34.7
+LOG-002370,HDR,Propane (LPG),2026-07-11,11.6,kg,10,-34.7
+LOG-002371,HDR,Medical Oxygen,2026-07-11,0.37,cylinders,10,-34.7
+LOG-002372,HDR,Medical Kit Supplies,2026-07-11,0.57,units,10,-34.7
+LOG-002373,HDR,Dry Rations,2026-07-11,12.79,kg,10,-34.7
+LOG-002374,HDR,Frozen Rations,2026-07-11,9.35,kg,10,-34.7
+LOG-002375,HDR,Potable Water Treatment Tablets,2026-07-11,1.81,units,10,-34.7
+LOG-002376,HDR,Spare Batteries (AA/Lithium),2026-07-11,1.47,units,10,-34.7
+LOG-002377,HDR,Diesel Fuel,2026-07-12,158.1,litres,14,-34.6
+LOG-002378,HDR,Propane (LPG),2026-07-12,17.56,kg,14,-34.6
+LOG-002379,HDR,Medical Oxygen,2026-07-12,0.32,cylinders,14,-34.6
+LOG-002380,HDR,Medical Kit Supplies,2026-07-12,0.86,units,14,-34.6
+LOG-002381,HDR,Dry Rations,2026-07-12,13.83,kg,14,-34.6
+LOG-002382,HDR,Frozen Rations,2026-07-12,11.35,kg,14,-34.6
+LOG-002383,HDR,Potable Water Treatment Tablets,2026-07-12,1.4,units,14,-34.6
+LOG-002384,HDR,Spare Batteries (AA/Lithium),2026-07-12,1.99,units,14,-34.6
+LOG-002385,HDR,Diesel Fuel,2026-07-13,161.7,litres,11,-34.5
+LOG-002386,HDR,Propane (LPG),2026-07-13,12.65,kg,11,-34.5
+LOG-002387,HDR,Medical Oxygen,2026-07-13,0.28,cylinders,11,-34.5
+LOG-002388,HDR,Medical Kit Supplies,2026-07-13,0.99,units,11,-34.5
+LOG-002389,HDR,Dry Rations,2026-07-13,13.72,kg,11,-34.5
+LOG-002390,HDR,Frozen Rations,2026-07-13,6.86,kg,11,-34.5
+LOG-002391,HDR,Potable Water Treatment Tablets,2026-07-13,1.26,units,11,-34.5
+LOG-002392,HDR,Spare Batteries (AA/Lithium),2026-07-13,1.33,units,11,-34.5
+LOG-002393,HDR,Diesel Fuel,2026-07-14,159.14,litres,11,-34.4
+LOG-002394,HDR,Propane (LPG),2026-07-14,16.46,kg,11,-34.4
+LOG-002395,HDR,Medical Oxygen,2026-07-14,0.5,cylinders,11,-34.4
+LOG-002396,HDR,Medical Kit Supplies,2026-07-14,1.08,units,11,-34.4
+LOG-002397,HDR,Dry Rations,2026-07-14,11.54,kg,11,-34.4
+LOG-002398,HDR,Frozen Rations,2026-07-14,10.74,kg,11,-34.4
+LOG-002399,HDR,Potable Water Treatment Tablets,2026-07-14,1.54,units,11,-34.4
+LOG-002400,HDR,Spare Batteries (AA/Lithium),2026-07-14,0.66,units,11,-34.4
+LOG-002401,HDR,Diesel Fuel,2026-07-15,136.28,litres,12,-34.3
+LOG-002402,HDR,Propane (LPG),2026-07-15,19.0,kg,12,-34.3
+LOG-002403,HDR,Medical Oxygen,2026-07-15,0.5,cylinders,12,-34.3
+LOG-002404,HDR,Medical Kit Supplies,2026-07-15,0.86,units,12,-34.3
+LOG-002405,HDR,Dry Rations,2026-07-15,13.87,kg,12,-34.3
+LOG-002406,HDR,Frozen Rations,2026-07-15,9.54,kg,12,-34.3
+LOG-002407,HDR,Potable Water Treatment Tablets,2026-07-15,1.58,units,12,-34.3
+LOG-002408,HDR,Spare Batteries (AA/Lithium),2026-07-15,1.45,units,12,-34.3
+LOG-002409,HDR,Diesel Fuel,2026-07-16,194.44,litres,14,-34.2
+LOG-002410,HDR,Propane (LPG),2026-07-16,21.7,kg,14,-34.2
+LOG-002411,HDR,Medical Oxygen,2026-07-16,0.61,cylinders,14,-34.2
+LOG-002412,HDR,Medical Kit Supplies,2026-07-16,0.86,units,14,-34.2
+LOG-002413,HDR,Dry Rations,2026-07-16,15.9,kg,14,-34.2
+LOG-002414,HDR,Frozen Rations,2026-07-16,9.38,kg,14,-34.2
+LOG-002415,HDR,Potable Water Treatment Tablets,2026-07-16,1.83,units,14,-34.2
+LOG-002416,HDR,Spare Batteries (AA/Lithium),2026-07-16,1.66,units,14,-34.2
+LOG-002417,HDR,Diesel Fuel,2026-07-17,113.79,litres,11,-34.1
+LOG-002418,HDR,Propane (LPG),2026-07-17,10.05,kg,11,-34.1
+LOG-002419,HDR,Medical Oxygen,2026-07-17,0.45,cylinders,11,-34.1
+LOG-002420,HDR,Medical Kit Supplies,2026-07-17,0.87,units,11,-34.1
+LOG-002421,HDR,Dry Rations,2026-07-17,13.64,kg,11,-34.1
+LOG-002422,HDR,Frozen Rations,2026-07-17,9.99,kg,11,-34.1
+LOG-002423,HDR,Potable Water Treatment Tablets,2026-07-17,1.72,units,11,-34.1
+LOG-002424,HDR,Spare Batteries (AA/Lithium),2026-07-17,0.75,units,11,-34.1
+LOG-002425,HDR,Diesel Fuel,2026-07-18,185.04,litres,12,-34.0
+LOG-002426,HDR,Propane (LPG),2026-07-18,18.89,kg,12,-34.0
+LOG-002427,HDR,Medical Oxygen,2026-07-18,0.32,cylinders,12,-34.0
+LOG-002428,HDR,Medical Kit Supplies,2026-07-18,0.94,units,12,-34.0
+LOG-002429,HDR,Dry Rations,2026-07-18,15.3,kg,12,-34.0
+LOG-002430,HDR,Frozen Rations,2026-07-18,7.88,kg,12,-34.0
+LOG-002431,HDR,Potable Water Treatment Tablets,2026-07-18,2.09,units,12,-34.0
+LOG-002432,HDR,Spare Batteries (AA/Lithium),2026-07-18,0.89,units,12,-34.0
+LOG-002433,HDR,Diesel Fuel,2026-07-19,123.11,litres,12,-33.9
+LOG-002434,HDR,Propane (LPG),2026-07-19,18.19,kg,12,-33.9
+LOG-002435,HDR,Medical Oxygen,2026-07-19,0.27,cylinders,12,-33.9
+LOG-002436,HDR,Medical Kit Supplies,2026-07-19,1.03,units,12,-33.9
+LOG-002437,HDR,Dry Rations,2026-07-19,13.87,kg,12,-33.9
+LOG-002438,HDR,Frozen Rations,2026-07-19,11.46,kg,12,-33.9
+LOG-002439,HDR,Potable Water Treatment Tablets,2026-07-19,1.74,units,12,-33.9
+LOG-002440,HDR,Spare Batteries (AA/Lithium),2026-07-19,0.92,units,12,-33.9
+LOG-002441,HDR,Diesel Fuel,2026-07-20,152.07,litres,11,-33.7
+LOG-002442,HDR,Propane (LPG),2026-07-20,12.64,kg,11,-33.7
+LOG-002443,HDR,Medical Oxygen,2026-07-20,0.48,cylinders,11,-33.7
+LOG-002444,HDR,Medical Kit Supplies,2026-07-20,0.95,units,11,-33.7
+LOG-002445,HDR,Dry Rations,2026-07-20,10.11,kg,11,-33.7
+LOG-002446,HDR,Frozen Rations,2026-07-20,8.53,kg,11,-33.7
+LOG-002447,HDR,Potable Water Treatment Tablets,2026-07-20,1.56,units,11,-33.7
+LOG-002448,HDR,Spare Batteries (AA/Lithium),2026-07-20,0.73,units,11,-33.7
+LOG-002449,HDR,Diesel Fuel,2026-07-21,161.84,litres,13,-33.6
+LOG-002450,HDR,Propane (LPG),2026-07-21,15.17,kg,13,-33.6
+LOG-002451,HDR,Medical Oxygen,2026-07-21,0.47,cylinders,13,-33.6
+LOG-002452,HDR,Medical Kit Supplies,2026-07-21,0.72,units,13,-33.6
+LOG-002453,HDR,Dry Rations,2026-07-21,14.19,kg,13,-33.6
+LOG-002454,HDR,Frozen Rations,2026-07-21,12.29,kg,13,-33.6
+LOG-002455,HDR,Potable Water Treatment Tablets,2026-07-21,2.15,units,13,-33.6
+LOG-002456,HDR,Spare Batteries (AA/Lithium),2026-07-21,1.54,units,13,-33.6
+LOG-002457,HDR,Diesel Fuel,2026-07-22,133.69,litres,11,-33.5
+LOG-002458,HDR,Propane (LPG),2026-07-22,15.97,kg,11,-33.5
+LOG-002459,HDR,Medical Oxygen,2026-07-22,0.23,cylinders,11,-33.5
+LOG-002460,HDR,Medical Kit Supplies,2026-07-22,0.56,units,11,-33.5
+LOG-002461,HDR,Dry Rations,2026-07-22,11.05,kg,11,-33.5
+LOG-002462,HDR,Frozen Rations,2026-07-22,7.06,kg,11,-33.5
+LOG-002463,HDR,Potable Water Treatment Tablets,2026-07-22,1.48,units,11,-33.5
+LOG-002464,HDR,Spare Batteries (AA/Lithium),2026-07-22,1.53,units,11,-33.5
+LOG-002465,HDR,Diesel Fuel,2026-07-23,154.44,litres,11,-33.3
+LOG-002466,HDR,Propane (LPG),2026-07-23,14.06,kg,11,-33.3
+LOG-002467,HDR,Medical Oxygen,2026-07-23,0.52,cylinders,11,-33.3
+LOG-002468,HDR,Medical Kit Supplies,2026-07-23,0.6,units,11,-33.3
+LOG-002469,HDR,Dry Rations,2026-07-23,12.51,kg,11,-33.3
+LOG-002470,HDR,Frozen Rations,2026-07-23,9.3,kg,11,-33.3
+LOG-002471,HDR,Potable Water Treatment Tablets,2026-07-23,1.63,units,11,-33.3
+LOG-002472,HDR,Spare Batteries (AA/Lithium),2026-07-23,0.58,units,11,-33.3
+LOG-002473,HDR,Diesel Fuel,2026-07-24,144.86,litres,11,-33.1
+LOG-002474,HDR,Propane (LPG),2026-07-24,13.19,kg,11,-33.1
+LOG-002475,HDR,Medical Oxygen,2026-07-24,0.24,cylinders,11,-33.1
+LOG-002476,HDR,Medical Kit Supplies,2026-07-24,0.73,units,11,-33.1
+LOG-002477,HDR,Dry Rations,2026-07-24,14.19,kg,11,-33.1
+LOG-002478,HDR,Frozen Rations,2026-07-24,8.4,kg,11,-33.1
+LOG-002479,HDR,Potable Water Treatment Tablets,2026-07-24,1.71,units,11,-33.1
+LOG-002480,HDR,Spare Batteries (AA/Lithium),2026-07-24,1.57,units,11,-33.1
+LOG-002481,HDR,Diesel Fuel,2026-07-25,151.74,litres,14,-33.0
+LOG-002482,HDR,Propane (LPG),2026-07-25,15.33,kg,14,-33.0
+LOG-002483,HDR,Medical Oxygen,2026-07-25,0.38,cylinders,14,-33.0
+LOG-002484,HDR,Medical Kit Supplies,2026-07-25,0.73,units,14,-33.0
+LOG-002485,HDR,Dry Rations,2026-07-25,15.8,kg,14,-33.0
+LOG-002486,HDR,Frozen Rations,2026-07-25,13.1,kg,14,-33.0
+LOG-002487,HDR,Potable Water Treatment Tablets,2026-07-25,1.62,units,14,-33.0
+LOG-002488,HDR,Spare Batteries (AA/Lithium),2026-07-25,1.21,units,14,-33.0
+LOG-002489,HDR,Diesel Fuel,2026-07-26,125.02,litres,13,-32.8
+LOG-002490,HDR,Propane (LPG),2026-07-26,18.98,kg,13,-32.8
+LOG-002491,HDR,Medical Oxygen,2026-07-26,0.5,cylinders,13,-32.8
+LOG-002492,HDR,Medical Kit Supplies,2026-07-26,0.96,units,13,-32.8
+LOG-002493,HDR,Dry Rations,2026-07-26,12.2,kg,13,-32.8
+LOG-002494,HDR,Frozen Rations,2026-07-26,8.88,kg,13,-32.8
+LOG-002495,HDR,Potable Water Treatment Tablets,2026-07-26,2.13,units,13,-32.8
+LOG-002496,HDR,Spare Batteries (AA/Lithium),2026-07-26,1.92,units,13,-32.8
+LOG-002497,HDR,Diesel Fuel,2026-07-27,191.21,litres,13,-32.6
+LOG-002498,HDR,Propane (LPG),2026-07-27,14.42,kg,13,-32.6
+LOG-002499,HDR,Medical Oxygen,2026-07-27,0.42,cylinders,13,-32.6
+LOG-002500,HDR,Medical Kit Supplies,2026-07-27,0.97,units,13,-32.6
+LOG-002501,HDR,Dry Rations,2026-07-27,15.14,kg,13,-32.6
+LOG-002502,HDR,Frozen Rations,2026-07-27,8.27,kg,13,-32.6
+LOG-002503,HDR,Potable Water Treatment Tablets,2026-07-27,2.01,units,13,-32.6
+LOG-002504,HDR,Spare Batteries (AA/Lithium),2026-07-27,0.89,units,13,-32.6
+LOG-002505,HDR,Diesel Fuel,2026-07-28,149.28,litres,13,-32.4
+LOG-002506,HDR,Propane (LPG),2026-07-28,15.6,kg,13,-32.4
+LOG-002507,HDR,Medical Oxygen,2026-07-28,0.36,cylinders,13,-32.4
+LOG-002508,HDR,Medical Kit Supplies,2026-07-28,0.95,units,13,-32.4
+LOG-002509,HDR,Dry Rations,2026-07-28,12.88,kg,13,-32.4
+LOG-002510,HDR,Frozen Rations,2026-07-28,9.2,kg,13,-32.4
+LOG-002511,HDR,Potable Water Treatment Tablets,2026-07-28,1.38,units,13,-32.4
+LOG-002512,HDR,Spare Batteries (AA/Lithium),2026-07-28,1.63,units,13,-32.4
+LOG-002513,HDR,Diesel Fuel,2026-07-29,95.61,litres,10,-32.3
+LOG-002514,HDR,Propane (LPG),2026-07-29,11.3,kg,10,-32.3
+LOG-002515,HDR,Medical Oxygen,2026-07-29,0.36,cylinders,10,-32.3
+LOG-002516,HDR,Medical Kit Supplies,2026-07-29,0.99,units,10,-32.3
+LOG-002517,HDR,Dry Rations,2026-07-29,11.36,kg,10,-32.3
+LOG-002518,HDR,Frozen Rations,2026-07-29,8.21,kg,10,-32.3
+LOG-002519,HDR,Potable Water Treatment Tablets,2026-07-29,1.84,units,10,-32.3
+LOG-002520,HDR,Spare Batteries (AA/Lithium),2026-07-29,1.32,units,10,-32.3
+LOG-002521,HDR,Diesel Fuel,2026-07-30,201.02,litres,13,-32.1
+LOG-002522,HDR,Propane (LPG),2026-07-30,17.67,kg,13,-32.1
+LOG-002523,HDR,Medical Oxygen,2026-07-30,0.63,cylinders,13,-32.1
+LOG-002524,HDR,Medical Kit Supplies,2026-07-30,1.02,units,13,-32.1
+LOG-002525,HDR,Dry Rations,2026-07-30,12.93,kg,13,-32.1
+LOG-002526,HDR,Frozen Rations,2026-07-30,9.35,kg,13,-32.1
+LOG-002527,HDR,Potable Water Treatment Tablets,2026-07-30,1.81,units,13,-32.1
+LOG-002528,HDR,Spare Batteries (AA/Lithium),2026-07-30,1.76,units,13,-32.1
+LOG-002529,HDR,Diesel Fuel,2026-07-31,123.12,litres,10,-31.8
+LOG-002530,HDR,Propane (LPG),2026-07-31,14.98,kg,10,-31.8
+LOG-002531,HDR,Medical Oxygen,2026-07-31,0.44,cylinders,10,-31.8
+LOG-002532,HDR,Medical Kit Supplies,2026-07-31,0.84,units,10,-31.8
+LOG-002533,HDR,Dry Rations,2026-07-31,11.48,kg,10,-31.8
+LOG-002534,HDR,Frozen Rations,2026-07-31,6.48,kg,10,-31.8
+LOG-002535,HDR,Potable Water Treatment Tablets,2026-07-31,1.76,units,10,-31.8
+LOG-002536,HDR,Spare Batteries (AA/Lithium),2026-07-31,0.67,units,10,-31.8
+LOG-002537,HDR,Diesel Fuel,2026-08-01,169.81,litres,11,-31.6
+LOG-002538,HDR,Propane (LPG),2026-08-01,15.78,kg,11,-31.6
+LOG-002539,HDR,Medical Oxygen,2026-08-01,0.26,cylinders,11,-31.6
+LOG-002540,HDR,Medical Kit Supplies,2026-08-01,0.78,units,11,-31.6
+LOG-002541,HDR,Dry Rations,2026-08-01,14.25,kg,11,-31.6
+LOG-002542,HDR,Frozen Rations,2026-08-01,8.52,kg,11,-31.6
+LOG-002543,HDR,Potable Water Treatment Tablets,2026-08-01,2.2,units,11,-31.6
+LOG-002544,HDR,Spare Batteries (AA/Lithium),2026-08-01,1.24,units,11,-31.6
+LOG-002545,HDR,Diesel Fuel,2026-08-02,148.9,litres,14,-31.4
+LOG-002546,HDR,Propane (LPG),2026-08-02,21.0,kg,14,-31.4
+LOG-002547,HDR,Medical Oxygen,2026-08-02,0.66,cylinders,14,-31.4
+LOG-002548,HDR,Medical Kit Supplies,2026-08-02,0.75,units,14,-31.4
+LOG-002549,HDR,Dry Rations,2026-08-02,14.77,kg,14,-31.4
+LOG-002550,HDR,Frozen Rations,2026-08-02,10.63,kg,14,-31.4
+LOG-002551,HDR,Potable Water Treatment Tablets,2026-08-02,1.86,units,14,-31.4
+LOG-002552,HDR,Spare Batteries (AA/Lithium),2026-08-02,1.09,units,14,-31.4
+LOG-002553,HDR,Diesel Fuel,2026-08-03,195.2,litres,13,-31.2
+LOG-002554,HDR,Propane (LPG),2026-08-03,11.67,kg,13,-31.2
+LOG-002555,HDR,Medical Oxygen,2026-08-03,0.53,cylinders,13,-31.2
+LOG-002556,HDR,Medical Kit Supplies,2026-08-03,1.03,units,13,-31.2
+LOG-002557,HDR,Dry Rations,2026-08-03,15.76,kg,13,-31.2
+LOG-002558,HDR,Frozen Rations,2026-08-03,8.39,kg,13,-31.2
+LOG-002559,HDR,Potable Water Treatment Tablets,2026-08-03,1.49,units,13,-31.2
+LOG-002560,HDR,Spare Batteries (AA/Lithium),2026-08-03,1.39,units,13,-31.2
+LOG-002561,HDR,Diesel Fuel,2026-08-04,195.03,litres,14,-31.0
+LOG-002562,HDR,Propane (LPG),2026-08-04,21.19,kg,14,-31.0
+LOG-002563,HDR,Medical Oxygen,2026-08-04,0.67,cylinders,14,-31.0
+LOG-002564,HDR,Medical Kit Supplies,2026-08-04,1.09,units,14,-31.0
+LOG-002565,HDR,Dry Rations,2026-08-04,13.17,kg,14,-31.0
+LOG-002566,HDR,Frozen Rations,2026-08-04,10.0,kg,14,-31.0
+LOG-002567,HDR,Potable Water Treatment Tablets,2026-08-04,2.15,units,14,-31.0
+LOG-002568,HDR,Spare Batteries (AA/Lithium),2026-08-04,1.18,units,14,-31.0
+LOG-002569,HDR,Diesel Fuel,2026-08-05,137.94,litres,13,-30.7
+LOG-002570,HDR,Propane (LPG),2026-08-05,17.17,kg,13,-30.7
+LOG-002571,HDR,Medical Oxygen,2026-08-05,0.48,cylinders,13,-30.7
+LOG-002572,HDR,Medical Kit Supplies,2026-08-05,0.96,units,13,-30.7
+LOG-002573,HDR,Dry Rations,2026-08-05,12.6,kg,13,-30.7
+LOG-002574,HDR,Frozen Rations,2026-08-05,9.9,kg,13,-30.7
+LOG-002575,HDR,Potable Water Treatment Tablets,2026-08-05,2.1,units,13,-30.7
+LOG-002576,HDR,Spare Batteries (AA/Lithium),2026-08-05,1.54,units,13,-30.7
+LOG-002577,HDR,Diesel Fuel,2026-08-06,118.26,litres,13,-30.5
+LOG-002578,HDR,Propane (LPG),2026-08-06,19.16,kg,13,-30.5
+LOG-002579,HDR,Medical Oxygen,2026-08-06,0.39,cylinders,13,-30.5
+LOG-002580,HDR,Medical Kit Supplies,2026-08-06,0.8,units,13,-30.5
+LOG-002581,HDR,Dry Rations,2026-08-06,15.58,kg,13,-30.5
+LOG-002582,HDR,Frozen Rations,2026-08-06,12.59,kg,13,-30.5
+LOG-002583,HDR,Potable Water Treatment Tablets,2026-08-06,2.47,units,13,-30.5
+LOG-002584,HDR,Spare Batteries (AA/Lithium),2026-08-06,0.68,units,13,-30.5
+LOG-002585,HDR,Diesel Fuel,2026-08-07,130.46,litres,12,-30.2
+LOG-002586,HDR,Propane (LPG),2026-08-07,17.27,kg,12,-30.2
+LOG-002587,HDR,Medical Oxygen,2026-08-07,0.55,cylinders,12,-30.2
+LOG-002588,HDR,Medical Kit Supplies,2026-08-07,1.01,units,12,-30.2
+LOG-002589,HDR,Dry Rations,2026-08-07,15.47,kg,12,-30.2
+LOG-002590,HDR,Frozen Rations,2026-08-07,8.29,kg,12,-30.2
+LOG-002591,HDR,Potable Water Treatment Tablets,2026-08-07,1.56,units,12,-30.2
+LOG-002592,HDR,Spare Batteries (AA/Lithium),2026-08-07,1.49,units,12,-30.2
+LOG-002593,HDR,Diesel Fuel,2026-08-08,126.94,litres,12,-30.0
+LOG-002594,HDR,Propane (LPG),2026-08-08,13.86,kg,12,-30.0
+LOG-002595,HDR,Medical Oxygen,2026-08-08,0.47,cylinders,12,-30.0
+LOG-002596,HDR,Medical Kit Supplies,2026-08-08,0.71,units,12,-30.0
+LOG-002597,HDR,Dry Rations,2026-08-08,11.81,kg,12,-30.0
+LOG-002598,HDR,Frozen Rations,2026-08-08,11.16,kg,12,-30.0
+LOG-002599,HDR,Potable Water Treatment Tablets,2026-08-08,2.09,units,12,-30.0
+LOG-002600,HDR,Spare Batteries (AA/Lithium),2026-08-08,1.51,units,12,-30.0
+LOG-002601,HDR,Diesel Fuel,2026-08-09,170.16,litres,12,-29.7
+LOG-002602,HDR,Propane (LPG),2026-08-09,14.6,kg,12,-29.7
+LOG-002603,HDR,Medical Oxygen,2026-08-09,0.3,cylinders,12,-29.7
+LOG-002604,HDR,Medical Kit Supplies,2026-08-09,0.79,units,12,-29.7
+LOG-002605,HDR,Dry Rations,2026-08-09,13.23,kg,12,-29.7
+LOG-002606,HDR,Frozen Rations,2026-08-09,7.85,kg,12,-29.7
+LOG-002607,HDR,Potable Water Treatment Tablets,2026-08-09,2.22,units,12,-29.7
+LOG-002608,HDR,Spare Batteries (AA/Lithium),2026-08-09,1.66,units,12,-29.7
+LOG-002609,HDR,Diesel Fuel,2026-08-10,98.92,litres,10,-29.4
+LOG-002610,HDR,Propane (LPG),2026-08-10,14.5,kg,10,-29.4
+LOG-002611,HDR,Medical Oxygen,2026-08-10,0.26,cylinders,10,-29.4
+LOG-002612,HDR,Medical Kit Supplies,2026-08-10,0.53,units,10,-29.4
+LOG-002613,HDR,Dry Rations,2026-08-10,9.13,kg,10,-29.4
+LOG-002614,HDR,Frozen Rations,2026-08-10,6.2,kg,10,-29.4
+LOG-002615,HDR,Potable Water Treatment Tablets,2026-08-10,1.36,units,10,-29.4
+LOG-002616,HDR,Spare Batteries (AA/Lithium),2026-08-10,0.7,units,10,-29.4
+LOG-002617,HDR,Diesel Fuel,2026-08-11,169.58,litres,12,-29.2
+LOG-002618,HDR,Propane (LPG),2026-08-11,14.45,kg,12,-29.2
+LOG-002619,HDR,Medical Oxygen,2026-08-11,0.47,cylinders,12,-29.2
+LOG-002620,HDR,Medical Kit Supplies,2026-08-11,0.67,units,12,-29.2
+LOG-002621,HDR,Dry Rations,2026-08-11,10.95,kg,12,-29.2
+LOG-002622,HDR,Frozen Rations,2026-08-11,8.99,kg,12,-29.2
+LOG-002623,HDR,Potable Water Treatment Tablets,2026-08-11,1.91,units,12,-29.2
+LOG-002624,HDR,Spare Batteries (AA/Lithium),2026-08-11,0.81,units,12,-29.2
+LOG-002625,HDR,Diesel Fuel,2026-08-12,163.11,litres,13,-28.9
+LOG-002626,HDR,Propane (LPG),2026-08-12,14.3,kg,13,-28.9
+LOG-002627,HDR,Medical Oxygen,2026-08-12,0.32,cylinders,13,-28.9
+LOG-002628,HDR,Medical Kit Supplies,2026-08-12,1.23,units,13,-28.9
+LOG-002629,HDR,Dry Rations,2026-08-12,15.59,kg,13,-28.9
+LOG-002630,HDR,Frozen Rations,2026-08-12,11.38,kg,13,-28.9
+LOG-002631,HDR,Potable Water Treatment Tablets,2026-08-12,1.67,units,13,-28.9
+LOG-002632,HDR,Spare Batteries (AA/Lithium),2026-08-12,1.15,units,13,-28.9
+LOG-002633,HDR,Diesel Fuel,2026-08-13,156.77,litres,11,-28.6
+LOG-002634,HDR,Propane (LPG),2026-08-13,15.15,kg,11,-28.6
+LOG-002635,HDR,Medical Oxygen,2026-08-13,0.29,cylinders,11,-28.6
+LOG-002636,HDR,Medical Kit Supplies,2026-08-13,0.67,units,11,-28.6
+LOG-002637,HDR,Dry Rations,2026-08-13,10.89,kg,11,-28.6
+LOG-002638,HDR,Frozen Rations,2026-08-13,7.51,kg,11,-28.6
+LOG-002639,HDR,Potable Water Treatment Tablets,2026-08-13,1.82,units,11,-28.6
+LOG-002640,HDR,Spare Batteries (AA/Lithium),2026-08-13,1.11,units,11,-28.6
+LOG-002641,HDR,Diesel Fuel,2026-08-14,117.45,litres,10,-28.3
+LOG-002642,HDR,Propane (LPG),2026-08-14,9.52,kg,10,-28.3
+LOG-002643,HDR,Medical Oxygen,2026-08-14,0.25,cylinders,10,-28.3
+LOG-002644,HDR,Medical Kit Supplies,2026-08-14,0.9,units,10,-28.3
+LOG-002645,HDR,Dry Rations,2026-08-14,9.9,kg,10,-28.3
+LOG-002646,HDR,Frozen Rations,2026-08-14,8.43,kg,10,-28.3
+LOG-002647,HDR,Potable Water Treatment Tablets,2026-08-14,1.94,units,10,-28.3
+LOG-002648,HDR,Spare Batteries (AA/Lithium),2026-08-14,1.21,units,10,-28.3
+LOG-002649,HDR,Diesel Fuel,2026-08-15,136.64,litres,12,-28.0
+LOG-002650,HDR,Propane (LPG),2026-08-15,13.3,kg,12,-28.0
+LOG-002651,HDR,Medical Oxygen,2026-08-15,0.37,cylinders,12,-28.0
+LOG-002652,HDR,Medical Kit Supplies,2026-08-15,0.75,units,12,-28.0
+LOG-002653,HDR,Dry Rations,2026-08-15,13.04,kg,12,-28.0
+LOG-002654,HDR,Frozen Rations,2026-08-15,10.45,kg,12,-28.0
+LOG-002655,HDR,Potable Water Treatment Tablets,2026-08-15,2.19,units,12,-28.0
+LOG-002656,HDR,Spare Batteries (AA/Lithium),2026-08-15,1.08,units,12,-28.0
+LOG-002657,HDR,Diesel Fuel,2026-08-16,86.63,litres,10,-27.7
+LOG-002658,HDR,Propane (LPG),2026-08-16,15.07,kg,10,-27.7
+LOG-002659,HDR,Medical Oxygen,2026-08-16,0.49,cylinders,10,-27.7
+LOG-002660,HDR,Medical Kit Supplies,2026-08-16,0.92,units,10,-27.7
+LOG-002661,HDR,Dry Rations,2026-08-16,11.25,kg,10,-27.7
+LOG-002662,HDR,Frozen Rations,2026-08-16,8.38,kg,10,-27.7
+LOG-002663,HDR,Potable Water Treatment Tablets,2026-08-16,1.28,units,10,-27.7
+LOG-002664,HDR,Spare Batteries (AA/Lithium),2026-08-16,1.18,units,10,-27.7
+LOG-002665,HDR,Diesel Fuel,2026-08-17,117.04,litres,13,-27.4
+LOG-002666,HDR,Propane (LPG),2026-08-17,19.45,kg,13,-27.4
+LOG-002667,HDR,Medical Oxygen,2026-08-17,0.51,cylinders,13,-27.4
+LOG-002668,HDR,Medical Kit Supplies,2026-08-17,1.21,units,13,-27.4
+LOG-002669,HDR,Dry Rations,2026-08-17,13.06,kg,13,-27.4
+LOG-002670,HDR,Frozen Rations,2026-08-17,11.5,kg,13,-27.4
+LOG-002671,HDR,Potable Water Treatment Tablets,2026-08-17,2.46,units,13,-27.4
+LOG-002672,HDR,Spare Batteries (AA/Lithium),2026-08-17,1.04,units,13,-27.4
+LOG-002673,HDR,Diesel Fuel,2026-08-18,130.81,litres,11,-27.1
+LOG-002674,HDR,Propane (LPG),2026-08-18,11.12,kg,11,-27.1
+LOG-002675,HDR,Medical Oxygen,2026-08-18,0.24,cylinders,11,-27.1
+LOG-002676,HDR,Medical Kit Supplies,2026-08-18,1.02,units,11,-27.1
+LOG-002677,HDR,Dry Rations,2026-08-18,13.46,kg,11,-27.1
+LOG-002678,HDR,Frozen Rations,2026-08-18,8.38,kg,11,-27.1
+LOG-002679,HDR,Potable Water Treatment Tablets,2026-08-18,1.45,units,11,-27.1
+LOG-002680,HDR,Spare Batteries (AA/Lithium),2026-08-18,0.7,units,11,-27.1
+LOG-002681,HDR,Diesel Fuel,2026-08-19,127.44,litres,10,-26.8
+LOG-002682,HDR,Propane (LPG),2026-08-19,14.94,kg,10,-26.8
+LOG-002683,HDR,Medical Oxygen,2026-08-19,0.28,cylinders,10,-26.8
+LOG-002684,HDR,Medical Kit Supplies,2026-08-19,0.71,units,10,-26.8
+LOG-002685,HDR,Dry Rations,2026-08-19,10.55,kg,10,-26.8
+LOG-002686,HDR,Frozen Rations,2026-08-19,6.14,kg,10,-26.8
+LOG-002687,HDR,Potable Water Treatment Tablets,2026-08-19,1.71,units,10,-26.8
+LOG-002688,HDR,Spare Batteries (AA/Lithium),2026-08-19,1.07,units,10,-26.8
+LOG-002689,HDR,Diesel Fuel,2026-08-20,117.84,litres,11,-26.5
+LOG-002690,HDR,Propane (LPG),2026-08-20,14.39,kg,11,-26.5
+LOG-002691,HDR,Medical Oxygen,2026-08-20,0.45,cylinders,11,-26.5
+LOG-002692,HDR,Medical Kit Supplies,2026-08-20,0.9,units,11,-26.5
+LOG-002693,HDR,Dry Rations,2026-08-20,11.99,kg,11,-26.5
+LOG-002694,HDR,Frozen Rations,2026-08-20,10.74,kg,11,-26.5
+LOG-002695,HDR,Potable Water Treatment Tablets,2026-08-20,1.49,units,11,-26.5
+LOG-002696,HDR,Spare Batteries (AA/Lithium),2026-08-20,0.88,units,11,-26.5
+LOG-002697,HDR,Diesel Fuel,2026-08-21,152.23,litres,11,-26.1
+LOG-002698,HDR,Propane (LPG),2026-08-21,15.47,kg,11,-26.1
+LOG-002699,HDR,Medical Oxygen,2026-08-21,0.28,cylinders,11,-26.1
+LOG-002700,HDR,Medical Kit Supplies,2026-08-21,0.6,units,11,-26.1
+LOG-002701,HDR,Dry Rations,2026-08-21,10.46,kg,11,-26.1
+LOG-002702,HDR,Frozen Rations,2026-08-21,7.74,kg,11,-26.1
+LOG-002703,HDR,Potable Water Treatment Tablets,2026-08-21,1.99,units,11,-26.1
+LOG-002704,HDR,Spare Batteries (AA/Lithium),2026-08-21,1.39,units,11,-26.1
+LOG-002705,HDR,Diesel Fuel,2026-08-22,159.23,litres,11,-25.8
+LOG-002706,HDR,Propane (LPG),2026-08-22,15.59,kg,11,-25.8
+LOG-002707,HDR,Medical Oxygen,2026-08-22,0.44,cylinders,11,-25.8
+LOG-002708,HDR,Medical Kit Supplies,2026-08-22,0.67,units,11,-25.8
+LOG-002709,HDR,Dry Rations,2026-08-22,10.88,kg,11,-25.8
+LOG-002710,HDR,Frozen Rations,2026-08-22,10.43,kg,11,-25.8
+LOG-002711,HDR,Potable Water Treatment Tablets,2026-08-22,1.56,units,11,-25.8
+LOG-002712,HDR,Spare Batteries (AA/Lithium),2026-08-22,1.53,units,11,-25.8
+LOG-002713,HDR,Diesel Fuel,2026-08-23,121.07,litres,12,-25.5
+LOG-002714,HDR,Propane (LPG),2026-08-23,12.36,kg,12,-25.5
+LOG-002715,HDR,Medical Oxygen,2026-08-23,0.55,cylinders,12,-25.5
+LOG-002716,HDR,Medical Kit Supplies,2026-08-23,0.88,units,12,-25.5
+LOG-002717,HDR,Dry Rations,2026-08-23,14.96,kg,12,-25.5
+LOG-002718,HDR,Frozen Rations,2026-08-23,10.0,kg,12,-25.5
+LOG-002719,HDR,Potable Water Treatment Tablets,2026-08-23,2.33,units,12,-25.5
+LOG-002720,HDR,Spare Batteries (AA/Lithium),2026-08-23,0.69,units,12,-25.5
+LOG-002721,HDR,Diesel Fuel,2026-08-24,127.2,litres,11,-25.1
+LOG-002722,HDR,Propane (LPG),2026-08-24,15.27,kg,11,-25.1
+LOG-002723,HDR,Medical Oxygen,2026-08-24,0.35,cylinders,11,-25.1
+LOG-002724,HDR,Medical Kit Supplies,2026-08-24,0.71,units,11,-25.1
+LOG-002725,HDR,Dry Rations,2026-08-24,10.14,kg,11,-25.1
+LOG-002726,HDR,Frozen Rations,2026-08-24,10.36,kg,11,-25.1
+LOG-002727,HDR,Potable Water Treatment Tablets,2026-08-24,1.25,units,11,-25.1
+LOG-002728,HDR,Spare Batteries (AA/Lithium),2026-08-24,0.77,units,11,-25.1
+LOG-002729,HDR,Diesel Fuel,2026-08-25,189.69,litres,13,-24.8
+LOG-002730,HDR,Propane (LPG),2026-08-25,18.2,kg,13,-24.8
+LOG-002731,HDR,Medical Oxygen,2026-08-25,0.64,cylinders,13,-24.8
+LOG-002732,HDR,Medical Kit Supplies,2026-08-25,0.74,units,13,-24.8
+LOG-002733,HDR,Dry Rations,2026-08-25,16.18,kg,13,-24.8
+LOG-002734,HDR,Frozen Rations,2026-08-25,8.74,kg,13,-24.8
+LOG-002735,HDR,Potable Water Treatment Tablets,2026-08-25,1.41,units,13,-24.8
+LOG-002736,HDR,Spare Batteries (AA/Lithium),2026-08-25,1.08,units,13,-24.8
+LOG-002737,HDR,Diesel Fuel,2026-08-26,113.47,litres,11,-24.4
+LOG-002738,HDR,Propane (LPG),2026-08-26,9.59,kg,11,-24.4
+LOG-002739,HDR,Medical Oxygen,2026-08-26,0.37,cylinders,11,-24.4
+LOG-002740,HDR,Medical Kit Supplies,2026-08-26,0.67,units,11,-24.4
+LOG-002741,HDR,Dry Rations,2026-08-26,13.3,kg,11,-24.4
+LOG-002742,HDR,Frozen Rations,2026-08-26,9.14,kg,11,-24.4
+LOG-002743,HDR,Potable Water Treatment Tablets,2026-08-26,1.27,units,11,-24.4
+LOG-002744,HDR,Spare Batteries (AA/Lithium),2026-08-26,1.41,units,11,-24.4
+LOG-002745,HDR,Diesel Fuel,2026-08-27,91.36,litres,10,-24.1
+LOG-002746,HDR,Propane (LPG),2026-08-27,11.04,kg,10,-24.1
+LOG-002747,HDR,Medical Oxygen,2026-08-27,0.33,cylinders,10,-24.1
+LOG-002748,HDR,Medical Kit Supplies,2026-08-27,0.71,units,10,-24.1
+LOG-002749,HDR,Dry Rations,2026-08-27,10.91,kg,10,-24.1
+LOG-002750,HDR,Frozen Rations,2026-08-27,6.02,kg,10,-24.1
+LOG-002751,HDR,Potable Water Treatment Tablets,2026-08-27,1.53,units,10,-24.1
+LOG-002752,HDR,Spare Batteries (AA/Lithium),2026-08-27,1.23,units,10,-24.1
+LOG-002753,HDR,Diesel Fuel,2026-08-28,13.85,litres,1,-23.7
+LOG-002754,HDR,Propane (LPG),2026-08-28,1.3,kg,1,-23.7
+LOG-002755,HDR,Medical Oxygen,2026-08-28,0.04,cylinders,1,-23.7
+LOG-002756,HDR,Medical Kit Supplies,2026-08-28,0.05,units,1,-23.7
+LOG-002757,HDR,Dry Rations,2026-08-28,0.9,kg,1,-23.7
+LOG-002758,HDR,Frozen Rations,2026-08-28,0.89,kg,1,-23.7
+LOG-002759,HDR,Potable Water Treatment Tablets,2026-08-28,0.12,units,1,-23.7
+LOG-002760,HDR,Spare Batteries (AA/Lithium),2026-08-28,0.14,units,1,-23.7
+LOG-002761,HDR,Diesel Fuel,2026-08-29,27.22,litres,3,-23.4
+LOG-002762,HDR,Propane (LPG),2026-08-29,3.2,kg,3,-23.4
+LOG-002763,HDR,Medical Oxygen,2026-08-29,0.11,cylinders,3,-23.4
+LOG-002764,HDR,Medical Kit Supplies,2026-08-29,0.18,units,3,-23.4
+LOG-002765,HDR,Dry Rations,2026-08-29,3.69,kg,3,-23.4
+LOG-002766,HDR,Frozen Rations,2026-08-29,2.16,kg,3,-23.4
+LOG-002767,HDR,Potable Water Treatment Tablets,2026-08-29,0.39,units,3,-23.4
+LOG-002768,HDR,Spare Batteries (AA/Lithium),2026-08-29,0.37,units,3,-23.4
+LOG-002769,HDR,Diesel Fuel,2026-08-30,57.4,litres,5,-23.0
+LOG-002770,HDR,Propane (LPG),2026-08-30,5.46,kg,5,-23.0
+LOG-002771,HDR,Medical Oxygen,2026-08-30,0.2,cylinders,5,-23.0
+LOG-002772,HDR,Medical Kit Supplies,2026-08-30,0.28,units,5,-23.0
+LOG-002773,HDR,Dry Rations,2026-08-30,6.49,kg,5,-23.0
+LOG-002774,HDR,Frozen Rations,2026-08-30,3.98,kg,5,-23.0
+LOG-002775,HDR,Potable Water Treatment Tablets,2026-08-30,0.88,units,5,-23.0
+LOG-002776,HDR,Spare Batteries (AA/Lithium),2026-08-30,0.33,units,5,-23.0
+LOG-002777,HDR,Diesel Fuel,2026-08-31,33.3,litres,4,-22.6
+LOG-002778,HDR,Propane (LPG),2026-08-31,3.84,kg,4,-22.6
+LOG-002779,HDR,Medical Oxygen,2026-08-31,0.2,cylinders,4,-22.6
+LOG-002780,HDR,Medical Kit Supplies,2026-08-31,0.24,units,4,-22.6
+LOG-002781,HDR,Dry Rations,2026-08-31,3.64,kg,4,-22.6
+LOG-002782,HDR,Frozen Rations,2026-08-31,3.21,kg,4,-22.6
+LOG-002783,HDR,Potable Water Treatment Tablets,2026-08-31,0.45,units,4,-22.6
+LOG-002784,HDR,Spare Batteries (AA/Lithium),2026-08-31,0.48,units,4,-22.6
+LOG-002785,HDR,Diesel Fuel,2026-09-01,10.49,litres,1,-22.3
+LOG-002786,HDR,Propane (LPG),2026-09-01,1.21,kg,1,-22.3
+LOG-002787,HDR,Medical Oxygen,2026-09-01,0.04,cylinders,1,-22.3
+LOG-002788,HDR,Medical Kit Supplies,2026-09-01,0.08,units,1,-22.3
+LOG-002789,HDR,Dry Rations,2026-09-01,1.14,kg,1,-22.3
+LOG-002790,HDR,Frozen Rations,2026-09-01,0.62,kg,1,-22.3
+LOG-002791,HDR,Potable Water Treatment Tablets,2026-09-01,0.11,units,1,-22.3
+LOG-002792,HDR,Spare Batteries (AA/Lithium),2026-09-01,0.13,units,1,-22.3
+LOG-002793,HDR,Diesel Fuel,2026-09-02,12.37,litres,1,-21.9
+LOG-002794,HDR,Propane (LPG),2026-09-02,1.07,kg,1,-21.9
+LOG-002795,HDR,Medical Oxygen,2026-09-02,0.03,cylinders,1,-21.9
+LOG-002796,HDR,Medical Kit Supplies,2026-09-02,0.08,units,1,-21.9
+LOG-002797,HDR,Dry Rations,2026-09-02,1.09,kg,1,-21.9
+LOG-002798,HDR,Frozen Rations,2026-09-02,0.66,kg,1,-21.9
+LOG-002799,HDR,Potable Water Treatment Tablets,2026-09-02,0.17,units,1,-21.9
+LOG-002800,HDR,Spare Batteries (AA/Lithium),2026-09-02,0.11,units,1,-21.9
+LOG-002801,HDR,Diesel Fuel,2026-09-03,32.05,litres,3,-21.5
+LOG-002802,HDR,Propane (LPG),2026-09-03,2.62,kg,3,-21.5
+LOG-002803,HDR,Medical Oxygen,2026-09-03,0.11,cylinders,3,-21.5
+LOG-002804,HDR,Medical Kit Supplies,2026-09-03,0.24,units,3,-21.5
+LOG-002805,HDR,Dry Rations,2026-09-03,3.54,kg,3,-21.5
+LOG-002806,HDR,Frozen Rations,2026-09-03,2.3,kg,3,-21.5
+LOG-002807,HDR,Potable Water Treatment Tablets,2026-09-03,0.57,units,3,-21.5
+LOG-002808,HDR,Spare Batteries (AA/Lithium),2026-09-03,0.3,units,3,-21.5
+LOG-002809,HDR,Diesel Fuel,2026-09-04,44.01,litres,5,-21.1
+LOG-002810,HDR,Propane (LPG),2026-09-04,4.39,kg,5,-21.1
+LOG-002811,HDR,Medical Oxygen,2026-09-04,0.12,cylinders,5,-21.1
+LOG-002812,HDR,Medical Kit Supplies,2026-09-04,0.3,units,5,-21.1
+LOG-002813,HDR,Dry Rations,2026-09-04,4.9,kg,5,-21.1
+LOG-002814,HDR,Frozen Rations,2026-09-04,3.53,kg,5,-21.1
+LOG-002815,HDR,Potable Water Treatment Tablets,2026-09-04,0.76,units,5,-21.1
+LOG-002816,HDR,Spare Batteries (AA/Lithium),2026-09-04,0.35,units,5,-21.1
+LOG-002817,HDR,Diesel Fuel,2026-09-05,39.36,litres,4,-20.7
+LOG-002818,HDR,Propane (LPG),2026-09-05,3.32,kg,4,-20.7
+LOG-002819,HDR,Medical Oxygen,2026-09-05,0.14,cylinders,4,-20.7
+LOG-002820,HDR,Medical Kit Supplies,2026-09-05,0.24,units,4,-20.7
+LOG-002821,HDR,Dry Rations,2026-09-05,5.09,kg,4,-20.7
+LOG-002822,HDR,Frozen Rations,2026-09-05,2.93,kg,4,-20.7
+LOG-002823,HDR,Potable Water Treatment Tablets,2026-09-05,0.4,units,4,-20.7
+LOG-002824,HDR,Spare Batteries (AA/Lithium),2026-09-05,0.47,units,4,-20.7
+LOG-002825,HDR,Diesel Fuel,2026-09-06,13.05,litres,1,-20.3
+LOG-002826,HDR,Propane (LPG),2026-09-06,1.21,kg,1,-20.3
+LOG-002827,HDR,Medical Oxygen,2026-09-06,0.02,cylinders,1,-20.3
+LOG-002828,HDR,Medical Kit Supplies,2026-09-06,0.05,units,1,-20.3
+LOG-002829,HDR,Dry Rations,2026-09-06,1.1,kg,1,-20.3
+LOG-002830,HDR,Frozen Rations,2026-09-06,0.89,kg,1,-20.3
+LOG-002831,HDR,Potable Water Treatment Tablets,2026-09-06,0.11,units,1,-20.3
+LOG-002832,HDR,Spare Batteries (AA/Lithium),2026-09-06,0.08,units,1,-20.3
+LOG-002833,HDR,Diesel Fuel,2026-09-07,21.48,litres,2,-19.9
+LOG-002834,HDR,Propane (LPG),2026-09-07,2.77,kg,2,-19.9
+LOG-002835,HDR,Medical Oxygen,2026-09-07,0.06,cylinders,2,-19.9
+LOG-002836,HDR,Medical Kit Supplies,2026-09-07,0.11,units,2,-19.9
+LOG-002837,HDR,Dry Rations,2026-09-07,2.45,kg,2,-19.9
+LOG-002838,HDR,Frozen Rations,2026-09-07,1.9,kg,2,-19.9
+LOG-002839,HDR,Potable Water Treatment Tablets,2026-09-07,0.37,units,2,-19.9
+LOG-002840,HDR,Spare Batteries (AA/Lithium),2026-09-07,0.17,units,2,-19.9
+LOG-002841,HDR,Diesel Fuel,2026-09-08,31.67,litres,3,-19.5
+LOG-002842,HDR,Propane (LPG),2026-09-08,2.61,kg,3,-19.5
+LOG-002843,HDR,Medical Oxygen,2026-09-08,0.14,cylinders,3,-19.5
+LOG-002844,HDR,Medical Kit Supplies,2026-09-08,0.28,units,3,-19.5
+LOG-002845,HDR,Dry Rations,2026-09-08,2.71,kg,3,-19.5
+LOG-002846,HDR,Frozen Rations,2026-09-08,1.97,kg,3,-19.5
+LOG-002847,HDR,Potable Water Treatment Tablets,2026-09-08,0.49,units,3,-19.5
+LOG-002848,HDR,Spare Batteries (AA/Lithium),2026-09-08,0.25,units,3,-19.5
+LOG-002849,HDR,Diesel Fuel,2026-09-09,54.92,litres,4,-19.1
+LOG-002850,HDR,Propane (LPG),2026-09-09,3.84,kg,4,-19.1
+LOG-002851,HDR,Medical Oxygen,2026-09-09,0.17,cylinders,4,-19.1
+LOG-002852,HDR,Medical Kit Supplies,2026-09-09,0.27,units,4,-19.1
+LOG-002853,HDR,Dry Rations,2026-09-09,4.15,kg,4,-19.1
+LOG-002854,HDR,Frozen Rations,2026-09-09,2.58,kg,4,-19.1
+LOG-002855,HDR,Potable Water Treatment Tablets,2026-09-09,0.56,units,4,-19.1
+LOG-002856,HDR,Spare Batteries (AA/Lithium),2026-09-09,0.38,units,4,-19.1
+LOG-002857,HDR,Diesel Fuel,2026-09-10,48.56,litres,4,-18.7
+LOG-002858,HDR,Propane (LPG),2026-09-10,4.35,kg,4,-18.7
+LOG-002859,HDR,Medical Oxygen,2026-09-10,0.13,cylinders,4,-18.7
+LOG-002860,HDR,Medical Kit Supplies,2026-09-10,0.38,units,4,-18.7
+LOG-002861,HDR,Dry Rations,2026-09-10,3.87,kg,4,-18.7
+LOG-002862,HDR,Frozen Rations,2026-09-10,2.61,kg,4,-18.7
+LOG-002863,HDR,Potable Water Treatment Tablets,2026-09-10,0.69,units,4,-18.7
+LOG-002864,HDR,Spare Batteries (AA/Lithium),2026-09-10,0.59,units,4,-18.7
+LOG-002865,HDR,Diesel Fuel,2026-09-11,17.24,litres,2,-18.3
+LOG-002866,HDR,Propane (LPG),2026-09-11,2.69,kg,2,-18.3
+LOG-002867,HDR,Medical Oxygen,2026-09-11,0.07,cylinders,2,-18.3
+LOG-002868,HDR,Medical Kit Supplies,2026-09-11,0.16,units,2,-18.3
+LOG-002869,HDR,Dry Rations,2026-09-11,2.15,kg,2,-18.3
+LOG-002870,HDR,Frozen Rations,2026-09-11,1.69,kg,2,-18.3
+LOG-002871,HDR,Potable Water Treatment Tablets,2026-09-11,0.36,units,2,-18.3
+LOG-002872,HDR,Spare Batteries (AA/Lithium),2026-09-11,0.22,units,2,-18.3
+LOG-002873,HDR,Diesel Fuel,2026-09-12,21.8,litres,2,-17.9
+LOG-002874,HDR,Propane (LPG),2026-09-12,2.19,kg,2,-17.9
+LOG-002875,HDR,Medical Oxygen,2026-09-12,0.09,cylinders,2,-17.9
+LOG-002876,HDR,Medical Kit Supplies,2026-09-12,0.14,units,2,-17.9
+LOG-002877,HDR,Dry Rations,2026-09-12,1.85,kg,2,-17.9
+LOG-002878,HDR,Frozen Rations,2026-09-12,1.72,kg,2,-17.9
+LOG-002879,HDR,Potable Water Treatment Tablets,2026-09-12,0.2,units,2,-17.9
+LOG-002880,HDR,Spare Batteries (AA/Lithium),2026-09-12,0.27,units,2,-17.9
