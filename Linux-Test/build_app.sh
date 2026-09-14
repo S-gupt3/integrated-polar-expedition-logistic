@@ -1,6 +1,6 @@
 #!/bin/bash
 echo "========================================"
-echo " Building Polar Command Center (Linux)"
+echo " Building PLOROPSIS (Linux)"
 echo "========================================"
 
 if ! command -v pyinstaller &> /dev/null; then
@@ -8,10 +8,10 @@ if ! command -v pyinstaller &> /dev/null; then
     pip install pyinstaller
 fi
 
-rm -rf dist build PolarCommandCenter.spec
+rm -rf dist build PLOROPSIS.spec
 
-# Build (colon for Linux path separator)
-pyinstaller --noconsole --name "PolarCommandCenter" \
+# Build
+pyinstaller --noconsole --name "PLOROPSIS" \
     --add-data "test folder/frontend:test folder/frontend" \
     --add-data "config.json:." \
     --hidden-import=pymysql \
@@ -34,12 +34,12 @@ if [ $? -ne 0 ]; then
 fi
 
 # Copy config.json next to the binary
-cp config.json dist/PolarCommandCenter/
+cp config.json dist/PLOROPSIS/
 
-chmod +x dist/PolarCommandCenter/PolarCommandCenter
+chmod +x dist/PLOROPSIS/PLOROPSIS
 
 echo ""
 echo "========================================"
 echo " Build successful!"
-echo " Output: dist/PolarCommandCenter/PolarCommandCenter"
+echo " Output: dist/PLOROPSIS/PLOROPSIS"
 echo "========================================"
