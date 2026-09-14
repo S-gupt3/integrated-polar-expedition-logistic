@@ -1,6 +1,6 @@
 """
-Polar Expedition Command Center — Unified Application
-Combines: backend/ + backend03/ + drift mapping/
+PLOROPSIS — Polar Logistics & Operations System for Polar Integrated Support
+Unified Application: backend + backend03 + drift mapping
 Serves: test folder/frontend/ as the main UI
 """
 
@@ -23,6 +23,7 @@ from backend.router import router as backend_router
 from backend03.router import router as doa_router
 from drift_mapping.router import router as drift_router
 
+# Path helpers (PyInstaller compatible)
 def get_base_dir():
     if getattr(sys, 'frozen', False):
         return os.path.dirname(sys.executable)
@@ -58,7 +59,7 @@ def load_config():
 
 CONFIG = load_config()
 
-# Database collection
+# Database connection check
 def check_db_on_startup():
     import pymysql
     from pymysql.cursors import DictCursor
@@ -79,10 +80,10 @@ def check_db_on_startup():
         print(f"        Config file: {CONFIG_PATH}")
         return False
 
-# App FastAPI
+# FastAPI app
 app = FastAPI(
-    title="Polar Expedition Command Center",
-    description="Unified backend for logistics, DoA, and drift mapping.",
+    title="PLOROPSIS — Polar Logistics & Operations System",
+    description="Unified command center for polar expedition logistics, asset management, and ice drift prediction.",
     version="3.0.0"
 )
 
@@ -94,7 +95,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Include all routers
+# Include all routers under /api prefix
 app.include_router(backend_router, prefix="/api")
 app.include_router(doa_router, prefix="/api")
 app.include_router(drift_router, prefix="/api")
@@ -103,10 +104,11 @@ app.include_router(drift_router, prefix="/api")
 def health():
     return {
         "ok": True,
+        "system": "PLOROPSIS",
         "ts": datetime.now(timezone.utc).isoformat(),
         "modules": ["backend", "backend03", "drift_mapping"]
     }
-
+    
 # frontend from test folder/frontend/
 FRONTEND_DIR = os.path.join(BUNDLE_DIR, "test folder", "frontend")
 
@@ -117,7 +119,7 @@ def index():
         with open(index_path, "r", encoding="utf-8") as f:
             return f.read()
     return HTMLResponse(
-        content="<h1>Frontend not found. Ensure 'test folder/frontend/index.html' exists.</h1>",
+        content="<h1>PLOROPSIS Frontend not found. Ensure 'test folder/frontend/index.html' exists.</h1>",
         status_code=404
     )
 
@@ -141,9 +143,10 @@ def open_browser_delayed():
     webbrowser.open(f"http://localhost:{CONFIG['server_port']}")
 
 if __name__ == "__main__":
-    print("=" * 60)
-    print("  Polar Expedition Command Center — Unified App")
-    print("=" * 60)
+    print("=" * 70)
+    print("  PLOROPSIS — Polar Logistics & Operations System")
+    print("  Polar Expedition Command Center v3.0.0")
+    print("=" * 70)
 
     if not check_db_on_startup():
         input("\nPress Enter to exit...")
