@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Polar Expedition Logistics Dashboard</title>
+    <style>
+        body { font-family: sans-serif; background: #f4f6f9; padding: 20px; }
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .card { background: white; padding: 15px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); height: 300px; overflow-y: auto; }
+        h2 { border-bottom: 2px solid #007bff; padding-bottom: 5px; color: #333; }
+        pre { background: #272822; color: #f8f8f2; padding: 10px; border-radius: 5px; }
+    </style>
+</head>
+<body>
+    <h1>Polar Expedition Logistics Subsystem</h1>
+    <div class="grid">
+        <div class="card"><h2>Stations</h2><pre id="stations">Loading...</pre></div>
+        <div class="card"><h2>Assets</h2><pre id="assets">Loading...</pre></div>
+        <div class="card"><h2>Inventory</h2><pre id="inventory">Loading...</pre></div>
+        <div class="card"><h2>Consumption Logs</h2><pre id="logs">Loading...</pre></div>
+    </div>
+
+    <script>
+        const endpoints = {
+            stations: 'http://127.0.0',
+            assets: 'http://127.0.0',
+            inventory: 'http://127.0.0',
+            logs: 'http://127.0.0'
+        };
+        
+        Object.entries(endpoints).forEach(([id, url]) => {
+            fetch(url)
+                .then(res => res.json())
+                .then(data => document.getElementById(id).textContent = JSON.stringify(data, null, 2))
+                .catch(err => document.getElementById(id).textContent = 'Error loading data');
+        });
+    </script>
+</body>
+</html>
