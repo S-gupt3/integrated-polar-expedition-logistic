@@ -18,6 +18,7 @@ if exist "PLOROPSIS.spec" del PLOROPSIS.spec
 :: Build
 pyinstaller --noconsole --name "PLOROPSIS" ^
     --add-data "test folder/frontend;test folder/frontend" ^
+    --add-data "test folder/frontend/assets/icons;test folder/frontend/assets/icons" ^
     --add-data "config.json;." ^
     --hidden-import=pymysql ^
     --hidden-import=uvicorn.logging ^
