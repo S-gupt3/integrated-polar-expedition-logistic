@@ -40,11 +40,12 @@ Ensure you have Python 3.8+ installed on your system.
    ```bash
    git clone https://github.com/S-gupt3/integrated-polar-expedition-logistic
    cd ploropsis
-   pip install flask flask-cors
+   pip install flask flask-cors requests
    ```
 
 2. **Launch the local API server:**
    ```bash
+   python3 download_tiles.py # To locally download the GIS data
    python3 drift_api.py
    ```
    *Keep this terminal window open running in the background.*
