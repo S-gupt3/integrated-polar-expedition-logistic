@@ -1,4 +1,5 @@
 @echo off
+cd /d "%~dp0.."
 echo ========================================
 echo  Building PLOROPSIS (Windows)
 echo ========================================
@@ -32,6 +33,7 @@ pyinstaller --noconsole --name "PLOROPSIS" ^
     --hidden-import=backend.router ^
     --hidden-import=backend03.router ^
     --hidden-import=drift_mapping.router ^
+    --icon "test folder/frontend/assets/icons/favicon.ico" ^
     app.py
 
 if %errorlevel% neq 0 (
