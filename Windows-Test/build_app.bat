@@ -5,7 +5,7 @@ echo  Building PLOROPSIS (Windows)
 echo ========================================
 
 :: Check PyInstaller
-pyinstaller --version >nul 2>&1
+python -m PyInstaller --version >nul 2>&1
 if %errorlevel% neq 0 (
     echo Installing PyInstaller...
     pip install pyinstaller
@@ -17,7 +17,7 @@ if exist "build" rmdir /s /q build
 if exist "PLOROPSIS.spec" del PLOROPSIS.spec
 
 :: Build
-pyinstaller --noconsole --name "PLOROPSIS" ^
+python -m PyInstaller --noconsole --name "PLOROPSIS" ^
     --add-data "test folder/frontend;test folder/frontend" ^
     --add-data "test folder/frontend/assets/icons;test folder/frontend/assets/icons" ^
     --add-data "config.json;." ^
