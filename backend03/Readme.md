@@ -19,23 +19,23 @@ This module answers one operational question at a glance: *how many days can eac
 
 ## Tech stack
 
-- **Backend:** Python (Flask) — loads the CSV data, computes live DoA figures, serves a small JSON API
-- **Frontend:** Plain HTML/CSS/JS — no framework, so it stays lightweight and fast on low-bandwidth station hardware
-- **Data:** CSV files (`inventory.csv`, `consumption_logs.csv`, `assets.csv`) — real operational data, not mock values
+- **Backend:** Python (FastAPI) — loads the CSV data, computes live DoA figures, serves a JSON API with automatic OpenAPI docs.
+- **Frontend:** Plain HTML/CSS/JS — no framework, so it stays lightweight and fast on low-bandwidth station hardware.
+- **Data:** CSV files (`inventory.csv`, `consumption_logs.csv`, `assets.csv`) — real operational data, not mock values.
 
 ---
 
 ## Project structure
 
 ```
-polar-command-center/
-├── app.py                    # Flask backend — API + DoA calculation engine
+backend03/
+├── app.py # FastAPI backend — API + DoA calculation engine
 ├── data/
-│   ├── inventory.csv         # Current stock per resource per station
-│   ├── consumption_logs.csv  # Daily usage history (May–Sept 2026)
-│   └── assets.csv            # Equipment registry with status & maintenance dates
+│ ├── inventory.csv # Current stock per resource per station
+│ ├── consumption_logs.csv # Daily usage history (May–Sept 2026)
+│ └── assets.csv # Equipment registry with status & maintenance dates
 └── static/
-    └── index.html            # Dashboard frontend (served by Flask)
+└── index.html # Dashboard frontend (served by FastAPI)
 ```
 
 ---
@@ -43,8 +43,8 @@ polar-command-center/
 ## Running it locally
 
 ```bash
-pip install flask
-python app.py
+pip install -r requirements.txt
+uvicorn app:app --reload --port 5000
 ```
 
 Then open **http://localhost:5000** in a browser.
