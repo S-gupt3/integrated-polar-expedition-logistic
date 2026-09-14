@@ -1,7 +1,7 @@
 """
 Polar Expedition Command Center — Unified Application
 Combines: backend/ + backend03/ + drift mapping/
-Serves: test folder/ as the frontend
+Serves: test folder/frontend/ as the main UI
 """
 
 import os
@@ -12,13 +12,16 @@ import webbrowser
 import threading
 from datetime import datetime, timezone
 
-import pymysql
-from pymysql.cursors import DictCursor
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
-from fastapi.responses import HTMLResponse, FileResponse
+from fastapi.responses import HTMLResponse
 import uvicorn
+
+# Import routers from modules
+from backend.router import router as backend_router
+from backend03.router import router as doa_router
+from drift_mapping.router import router as drift_router
 
 def get_base_dir():
     if getattr(sys, 'frozen', False):
@@ -33,6 +36,7 @@ def get_bundle_dir():
 BASE_DIR = get_base_dir()
 BUNDLE_DIR = get_bundle_dir()
 
+# Load config.json
 CONFIG_PATH = os.path.join(BASE_DIR, "config.json")
 DEFAULT_CONFIG = {
     "db_host": "localhost",
@@ -54,21 +58,10 @@ def load_config():
 
 CONFIG = load_config()
 
-# Database connection
-def get_db_connection():
-    try:
-        return pymysql.connect(
-            host=CONFIG["db_host"],
-            port=CONFIG["db_port"],
-            user=CONFIG["db_user"],
-            password=CONFIG["db_password"],
-            database=CONFIG["db_name"],
-            cursorclass=DictCursor
-        )
-    except Exception as e:
-        raise HTTPException(status_code=500, detail=f"Database connection failed: {str(e)}")
-
+# Database collection
 def check_db_on_startup():
+    import pymysql
+    from pymysql.cursors import DictCursor
     try:
         conn = pymysql.connect(
             host=CONFIG["db_host"],
@@ -86,6 +79,7 @@ def check_db_on_startup():
         print(f"        Config file: {CONFIG_PATH}")
         return False
 
+# App FastAPI
 app = FastAPI(
     title="Polar Expedition Command Center",
     description="Unified backend for logistics, DoA, and drift mapping.",
@@ -100,21 +94,21 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# We'll add these as we integrate each module
-# from backend.main import router as backend_router
-# from backend03.app import router as doa_router
-# from drift_mapping.engine import router as drift_router
-
-# app.include_router(backend_router, prefix="/api")
-# app.include_router(doa_router, prefix="/api")
-# app.include_router(drift_router, prefix="/api")
+# Include all routers
+app.include_router(backend_router, prefix="/api")
+app.include_router(doa_router, prefix="/api")
+app.include_router(drift_router, prefix="/api")
 
 @app.get("/api/health")
 def health():
-    return {"ok": True, "ts": datetime.now(timezone.utc).isoformat(), "modules": ["backend", "backend03", "drift_mapping"]}
+    return {
+        "ok": True,
+        "ts": datetime.now(timezone.utc).isoformat(),
+        "modules": ["backend", "backend03", "drift_mapping"]
+    }
 
-# Front-end
-FRONTEND_DIR = os.path.join(BUNDLE_DIR, "test folder")
+# frontend from test folder/frontend/
+FRONTEND_DIR = os.path.join(BUNDLE_DIR, "test folder", "frontend")
 
 @app.get("/", response_class=HTMLResponse)
 def index():
@@ -122,11 +116,24 @@ def index():
     if os.path.exists(index_path):
         with open(index_path, "r", encoding="utf-8") as f:
             return f.read()
-    return HTMLResponse(content="<h1>Frontend not found. Ensure 'test folder/index.html' exists.</h1>", status_code=404)
+    return HTMLResponse(
+        content="<h1>Frontend not found. Ensure 'test folder/frontend/index.html' exists.</h1>",
+        status_code=404
+    )
 
-# Mount static files (css, js, images) from test folder/
+# Serve other HTML pages
+@app.get("/{page_name}.html", response_class=HTMLResponse)
+def serve_page(page_name: str):
+    page_path = os.path.join(FRONTEND_DIR, f"{page_name}.html")
+    if os.path.exists(page_path):
+        with open(page_path, "r", encoding="utf-8") as f:
+            return f.read()
+    return HTMLResponse(content=f"<h1>Page {page_name}.html not found</h1>", status_code=404)
+
+# Mount static files (css, js, images)
 if os.path.isdir(FRONTEND_DIR):
-    app.mount("/static", StaticFiles(directory=FRONTEND_DIR), name="static")
+    app.mount("/css", StaticFiles(directory=os.path.join(FRONTEND_DIR, "css")), name="css")
+    app.mount("/js", StaticFiles(directory=os.path.join(FRONTEND_DIR, "js")), name="js")
 
 # Startup
 def open_browser_delayed():
