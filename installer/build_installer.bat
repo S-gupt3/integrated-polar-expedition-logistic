@@ -9,6 +9,8 @@ if not exist "dist\PLOROPSIS\PLOROPSIS.exe" (
 
 set ISCC="C:\Program Files (x86)\Inno Setup 6\ISCC.exe"
 if not exist %ISCC% set ISCC="C:\Program Files\Inno Setup 6\ISCC.exe"
+if not exist %ISCC% set ISCC="%LocalAppData%\Programs\Inno Setup 7\ISCC.exe"
+if not exist %ISCC% set ISCC="%LocalAppData%\Programs\Inno Setup 6\ISCC.exe"
 if not exist %ISCC% (
     echo Inno Setup not found. Install it from https://jrsoftware.org/isdl.php
     pause
