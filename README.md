@@ -1,5 +1,5 @@
 <div align="center" style="text-align:center;">
-  <img src="assets/icon.png" width="300" alt="PLOROPSIS icon" style="display:block;margin:0 auto;"/>
+  <img src="assets/icon.png" width="250" alt="PLOROPSIS icon" style="display:block;margin:0 auto;"/>
   <h1>PLOROPSIS</h1>
   <h3><em>A unified operations command center for safer, smarter and more resilient polar research missions.</em></h3>
   <sub> <strong>Snun here</strong> — a snowflake with a flare for drama (literally, I'm half sun). I'll be popping in throughout this README to walk you through the project. Let's go. </sub>
@@ -208,7 +208,7 @@ The prototype demonstrates the user experience, information architecture and dec
 ---
 
 <div align="center">
-  <img src="assets/icon.png" width="100" alt="PLOROPSIS icon"/>
+  <img src="assets/icon.png" width="250" alt="PLOROPSIS icon"/>
   <p><strong>PLOROPSIS turns scattered operational information into one clear, actionable view — helping polar teams prepare earlier, respond faster and operate more safely.</strong></p>
   <sub> That's a wrap from Snun. Star the repo if you made it this far. </sub>
 </div>
