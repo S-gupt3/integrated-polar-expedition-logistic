@@ -184,4 +184,4 @@ if __name__ == "__main__":
     print(f"  Config:     {CONFIG_PATH}")
     print("\n  Press Ctrl+C to stop.\n")
 
-    uvicorn.run(app, host="127.0.0.1", port=CONFIG["server_port"], log_level="warning")
+    uvicorn.run(app, host="0.0.0.0", port=CONFIG["server_port"], log_level="warning")
