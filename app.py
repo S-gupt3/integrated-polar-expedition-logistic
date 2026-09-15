@@ -1,9 +1,3 @@
-"""
-PLOROPSIS — Polar Logistics & Operations System for Polar Integrated Support
-Unified Application: backend + backend03 + drift mapping
-Serves: test folder/frontend/ as the main UI
-"""
-
 import os
 import sys
 import json
