@@ -4,6 +4,8 @@
   <h3><em>A unified operations command center for safer, smarter and more resilient polar research missions.</em></h3>
 </div>
 
+---
+
 **Polar Logistics & Operations System for Polar Integrated Support**
 
 > A unified, offline-first command center for India's polar expedition logistics — tracking assets, predicting ice drift, and computing real-time "Days of Autonomy" for research stations **Maitri**, **Bharati**, and **Himadri**.
