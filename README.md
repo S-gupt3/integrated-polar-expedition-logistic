@@ -26,7 +26,7 @@ It combines three specialized modules into a single executable:
 | :--- | :--- |
 | `backend/` | Core logistics — stations, assets, inventory, consumption logs |
 | `backend03/` | Days of Autonomy (DoA) calculation engine |
-| `drift mapping/` | Ice drift prediction and GIS reference data |
+| `drift_mapping/` | Ice drift prediction and GIS reference data |
 | `test folder/frontend/` | Unified web dashboard (the anchor UI) |
 
 All modules are wired into a single FastAPI server, served through one frontend, and packaged as a double-click executable for field deployment.
