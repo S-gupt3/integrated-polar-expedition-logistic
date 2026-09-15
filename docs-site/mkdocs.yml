@@ -1,0 +1,63 @@
+site_name: PLOROPSIS
+site_description: Polar Logistics & Operations System for Polar Integrated Support
+site_url: https://S-gupt3.github.io/integrated-polar-expedition-logistic/
+repo_name: S-gupt3/integrated-polar-expedition-logistic
+repo_url: https://github.com/S-gupt3/integrated-polar-expedition-logistic
+edit_uri: edit/main/docs-site/docs/
+
+theme:
+  name: material
+  logo: assets/logo.png
+  favicon: assets/logo.png
+  palette:
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: indigo
+      accent: cyan
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: cyan
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
+    - navigation.indexes
+    - toc.follow
+    - content.code.copy
+    - content.action.edit
+    - search.suggest
+    - search.highlight
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - tables
+  - toc:
+      permalink: true
+
+nav:
+  - Home: index.md
+  - Getting Started: getting-started.md
+  - Architecture: architecture.md
+  - Modules:
+      - Inventory & Assets: modules/inventory-assets.md
+      - Days of Autonomy Engine: modules/doa-engine.md
+      - Ice Drift Prediction: modules/drift-prediction.md
+      - Unified Dashboard: modules/dashboard.md
+  - Configuration: configuration.md
+  - API Reference: api-reference.md
+  - How the Calculations Work: calculations.md
+  - Frontend Usage: frontend-usage.md
+  - Troubleshooting: troubleshooting.md
+  - Distribution Checklist: distribution.md
+  - Contributing: contributing.md
