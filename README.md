@@ -1,8 +1,8 @@
-<div align="center"> <img src="assets/icon.png" width="140" alt="PLOROPSIS icon" />
-  # PLOROPSIS
-  ### *A unified operations command center for safer, smarter and more resilient polar research missions.*
-
-  <sub> **Snun here** — a snowflake with a flare for drama (literally, I'm half sun). I'll be popping in throughout this README to walk you through the project. Let's go. </sub>
+<div align="center" style="text-align:center;">
+  <img src="assets/icon.png" width="140" alt="PLOROPSIS icon" style="display:block;margin:0 auto;"/>
+  <h1>PLOROPSIS</h1>
+  <h3><em>A unified operations command center for safer, smarter and more resilient polar research missions.</em></h3>
+  <sub> <strong>Snun here</strong> — a snowflake with a flare for drama (literally, I'm half sun). I'll be popping in throughout this README to walk you through the project. Let's go. </sub>
 </div>
 
 ---
@@ -81,14 +81,14 @@ The platform converts operational records into clear, actionable views:
 - Last inspection and next maintenance dates.
 - Searchable records and asset detail view.
 
-### Inventory Control
+###  Inventory Control
 
 - Stock levels and minimum thresholds.
 - Normal, low-stock and critical status indicators.
 - Consumption trend visibility.
 - Immediate focus on items such as medical kits, batteries and spare filters.
 
-### Decision Analytics
+###  Decision Analytics
 
 <img src="assets/snun-neutral.png" width="70" align="left" alt="Snun neutral" style="margin-right:10px" />
 
@@ -207,8 +207,8 @@ The prototype demonstrates the user experience, information architecture and dec
 
 ---
 
-<div align="center"> <img src="assets/icon.png" width="100" alt="PLOROPSIS icon" />
-  **PLOROPSIS turns scattered operational information into one clear, actionable view — helping polar teams prepare earlier, respond faster and operate more safely.**
-
+<div align="center">
+  <img src="assets/icon.png" width="100" alt="PLOROPSIS icon"/>
+  <p><strong>PLOROPSIS turns scattered operational information into one clear, actionable view — helping polar teams prepare earlier, respond faster and operate more safely.</strong></p>
   <sub> That's a wrap from Snun. Star the repo if you made it this far. </sub>
 </div>
