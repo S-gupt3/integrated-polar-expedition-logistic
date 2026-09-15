@@ -26,10 +26,10 @@ class PLOROPSIS_API {
             
             // Drift mapping module
             driftStatus: '/api/drift/status',
-            driftPredict: (stationId) => `/api/drift/predict/${stationId}`,
-            driftStations: '/api/drift/stations',
-            driftHistory: (stationId) => `/api/drift/history/${stationId}`,
-            driftTiles: '/api/drift/tiles',
+            driftStations: '/api/stations',
+            driftPredict: (station, lat, lon, days = 365) => `/api/drift?station=${station}&lat=${lat}&lon=${lon}&days=${days}`,
+            driftHistory: (station, lat, lon, days = 365, step = 5) => `/api/drift_series?station=${station}&lat=${lat}&lon=${lon}&days=${days}&step=${step}`,
+            driftTiles: (z, x, y) => `/tiles/${z}/${x}/${y}.png`,
             
             // Health check
             health: '/api/health'
