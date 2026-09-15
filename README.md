@@ -1,6 +1,4 @@
-<div align="center">
-  <img src="assets/snun-talking.png" width="140" alt="Snun, the PLOROPSIS mascot" />
-
+<div align="center"> <img src="assets/icon.png" width="140" alt="PLOROPSIS icon" />
   # PLOROPSIS
   ### *A unified operations command center for safer, smarter and more resilient polar research missions.*
 
@@ -209,9 +207,7 @@ The prototype demonstrates the user experience, information architecture and dec
 
 ---
 
-<div align="center">
-  <img src="assets/snun-neutral.png" width="100" alt="Snun signing off" />
-
+<div align="center"> <img src="assets/icon.png" width="100" alt="PLOROPSIS icon" />
   **PLOROPSIS turns scattered operational information into one clear, actionable view — helping polar teams prepare earlier, respond faster and operate more safely.**
 
   <sub> That's a wrap from Snun. Star the repo if you made it this far. </sub>
