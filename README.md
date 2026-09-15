@@ -1,5 +1,5 @@
 <div align="center" style="text-align:center;">
-  <img src="assets/icon.png" width="140" alt="PLOROPSIS icon" style="display:block;margin:0 auto;"/>
+  <img src="assets/icon.png" width="220" alt="PLOROPSIS icon" style="display:block;margin:0 auto;"/>
   <h1>PLOROPSIS</h1>
   <h3><em>A unified operations command center for safer, smarter and more resilient polar research missions.</em></h3>
   <sub> <strong>Snun here</strong> — a snowflake with a flare for drama (literally, I'm half sun). I'll be popping in throughout this README to walk you through the project. Let's go. </sub>
