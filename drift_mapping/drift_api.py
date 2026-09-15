@@ -1,27 +1,4 @@
-"""
-PLOROPSIS — Drift API (local server)
 
-Thin Flask wrapper around ice_drift_engine.py so the HTML/JS frontend can
-call the drift math over plain HTTP, exactly like Ayush's planned
-"local server/API running at the station itself, not cloud-hosted" setup.
-No internet connectivity required once this is running on localhost.
-
-Run:
-    pip install flask flask-cors
-    python3 drift_api.py
-Then open index.html in a browser (or serve it, e.g. `python3 -m http.server 8000`).
-
-Endpoints:
-    GET /api/stations
-        -> list of stations with real coordinates + glacier profile
-
-    GET /api/drift?station=MTR&lat=-70.0&lon=11.0&days=365
-        -> single corrected position
-
-    GET /api/drift_series?station=MTR&lat=-70.0&lon=11.0&days=365&step=5
-        -> list of positions from day 0 to `days`, every `step` days
-           (this is what feeds the animated / continuous view)
-"""
 
 from flask import Flask, request, jsonify, send_from_directory
 from flask_cors import CORS
