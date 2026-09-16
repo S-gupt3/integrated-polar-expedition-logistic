@@ -1,92 +1,78 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ploropsis | Drift mapping</title>
-
-    <link rel="icon" type="image/x-icon" href="/favicon.ico">
-    <link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/favicon-16x16.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32x32.png">
-
-    <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-touch-icon.png">
-
-    <link rel="icon" type="image/png" sizes="192x192" href="/assets/icons/android-chrome-192x192.png">
-    <link rel="icon" type="image/png" sizes="512x512" href="/assets/icons/android-chrome-512x512.png">
-
-    <link rel="manifest" href="/cold-weather-pwa/manifest.json">
-
-    <meta name="theme-color" content="#1e3a5f">
-    <meta name="msapplication-TileColor" content="#1e3a5f">
-
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/layout.css">
-    <link rel="stylesheet" href="css/components.css">
-    <link rel="stylesheet" href="css/drift.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ploropsis | Drift mapping</title>
+<link rel="icon" href="/favicon.ico">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/layout.css">
+<link rel="stylesheet" href="css/components.css">
 </head>
 <body data-page="drift">
-    <div id="app-shell"></div>
-    <main class="page-content">
-        <header class="page-header">
-            <div>
-                <p class="eyebrow">ICE MOVEMENT</p>
-                <h1>Drift mapping console</h1>
-                <p class="page-subtitle">Correct an asset's last-logged position for ice-sheet movement, using published per-glacier velocity data.</p>
-            </div>
-        </header>
+<div id="app-shell"></div>
+<main class="page-content">
+  <header class="page-header">
+    <div>
+      <p class="eyebrow">Dynamic drift mapping</p>
+      <h1>Ice sheet displacement</h1>
+      <p class="page-subtitle">Asset coordinates logged on moving ice go stale. This shows how far the surface travels between surveys.</p>
+    </div>
+    <div class="header-meta">
+      <label class="select-field"><select id="sim-station"><option value="MTR">Maitri</option><option value="BHR">Bharati</option><option value="HDR">Himadri</option></select></label>
+    </div>
+  </header>
 
-        <section class="drift-layout">
-            <article class="card drift-controls">
-                <h2>Correction inputs</h2>
-                <label class="form-label">Station
-                    <select id="drift-station">
-                        <option value="MTR">Maitri (Schirmacher Glacier)</option>
-                        <option value="BHR">Bharati (Dålk Glacier)</option>
-                        <option value="HDR">Himadri (Vestre Brøggerbreen)</option>
-                    </select>
-                </label>
-                <label class="form-label">Asset's last logged coordinate</label>
-                <div class="row2">
-                    <input class="full-width" type="number" id="drift-lat" step="0.0001">
-                    <input class="full-width" type="number" id="drift-lon" step="0.0001">
-                </div>
-                <label class="form-label" for="drift-days">Elapsed time</label>
-                <input type="range" id="drift-days" min="0" max="1825" value="365" step="1">
-                <div class="day-readout"><span id="drift-day-value">365</span> days</div>
-                <div class="drift-actions">
-                    <button class="btn-primary" id="drift-play">&#9654; Play drift</button>
-                    <button class="btn-secondary" id="drift-reset">Reset</button>
-                </div>
-                <p class="drift-source-note" id="drift-source-note">Loading station reference data...</p>
-            </article>
+  <div class="sim-layout">
+    <section class="card sim-stage" id="sim-stage">
+      <div class="sim-overlay">
+        <div><em>Glacier</em> <b id="sim-glacier">--</b></div>
+        <div><em>Elapsed</em> <b id="sim-elapsed">--</b></div>
+        <div><em>Displacement</em> <b id="sim-displacement">--</b></div>
+        <div><em>Corrected</em> <b id="sim-coords">--</b></div>
+      </div>
+      <div class="sim-scalebar"><i></i><span id="sim-scale-label">--</span></div>
+      <div class="sim-transport">
+        <button id="sim-play" type="button">Pause</button>
+        <button id="sim-speed" type="button">1&times;</button>
+        <input id="sim-slider" type="range" min="0" max="1" value="0" aria-label="Timeline">
+        <span class="sim-day" id="sim-day">Day 0</span>
+      </div>
+    </section>
 
-            <article class="card drift-map-card">
-                <div id="drift-map"></div>
-            </article>
+    <aside class="sim-side">
+      <section class="card sim-panel">
+        <h2>Drift profile</h2>
+        <p id="sim-status">Loading</p>
+        <div class="readout">
+          <div><span>Surface velocity</span><strong id="sim-velocity">--</strong></div>
+          <div><span>Bearing</span><strong id="sim-bearing">--</strong></div>
+          <div><span>Visual exaggeration</span><strong id="sim-exaggeration">--</strong></div>
+        </div>
+        <div class="sim-note">Displacement figures are real. The scene is scaled up so movement is visible at station scale — the exaggeration factor above is the multiplier applied.</div>
+      </section>
 
-            <article class="card drift-stats">
-                <h2>Live drift stats</h2>
-                <div class="drift-stat-row"><span class="k">Station</span><span class="v" id="stat-station">&mdash;</span></div>
-                <div class="drift-stat-row"><span class="k">Glacier</span><span class="v" id="stat-glacier">&mdash;</span></div>
-                <div class="drift-stat-row"><span class="k">Velocity</span><span class="v accent" id="stat-velocity">&mdash;</span></div>
-                <div class="drift-stat-row"><span class="k">Bearing</span><span class="v" id="stat-bearing">&mdash;</span></div>
-                <div class="drift-stat-row"><span class="k">Days elapsed</span><span class="v" id="stat-days">&mdash;</span></div>
-                <div class="drift-stat-row"><span class="k">Displacement</span><span class="v accent" id="stat-displacement">&mdash;</span></div>
-                <div class="drift-stat-row"><span class="k">Origin coord</span><span class="v" id="stat-origin">&mdash;</span></div>
-                <div class="drift-stat-row"><span class="k">Corrected coord</span><span class="v accent" id="stat-corrected">&mdash;</span></div>
-                <div class="drift-stat-row"><span class="k">Confidence</span><span class="v" id="stat-confidence">&mdash;</span></div>
-                <div class="drift-sparkline-wrap">
-                    <div class="label">Cumulative displacement (0 &rarr; current day)</div>
-                    <svg id="drift-sparkline" viewBox="0 0 280 80" preserveAspectRatio="none"></svg>
-                </div>
-            </article>
-        </section>
-    </main>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
-    <script src="js/api.js"></script>
-    <script src="js/utils.js"></script>
-    <script src="js/layout.js"></script>
-    <script src="js/drift.js"></script>
+      <section class="card sim-panel">
+        <h2>Legend</h2>
+        <div class="sim-legend">
+          <div><i style="background:#eb5757"></i>Last logged position (fixed geodetic frame)</div>
+          <div><i style="background:#5e6ad2"></i>Station, carried by the ice</div>
+          <div><i style="background:#4cb782"></i>Tracked assets on the surface</div>
+          <div><i style="background:#f2c94c"></i>Drift path</div>
+        </div>
+      </section>
+
+      <section class="card sim-panel">
+        <h2>Data provenance</h2>
+        <p id="sim-confidence">--</p>
+      </section>
+    </aside>
+  </div>
+</main>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="js/api.js"></script>
+<script src="js/utils.js"></script>
+<script src="js/layout.js"></script>
+<script src="js/drift-sim.js"></script>
 </body>
 </html>
