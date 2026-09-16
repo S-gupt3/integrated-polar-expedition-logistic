@@ -24,7 +24,11 @@ async function initInventory() {
 		document.getElementById('inventory-total').textContent = filtered.length;
 		document.getElementById('inventory-critical').textContent = filtered.filter((item) => item.status === 'Critical').length;
 		document.getElementById('inventory-health').textContent = filtered.length ? `${Math.round((filtered.filter((item) => item.status === 'Normal').length / filtered.length) * 100)}%` : '--';
-		tbody.innerHTML = filtered.length ? filtered.map((item) => `<tr><td><div class="asset-name"><span class="inventory-icon">${(item.category || '--').slice(0, 2).toUpperCase()}</span><div><strong>${item.item}</strong><span>${item.category} / ${item.id}</span></div></div></td><td>${item.station}</td><td><strong>${item.quantity.toLocaleString('en-IN')} ${item.unit}</strong></td><td>${item.threshold.toLocaleString('en-IN')} ${item.unit}</td><td>${statusBadge(item.status)}</td><td class="${item.burn < -5 ? 'text-red' : ''}">${item.burn ? `${item.burn.toFixed(1)}% / wk` : 'No usage logged'}</td><td><button class="link-arrow stock-action" data-id="${item.id}">Add stock</button></td></tr>`).join('') : '<tr><td colspan="7" class="loading">No stock records match this view</td></tr>';
+		tbody.innerHTML = filtered.length ? filtered.map((item) => `<tr><td><div class="asset-name"><span class="inventory-icon">${(item.category || '--').slice(0, 2).toUpperCase()}</span><div><strong>${item.item}</strong><span>${item.category} / ${item.id}</span></div></div></td><td>${item.station}</td><td><strong>${item.quantity.toLocaleString('en-IN')} ${item.unit}</strong></td><td>${item.threshold.toLocaleString('en-IN')} ${item.unit}</td><td>${statusBadge(item.status)}</td><td class="${item.burn < -5 ? 'text-red' : ''}">${item.burn ? `${item.burn.toFixed(1)}% / wk` : 'No usage logged'}</td><td>
+  <button class="link-arrow stock-action" data-id="${item.id}" data-action="add">+ Add</button>
+  <button class="link-arrow text-yellow stock-action" data-id="${item.id}" data-action="reduce" style="margin-left: 8px;">- Reduce</button>
+  <button class="link-arrow text-red delete-action" data-id="${item.id}" style="margin-left: 8px;">Remove</button>
+</td></tr>`).join('') : '<tr><td colspan="7" class="loading">No stock records match this view</td></tr>';
 		document.querySelectorAll('.stock-action').forEach((button) => button.addEventListener('click', () => { document.getElementById('stock-item').value = button.dataset.id; document.getElementById('stock-modal').showModal(); }));
 	};
 
