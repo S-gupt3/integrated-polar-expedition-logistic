@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ploropsis | Days of autonomy</title>
+<link rel="icon" href="/favicon.ico">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/layout.css">
+<link rel="stylesheet" href="css/components.css">
+</head>
+<body data-page="doa">
+<div id="app-shell"></div>
+<main class="page-content">
+  <header class="page-header">
+    <div>
+      <p class="eyebrow">Resource forecasting</p>
+      <h1>Days of autonomy</h1>
+      <p class="page-subtitle">How long each station can hold out on current stock at measured consumption rates.</p>
+    </div>
+    <div class="header-meta"><span class="live-indicator">Live</span></div>
+  </header>
+
+  <div id="station-tabs"></div>
+
+  <section class="doa-summary">
+    <article class="card kpi tabbed-panel"><span>Station autonomy</span><strong id="doa-headline">--</strong><small id="doa-limiter">Calculating</small></article>
+    <article class="card kpi"><span>Items under 14 days</span><strong id="doa-critical">--</strong><small>Require resupply planning</small></article>
+    <article class="card kpi"><span>Consumables tracked</span><strong id="doa-tracked">--</strong><small>With logged consumption</small></article>
+  </section>
+
+  <section class="gauge-grid" id="doa-gauges"><div class="card loading">Loading autonomy model</div></section>
+
+  <section class="doa-charts">
+    <article class="card panel-card"><div class="panel-heading"><div><h2>Shortest runway</h2><p>Items closest to exhaustion</p></div></div><div class="chart-box"><canvas id="runwayChart"></canvas></div></article>
+    <article class="card panel-card"><div class="panel-heading"><div><h2>Daily burn rate</h2><p>Measured from the trailing 14 days of logs</p></div></div><div class="chart-box"><canvas id="burnChart"></canvas></div></article>
+  </section>
+
+  <section class="card table-card">
+    <div class="panel-heading"><div><h2>Consumption ledger</h2><p>Every tracked consumable, ordered by urgency</p></div></div>
+    <div class="table-scroll">
+      <table>
+        <thead><tr><th>Item</th><th>Station</th><th>On hand</th><th>Burn rate</th><th>Autonomy</th><th>Responsible role</th></tr></thead>
+        <tbody id="doa-tbody"><tr><td colspan="6" class="loading">Loading</td></tr></tbody>
+      </table>
+    </div>
+  </section>
+</main>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+<script src="js/api.js"></script>
+<script src="js/utils.js"></script>
+<script src="js/layout.js"></script>
+<script src="js/doa.js"></script>
+</body>
+</html>
