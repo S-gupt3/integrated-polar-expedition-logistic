@@ -43,7 +43,7 @@ async function initDoA() {
 		document.getElementById('doa-tracked').textContent = scoped.length;
 
 		const runway = [...scoped].sort((a, b) => a.days - b.days).slice(0, 12);
-		const runwayColours = runway.map((item) => (item.days < 14 ? '#e5484d' : item.days < 45 ? '#f5a524' : '#3d9970'));
+		const runwayColours = runway.map((item) => (item.days < 14 ? '#eb5757' : item.days < 45 ? '#f2c94c' : '#4cb782'));
 		if (runwayChart) runwayChart.destroy();
 		runwayChart = new Chart(document.getElementById('runwayChart'), {
 			type: 'bar',
@@ -55,7 +55,7 @@ async function initDoA() {
 		if (burnChart) burnChart.destroy();
 		burnChart = new Chart(document.getElementById('burnChart'), {
 			type: 'bar',
-			data: { labels: burn.map((item) => item.label), datasets: [{ data: burn.map((item) => item.rate), backgroundColor: '#5b6ef5', borderRadius: 3 }] },
+			data: { labels: burn.map((item) => item.label), datasets: [{ data: burn.map((item) => item.rate), backgroundColor: '#5e6ad2', borderRadius: 3 }] },
 			options: { maintainAspectRatio: false, plugins: { legend: { display: false }, tooltip: { callbacks: { label: (context) => `${context.raw} ${burn[context.dataIndex].unit} per day` } } }, scales: { y: { title: { display: true, text: 'Daily consumption' } } } },
 		});
 
