@@ -160,6 +160,10 @@ if os.path.isdir(FRONTEND_DIR):
     assets_dir = os.path.join(FRONTEND_DIR, "assets")
     if os.path.isdir(assets_dir):
         app.mount("/assets", StaticFiles(directory=assets_dir), name="assets")
+        
+    pwa_dir = os.path.join(BUNDLE_DIR, "test folder", "cold-weather-pwa")
+    if os.path.isdir(pwa_dir):
+        app.mount("/cold-weather-pwa", StaticFiles(directory=pwa_dir), name="pwa")
 
 # Startup
 def open_browser_delayed():
