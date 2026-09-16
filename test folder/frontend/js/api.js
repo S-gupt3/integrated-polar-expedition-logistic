@@ -260,6 +260,8 @@ if (typeof window !== 'undefined') {
     window.correctDrift = (id, lat, lon, days) => api.correctDrift(id, lat, lon, days);
     window.getDriftSeries = (id, lat, lon, days, step) => api.getDriftSeries(id, lat, lon, days, step);
     window.checkHealth = () => api.checkHealth();
+    window.updateStock = (id, delta) => api.updateStock(id, delta);
+    window.deleteInventoryItem = (id) => api.deleteInventoryItem(id);
     window.getAnalytics = async function() {
         try {
             // Fetch live operational logs from your working endpoints
