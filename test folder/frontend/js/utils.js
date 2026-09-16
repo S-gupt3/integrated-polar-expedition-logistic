@@ -3,8 +3,11 @@ function statusBadge(status) { return `<span class="badge ${statusClass(status)}
 function iconForStatus(status) { return status.toLowerCase() === 'resolved' ? '&#10003;' : '&#9888;'; }
 function getQueryParam(name) { return new URLSearchParams(window.location.search).get(name); }
 
-window.currentStation = window.currentStation || function () {
-	return getQueryParam('station') || 'all';
+window.currentStation = function () {
+	const q = new URLSearchParams(window.location.search).get('station');
+	if (q === 'all') { localStorage.removeItem('ploropsis-station'); return 'all'; }
+	if (q) { localStorage.setItem('ploropsis-station', q); return q; }
+	return localStorage.getItem('ploropsis-station') || 'all';
 };
 window.mountStationTabs = window.mountStationTabs || function (host, render) {
 	if (typeof render === 'function') render();
