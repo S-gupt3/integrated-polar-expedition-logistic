@@ -1,0 +1,21 @@
+.drift-layout{display:grid;grid-template-columns:300px 1fr 300px;gap:18px;align-items:start}
+@media(max-width:1100px){.drift-layout{grid-template-columns:1fr}}
+.drift-controls{padding:22px}
+.drift-controls h2{font-size:14px;margin-bottom:10px}
+.drift-controls .row2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.drift-controls input[type="range"]{width:100%;accent-color:var(--blue)}
+.day-readout{font:13px 'DM Mono',monospace;color:var(--blue);margin-top:4px}
+.drift-actions{display:flex;gap:8px;margin-top:16px}
+.drift-actions button{flex:1}
+.drift-source-note{margin-top:18px;font-size:10px;color:var(--muted);line-height:1.6;border-top:1px solid var(--line);padding-top:14px}
+.drift-map-card{padding:0;overflow:hidden;min-height:520px}
+#drift-map{width:100%;height:520px;background:var(--panel)}
+.drift-stats{padding:20px}
+.drift-stats h2{font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-bottom:14px}
+.drift-stat-row{display:flex;justify-content:space-between;align-items:baseline;padding:9px 0;border-bottom:1px solid var(--line);gap:10px}
+.drift-stat-row .k{font-size:10px;color:var(--muted)}
+.drift-stat-row .v{font:11px 'DM Mono',monospace;color:var(--ink);text-align:right}
+.drift-stat-row .v.accent{color:var(--blue)}
+.drift-sparkline-wrap{margin-top:20px;background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:12px}
+.drift-sparkline-wrap .label{font-size:9px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px}
+#drift-sparkline{width:100%;height:80px;display:block}
