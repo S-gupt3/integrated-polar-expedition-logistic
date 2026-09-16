@@ -1,3 +1,5 @@
+// js/dashboard.js — PLOROPSIS command center (real data, station-scoped)
+
 async function initDashboard() {
   try {
     // Fetch real data from backend
@@ -20,16 +22,15 @@ async function initDashboard() {
       scopeCode = stored || 'all';
     }
 
-    console.log('[scope] url param =', urlParam, '| stored =', stored, '| resolved =', scopeCode);
-
     if (scopeCode !== 'all') {
       assets = assets.filter((a) => a.stationCode === scopeCode);
       inventory = inventory.filter((i) => i.stationCode === scopeCode);
     }
 
-    // Always show the scope bar so the active scope is visible (and debuggable)
-    injectScopeBar(scopeCode, urlParam, stored, assets.length);
+    // Always show the scope bar so the active scope is visible
+    injectScopeBar(scopeCode, assets.length);
 
+    // ---- KPIs ----
     const totalAssets = assets.length;
     const operationalAssets = assets.filter(a => a.status === 'Operational').length;
     const criticalStockCount = inventory.filter(item => item.status === 'Critical').length;
@@ -43,6 +44,7 @@ async function initDashboard() {
     document.getElementById('kpi-critical-stock').textContent = criticalStockCount.toLocaleString();
     document.getElementById('kpi-alerts').textContent = alertCount.toLocaleString();
 
+    // ---- Dynamic alert feed ----
     const realAlerts = [];
 
     inventory.filter(item => item.status === 'Critical' || item.status === 'Low').forEach(item => {
@@ -74,7 +76,7 @@ async function initDashboard() {
       ).join('') :
       '<li class="loading">No critical alerts at this time</li>';
 
-    // Real Asset Health Chart Data
+    // ---- Asset health doughnut (real counts) ----
     const healthCounts = {
       Operational: assets.filter(a => a.status === 'Operational').length,
       Maintenance: assets.filter(a => a.status === 'Maintenance').length,
@@ -106,6 +108,7 @@ async function initDashboard() {
       }
     });
 
+    // ---- Consumption trend ----
     if (window.consumptionChartInstance) window.consumptionChartInstance.destroy();
     window.consumptionChartInstance = new Chart(document.getElementById('consumptionChart'), {
       type: 'line',
@@ -136,7 +139,7 @@ async function initDashboard() {
   }
 }
 
-function injectScopeBar(scope, urlParam, stored, assetCount) {
+function injectScopeBar(scope, assetCount) {
   const NAMES = { MTR: 'Maitri', BHR: 'Bharati', HDR: 'Himadri' };
   const header = document.querySelector('.page-header');
   if (!header || document.getElementById('scope-bar')) return;
@@ -148,7 +151,6 @@ function injectScopeBar(scope, urlParam, stored, assetCount) {
 
   bar.innerHTML =
     `Scope: <strong>${label}</strong> · ${assetCount} assets in view` +
-    ` <span class="scope-debug">[url:${urlParam || '—'} stored:${stored || '—'}]</span>` +
     (scope === 'all'
       ? ` &nbsp;·&nbsp; pick a station on the <a href="index.html">Stations</a> page`
       : ` &nbsp;·&nbsp; <a href="dashboard.html?station=all">show all stations</a>`);
