@@ -1,11 +1,12 @@
 async function initDashboard() {
   try {
     // Fetch real data from backend
-    const [assets, inventory, analytics] = await Promise.all([
-      getAssets(), 
-      getInventory(), 
-      getAnalytics()
-    ]);
+    let [assets, inventory, analytics] = await Promise.all([getAssets(), getInventory(), getAnalytics()]);
+    const scope = (window.currentStation && window.currentStation()) || 'all';
+    if (scope !== 'all') {
+	    assets = assets.filter((a) => a.stationCode === scope);
+	    inventory = inventory.filter((i) => i.stationCode === scope);
+    }
 
     const totalAssets = assets.length;
     const operationalAssets = assets.filter(a => a.status === 'Operational').length;
