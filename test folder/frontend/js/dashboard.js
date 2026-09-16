@@ -2,10 +2,16 @@ async function initDashboard() {
   try {
     // Fetch real data from backend
     let [assets, inventory, analytics] = await Promise.all([getAssets(), getInventory(), getAnalytics()]);
-    const scope = (window.currentStation && window.currentStation()) || 'all';
-    if (scope !== 'all') {
-	    assets = assets.filter((a) => a.stationCode === scope);
-	    inventory = inventory.filter((i) => i.stationCode === scope);
+    
+    // Station scope: URL param wins, then remembered choice
+    const scopeCode = (typeof window.currentStation === 'function')
+      ? window.currentStation()
+      : (new URLSearchParams(window.location.search).get('station') || 'all');
+
+    if (scopeCode !== 'all') {
+      assets = assets.filter((a) => a.stationCode === scopeCode);
+      inventory = inventory.filter((i) => i.stationCode === scopeCode);
+      injectScopeBar(scopeCode);
     }
 
     const totalAssets = assets.length;
@@ -52,7 +58,7 @@ async function initDashboard() {
       ).join('') : 
       '<li class="loading">No critical alerts at this time</li>';
 
-    // 3. Real Asset Health Chart Data
+    // Real Asset Health Chart Data
     const healthCounts = {
       Operational: assets.filter(a => a.status === 'Operational').length,
       Maintenance: assets.filter(a => a.status === 'Maintenance').length,
@@ -112,6 +118,18 @@ async function initDashboard() {
     console.error("Dashboard initialization failed:", error);
     document.getElementById('kpi-total-assets').textContent = "Error";
   }
+}
+
+function injectScopeBar(scope) {
+  const NAMES = { MTR: 'Maitri', BHR: 'Bharati', HDR: 'Himadri' };
+  const header = document.querySelector('.page-header');
+  if (!header || document.getElementById('scope-bar')) return;
+  const bar = document.createElement('div');
+  bar.id = 'scope-bar';
+  bar.innerHTML =
+    `Scoped to <strong>${NAMES[scope] || scope}</strong>` +
+    ` &nbsp;·&nbsp; <a href="dashboard.html?station=all">show all stations</a>`;
+  header.appendChild(bar);
 }
 
 initDashboard();
