@@ -61,8 +61,8 @@ const motionAllowed = () => !reducedMotion() && !survivalMode();
 
 if (window.Chart) {
 	const styles = getComputedStyle(document.documentElement);
-	window.Chart.defaults.color = styles.getPropertyValue('--muted').trim();
-	window.Chart.defaults.borderColor = styles.getPropertyValue('--line').trim();
+	window.Chart.defaults.color = styles.getPropertyValue('--text-3').trim();
+	window.Chart.defaults.borderColor = styles.getPropertyValue('--border').trim();
 	window.Chart.defaults.font.family = "'Inter', system-ui, sans-serif";
 	window.Chart.defaults.font.size = 11;
 	window.Chart.defaults.animation.duration = motionAllowed() ? 700 : 0;
