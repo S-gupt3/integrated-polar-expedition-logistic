@@ -32,212 +32,46 @@
   letter-spacing: .01em;
 }
 
-.brand-copy { flex: 1; min-width: 0; }
-.brand strong { display: block; font-size: 13.5px; font-weight: 600; letter-spacing: -.01em; }
-.brand small { display: block; font-size: 11px; color: var(--text-3); margin-top: 1px; }
-
-.rail-collapse {
-  width: 24px;
-  height: 24px;
-  flex: none;
-  border: 0;
-  border-radius: var(--radius-sm);
-  background: transparent;
-  color: var(--text-3);
-  font-size: 13px;
-  line-height: 1;
-  opacity: 0;
-  transition: opacity var(--speed) var(--ease), background-color var(--speed) var(--ease);
-}
-
-.sidebar:hover .rail-collapse,
-.rail-collapse:focus-visible { opacity: 1; }
-.rail-collapse:hover { background: var(--surface-2); color: var(--text); }
-
-.workspace {
-  display: block;
-  padding: 9px 11px;
-  margin: 0 2px 16px;
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  background: var(--surface);
-}
-
-.workspace span { display: block; font-size: 10.5px; text-transform: uppercase; letter-spacing: .05em; color: var(--text-3); }
-.workspace strong { display: block; font-size: 13px; font-weight: 500; margin-top: 4px; }
-.workspace em { display: block; font-style: normal; font-size: 12px; color: var(--accent-hi); margin-top: 1px; }
-
-.nav-label {
-  font-size: 10.5px;
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: .05em;
-  color: var(--text-3);
-  margin: 0 10px 6px;
-}
-
-.sidebar nav { display: grid; gap: 1px; }
-
-.nav-item {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  height: 32px;
-  padding: 0 10px;
-  border-radius: var(--radius-sm);
-  color: var(--text-2);
-  font-size: 13px;
-  font-weight: 500;
-  transition: background-color .12s var(--ease), color .12s var(--ease);
-}
-
-.nav-item i {
-  width: 5px;
-  height: 5px;
-  flex: none;
-  border-radius: 50%;
-  background: currentColor;
-  opacity: .35;
-  transition: opacity .12s var(--ease), background-color .12s var(--ease);
-}
-
-.nav-item:hover { background: var(--surface-2); color: var(--text); }
-.nav-item.active { background: var(--surface-3); color: var(--text); }
-.nav-item.active i { opacity: 1; background: var(--accent-hi); }
-
-.sidebar-footer {
-  margin-top: auto;
-  padding: 12px 10px 4px;
-  border-top: 1px solid var(--border);
-  font-size: 12px;
-  color: var(--text-3);
-}
-
-.sidebar-footer span { display: block; color: var(--text-2); }
-.sidebar-footer small { display: block; margin-top: 2px; opacity: .75; }
-
-.page-content {
-  margin-left: 224px;
-  width: calc(100% - 224px);
-  max-width: 1440px;
-  padding: 28px 32px 64px;
-}
-
-.sidebar,
-.page-content { transition: width .2s var(--ease), margin-left .2s var(--ease), padding .2s var(--ease); }
-
-body.rail-collapsed .sidebar { width: 56px; padding: 14px 8px; }
-body.rail-collapsed .brand-copy,
-body.rail-collapsed .workspace,
-body.rail-collapsed .nav-label,
-body.rail-collapsed .nav-item span,
-body.rail-collapsed .sidebar-footer { display: none; }
-body.rail-collapsed .brand { justify-content: center; padding: 6px 0 16px; }
-body.rail-collapsed .nav-item { justify-content: center; padding: 0; }
-body.rail-collapsed .rail-collapse { position: absolute; right: -14px; top: 4px; opacity: 1; background: var(--bg-elev); border: 1px solid var(--border); }
-body.rail-collapsed .page-content { margin-left: 56px; width: calc(100% - 56px); }
-
-.theme-toggle {
-  height: 30px;
-  padding: 0 11px;
-  border: 1px solid var(--border);
-  border-radius: var(--radius-sm);
-  background: var(--surface-2);
-  color: var(--text-2);
-  font-size: 12.5px;
-  font-weight: 500;
-  transition: background-color var(--speed) var(--ease), color var(--speed) var(--ease);
-}
-
-.theme-toggle:hover { background: var(--surface-3); color: var(--text); }
-
-:root[data-theme="emergency"] .theme-toggle { border-color: var(--red); color: var(--red); }
-
-.station-tabs {
-  display: flex;
-  gap: 2px;
-  align-items: flex-end;
-  margin-bottom: -1px;
-  padding-left: 1px;
-  position: relative;
-  z-index: 2;
-}
-
-.station-tab {
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-  height: 34px;
-  padding: 0 14px;
-  border: 1px solid transparent;
-  border-bottom: 0;
-  border-radius: var(--radius) var(--radius) 0 0;
-  background: transparent;
-  color: var(--text-3);
-  font-size: 13px;
-  font-weight: 500;
-  transition: color .12s var(--ease), background-color .12s var(--ease);
-}
-
-.station-tab b {
-  font-family: var(--mono);
-  font-size: 10.5px;
-  font-weight: 500;
-  padding: 1px 6px;
-  border-radius: 20px;
-  background: var(--surface-3);
-}
-
-.station-tab:hover { color: var(--text-2); background: var(--surface); }
-
-.station-tab.active {
-  background: var(--surface);
-  border-color: var(--border);
-  color: var(--text);
-}
-
-.station-tab.active b { background: var(--accent-soft); color: var(--accent-hi); }
-.tabbed-panel { border-top-left-radius: 0; }
-
-.mobile-toggle { display: none; }
-.sidebar-scrim { display: none; }
-
-@media (max-width: 960px) {
-  .sidebar { transform: translateX(-100%); transition: transform .22s var(--ease); }
-  .sidebar.open { transform: none; }
-  .page-content { margin-left: 0; width: 100%; padding: 60px 18px 56px; }
-  body.rail-collapsed .page-content { margin-left: 0; width: 100%; }
-  .mobile-toggle {
-    display: inline-flex;
-    position: fixed;
-    right: 16px;
-    top: 14px;
-    z-index: 45;
-    height: 32px;
-    padding: 0 12px;
-    align-items: center;
-    border: 1px solid var(--border);
-    border-radius: var(--radius-sm);
-    background: var(--bg-elev);
-    color: var(--text-2);
-    font-size: 13px;
-  }
-  .sidebar.open ~ .sidebar-scrim {
-    display: block;
-    position: fixed;
-    inset: 0;
-    z-index: 35;
-    background: rgba(0, 0, 0, .55);
-  }
-  .station-tabs { overflow-x: auto; }
-  .station-tab { white-space: nowrap; }
-}
-
-/* ============ ANIMATED COLLAPSED RAIL ============ */
+/* ================= COLLAPSED RAIL (consolidated) ================= */
 .sidebar { transition: width .32s cubic-bezier(.22,1,.36,1), padding .32s cubic-bezier(.22,1,.36,1); }
 .sidebar nav { position: relative; }
 
-/* --- tiles stagger-in when the rail collapses --- */
+body.rail-collapsed .sidebar { width: 64px; padding: 14px 8px; overflow: visible; }
+body.rail-collapsed .brand-copy,
+body.rail-collapsed .workspace,
+body.rail-collapsed .nav-label,
+body.rail-collapsed .sidebar-footer { display: none; }
+
+/* --- Brand row: the toggle REPLACES the PL mark when collapsed --- */
+body.rail-collapsed .brand { justify-content: center; padding: 4px 0 16px; }
+body.rail-collapsed .brand-mark { display: none; }
+body.rail-collapsed .rail-collapse {
+  position: static; opacity: 1;
+  width: 40px; height: 40px;
+  display: grid; place-items: center;
+  border: 1px solid var(--border); border-radius: var(--radius-sm);
+  background: var(--surface-2); color: var(--text-2);
+  font-size: 0;                       /* hides the inline « glyph */
+  transition: transform .18s var(--ease), background-color .18s var(--ease), color .18s var(--ease);
+}
+body.rail-collapsed .rail-collapse::before { content: "\00BB"; font-size: 15px; line-height: 1; }  /* shows » */
+body.rail-collapsed .rail-collapse:hover { background: var(--surface-3); color: var(--text); transform: scale(1.08); }
+body.rail-collapsed .rail-collapse:active { transform: scale(.92); }
+
+/* --- Nav items become letter tiles (no more stray dots) --- */
+body.rail-collapsed .nav-item {
+  position: relative;
+  justify-content: center;
+  width: 40px; height: 40px;
+  margin: 0 auto 6px; padding: 0;
+  border: 1px solid var(--border); border-radius: var(--radius-sm);
+}
+body.rail-collapsed .nav-item i { display: none; }
+body.rail-collapsed .nav-item span { display: grid; place-items: center; width: 100%; height: 100%; font-size: 0; }
+body.rail-collapsed .nav-item span::first-letter { font-size: 14px; font-weight: 600; line-height: 1; text-transform: uppercase; }
+body.rail-collapsed .nav-item.active { border-color: currentColor; }
+
+/* --- Stagger-in when the rail collapses --- */
 body.rail-collapsed a.nav-item {
   animation: tile-in .45s cubic-bezier(.22,1,.36,1) backwards;
   transition: transform .18s var(--ease), border-color .18s var(--ease),
@@ -254,7 +88,7 @@ body.rail-collapsed a.nav-item:nth-of-type(6) { animation-delay: .24s; }
   to   { opacity: 1; transform: translateY(0)    scale(1); }
 }
 
-/* --- hover: lift + glow --- */
+/* --- Hover: lift + glow --- */
 body.rail-collapsed a.nav-item:hover,
 body.rail-collapsed a.nav-item:focus-visible {
   transform: translateY(-2px) scale(1.07);
@@ -264,7 +98,7 @@ body.rail-collapsed a.nav-item:focus-visible {
 }
 body.rail-collapsed a.nav-item:active { transform: translateY(0) scale(.96); }
 
-/* --- sliding glow indicator (positioned by JS) --- */
+/* --- Sliding glow indicator (positioned by layout.js) --- */
 .rail-indicator {
   position: absolute; top: 0; left: 0; right: 0; height: 40px;
   border-radius: var(--radius-sm);
@@ -281,8 +115,7 @@ body.rail-collapsed a.nav-item:active { transform: translateY(0) scale(.96); }
 body.rail-collapsed .rail-indicator { opacity: 1; left: calc(50% - 20px); right: auto; width: 40px; }
 body.rail-collapsed a.nav-item { z-index: 1; }
 
-/* --- slide-out tooltips (uses data-label set by JS) --- */
-body.rail-collapsed .sidebar { overflow: visible; }
+/* --- Slide-out tooltips (data-label from layout.js) --- */
 body.rail-collapsed a.nav-item::after {
   content: attr(data-label);
   position: absolute; left: calc(100% + 16px); top: 50%;
@@ -307,22 +140,10 @@ body.rail-collapsed a.nav-item:focus-visible::after { opacity: 1; transform: tra
 body.rail-collapsed a.nav-item:hover::before,
 body.rail-collapsed a.nav-item:focus-visible::before { opacity: 1; }
 
-/* --- pulsing brand mark while collapsed --- */
-body.rail-collapsed .brand-mark {
-  outline: 1px solid var(--accent);
-  animation: mark-pulse 2.2s ease-in-out infinite;
-}
-@keyframes mark-pulse {
-  0%, 100% { outline-offset: 0;   outline-color: var(--accent); }
-  50%      { outline-offset: 6px; outline-color: transparent; }
-}
+/* --- Page offset --- */
+body.rail-collapsed .page-content { margin-left: 64px; width: calc(100% - 64px); }
 
-/* --- collapse chevron micro-interaction --- */
-.rail-collapse { transition: opacity var(--speed) var(--ease), background-color var(--speed) var(--ease), transform .18s var(--ease); }
-.rail-collapse:hover { transform: scale(1.12); }
-.rail-collapse:active { transform: scale(.92); }
-
-/* --- respect reduced motion --- */
+/* --- Reduced motion --- */
 @media (prefers-reduced-motion: reduce) {
   body.rail-collapsed a.nav-item,
   body.rail-collapsed .brand-mark,
