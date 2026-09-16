@@ -90,22 +90,37 @@ def get_single_asset(asset_id: str):
         raise HTTPException(status_code=404, detail=f"Asset {asset_id} not found.")
     return result
 
-@router.post("/assets")
-def create_asset(asset: AssetCreate):
+@router.post("/inventory/{inventory_id}/add-stock")
+def add_stock(inventory_id: str, update: StockUpdate):
     connection = get_db_connection()
     try:
         with connection.cursor() as cursor:
-            sql = """INSERT INTO assets (asset_id, name, category, station_id, status,
-                      last_inspection_date, next_maintenance_date, latitude, longitude)
-                      VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s)"""
-            cursor.execute(sql, (asset.asset_id, asset.name, asset.category, asset.station_id,
-                                  asset.status, asset.last_inspection_date, asset.next_maintenance_date,
-                                  asset.latitude, asset.longitude))
-        connection.commit()
-        return {"status": "success", "asset_id": asset.asset_id}
+            cursor.execute("SELECT current_quantity, min_threshold FROM inventory WHERE inventory_id = %s;", (inventory_id,))
+            row = cursor.fetchone()
+            if not row:
+                raise HTTPException(status_code=404, detail=f"Inventory item {inventory_id} not found.")
+            
+            new_qty = float(row["current_quantity"]) + update.quantity_delta
+            
+            # PREVENT NEGATIVE STOCK
+            if new_qty < 0:
+                raise HTTPException(status_code=400, detail="Reduction amount exceeds current stock. Quantity cannot be negative.")
+                
+            min_threshold = float(row["min_threshold"])
+            new_status = "Critical" if new_qty < min_threshold * 1.2 else (
+                "Low" if new_qty < min_threshold * 2.5 else "Normal")
+            
+            cursor.execute(
+                "UPDATE inventory SET current_quantity = %s, status = %s, last_updated = %s WHERE inventory_id = %s;",
+                (new_qty, new_status, date.today().isoformat(), inventory_id)
+            )
+            connection.commit()
+            return {"status": "success", "inventory_id": inventory_id, "new_quantity": new_qty, "new_status": new_status}
+    except HTTPException:
+        raise
     except Exception as e:
         connection.rollback()
-        raise HTTPException(status_code=400, detail=f"Failed to create asset: {str(e)}")
+        raise HTTPException(status_code=400, detail=f"Failed to update stock: {str(e)}")
     finally:
         connection.close()
 
