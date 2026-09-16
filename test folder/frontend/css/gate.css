@@ -1,0 +1,75 @@
+/* PLOROPSIS — station gate (tri-pane home). Utilitarian ops-console look:
+   hairlines, tabular mono data, no gradients/glass/emoji. */
+:root{
+  --gate-bg:#0a0e13; --gate-panel:#0d1219;
+  --gate-line:#1d2833; --gate-line-strong:#2b3a49;
+  --gate-text:#e6edf3; --gate-dim:#8b98a5; --gate-faint:#5c6a78;
+  --gate-accent:#62b9e8; --gate-green:#43c66e; --gate-amber:#f2bd4b; --gate-red:#e5484d;
+  --mono: ui-monospace,"SFMono-Regular","JetBrains Mono",Menlo,Consolas,monospace;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body.gate-body{
+  margin:0; background:var(--gate-bg); color:var(--gate-text);
+  font:14px/1.45 -apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  display:flex; flex-direction:column; overflow:hidden;
+}
+.mono{font-family:var(--mono); font-variant-numeric:tabular-nums}
+.sr-only{position:absolute; width:1px; height:1px; margin:-1px; padding:0; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; border:0}
+
+/* ---- top system bar ---- */
+.gate-top{flex:0 0 auto; display:flex; align-items:center; justify-content:space-between;
+  height:44px; padding:0 14px; background:var(--gate-panel); border-bottom:1px solid var(--gate-line)}
+.gate-brand{display:flex; align-items:baseline; gap:9px; font-size:12px; font-weight:650; letter-spacing:.16em; text-transform:uppercase}
+.gate-mark{width:8px; height:8px; background:var(--gate-accent); transform:rotate(45deg)}
+.gate-ver{color:var(--gate-faint); font-family:var(--mono); font-weight:400; letter-spacing:.05em}
+.gate-sys{display:flex; align-items:center; gap:16px; color:var(--gate-dim); font-size:11px; letter-spacing:.08em; text-transform:uppercase}
+.sys-item{display:inline-flex; align-items:center; gap:6px}
+.led{width:7px; height:7px; border-radius:50%; background:var(--gate-faint)}
+.led-green{background:var(--gate-green); box-shadow:0 0 6px rgba(67,198,110,.65)}
+.led-amber{background:var(--gate-amber); box-shadow:0 0 6px rgba(242,189,75,.65)}
+.led-red{background:var(--gate-red); box-shadow:0 0 6px rgba(229,72,77,.65)}
+
+/* ---- tri-pane ---- */
+.gate-panes{flex:1 1 auto; display:flex; min-height:0; border-bottom:1px solid var(--gate-line)}
+.pane{position:relative; flex:1 1 0; min-width:0; overflow:hidden; display:flex; flex-direction:column; justify-content:flex-end;
+  border-right:1px solid var(--gate-line); color:inherit; text-decoration:none;
+  transition:flex-grow .45s cubic-bezier(.22,.8,.28,1); outline-offset:-2px}
+.pane:last-child{border-right:0}
+.gate-panes:hover .pane{flex-grow:.72}
+.gate-panes .pane:hover, .gate-panes .pane:focus-visible{flex-grow:2.15}
+.pane-photo{position:absolute; inset:0; width:100%; height:100%; object-fit:cover;
+  filter:saturate(.92) contrast(1.03); transform:scale(1.02); transition:transform .6s ease}
+.pane:hover .pane-photo{transform:scale(1.06)}
+.pane-scrim{position:absolute; inset:0;
+  background:linear-gradient(180deg, rgba(6,9,13,.55) 0%, rgba(6,9,13,.04) 34%, rgba(6,9,13,.78) 76%, rgba(6,9,13,.95) 100%)}
+.pane-head{position:absolute; top:0; left:0; right:0; display:flex; align-items:center; justify-content:space-between; padding:12px 14px}
+.pane-code{font-size:10.5px; letter-spacing:.18em; color:#dfe8f0; background:rgba(8,12,17,.72); border:1px solid rgba(255,255,255,.14); padding:3px 7px}
+.pane-body{position:relative; padding:14px 16px 16px; background:rgba(7,10,15,.88); border-top:1px solid var(--gate-line-strong)}
+.pane-body h2{margin:0 0 2px; font-size:22px; font-weight:650}
+.pane-loc{margin:0 0 12px; color:var(--gate-dim); font-size:10.5px; letter-spacing:.08em; text-transform:uppercase}
+.pane-stats{display:grid; grid-template-columns:repeat(4,1fr); gap:8px; margin:0 0 12px; padding-top:10px; border-top:1px solid var(--gate-line-strong)}
+.pane-stats dt{color:var(--gate-faint); font-size:9.5px; letter-spacing:.1em; text-transform:uppercase; margin-bottom:3px}
+.pane-stats dd{margin:0; font-size:16px}
+.pane-stats dd.ok{color:var(--gate-green)}
+.pane-stats dd.warn{color:var(--gate-amber)}
+.pane-stats dd.crit{color:var(--gate-red)}
+.pane-cta{font-family:var(--mono); font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--gate-accent); opacity:.85}
+.pane:hover .pane-cta{opacity:1; text-decoration:underline; text-underline-offset:3px}
+
+/* ---- footer ---- */
+.gate-foot{flex:0 0 auto; display:flex; justify-content:space-between; gap:12px; padding:8px 14px;
+  background:var(--gate-panel); color:var(--gate-faint); font-size:10.5px; letter-spacing:.08em; text-transform:uppercase}
+
+/* ---- emergency theme parity ---- */
+body[data-theme="emergency"]{--gate-bg:#160402; --gate-panel:#1c0703; --gate-line:#3a1208; --gate-line-strong:#57200c;
+  --gate-text:#ffece2; --gate-dim:#d3a08c; --gate-faint:#9c6b58; --gate-accent:#ffb800;
+  --gate-green:#ff6a00; --gate-amber:#fff200; --gate-red:#ff3b00}
+
+/* ---- narrow screens ---- */
+@media (max-width: 900px){
+  body.gate-body{overflow:auto}
+  .gate-panes{flex-direction:column}
+  .pane{flex:none; height:38vh; border-right:0; border-bottom:1px solid var(--gate-line)}
+  .gate-panes:hover .pane{flex-grow:1}
+}
