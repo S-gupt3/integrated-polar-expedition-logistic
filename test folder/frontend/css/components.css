@@ -297,19 +297,25 @@
 }
 
 #scope-bar{
-  margin-top:14px; 
+  margin-top:14px;
   width:100%;
   font-family:ui-monospace,"SFMono-Regular",Menlo,Consolas,monospace;
-  font-size:11px; 
-  letter-spacing:.08em; 
+  font-size:11px;
+  letter-spacing:.08em;
   text-transform:uppercase;
-  color:#f2bd4b; 
+  color:#f2bd4b;
   background:rgba(242,189,75,.08);
-  border:1px solid #2b3a49; 
+  border:1px solid #2b3a49;
   border-left:3px solid #f2bd4b;
   padding:8px 12px;
   border-radius:4px;
 }
-#scope-bar strong{color:#e6edf3}
+#scope-bar.all{
+  color:var(--text-3);
+  background:transparent;
+  border-left-color:var(--border-strong);
+}
+#scope-bar strong{color:var(--text)}
 #scope-bar a{color:#8b98a5; text-decoration:underline; text-underline-offset:3px; margin-left:4px}
 #scope-bar a:hover{color:#f2bd4b}
+.scope-debug{opacity:.55; margin-left:6px; text-transform:none}
