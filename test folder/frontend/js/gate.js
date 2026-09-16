@@ -2,6 +2,11 @@
 (function () {
 	const CODES = ['HDR', 'MTR', 'BHR'];
 	const $ = (id) => document.getElementById(id);
+	document.querySelectorAll('.pane').forEach((pane) => {
+		pane.addEventListener('click', () => {
+			localStorage.setItem('ploropsis-station', pane.dataset.station);
+		});
+	});
 
 	/* UTC wall clock */
 	const tickClock = () => {
