@@ -262,56 +262,56 @@ if (typeof window !== 'undefined') {
     window.checkHealth = () => api.checkHealth();
     window.updateStock = (id, delta) => api.updateStock(id, delta);
     window.deleteInventoryItem = (id) => api.deleteInventoryItem(id);
-window.getAnalytics = async function () {
-	try {
-		const logs = await api.getConsumptionLogs().catch(() => []);
+    window.getAnalytics = async function () {
+	    try {
+		    const logs = await api.getConsumptionLogs().catch(() => []);
 
 		// ---- consumption timeline: latest 7 logged days, all stations summed ----
-		const byDay = {};
-		logs.forEach((log) => {
-			const day = log.date || log.log_date;
-			if (!day) return;
-			byDay[day] = (byDay[day] || 0) + (parseFloat(log.quantity_used) || 0);
-		});
-		const days = Object.keys(byDay).sort();
-		const consumption = days.slice(-7).map((day) => ({ day, value: Math.round(byDay[day]) }));
+		    const byDay = {};
+		    logs.forEach((log) => {
+			    const day = log.date || log.log_date;
+			    if (!day) return;
+			    byDay[day] = (byDay[day] || 0) + (parseFloat(log.quantity_used) || 0);
+		    });
+		    const days = Object.keys(byDay).sort();
+		    const consumption = days.slice(-7).map((day) => ({ day, value: Math.round(byDay[day]) }));
 
 		// ---- station utilisation: units consumed per person over that 7-day window ----
-		const windowDays = new Set(days.slice(-7));
-		const per = {};
-		logs.forEach((log) => {
-			const day = log.date || log.log_date;
-			if (!day || !windowDays.has(day)) return;
-			const code = log.stationCode || String(log.station_id || log.station || 'ALL');
-			const qty = parseFloat(log.quantity_used) || 0;
-			const head = parseInt(log.active_headcount, 10) || 0;
-			if (!per[code]) per[code] = { qty: 0, head: 0 };
-			per[code].qty += qty;
-			if (head) per[code].head = Math.max(per[code].head, head);
-		});
+		    const windowDays = new Set(days.slice(-7));
+		    const per = {};
+		    logs.forEach((log) => {
+			    const day = log.date || log.log_date;
+			    if (!day || !windowDays.has(day)) return;
+			    const code = log.stationCode || String(log.station_id || log.station || 'ALL');
+			    const qty = parseFloat(log.quantity_used) || 0;
+			    const head = parseInt(log.active_headcount, 10) || 0;
+			    if (!per[code]) per[code] = { qty: 0, head: 0 };
+			    per[code].qty += qty;
+			    if (head) per[code].head = Math.max(per[code].head, head);
+		    });
 
-		const intensity = {};
-		Object.keys(per).forEach((code) => {
-			intensity[code] = per[code].qty / (per[code].head || 1);
-		});
-		const peak = Math.max(...Object.values(intensity), 0.0001);
+		    const intensity = {};
+		    Object.keys(per).forEach((code) => {
+			    intensity[code] = per[code].qty / (per[code].head || 1);
+		    });
+		    const peak = Math.max(...Object.values(intensity), 0.0001);
 
 		// keep the [Maitri, Bharati, Himadri] array shape analytics.js expects
-		const utilization = ['MTR', 'BHR', 'HDR'].map((code) =>
-			intensity[code] === undefined ? 0 : Math.round((intensity[code] / peak) * 100)
-		);
+		    const utilization = ['MTR', 'BHR', 'HDR'].map((code) =>
+			    intensity[code] === undefined ? 0 : Math.round((intensity[code] / peak) * 100)
+		    );
 
-		return {
-			utilization,
-			utilizationSource: Object.keys(intensity).length ? 'consumption logs · per-capita · 7d' : 'none',
-			consumption,
-			consumptionSource: consumption.length ? 'consumption logs' : 'none'
-		};
-	} catch (err) {
-		console.error('Analytics builder failed:', err);
-		return { utilization: [0, 0, 0], utilizationSource: 'none', consumption: [], consumptionSource: 'none' };
-	}
-};
+		    return {
+			    utilization,
+			    utilizationSource: Object.keys(intensity).length ? 'consumption logs · per-capita · 7d' : 'none',
+			    consumption,
+			    consumptionSource: consumption.length ? 'consumption logs' : 'none'
+		    };
+	    } catch (err) {
+		    console.error('Analytics builder failed:', err);
+		    return { utilization: [0, 0, 0], utilizationSource: 'none', consumption: [], consumptionSource: 'none' };
+	    }
+    };
 }
 
 
