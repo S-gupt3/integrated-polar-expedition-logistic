@@ -1,158 +1,76 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PLOROPSIS — Ice Sheet Displacement</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/layout.css">
-    <link rel="stylesheet" href="css/components.css">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ploropsis | Drift mapping</title>
+<link rel="icon" href="/favicon.ico">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/layout.css">
+<link rel="stylesheet" href="css/components.css">
 </head>
-<body data-page="drift-mapping">
-    <div id="app-shell"></div>
-    <main class="page-content">
-        <header class="page-header">
-            <div>
-                <p class="eyebrow">DYNAMIC DRIFT MAPPING</p>
-                <h1>Ice sheet displacement</h1>
-                <p class="page-subtitle">Asset coordinates logged on moving ice go stale. This shows how far the surface travels between surveys.</p>
-            </div>
-            <div class="toolbar">
-                <select id="station-select" class="btn-secondary">
-                    <option value="">Select Station...</option>
-                    <option value="MTR">Maitri</option>
-                    <option value="BHR">Bharati</option>
-                    <option value="HDR">Himadri</option>
-                </select>
-                <button class="btn-primary" id="load-drift-btn">Load Drift Data</button>
-            </div>
-        </header>
+<body data-page="drift">
+<div id="app-shell"></div>
+<main class="page-content">
+  <header class="page-header">
+    <div>
+      <p class="eyebrow">Dynamic drift mapping</p>
+      <h1>Ice sheet displacement</h1>
+      <p class="page-subtitle">Asset coordinates logged on moving ice go stale. This shows how far the surface travels between surveys.</p>
+    </div>
+    <div class="header-meta">
+      <label class="select-field"><select id="sim-station"><option value="MTR">Maitri</option><option value="BHR">Bharati</option><option value="HDR">Himadri</option></select></label>
+    </div>
+  </header>
 
-        <div class="drift-grid">
-            <section class="card drift-map">
-                <div id="drift-map" style="height: 500px; width: 100%;"></div>
-            </section>
+  <div class="sim-layout">
+    <section class="card sim-stage" id="sim-stage">
+      <div class="sim-overlay">
+        <div><em>Glacier</em> <b id="sim-glacier">--</b></div>
+        <div><em>Elapsed</em> <b id="sim-elapsed">--</b></div>
+        <div><em>Displacement</em> <b id="sim-displacement">--</b></div>
+        <div><em>Corrected</em> <b id="sim-coords">--</b></div>
+      </div>
+      <div class="sim-scalebar"><i></i><span id="sim-scale-label">--</span></div>
+      <div class="sim-transport">
+        <button id="sim-play" type="button">Pause</button>
+        <button id="sim-speed" type="button">1&times;</button>
+        <input id="sim-slider" type="range" min="0" max="1" value="0" aria-label="Timeline">
+        <span class="sim-day" id="sim-day">Day 0</span>
+      </div>
+    </section>
 
-            <aside class="drift-sidebar">
-                <div class="card">
-                    <h3>Drift profile</h3>
-                    <div id="drift-stats">
-                        <div class="stat-row"><span>Glacier:</span><strong id="stat-glacier">--</strong></div>
-                        <div class="stat-row"><span>Elapsed:</span><strong id="stat-elapsed">--</strong></div>
-                        <div class="stat-row"><span>Displacement:</span><strong id="stat-displacement">--</strong></div>
-                        <div class="stat-row"><span>Corrected:</span><strong id="stat-corrected">--</strong></div>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <h3>Legend</h3>
-                    <ul class="legend-list">
-                        <li><span class="legend-dot" style="background: #ff3b00;"></span> Last logged position (fixed geodetic frame)</li>
-                        <li><span class="legend-dot" style="background: #62b9e8;"></span> Station, carried by the ice</li>
-                        <li><span class="legend-dot" style="background: #43c66e;"></span> Tracked assets on the surface</li>
-                        <li><span class="legend-dot" style="background: #f2bd4b;"></span> Drift path</li>
-                    </ul>
-                </div>
-            </aside>
+    <aside class="sim-side">
+      <section class="card sim-panel">
+        <h2>Drift profile</h2>
+        <p id="sim-status">Loading</p>
+        <div class="readout">
+          <div><span>Surface velocity</span><strong id="sim-velocity">--</strong></div>
+          <div><span>Bearing</span><strong id="sim-bearing">--</strong></div>
+          <div><span>Visual exaggeration</span><strong id="sim-exaggeration">--</strong></div>
         </div>
-    </main>
+        <div class="sim-note">Displacement figures are real. The scene is scaled up so movement is visible at station scale — the exaggeration factor above is the multiplier applied.</div>
+      </section>
 
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-    <script src="js/api.js"></script>
-    <script src="js/utils.js"></script>
-    <script src="js/layout.js"></script>
-    <script>
-        let map;
-        let driftLayer;
-        let stationsLayer;
+      <section class="card sim-panel">
+        <h2>Legend</h2>
+        <div class="sim-legend">
+          <div><i style="background:#eb5757"></i>Last logged position (fixed geodetic frame)</div>
+          <div><i style="background:#5e6ad2"></i>Station, carried by the ice</div>
+          <div><i style="background:#4cb782"></i>Tracked assets on the surface</div>
+          <div><i style="background:#f2c94c"></i>Drift path</div>
+        </div>
+      </section>
 
-        async function initDriftMapping() {
-            // Initialize Leaflet map
-            map = L.map('drift-map').setView([-70.77, 11.73], 10);
-            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                attribution: '© OpenStreetMap'
-            }).addTo(map);
-
-            stationsLayer = L.layerGroup().addTo(map);
-            driftLayer = L.layerGroup().addTo(map);
-
-            document.getElementById('load-drift-btn').addEventListener('click', loadDriftData);
-        }
-
-        async function loadDriftData() {
-            const stationId = document.getElementById('station-select').value;
-            if (!stationId) {
-                alert('Please select a station');
-                return;
-            }
-
-            try {
-                // Fetch drift data
-                const [stations, driftSeries] = await Promise.all([
-                    api.getDriftStations(),
-                    api.getDriftSeries(stationId, null, null, 365, 10)
-                ]);
-
-                const station = stations.find(s => s.station_id === stationId);
-                if (!station) return;
-
-                // Update stats
-                document.getElementById('stat-glacier').textContent = station.glacier_profile || 'Unknown';
-                document.getElementById('stat-elapsed').textContent = '365 days';
-                document.getElementById('stat-displacement').textContent = 
-                    driftSeries.length > 0 ? `${driftSeries[driftSeries.length - 1].displacement_m.toFixed(2)} m` : '--';
-                document.getElementById('stat-corrected').textContent = 
-                    driftSeries.length > 0 ? `${driftSeries[driftSeries.length - 1].corrected_lat.toFixed(6)}, ${driftSeries[driftSeries.length - 1].corrected_lon.toFixed(6)}` : '--';
-
-                // Clear layers
-                stationsLayer.clearLayers();
-                driftLayer.clearLayers();
-
-                // Add station marker
-                L.marker([station.latitude, station.longitude])
-                    .addTo(stationsLayer)
-                    .bindPopup(`${station.name} (Station)`);
-
-                // Add drift path
-                if (driftSeries.length > 0) {
-                    const pathCoords = driftSeries.map(d => [d.lat, d.lon]);
-                    L.polyline(pathCoords, { color: '#f2bd4b', weight: 3 }).addTo(driftLayer);
-                    
-                    // Add markers at intervals
-                    driftSeries.forEach((point, idx) => {
-                        if (idx % 50 === 0) {
-                            L.circleMarker([point.lat, point.lon], {
-                                radius: 4,
-                                color: '#f2bd4b',
-                                fillColor: '#f2bd4b',
-                                fillOpacity: 0.6
-                            }).addTo(driftLayer).bindPopup(`Day ${point.day}: ${point.displacement_m.toFixed(1)}m`);
-                        }
-                    });
-                }
-
-                // Fit map to show all data
-                const allCoords = [station.latitude, station.longitude];
-                if (driftSeries.length > 0) {
-                    map.fitBounds([
-                        [station.latitude, station.longitude],
-                        [driftSeries[driftSeries.length - 1].lat, driftSeries[driftSeries.length - 1].lon]
-                    ]);
-                }
-
-            } catch (error) {
-                console.error('Failed to load drift data:', error);
-                alert(`Error loading drift data: ${error.message}`);
-            }
-        }
-
-        // Initialize when DOM is ready
-        if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', initDriftMapping);
-        } else {
-            initDriftMapping();
-        }
-    </script>
-</body>
-</html>
+      <section class="card sim-panel">
+        <h2>Data provenance</h2>
+        <p id="sim-confidence">--</p>
+      </section>
+    </aside>
+  </div>
+</main>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="js/api.js"></script>
+<script src="js/utils.js"></script>
+<script src="js/layout.js"></script>
+<script src="js/drift-sim.js"></script>
