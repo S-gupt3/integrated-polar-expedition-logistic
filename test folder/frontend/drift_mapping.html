@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ploropsis | Drift mapping</title>
+
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32x32.png">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-touch-icon.png">
+
+    <link rel="icon" type="image/png" sizes="192x192" href="/assets/icons/android-chrome-192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="/assets/icons/android-chrome-512x512.png">
+
+    <link rel="manifest" href="/cold-weather-pwa/manifest.json">
+
+    <meta name="theme-color" content="#1e3a5f">
+    <meta name="msapplication-TileColor" content="#1e3a5f">
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/drift.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+</head>
+<body data-page="drift">
+    <div id="app-shell"></div>
+    <main class="page-content">
+        <header class="page-header">
+            <div>
+                <p class="eyebrow">ICE MOVEMENT</p>
+                <h1>Drift mapping console</h1>
+                <p class="page-subtitle">Correct an asset's last-logged position for ice-sheet movement, using published per-glacier velocity data.</p>
+            </div>
+        </header>
+
+        <section class="drift-layout">
+            <article class="card drift-controls">
+                <h2>Correction inputs</h2>
+                <label class="form-label">Station
+                    <select id="drift-station">
+                        <option value="MTR">Maitri (Schirmacher Glacier)</option>
+                        <option value="BHR">Bharati (Dålk Glacier)</option>
+                        <option value="HDR">Himadri (Vestre Brøggerbreen)</option>
+                    </select>
+                </label>
+                <label class="form-label">Asset's last logged coordinate</label>
+                <div class="row2">
+                    <input class="full-width" type="number" id="drift-lat" step="0.0001">
+                    <input class="full-width" type="number" id="drift-lon" step="0.0001">
+                </div>
+                <label class="form-label" for="drift-days">Elapsed time</label>
+                <input type="range" id="drift-days" min="0" max="1825" value="365" step="1">
+                <div class="day-readout"><span id="drift-day-value">365</span> days</div>
+                <div class="drift-actions">
+                    <button class="btn-primary" id="drift-play">&#9654; Play drift</button>
+                    <button class="btn-secondary" id="drift-reset">Reset</button>
+                </div>
+                <p class="drift-source-note" id="drift-source-note">Loading station reference data...</p>
+            </article>
+
+            <article class="card drift-map-card">
+                <div id="drift-map"></div>
+            </article>
+
+            <article class="card drift-stats">
+                <h2>Live drift stats</h2>
+                <div class="drift-stat-row"><span class="k">Station</span><span class="v" id="stat-station">&mdash;</span></div>
+                <div class="drift-stat-row"><span class="k">Glacier</span><span class="v" id="stat-glacier">&mdash;</span></div>
+                <div class="drift-stat-row"><span class="k">Velocity</span><span class="v accent" id="stat-velocity">&mdash;</span></div>
+                <div class="drift-stat-row"><span class="k">Bearing</span><span class="v" id="stat-bearing">&mdash;</span></div>
+                <div class="drift-stat-row"><span class="k">Days elapsed</span><span class="v" id="stat-days">&mdash;</span></div>
+                <div class="drift-stat-row"><span class="k">Displacement</span><span class="v accent" id="stat-displacement">&mdash;</span></div>
+                <div class="drift-stat-row"><span class="k">Origin coord</span><span class="v" id="stat-origin">&mdash;</span></div>
+                <div class="drift-stat-row"><span class="k">Corrected coord</span><span class="v accent" id="stat-corrected">&mdash;</span></div>
+                <div class="drift-stat-row"><span class="k">Confidence</span><span class="v" id="stat-confidence">&mdash;</span></div>
+                <div class="drift-sparkline-wrap">
+                    <div class="label">Cumulative displacement (0 &rarr; current day)</div>
+                    <svg id="drift-sparkline" viewBox="0 0 280 80" preserveAspectRatio="none"></svg>
+                </div>
+            </article>
+        </section>
+    </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/layout.js"></script>
+    <script src="js/drift.js"></script>
+</body>
+</html>
