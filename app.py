@@ -108,6 +108,12 @@ def health():
         "ts": datetime.now(timezone.utc).isoformat(),
         "modules": ["backend", "backend03", "drift_mapping"]
     }
+
+@app.get("/drift_mapping/index.html", include_in_schema=False)
+@app.get("/drift mapping/index.html", include_in_schema=False)
+def redirect_old_drift_page():
+    """Old standalone prototype URL — permanently points to the integrated drift page now."""
+    return RedirectResponse(url="/drift-mapping.html")
     
 # frontend from test folder/frontend/
 FRONTEND_DIR = os.path.join(BUNDLE_DIR, "test folder", "frontend")
