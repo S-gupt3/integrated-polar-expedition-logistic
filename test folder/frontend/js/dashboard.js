@@ -27,7 +27,7 @@ async function initDashboard() {
       inventory = inventory.filter((i) => i.stationCode === scopeCode);
     }
 
-    // Always show the scope bar so the active scope is visible
+    // Integrated scope chip in the header row
     injectScopeBar(scopeCode, assets.length);
 
     // ---- KPIs ----
@@ -141,21 +141,38 @@ async function initDashboard() {
 
 function injectScopeBar(scope, assetCount) {
   const NAMES = { MTR: 'Maitri', BHR: 'Bharati', HDR: 'Himadri' };
-  const header = document.querySelector('.page-header');
-  if (!header || document.getElementById('scope-bar')) return;
+  if (document.getElementById('scope-chip')) return;
 
-  const label = scope === 'all' ? 'All stations' : (NAMES[scope] || scope);
-  const bar = document.createElement('div');
-  bar.id = 'scope-bar';
-  if (scope === 'all') bar.classList.add('all');
+  let host = document.querySelector('.header-meta');
+  if (!host) {
+    const header = document.querySelector('.page-header');
+    if (!header) return;
+    host = document.createElement('div');
+    host.className = 'header-meta';
+    header.appendChild(host);
+  }
 
-  bar.innerHTML =
-    `Scope: <strong>${label}</strong> · ${assetCount} assets in view` +
-    (scope === 'all'
-      ? ` &nbsp;·&nbsp; pick a station on the <a href="index.html">Stations</a> page`
-      : ` &nbsp;·&nbsp; <a href="dashboard.html?station=all">show all stations</a>`);
+  const chip = document.createElement('div');
+  chip.id = 'scope-chip';
+  chip.className = 'scope-chip' + (scope === 'all' ? ' all' : '');
 
-  header.appendChild(bar);
+  if (scope === 'all') {
+    chip.innerHTML =
+      `<i class="scope-led"></i>` +
+      `<span>All stations</span>` +
+      `<a href="index.html" title="Pick a station">pick</a>`;
+  } else {
+    chip.innerHTML =
+      `<i class="scope-led"></i>` +
+      `<span>${NAMES[scope] || scope}</span>` +
+      `<b>${assetCount} assets</b>` +
+      `<a href="dashboard.html?station=all" title="Clear station scope">all</a>`;
+  }
+
+  // sit it in the header row, just before the Survival mode button
+  const toggle = host.querySelector('#theme-toggle');
+  if (toggle) host.insertBefore(chip, toggle);
+  else host.appendChild(chip);
 }
 
 initDashboard();
