@@ -58,39 +58,47 @@ class PLOROPSIS_API {
             const rawData = await response.json();
 
             // AUTOMATIC TRANSLATOR: Converts backend database snake_case to frontend camelCase
+            const STATION_NAMES = { MTR: 'Maitri', BHR: 'Bharati', HDR: 'Himadri', '1': 'Maitri', '2': 'Bharati', '3': 'Himadri' };
+
             const mapKeys = (item) => {
                 if (!item || typeof item !== 'object') return item;
                 if (Array.isArray(item)) return item.map(mapKeys);
-                
+
+                const rawStation = item.station_id !== undefined ? item.station_id : item.station;
                 const mapped = {};
                 for (const key in item) {
                     let newKey = key;
-                    
+
                     // --- Asset Property Mappings ---
+                    if (key === 'asset_id') newKey = 'id';
                     if (key === 'station_id') newKey = 'station';
-                    if (key === 'next_maintenance') newKey = 'nextMaintenance';
-                    if (key === 'last_inspection') newKey = 'lastInspection';
+                    if (key === 'next_maintenance' || key === 'next_maintenance_date') newKey = 'nextMaintenance';
+                    if (key === 'last_inspection' || key === 'last_inspection_date') newKey = 'lastInspection';
                     if (key === 'serial_number') newKey = 'serialNumber';
-                    
+
                     // --- Inventory Property Mappings (Fixes your current undefined fields) ---
+                    if (key === 'inventory_id') newKey = 'id';
                     if (key === 'item_name') newKey = 'item';
-                    if (key === 'quantity_on_hand' || key === 'on_hand') newKey = 'quantity';
-                    if (key === 'safety_threshold') newKey = 'threshold';
+                    if (key === 'quantity_on_hand' || key === 'on_hand' || key === 'current_quantity') newKey = 'quantity';
+                    if (key === 'safety_threshold' || key === 'min_threshold') newKey = 'threshold';
                     if (key === 'pct_change' || key === 'consumption_rate') newKey = 'change';
-                    
+                    if (key === 'log_date') newKey = 'date';
+
                     mapped[newKey] = mapKeys(item[key]);
                 }
-                
-                // Fallbacks to guarantee data displays nicely if fields are blank
-                if (!mapped.condition) mapped.condition = "Nominal";
-                if (!mapped.nextMaintenance) mapped.nextMaintenance = "Scheduled";
-                if (mapped.change === undefined) mapped.change = 0; // Default to 0% change if empty
-                
+
                 // Keep station mappings clean (e.g. mapping "MTR" or numeric codes nicely)
-                if (mapped.station && !isNaN(mapped.station)) {
-                    const locations = { "1": "Maitri", "2": "Bharati", "3": "Himadri" };
-                    mapped.station = locations[mapped.station] || `Station #${mapped.station}`;
+                if (rawStation !== undefined && rawStation !== null) {
+                    mapped.stationCode = String(rawStation);
+                    mapped.station = STATION_NAMES[mapped.stationCode] || String(rawStation);
                 }
+
+                // Fallbacks to guarantee data displays nicely if fields are blank
+                if (mapped.id !== undefined) mapped.id = String(mapped.id);
+                if (!mapped.serialNumber && mapped.id) mapped.serialNumber = mapped.id;
+                if (mapped.quantity !== undefined) mapped.quantity = Number(mapped.quantity);
+                if (mapped.threshold !== undefined) mapped.threshold = Number(mapped.threshold);
+                if (mapped.change === undefined) mapped.change = 0; // Default to 0% change if empty
                 return mapped;
             };
 
