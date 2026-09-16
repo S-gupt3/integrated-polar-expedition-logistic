@@ -24,11 +24,11 @@ class PLOROPSIS_API {
             inventoryDoA: '/api/inventory-doa',
             assetsRegistry: '/api/assets-registry',
             
-            // Drift mapping module
+            // Drift mapping module            
             driftStatus: '/api/drift/status',
-            driftStations: '/api/stations',
-            driftPredict: (station, lat, lon, days = 365) => `/api/drift?station=${station}&lat=${lat}&lon=${lon}&days=${days}`,
-            driftHistory: (station, lat, lon, days = 365, step = 5) => `/api/drift_series?station=${station}&lat=${lat}&lon=${lon}&days=${days}&step=${step}`,
+            driftStations: '/api/drift/stations',
+            driftCorrect: '/api/drift/correct',
+            driftSeries: '/api/drift/series',
             driftTiles: (z, x, y) => `/tiles/${z}/${x}/${y}.png`,
             
             // Health check
@@ -140,22 +140,22 @@ class PLOROPSIS_API {
         return this.get(this.endpoints.driftStatus);
     }
 
-    async predictDrift(stationId, days = 7, iceCondition = 'pack_ice') {
-        const params = new URLSearchParams({ days, ice_condition: iceCondition });
-        return this.get(`${this.endpoints.driftPredict(stationId)}?${params}`);
-    }
-
     async getDriftStations() {
         return this.get(this.endpoints.driftStations);
     }
 
-    async getDriftHistory(stationId, days = 30) {
-        const params = new URLSearchParams({ days });
-        return this.get(`${this.endpoints.driftHistory(stationId)}?${params}`);
+    async correctDrift(stationId, lat, lon, days = 365) {
+        const params = new URLSearchParams({ station_id: stationId, days });
+        if (lat !== null && lat !== undefined) params.set('lat', lat);
+        if (lon !== null && lon !== undefined) params.set('lon', lon);
+        return this.get(`${this.endpoints.driftCorrect}?${params}`);
     }
 
-    async getMapTile(lat, lon, zoom = 10) {
-        return this.post(this.endpoints.driftTiles, { lat, lon, zoom });
+    async getDriftSeries(stationId, lat, lon, days = 365, step = 5) {
+        const params = new URLSearchParams({ station_id: stationId, days, step });
+        if (lat !== null && lat !== undefined) params.set('lat', lat);
+        if (lon !== null && lon !== undefined) params.set('lon', lon);
+        return this.get(`${this.endpoints.driftSeries}?${params}`);
     }
 
     // Utility methods
