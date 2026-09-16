@@ -144,3 +144,49 @@ themeToggle.addEventListener('click', () => {
 const sidebar = document.querySelector('.sidebar');
 document.querySelector('.mobile-toggle').addEventListener('click', () => sidebar.classList.toggle('open'));
 document.querySelector('.sidebar-scrim').addEventListener('click', () => sidebar.classList.remove('open'));
+
+/* ============ Animated rail: labels + sliding indicator ============ */
+(function () {
+	const nav = document.querySelector('.sidebar nav');
+	if (!nav) return;
+
+	// Feed the CSS tooltips; kill any native title tooltips
+	nav.querySelectorAll('.nav-item').forEach((item) => {
+		const label = item.querySelector('span');
+		item.dataset.label = label ? label.textContent.trim() : item.textContent.trim();
+		item.removeAttribute('title');
+	});
+
+	// Glowing pill that slides to hovered / active tile
+	const indicator = document.createElement('span');
+	indicator.className = 'rail-indicator';
+	nav.appendChild(indicator);
+
+	const active = nav.querySelector('.nav-item.active');
+
+	const place = (el, instant) => {
+		if (!el) return;
+		if (instant) indicator.style.transition = 'none';
+		indicator.style.height = el.offsetHeight + 'px';
+		indicator.style.transform = `translateY(${el.offsetTop}px)`;
+		if (instant) requestAnimationFrame(() => { indicator.style.transition = ''; });
+	};
+
+	nav.addEventListener('mouseover', (e) => {
+		const item = e.target.closest('.nav-item');
+		if (item) place(item);
+	});
+	nav.addEventListener('mouseleave', () => place(active));
+
+	const refresh = (instant) => place(active, instant);
+	window.addEventListener('resize', () => refresh(true));
+
+	// Re-seat the pill after the rail expands/collapses (body class toggles)
+	new MutationObserver(() => {
+		setTimeout(() => refresh(true), 60);
+		setTimeout(() => refresh(true), 340);
+	}).observe(document.body, { attributes: true, attributeFilter: ['class'] });
+
+	refresh(true);
+	setTimeout(() => refresh(true), 300);
+})();
