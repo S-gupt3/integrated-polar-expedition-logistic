@@ -2,24 +2,40 @@ async function initDashboard() {
   try {
     // Fetch real data from backend
     let [assets, inventory, analytics] = await Promise.all([getAssets(), getInventory(), getAnalytics()]);
-    
-    // Station scope: URL param wins, then remembered choice
-    const scopeCode = (typeof window.currentStation === 'function')
-      ? window.currentStation()
-      : (new URLSearchParams(window.location.search).get('station') || 'all');
+
+    // ---- Resolve station scope: URL param wins, then stored choice, then all ----
+    const urlParam = new URLSearchParams(window.location.search).get('station');
+    let stored = localStorage.getItem('ploropsis-station');
+    let scopeCode;
+
+    if (urlParam === 'all') {
+      localStorage.removeItem('ploropsis-station');
+      stored = null;
+      scopeCode = 'all';
+    } else if (urlParam) {
+      scopeCode = urlParam;
+      localStorage.setItem('ploropsis-station', urlParam);
+      stored = urlParam;
+    } else {
+      scopeCode = stored || 'all';
+    }
+
+    console.log('[scope] url param =', urlParam, '| stored =', stored, '| resolved =', scopeCode);
 
     if (scopeCode !== 'all') {
       assets = assets.filter((a) => a.stationCode === scopeCode);
       inventory = inventory.filter((i) => i.stationCode === scopeCode);
-      injectScopeBar(scopeCode);
     }
+
+    // Always show the scope bar so the active scope is visible (and debuggable)
+    injectScopeBar(scopeCode, urlParam, stored, assets.length);
 
     const totalAssets = assets.length;
     const operationalAssets = assets.filter(a => a.status === 'Operational').length;
     const criticalStockCount = inventory.filter(item => item.status === 'Critical').length;
-    
+
     // Alerts = Critical/Low stock items + Damaged/Missing/Maintenance assets
-    const alertCount = inventory.filter(i => i.status === 'Critical' || i.status === 'Low').length + 
+    const alertCount = inventory.filter(i => i.status === 'Critical' || i.status === 'Low').length +
                        assets.filter(a => a.status === 'Damaged' || a.status === 'Missing' || a.status === 'Maintenance').length;
 
     document.getElementById('kpi-total-assets').textContent = totalAssets.toLocaleString();
@@ -28,7 +44,7 @@ async function initDashboard() {
     document.getElementById('kpi-alerts').textContent = alertCount.toLocaleString();
 
     const realAlerts = [];
-    
+
     inventory.filter(item => item.status === 'Critical' || item.status === 'Low').forEach(item => {
       realAlerts.push({
         level: item.status === 'Critical' ? 'red' : 'yellow',
@@ -46,8 +62,8 @@ async function initDashboard() {
     });
 
     const alertListEl = document.getElementById('alert-list');
-    alertListEl.innerHTML = realAlerts.length ? 
-      realAlerts.slice(0, 5).map(alert => 
+    alertListEl.innerHTML = realAlerts.length ?
+      realAlerts.slice(0, 5).map(alert =>
         `<li>
           <span class="alert-icon ${alert.level}"></span>
           <div class="alert-copy">
@@ -55,7 +71,7 @@ async function initDashboard() {
             <small>${alert.meta}</small>
           </div>
         </li>`
-      ).join('') : 
+      ).join('') :
       '<li class="loading">No critical alerts at this time</li>';
 
     // Real Asset Health Chart Data
@@ -67,8 +83,8 @@ async function initDashboard() {
     };
 
     const emergency = document.body.dataset.theme === 'emergency';
-    const chartColors = emergency 
-      ? { blue: '#fff200', gold: '#ffb800', green: '#ff6a00', red: '#ff3b00', surface: '#4a1000', grid: '#ff5a00' } 
+    const chartColors = emergency
+      ? { blue: '#fff200', gold: '#ffb800', green: '#ff6a00', red: '#ff3b00', surface: '#4a1000', grid: '#ff5a00' }
       : { blue: '#62b9e8', gold: '#f2bd4b', green: '#43c66e', red: '#d99200', surface: '#102f46', grid: '#2e6385' };
 
     if (window.assetHealthChartInstance) window.assetHealthChartInstance.destroy();
@@ -120,15 +136,23 @@ async function initDashboard() {
   }
 }
 
-function injectScopeBar(scope) {
+function injectScopeBar(scope, urlParam, stored, assetCount) {
   const NAMES = { MTR: 'Maitri', BHR: 'Bharati', HDR: 'Himadri' };
   const header = document.querySelector('.page-header');
   if (!header || document.getElementById('scope-bar')) return;
+
+  const label = scope === 'all' ? 'All stations' : (NAMES[scope] || scope);
   const bar = document.createElement('div');
   bar.id = 'scope-bar';
+  if (scope === 'all') bar.classList.add('all');
+
   bar.innerHTML =
-    `Scoped to <strong>${NAMES[scope] || scope}</strong>` +
-    ` &nbsp;·&nbsp; <a href="dashboard.html?station=all">show all stations</a>`;
+    `Scope: <strong>${label}</strong> · ${assetCount} assets in view` +
+    ` <span class="scope-debug">[url:${urlParam || '—'} stored:${stored || '—'}]</span>` +
+    (scope === 'all'
+      ? ` &nbsp;·&nbsp; pick a station on the <a href="index.html">Stations</a> page`
+      : ` &nbsp;·&nbsp; <a href="dashboard.html?station=all">show all stations</a>`);
+
   header.appendChild(bar);
 }
 
