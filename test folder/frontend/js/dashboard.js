@@ -1,4 +1,60 @@
-// js/dashboard.js — PLOROPSIS command center (real data, station-scoped)
+// js/dashboard.js — PLOROPSIS command center (real data, computed readiness, station-scoped)
+
+function operationPhase() {
+	const m = new Date().getUTCMonth(); // Antarctic field season: Nov–Mar
+	return (m >= 10 || m <= 2) ? 'Summer ops' : 'Winter ops';
+}
+
+function nextReview() {
+	const d = new Date();
+	const add = ((8 - d.getUTCDay()) % 7) || 7; // next Monday UTC
+	d.setUTCDate(d.getUTCDate() + add);
+	return d.toLocaleDateString('en-GB', { day: '2-digit', month: 'short' });
+}
+
+function refreshHeaderDate() {
+	const stamp = new Date().toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' });
+	document.querySelectorAll('.header-meta *').forEach((el) => {
+		if (el.children.length) return;
+		if (/\d{1,2} [A-Z][a-z]{2} \d{4}/.test(el.textContent)) {
+			el.textContent = el.textContent.replace(/\d{1,2} [A-Z][a-z]{2} \d{4}/, stamp);
+		}
+	});
+}
+
+function updateHero(scopeName, t) {
+	// Readiness = 55% fleet operational + 45% stock health − 2% per open alert (capped 25%)
+	const penalty = Math.min(0.25, t.alertCount * 0.02);
+	const readiness = Math.max(0, Math.min(100, Math.round((0.55 * t.opPct + 0.45 * t.stockHealth - penalty) * 100)));
+
+	const num = document.querySelector('.readiness-number');
+	if (num) {
+		const node = num.firstChild;
+		if (node && node.nodeType === 3) node.nodeValue = String(readiness);
+		num.title = 'Readiness = 0.55×fleet operational + 0.45×stock health − 2% per open alert (cap 25%)';
+	}
+
+	const bar = document.querySelector('.readiness-bar i, .hero-status [class*="bar"] i, .hero-status progress');
+	if (bar) {
+		if (bar.tagName === 'PROGRESS') bar.value = readiness;
+		else bar.style.width = readiness + '%';
+	}
+
+	const caption = document.querySelector('.hero-status p');
+	if (caption) {
+		caption.textContent = `${t.operationalAssets}/${t.totalAssets} assets operational · ${t.criticalCount} critical stock lines · ${t.alertCount} open alerts`;
+	}
+
+	document.querySelectorAll('.hero-facts > div, .hero-facts > section').forEach((cell) => {
+		const span = cell.querySelector('span');
+		const value = cell.querySelector('strong');
+		if (!span || !value) return;
+		const label = span.textContent.toLowerCase();
+		if (label.includes('station')) value.textContent = scopeName;
+		else if (label.includes('phase')) value.textContent = operationPhase();
+		else if (label.includes('review')) value.textContent = nextReview();
+	});
+}
 
 async function initDashboard() {
   try {
@@ -22,6 +78,9 @@ async function initDashboard() {
       scopeCode = stored || 'all';
     }
 
+    const NAMES = { MTR: 'Maitri', BHR: 'Bharati', HDR: 'Himadri' };
+    const scopeName = scopeCode === 'all' ? 'All stations' : (NAMES[scopeCode] || scopeCode);
+
     if (scopeCode !== 'all') {
       assets = assets.filter((a) => a.stationCode === scopeCode);
       inventory = inventory.filter((i) => i.stationCode === scopeCode);
@@ -33,16 +92,33 @@ async function initDashboard() {
     // ---- KPIs ----
     const totalAssets = assets.length;
     const operationalAssets = assets.filter(a => a.status === 'Operational').length;
-    const criticalStockCount = inventory.filter(item => item.status === 'Critical').length;
+    const criticalCount = inventory.filter(item => item.status === 'Critical').length;
+    const lowCount = inventory.filter(item => item.status === 'Low').length;
 
-    // Alerts = Critical/Low stock items + Damaged/Missing/Maintenance assets
-    const alertCount = inventory.filter(i => i.status === 'Critical' || i.status === 'Low').length +
+    const alertCount = (criticalCount + lowCount) +
                        assets.filter(a => a.status === 'Damaged' || a.status === 'Missing' || a.status === 'Maintenance').length;
 
     document.getElementById('kpi-total-assets').textContent = totalAssets.toLocaleString();
     document.getElementById('kpi-operational').textContent = operationalAssets.toLocaleString();
-    document.getElementById('kpi-critical-stock').textContent = criticalStockCount.toLocaleString();
+    document.getElementById('kpi-critical-stock').textContent = criticalCount.toLocaleString();
     document.getElementById('kpi-alerts').textContent = alertCount.toLocaleString();
+
+    // ---- Honest sub-labels (no fake deltas) ----
+    const smalls = document.querySelectorAll('.kpi small');
+    const opPct = totalAssets ? operationalAssets / totalAssets : 0;
+    const stockHealth = inventory.length ? inventory.filter(i => i.quantity > i.threshold).length / inventory.length : 0;
+    if (smalls[0]) smalls[0].textContent = scopeCode === 'all' ? 'across 3 stations' : `${scopeName} fleet`;
+    if (smalls[1]) smalls[1].textContent = `${Math.round(opPct * 100)}% of total fleet`;
+
+    // ---- Computed readiness hero ----
+    updateHero(scopeName, { totalAssets, operationalAssets, criticalCount, alertCount, opPct, stockHealth });
+
+    // ---- Live header date + functional subtitle ----
+    refreshHeaderDate();
+    const now = new Date();
+    const hhmm = `${String(now.getUTCHours()).padStart(2, '0')}:${String(now.getUTCMinutes()).padStart(2, '0')}`;
+    const sub = document.querySelector('.page-subtitle');
+    if (sub) sub.textContent = `${totalAssets} assets · ${inventory.length} stock lines · scope ${scopeName.toLowerCase()} · synced ${hhmm} UTC`;
 
     // ---- Dynamic alert feed ----
     const realAlerts = [];
@@ -108,30 +184,40 @@ async function initDashboard() {
       }
     });
 
-    // ---- Consumption trend ----
+    // ---- Consumption trend (live logs only; honest empty state) ----
+    const consumCanvas = document.getElementById('consumptionChart');
     if (window.consumptionChartInstance) window.consumptionChartInstance.destroy();
-    window.consumptionChartInstance = new Chart(document.getElementById('consumptionChart'), {
-      type: 'line',
-      data: {
-        labels: analytics.consumption.map(point => point.day),
-        datasets: [{
-          data: analytics.consumption.map(point => point.value),
-          borderColor: chartColors.blue,
-          backgroundColor: chartColors.surface,
-          fill: true,
-          tension: 0.35,
-          pointRadius: 2
-        }]
-      },
-      options: {
-        maintainAspectRatio: false,
-        plugins: { legend: { display: false } },
-        scales: {
-          x: { ticks: { color: chartColors.gold }, grid: { display: false } },
-          y: { ticks: { color: chartColors.gold }, grid: { color: chartColors.grid } }
+
+    if (analytics.consumption && analytics.consumption.length) {
+      if (consumCanvas) consumCanvas.style.display = '';
+      window.consumptionChartInstance = new Chart(consumCanvas, {
+        type: 'line',
+        data: {
+          labels: analytics.consumption.map(point => point.day),
+          datasets: [{
+            data: analytics.consumption.map(point => point.value),
+            borderColor: chartColors.blue,
+            backgroundColor: chartColors.surface,
+            fill: true,
+            tension: 0.35,
+            pointRadius: 2
+          }]
+        },
+        options: {
+          maintainAspectRatio: false,
+          plugins: { legend: { display: false } },
+          scales: {
+            x: { ticks: { color: chartColors.gold }, grid: { display: false } },
+            y: { ticks: { color: chartColors.gold }, grid: { color: chartColors.grid } }
+          }
         }
-      }
-    });
+      });
+    } else if (consumCanvas) {
+      consumCanvas.style.display = 'none';
+      const panel = consumCanvas.closest('.panel-card, .card');
+      const note = panel ? panel.querySelector('p') : null;
+      if (note) note.textContent = 'No consumption logs recorded yet.';
+    }
 
   } catch (error) {
     console.error("Dashboard initialization failed:", error);
@@ -169,10 +255,4 @@ function injectScopeBar(scope, assetCount) {
       `<a href="dashboard.html?station=all" title="Clear station scope">all</a>`;
   }
 
-  // sit it in the header row, just before the Survival mode button
-  const toggle = host.querySelector('#theme-toggle');
-  if (toggle) host.insertBefore(chip, toggle);
-  else host.appendChild(chip);
-}
-
-initDashboard();
+  const toggle = host.querySelector
