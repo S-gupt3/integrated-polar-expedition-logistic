@@ -1,13 +1,6 @@
 const currentPage = document.body.dataset.page || 'dashboard';
 const STATIONS = [{ code: 'all', name: 'All stations' }, { code: 'MTR', name: 'Maitri' }, { code: 'BHR', name: 'Bharati' }, { code: 'HDR', name: 'Himadri' }];
-const navItems = [
-	{ href: 'index.html', page: 'dashboard', label: 'Dashboard' },
-	{ href: 'assets.html', page: 'assets', label: 'Assets' },
-	{ href: 'inventory.html', page: 'inventory', label: 'Inventory' },
-	{ href: 'doa.html', page: 'doa', label: 'Days of autonomy' },
-	{ href: 'analytics.html', page: 'analytics', label: 'Analytics' },
-	{ href: 'drift-mapping.html', page: 'drift', label: 'Drift mapping' },
-];
+const navItems = [{ href: 'index.html', page: 'home', label: 'Stations' }, { href: 'dashboard.html', page: 'dashboard', label: 'Dashboard' }, { href: 'assets.html', page: 'assets', label: 'Assets' }, { href: 'inventory.html', page: 'inventory', label: 'Inventory' }, { href: 'analytics.html', page: 'analytics', label: 'Analytics' }, { href: 'drift-mapping.html', page: 'drift', label: 'Drift mapping' }];
 
 let stationCode = localStorage.getItem('ploropsis-station') || 'all';
 const stationName = (code) => (STATIONS.find((entry) => entry.code === code) || STATIONS[0]).name;
