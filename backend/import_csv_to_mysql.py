@@ -9,6 +9,7 @@ Usage:
     python3 import_csv_to_mysql.py
 """
 
+import os
 import csv
 import pymysql
 
