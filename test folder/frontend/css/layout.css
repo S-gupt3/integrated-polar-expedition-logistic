@@ -1,66 +1,173 @@
+/* =====================================================================
+   PLOROPSIS — layout.css
+   Shell: sidebar, collapsed icon rail, page frame, mobile drawer.
+   Depends on tokens from style.css (--surface, --border, --accent, ...)
+   ===================================================================== */
+
+/* ---------------- page frame ---------------- */
+.page-content {
+  margin-left: 240px;
+  width: calc(100% - 240px);
+  min-height: 100vh;
+  padding: 28px 32px 48px;
+}
+
+/* ---------------- sidebar base ---------------- */
 .sidebar {
   position: fixed;
-  inset: 0 auto 0 0;
-  width: 224px;
+  top: 0; left: 0; bottom: 0;
+  width: 240px;
   display: flex;
   flex-direction: column;
-  padding: 14px 10px;
-  background: var(--bg-elev);
+  gap: 16px;
+  padding: 18px 14px;
+  background: var(--surface);
   border-right: 1px solid var(--border);
   z-index: 40;
+  transition: width .32s cubic-bezier(.22,1,.36,1),
+              padding .32s cubic-bezier(.22,1,.36,1),
+              transform .3s var(--ease);
 }
 
-.brand {
-  position: relative;
-  display: flex;
-  align-items: center;
-  gap: 9px;
-  padding: 6px 8px 16px;
-}
-
+/* brand row */
+.brand { display: flex; align-items: center; gap: 10px; padding: 4px 4px 8px; position: relative; }
 .brand-mark {
-  display: grid;
-  place-items: center;
-  width: 26px;
-  height: 26px;
-  flex: none;
+  display: grid; place-items: center;
+  width: 34px; height: 34px; flex: none;
   border-radius: var(--radius-sm);
   background: var(--accent);
-  color: #fff;
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: .01em;
+  color: #0b1220;
+  font-weight: 700; font-size: 13px; letter-spacing: .02em;
+}
+.brand-copy { display: flex; flex-direction: column; min-width: 0; }
+.brand-copy strong { font-size: 14px; font-weight: 600; letter-spacing: -.01em; }
+.brand-copy small { font-size: 11px; color: var(--text-3); margin-top: 1px; }
+
+/* collapse toggle (visible on hover when expanded) */
+.rail-collapse {
+  margin-left: auto;
+  width: 24px; height: 24px; flex: none;
+  border: 0; border-radius: var(--radius-sm);
+  background: transparent; color: var(--text-3);
+  font-size: 13px; line-height: 1; cursor: pointer;
+  opacity: 0;
+  transition: opacity var(--speed) var(--ease),
+              background-color var(--speed) var(--ease),
+              transform .18s var(--ease);
+}
+.sidebar:hover .rail-collapse,
+.rail-collapse:focus-visible { opacity: 1; }
+.rail-collapse:hover { background: var(--surface-2); color: var(--text); transform: scale(1.12); }
+.rail-collapse:active { transform: scale(.92); }
+
+/* active operation card */
+.workspace {
+  display: flex; flex-direction: column; gap: 2px;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface-2);
+}
+.workspace span { font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: var(--text-3); }
+.workspace strong { font-size: 13px; font-weight: 600; }
+.workspace em { font-style: normal; font-size: 12px; color: var(--accent); margin-top: 2px; }
+
+/* section label */
+.nav-label { margin: 2px 4px 0; font-size: 10px; letter-spacing: .14em; text-transform: uppercase; color: var(--text-3); }
+
+/* nav */
+.sidebar nav { position: relative; display: flex; flex-direction: column; gap: 4px; }
+
+.nav-item {
+  position: relative;
+  display: flex; align-items: center; gap: 10px;
+  padding: 8px 10px;
+  border: 1px solid transparent;
+  border-radius: var(--radius-sm);
+  color: var(--text-2);
+  font-size: 13px; font-weight: 500;
+  text-decoration: none;
+  transition: background-color var(--speed) var(--ease),
+              color var(--speed) var(--ease),
+              border-color var(--speed) var(--ease);
+}
+.nav-item i {
+  width: 5px; height: 5px; flex: none;
+  border-radius: 50%;
+  background: var(--text-3);
+  transition: background-color var(--speed) var(--ease), box-shadow var(--speed) var(--ease);
+}
+.nav-item span { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.nav-item:hover { background: var(--surface-2); color: var(--text); }
+.nav-item.active { background: var(--surface-2); border-color: var(--border); color: var(--text); }
+.nav-item.active i {
+  background: var(--accent);
+  box-shadow: 0 0 8px rgba(98,185,232,.6);
+  box-shadow: 0 0 8px color-mix(in srgb, var(--accent) 60%, transparent);
 }
 
-/* ================= COLLAPSED RAIL (consolidated) ================= */
-.sidebar { transition: width .32s cubic-bezier(.22,1,.36,1), padding .32s cubic-bezier(.22,1,.36,1); }
-.sidebar nav { position: relative; }
+/* footer */
+.sidebar-footer {
+  margin-top: auto;
+  display: flex; flex-direction: column; gap: 2px;
+  padding: 12px 6px 2px;
+  border-top: 1px solid var(--border);
+}
+.sidebar-footer span { font-size: 12px; color: var(--text-2); }
+.sidebar-footer small { font-size: 11px; color: var(--text-3); }
 
+/* mobile chrome hidden on desktop */
+.sidebar-scrim { display: none; }
+.mobile-toggle { display: none; }
+
+/* station tabs (inventory / analytics) */
+.station-tabs { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 14px; }
+.station-tab {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 7px 12px;
+  border: 1px solid var(--border); border-radius: var(--radius-sm);
+  background: var(--surface-2); color: var(--text-2);
+  font-size: 12px; font-weight: 500; cursor: pointer;
+  transition: background-color var(--speed) var(--ease),
+              color var(--speed) var(--ease),
+              border-color var(--speed) var(--ease);
+}
+.station-tab b { font-family: var(--mono); font-size: 11px; font-weight: 500; color: var(--text-3); }
+.station-tab:hover { background: var(--surface-3); color: var(--text); }
+.station-tab.active {
+  border-color: var(--accent);
+  color: var(--text);
+  background: rgba(98,185,232,.10);
+  background: color-mix(in srgb, var(--accent) 10%, transparent);
+}
+.station-tab.active b { color: var(--accent); }
+
+/* =====================================================================
+   COLLAPSED ICON RAIL
+   ===================================================================== */
 body.rail-collapsed .sidebar { width: 64px; padding: 14px 8px; overflow: visible; }
 body.rail-collapsed .brand-copy,
 body.rail-collapsed .workspace,
 body.rail-collapsed .nav-label,
 body.rail-collapsed .sidebar-footer { display: none; }
 
-/* --- Brand row: the toggle REPLACES the PL mark when collapsed --- */
+/* brand row: the toggle REPLACES the PL mark */
 body.rail-collapsed .brand { justify-content: center; padding: 4px 0 16px; }
 body.rail-collapsed .brand-mark { display: none; }
 body.rail-collapsed .rail-collapse {
-  position: static; opacity: 1;
+  position: static; opacity: 1; margin-left: 0;
   width: 40px; height: 40px;
   display: grid; place-items: center;
   border: 1px solid var(--border); border-radius: var(--radius-sm);
   background: var(--surface-2); color: var(--text-2);
-  font-size: 0;                       /* hides the inline « glyph */
-  transition: transform .18s var(--ease), background-color .18s var(--ease), color .18s var(--ease);
+  font-size: 0;
 }
-body.rail-collapsed .rail-collapse::before { content: "\00BB"; font-size: 15px; line-height: 1; }  /* shows » */
+body.rail-collapsed .rail-collapse::before { content: "\00BB"; font-size: 15px; line-height: 1; }
 body.rail-collapsed .rail-collapse:hover { background: var(--surface-3); color: var(--text); transform: scale(1.08); }
 body.rail-collapsed .rail-collapse:active { transform: scale(.92); }
 
-/* --- Nav items become letter tiles (no more stray dots) --- */
+/* nav items become letter tiles */
 body.rail-collapsed .nav-item {
-  position: relative;
   justify-content: center;
   width: 40px; height: 40px;
   margin: 0 auto 6px; padding: 0;
@@ -71,11 +178,13 @@ body.rail-collapsed .nav-item span { display: grid; place-items: center; width: 
 body.rail-collapsed .nav-item span::first-letter { font-size: 14px; font-weight: 600; line-height: 1; text-transform: uppercase; }
 body.rail-collapsed .nav-item.active { border-color: currentColor; }
 
-/* --- Stagger-in when the rail collapses --- */
+/* stagger-in on collapse */
 body.rail-collapsed a.nav-item {
   animation: tile-in .45s cubic-bezier(.22,1,.36,1) backwards;
-  transition: transform .18s var(--ease), border-color .18s var(--ease),
-              background-color .18s var(--ease), box-shadow .18s var(--ease);
+  transition: transform .18s var(--ease),
+              border-color .18s var(--ease),
+              background-color .18s var(--ease),
+              box-shadow .18s var(--ease);
 }
 body.rail-collapsed a.nav-item:nth-of-type(1) { animation-delay: .04s; }
 body.rail-collapsed a.nav-item:nth-of-type(2) { animation-delay: .08s; }
@@ -88,7 +197,7 @@ body.rail-collapsed a.nav-item:nth-of-type(6) { animation-delay: .24s; }
   to   { opacity: 1; transform: translateY(0)    scale(1); }
 }
 
-/* --- Hover: lift + glow --- */
+/* hover: lift + glow */
 body.rail-collapsed a.nav-item:hover,
 body.rail-collapsed a.nav-item:focus-visible {
   transform: translateY(-2px) scale(1.07);
@@ -98,7 +207,7 @@ body.rail-collapsed a.nav-item:focus-visible {
 }
 body.rail-collapsed a.nav-item:active { transform: translateY(0) scale(.96); }
 
-/* --- Sliding glow indicator (positioned by layout.js) --- */
+/* sliding glow indicator (positioned by layout.js) */
 .rail-indicator {
   position: absolute; top: 0; left: 0; right: 0; height: 40px;
   border-radius: var(--radius-sm);
@@ -110,12 +219,13 @@ body.rail-collapsed a.nav-item:active { transform: translateY(0) scale(.96); }
   box-shadow: 0 0 16px rgba(98,185,232,.22);
   box-shadow: 0 0 16px color-mix(in srgb, var(--accent) 25%, transparent);
   transition: transform .38s cubic-bezier(.22,1,.36,1),
-              height .38s cubic-bezier(.22,1,.36,1), opacity .2s linear;
+              height .38s cubic-bezier(.22,1,.36,1),
+              opacity .2s linear;
 }
 body.rail-collapsed .rail-indicator { opacity: 1; left: calc(50% - 20px); right: auto; width: 40px; }
 body.rail-collapsed a.nav-item { z-index: 1; }
 
-/* --- Slide-out tooltips (data-label from layout.js) --- */
+/* slide-out tooltips (data-label set by layout.js) */
 body.rail-collapsed a.nav-item::after {
   content: attr(data-label);
   position: absolute; left: calc(100% + 16px); top: 50%;
@@ -140,11 +250,61 @@ body.rail-collapsed a.nav-item:focus-visible::after { opacity: 1; transform: tra
 body.rail-collapsed a.nav-item:hover::before,
 body.rail-collapsed a.nav-item:focus-visible::before { opacity: 1; }
 
-/* --- Page offset --- */
+/* page offset when collapsed */
 body.rail-collapsed .page-content { margin-left: 64px; width: calc(100% - 64px); }
 
-/* --- Reduced motion --- */
+/* =====================================================================
+   MOBILE (<= 900px): off-canvas drawer, rail mode disabled
+   ===================================================================== */
+@media (max-width: 900px) {
+  .page-content { margin-left: 0; width: 100%; padding: 64px 16px 40px; }
+
+  .sidebar { width: 260px; transform: translateX(-100%); }
+  .sidebar.open { transform: translateX(0); }
+
+  .sidebar-scrim {
+    display: block; position: fixed; inset: 0; z-index: 39;
+    background: rgba(0,0,0,.55);
+    opacity: 0; pointer-events: none;
+    transition: opacity .25s var(--ease);
+  }
+  .sidebar.open + .sidebar-scrim { opacity: 1; pointer-events: auto; }
+
+  .mobile-toggle {
+    display: inline-flex; align-items: center; justify-content: center;
+    position: fixed; top: 12px; left: 12px; z-index: 41;
+    height: 34px; padding: 0 14px;
+    border: 1px solid var(--border); border-radius: var(--radius-sm);
+    background: var(--surface-2); color: var(--text-2);
+    font-size: 12px; font-weight: 500; cursor: pointer;
+  }
+
+  /* undo rail mode inside the drawer */
+  body.rail-collapsed .sidebar { width: 260px; padding: 18px 14px; transform: translateX(-100%); }
+  body.rail-collapsed .sidebar.open { transform: translateX(0); }
+  body.rail-collapsed .brand-copy { display: flex; }
+  body.rail-collapsed .workspace { display: flex; }
+  body.rail-collapsed .nav-label { display: block; }
+  body.rail-collapsed .sidebar-footer { display: flex; }
+  body.rail-collapsed .brand-mark { display: grid; }
+  body.rail-collapsed .brand { justify-content: flex-start; padding: 4px 4px 8px; }
+  body.rail-collapsed .rail-collapse { display: none; }
+  body.rail-collapsed .nav-item {
+    width: auto; height: auto; margin: 0; padding: 8px 10px;
+    justify-content: flex-start; border-color: transparent; animation: none;
+  }
+  body.rail-collapsed .nav-item i { display: block; }
+  body.rail-collapsed .nav-item span { display: block; font-size: 13px; }
+  body.rail-collapsed .nav-item span::first-letter { font-size: inherit; }
+  body.rail-collapsed .nav-item::after,
+  body.rail-collapsed .nav-item::before { display: none; }
+  .rail-indicator { display: none; }
+  body.rail-collapsed .page-content { margin-left: 0; width: 100%; }
+}
+
+/* ---------------- reduced motion ---------------- */
 @media (prefers-reduced-motion: reduce) {
+  .sidebar,
   body.rail-collapsed a.nav-item,
   body.rail-collapsed .brand-mark,
   .rail-indicator { animation: none !important; transition: none !important; }
