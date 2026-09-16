@@ -162,8 +162,12 @@ class PLOROPSIS_API {
         return this.post(this.endpoints.inventoryAddStock(inventoryId), { quantity_delta: quantityDelta });
     }
 
+    async updateStock(inventoryId, quantityDelta) {
+        return this.post(this.endpoints.inventoryAddStock(inventoryId), { quantity_delta: quantityDelta });
+    }
+
     async deleteInventoryItem(inventoryId) {
-        return this.delete(this.endpoints.inventory);
+        return this.delete(`/api/inventory/${inventoryId}`); 
     }
 
     async getConsumptionLogs() {
