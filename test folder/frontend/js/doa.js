@@ -1,144 +1,195 @@
-// js/doa.js — self-contained Days-of-Availability panel (backend03 /api/inventory-doa)
-(function () {
-	const PAGE = document.body.dataset.page;
-	if (PAGE !== 'analytics' && PAGE !== 'inventory') return;
+// js/doa.js — populates doa.html (Days of autonomy)
+// Contract: binds to #doa-headline, #doa-limiter, #doa-critical, #doa-tracked,
+//           #doa-gauges, #runwayChart, #burnChart, #doa-tbody, and uses
+//           mountStationTabs() for the station filter.
 
-	const pick = (o, keys) => { for (const k of keys) { const v = o && o[k]; if (v !== undefined && v !== null && v !== '') return v; } return undefined; };
-	const num = (o, keys) => { const v = pick(o, keys); return v === undefined ? null : Number(v); };
+const pick = (o, keys) => { for (const k of keys) { const v = o && o[k]; if (v !== undefined && v !== null && v !== '') return v; } return undefined; };
+const num  = (o, keys) => { const v = pick(o, keys); return v === undefined ? null : Number(v); };
 
-	const norm = (rows) => (rows || []).map((r) => {
-		const qty = num(r, ['quantity', 'current_quantity', 'on_hand', 'qty']);
-		const rate = num(r, ['daily_rate', 'consumption_rate', 'avg_daily_use', 'rate']);
-		let doa = num(r, ['days_remaining', 'days_of_availability', 'doa', 'days_left', 'doA']);
-		if ((doa === null || !isFinite(doa)) && qty !== null && rate) doa = rate > 0 ? qty / rate : Infinity;
-		return {
-			id: pick(r, ['id', 'inventory_id']),
-			item: pick(r, ['item', 'item_name', 'name']) || 'Item',
-			station: pick(r, ['stationCode', 'station_id', 'station']) || '--',
-			unit: pick(r, ['unit']) || '',
-			qty, rate, doa
-		};
-	}).filter((r) => r.doa !== null);
+function normalise(rows) {
+    return (rows || []).map((r) => {
+        const qty  = num(r, ['quantity', 'current_quantity', 'on_hand', 'qty']);
+        const rate = num(r, ['daily_rate', 'consumption_rate', 'avg_daily_use', 'rate']);
+        let doa    = num(r, ['days_remaining', 'days_of_availability', 'doa', 'days_left']);
+        if ((doa === null || !isFinite(doa)) && qty !== null && rate) {
+            doa = rate > 0 ? qty / rate : Infinity;
+        }
+        const stationRaw = pick(r, ['stationCode', 'station_id', 'station']);
+        return {
+            id:      pick(r, ['id', 'inventory_id']),
+            item:    pick(r, ['item', 'item_name', 'name']) || 'Item',
+            unit:    pick(r, ['unit']) || '',
+            stationCode: String(stationRaw || 'ALL'),
+            station: pick(r, ['station']) || String(stationRaw || '--'),
+            qty, rate, doa,
+            role: pick(r, ['responsible_role', 'role']) || 'Logistics'
+        };
+    }).filter((r) => r.qty !== null);
+}
 
-	const tone = (d) => (!isFinite(d) || d > 14 ? 'good' : d >= 7 ? 'warning' : 'critical');
-	const fmt = (d) => (!isFinite(d) ? 'no usage' : d >= 999 ? '999+ d' : `${Math.round(d)} d`);
-	const COLOR = { good: '#43c66e', warning: '#f2bd4b', critical: '#e5484d' };
+const tone = (d) => (!isFinite(d) || d > 14 ? 'good' : d >= 7 ? 'warning' : 'critical');
+const fmt  = (d) => (!isFinite(d) ? 'no usage' : d >= 999 ? '999+ d' : Math.round(d) + ' d');
+const COLOR = { good: '#43c66e', warning: '#f2bd4b', critical: '#e5484d' };
 
-	const gaugeSVG = (label, sub, d) => {
-		const C = 2 * Math.PI * 52;
-		const pct = !isFinite(d) ? 1 : Math.max(0, Math.min(1, d / 30));
-		return `<div class="card gauge">
-			<svg viewBox="0 0 120 120">
-				<circle class="gauge-track" cx="60" cy="60" r="52"></circle>
-				<circle class="gauge-value ${tone(d)}" cx="60" cy="60" r="52"
-					stroke-dasharray="${(C * pct).toFixed(1)} ${C.toFixed(1)}" transform="rotate(-90 60 60)"></circle>
-			</svg>
-			<div class="gauge-copy"><strong>${fmt(d)}</strong><span>${label}</span></div>
-			<footer><h3>${sub}</h3><p>days of availability</p></footer>
-		</div>`;
-	};
+// Dial SVG — arc length + centre number = days of supply left, full scale 30 d
+function gaugeCard(title, sub, d, cls = '') {
+    const C   = 2 * Math.PI * 52;
+    const pct = !isFinite(d) ? 1 : Math.max(0, Math.min(1, d / 30));
+    return `<div class="card gauge ${cls}" title="${title}: ${fmt(d)} of supply left">
+        <svg viewBox="0 0 120 120">
+            <circle class="gauge-track" cx="60" cy="60" r="52"></circle>
+            <circle class="gauge-value ${tone(d)}" cx="60" cy="60" r="52"
+                stroke-dasharray="${(C * pct).toFixed(1)} ${C.toFixed(1)}"
+                transform="rotate(-90 60 60)"></circle>
+        </svg>
+        <div class="gauge-copy"><strong>${fmt(d)}</strong><span>${title}</span></div>
+        <footer><h3>${sub}</h3><p>days of supply left</p></footer>
+    </div>`;
+}
 
-	async function render() {
-		const host = document.getElementById('doa-host');
-		if (!host) {
-			console.warn('[doa] no #doa-host element in DOM');
-			return;
-		}
+function stationGauges(rows) {
+    return ['MTR', 'BHR', 'HDR'].map((code) => {
+        const list = rows.filter((r) => r.stationCode === code && isFinite(r.doa));
+        if (!list.length) return gaugeCard(code, 'no consuming lines', Infinity);
+        const worst = list.slice().sort((a, b) => a.doa - b.doa)[0];
+        return gaugeCard(code, worst.item, worst.doa);
+    }).join('');
+}
 
-		let raw, rows;
-		try {
-			raw = await getInventoryWithDoA();
-			if (raw && raw[0]) console.log('[doa] sample row keys:', Object.keys(raw[0]));
-			rows = norm(raw);
-			console.log('[doa] normalised rows:', rows.length);
-		} catch (error) {
-			host.innerHTML = `<section class="card panel-card"><div class="panel-heading"><div>
-				<h2>Consumable runway (DoA)</h2>
-				<p class="tone-critical">inventory-doa endpoint failed — ${error.message}</p>
-			</div></div></section>`;
-			return;
-		}
+function fleetGauge(rows) {
+    const finite = rows.filter((r) => isFinite(r.doa));
+    if (!finite.length) return gaugeCard('Fleet', 'no consuming lines', Infinity);
+    const worst = finite.slice().sort((a, b) => a.doa - b.doa)[0];
+    return gaugeCard('Fleet', worst.item, worst.doa);
+}
 
-		if (!rows.length) {
-			host.innerHTML = `<section class="card panel-card"><div class="panel-heading"><div>
-				<h2>Consumable runway (DoA)</h2>
-				<p>No usable DoA data yet — ${raw ? raw.length : 0} backend rows, but no rate/quantity pairs to compute runway.</p>
-			</div></div></section>`;
-			return;
-		}
+async function render() {
+    const tbody = document.getElementById('doa-tbody');
+    const gauges = document.getElementById('doa-gauges');
+    if (!tbody && !gauges) return;  // not the doa page
 
-		const finite = rows.filter((r) => isFinite(r.doa));
-		const worst = finite.slice().sort((a, b) => a.doa - b.doa)[0];
-		const avg = finite.length ? finite.reduce((s, r) => s + r.doa, 0) / finite.length : Infinity;
-		const risky = finite.filter((r) => r.doa < 7).length;
+    let rows;
+    try {
+        rows = normalise(await getInventoryWithDoA());
+    } catch (error) {
+        if (gauges) gauges.innerHTML = `<div class="card loading tone-critical">inventory-doa failed: ${error.message}</div>`;
+        if (tbody)  tbody.innerHTML  = `<tr><td colspan="6" class="loading tone-critical">Backend unreachable</td></tr>`;
+        return;
+    }
 
-		const stationGauges = ['MTR', 'BHR', 'HDR'].map((code) => {
-			const list = finite.filter((r) => String(r.station).toUpperCase().startsWith(code));
-			const min = list.length ? Math.min(...list.map((r) => r.doa)) : Infinity;
-			return gaugeSVG(code, list.length ? `${list.length} lines tracked` : 'no data', min);
-		}).join('');
+    const scope = (typeof window.currentStation === 'function') ? window.currentStation() : 'all';
+    const visible = scope === 'all' ? rows : rows.filter((r) => r.stationCode === scope);
 
-		const top = finite.slice().sort((a, b) => a.doa - b.doa).slice(0, 8);
+    // --- KPIs ---
+    const finite   = visible.filter((r) => isFinite(r.doa));
+    const under14  = finite.filter((r) => r.doa < 14).length;
+    const consuming = rows.filter((r) => r.rate !== null && r.rate > 0).length;
+    const worst    = finite.length ? finite.slice().sort((a, b) => a.doa - b.doa)[0] : null;
 
-		host.innerHTML = `
-			<section class="doa-summary">
-				<article class="card"><span>Lowest runway</span>
-					<strong class="tone-${tone(worst ? worst.doa : Infinity)}">${worst ? fmt(worst.doa) : '--'}</strong>
-					<small>${worst ? `${worst.item} · ${worst.station}` : 'no consuming items'}</small></article>
-				<article class="card"><span>Fleet average</span><strong>${fmt(avg)}</strong>
-					<small>across ${finite.length} consuming lines</small></article>
-				<article class="card"><span>Under 7 days</span>
-					<strong class="tone-${risky ? 'critical' : 'good'}">${risky}</strong>
-					<small>items needing replenishment planning</small></article>
-			</section>
-			<section class="gauge-grid">${stationGauges}${gaugeSVG('Fleet', 'worst line', worst ? worst.doa : Infinity)}</section>
-			<section class="card panel-card">
-				<div class="panel-heading"><div><h2>Shortest runways</h2><p>Days of availability, lowest first</p></div></div>
-				<div class="chart-box"><canvas id="doaChart"></canvas></div>
-			</section>`;
+    const set = (id, v) => { const n = document.getElementById(id); if (n) n.textContent = v; };
+    set('doa-headline', worst ? fmt(worst.doa) : '--');
+    set('doa-limiter',  worst ? `${worst.item} · ${worst.station}` : 'No consumable limits current stock');
+    set('doa-critical', under14.toLocaleString());
+    set('doa-tracked',  consuming.toLocaleString());
 
-		if (window.Chart && top.length) {
-			if (window.doaChartInstance) window.doaChartInstance.destroy();
-			window.doaChartInstance = new Chart(document.getElementById('doaChart'), {
-				type: 'bar',
-				data: {
-					labels: top.map((r) => `${r.item} · ${r.station}`),
-					datasets: [{
-						data: top.map((r) => Math.round(r.doa)),
-						backgroundColor: top.map((r) => COLOR[tone(r.doa)]),
-						borderWidth: 0
-					}]
-				},
-				options: {
-					indexAxis: 'y',
-					maintainAspectRatio: false,
-					plugins: { legend: { display: false } },
-					scales: {
-						x: { grid: { color: 'rgba(128,128,128,.15)' } },
-						y: { ticks: { autoSkip: false } }
-					}
-				}
-			});
-		}
-	}
+    // --- Gauges (always fleet-wide, scoped list drives KPIs only) ---
+    if (gauges) {
+        gauges.innerHTML = stationGauges(rows) + fleetGauge(rows);
+    }
 
-	// Inject the mount point after the page header
-	function ensureHost() {
-		if (document.getElementById('doa-host')) return document.getElementById('doa-host');
-		const main = document.querySelector('main.page-content');
-		if (!main) return null;
-		const host = document.createElement('div');
-		host.id = 'doa-host';
-		const anchor = main.querySelector('.page-header, header.page-header, header');
-		if (anchor && anchor.parentNode === main) anchor.insertAdjacentElement('afterend', host);
-		else main.appendChild(host);
-		return host;
-	}
+    // --- Shortest runway chart ---
+    const runwayCanvas = document.getElementById('runwayChart');
+    if (window.Chart && runwayCanvas) {
+        if (window.runwayChartInstance) window.runwayChartInstance.destroy();
+        const top = finite.slice().sort((a, b) => a.doa - b.doa).slice(0, 10);
+        window.runwayChartInstance = new Chart(runwayCanvas, {
+            type: 'bar',
+            data: {
+                labels: top.map((r) => `${r.item} · ${r.station}`),
+                datasets: [{
+                    data: top.map((r) => Math.round(r.doa)),
+                    backgroundColor: top.map((r) => COLOR[tone(r.doa)]),
+                    borderWidth: 0
+                }]
+            },
+            options: {
+                indexAxis: 'y',
+                maintainAspectRatio: false,
+                plugins: { legend: { display: false } },
+                scales: {
+                    x: { title: { display: true, text: 'days of supply left' }, grid: { color: 'rgba(128,128,128,.15)' } },
+                    y: { ticks: { autoSkip: false } }
+                }
+            }
+        });
+    }
 
-	if (document.readyState === 'loading') {
-		document.addEventListener('DOMContentLoaded', () => { ensureHost(); render(); });
-	} else {
-		ensureHost();
-		render();
-	}
-})();
+    // --- Daily burn chart ---
+    const burnCanvas = document.getElementById('burnChart');
+    if (window.Chart && burnCanvas) {
+        if (window.burnChartInstance) window.burnChartInstance.destroy();
+        const byStation = {};
+        rows.forEach((r) => {
+            if (r.rate === null || !isFinite(r.rate)) return;
+            byStation[r.stationCode] = (byStation[r.stationCode] || 0) + r.rate;
+        });
+        const labels = Object.keys(byStation);
+        window.burnChartInstance = new Chart(burnCanvas, {
+            type: 'bar',
+            data: {
+                labels,
+                datasets: [{
+                    data: labels.map((k) => Math.round(byStation[k] * 10) / 10),
+                    backgroundColor: '#62b9e8',
+                    borderWidth: 0
+                }]
+            },
+            options: {
+                maintainAspectRatio: false,
+                plugins: { legend: { display: false } },
+                scales: {
+                    y: { title: { display: true, text: 'units / day' }, grid: { color: 'rgba(128,128,128,.15)' } }
+                }
+            }
+        });
+    }
+
+    // --- Ledger table (scoped, lowest DoA first) ---
+    const list = visible.slice().sort((a, b) => {
+        if (!isFinite(a.doa) && !isFinite(b.doa)) return 0;
+        if (!isFinite(a.doa)) return 1;
+        if (!isFinite(b.doa)) return -1;
+        return a.doa - b.doa;
+    });
+
+    tbody.innerHTML = list.length ? list.map((r) => `
+        <tr>
+            <td><strong>${r.item}</strong><span class="muted"> · ${r.unit || '--'}</span></td>
+            <td>${r.station}</td>
+            <td>${r.qty !== null ? r.qty.toLocaleString() : '--'}</td>
+            <td>${r.rate !== null && isFinite(r.rate) ? r.rate.toFixed(2) + ' /day' : '--'}</td>
+            <td class="tone-${tone(r.doa)}">${fmt(r.doa)}</td>
+            <td>${r.role}</td>
+        </tr>
+    `).join('') : '<tr><td colspan="6" class="loading">No consumables in this scope</td></tr>';
+}
+
+async function initDoa() {
+    // Let layout.js build the station-tabs host first
+    await Promise.resolve();
+    const host = document.getElementById('station-tabs');
+    let rows = [];
+    try { rows = normalise(await getInventoryWithDoA()); } catch (e) { rows = []; }
+
+    if (host && typeof window.mountStationTabs === 'function') {
+        window.mountStationTabs(host, render, rows, 'stationCode');
+    } else {
+        render();
+    }
+}
+
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initDoa);
+} else {
+    initDoa();
+}
