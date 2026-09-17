@@ -2,13 +2,13 @@
 console.log('[dashboard.js] parsed & executing');
 
 function operationPhase() {
-	const m = new Date().getUTCMonth(); // Antarctic field season: Nov–Mar
+	const m = new Date().getUTCMonth();
 	return (m >= 10 || m <= 2) ? 'Summer ops' : 'Winter ops';
 }
 
 function nextReview() {
 	const d = new Date();
-	const add = ((8 - d.getUTCDay()) % 7) || 7; // next Monday UTC
+	const add = ((8 - d.getUTCDay()) % 7) || 7;
 	d.setUTCDate(d.getUTCDate() + add);
 	return d.toLocaleDateString('en-GB', { day: '2-digit', month: 'short' });
 }
@@ -24,7 +24,6 @@ function refreshHeaderDate() {
 }
 
 function updateHero(scopeName, t) {
-	// Readiness = 55% fleet operational + 45% stock health − 2% per open alert (cap 25%)
 	const penalty = Math.min(0.25, t.alertCount * 0.02);
 	const readiness = Math.max(0, Math.min(100, Math.round((0.55 * t.opPct + 0.45 * t.stockHealth - penalty) * 100)));
 
@@ -73,18 +72,202 @@ function injectScopeBar(scope, assetCount, linkOk) {
 
 	if (!linkOk) {
 		chip.className = 'scope-chip down';
-		chip.innerHTML = `<i class="scope-led"></i><span>Link down</span><b>backend unreachable</b>`;
+		chip.innerHTML = '<i class="scope-led"></i><span>Link down</span><b>backend unreachable</b>';
 	} else if (scope === 'all') {
 		chip.className = 'scope-chip all';
-		chip.innerHTML = `<i class="scope-led"></i><span>All stations</span><a href="index.html" title="Pick a station">pick</a>`;
+		chip.innerHTML = '<i class="scope-led"></i><span>All stations</span><a href="index.html" title="Pick a station">pick</a>';
 	} else {
 		chip.className = 'scope-chip';
 		chip.innerHTML =
-			`<i class="scope-led"></i>` +
-			`<span>${NAMES[scope] || scope}</span>` +
-			`<b>${assetCount} assets</b>` +
-			`<a href="dashboard.html?station=all" title="Clear station scope">all</a>`;
+			'<i class="scope-led"></i>' +
+			'<span>' + (NAMES[scope] || scope) + '</span>' +
+			'<b>' + assetCount + ' assets</b>' +
+			'<a href="dashboard.html?station=all" title="Clear station scope">all</a>';
 	}
 
 	const toggle = host.querySelector('#theme-toggle');
-	if (toggle
+	if (toggle) host.insertBefore(chip, toggle);
+	else host.appendChild(chip);
+}
+
+async function initDashboard() {
+	console.log('[dashboard.js] initDashboard() running');
+
+	let assets = [];
+	let inventory = [];
+	let analytics = { utilization: [0, 0, 0], consumption: [] };
+	let linkOk = true;
+
+	try {
+		const results = await Promise.all([getAssets(), getInventory(), getAnalytics()]);
+		assets = results[0];
+		inventory = results[1];
+		analytics = results[2];
+	} catch (error) {
+		linkOk = false;
+		console.error('[dashboard.js] data fetch failed:', error);
+	}
+
+	let scopeCode = 'all';
+	try {
+		const urlParam = new URLSearchParams(window.location.search).get('station');
+		if (urlParam === 'all') {
+			localStorage.removeItem('ploropsis-station');
+		} else if (urlParam) {
+			scopeCode = urlParam;
+			localStorage.setItem('ploropsis-station', urlParam);
+		} else {
+			scopeCode = localStorage.getItem('ploropsis-station') || 'all';
+		}
+	} catch (e) { console.warn('[dashboard.js] scope read failed:', e); }
+
+	const NAMES = { MTR: 'Maitri', BHR: 'Bharati', HDR: 'Himadri' };
+	const scopeName = scopeCode === 'all' ? 'All stations' : (NAMES[scopeCode] || scopeCode);
+
+	if (scopeCode !== 'all') {
+		assets = assets.filter((a) => a.stationCode === scopeCode);
+		inventory = inventory.filter((i) => i.stationCode === scopeCode);
+	}
+
+	injectScopeBar(scopeCode, assets.length, linkOk);
+
+	const totalAssets = assets.length;
+	const operationalAssets = assets.filter(a => a.status === 'Operational').length;
+	const criticalCount = inventory.filter(item => item.status === 'Critical').length;
+	const lowCount = inventory.filter(item => item.status === 'Low').length;
+	const alertCount = (criticalCount + lowCount) +
+		assets.filter(a => a.status === 'Damaged' || a.status === 'Missing' || a.status === 'Maintenance').length;
+	const opPct = totalAssets ? operationalAssets / totalAssets : 0;
+	const stockHealth = inventory.length ? inventory.filter(i => i.quantity > i.threshold).length / inventory.length : 0;
+
+	const setKpi = (id, value) => {
+		const el = document.getElementById(id);
+		if (el) el.textContent = value;
+	};
+	if (linkOk) {
+		setKpi('kpi-total-assets', totalAssets.toLocaleString());
+		setKpi('kpi-operational', operationalAssets.toLocaleString());
+		setKpi('kpi-critical-stock', criticalCount.toLocaleString());
+		setKpi('kpi-alerts', alertCount.toLocaleString());
+	} else {
+		setKpi('kpi-total-assets', '--');
+		setKpi('kpi-operational', '--');
+		setKpi('kpi-critical-stock', '--');
+		setKpi('kpi-alerts', '--');
+	}
+
+	const smalls = document.querySelectorAll('.kpi small');
+	if (smalls[0]) smalls[0].textContent = linkOk ? (scopeCode === 'all' ? 'across 3 stations' : scopeName + ' fleet') : 'awaiting backend';
+	if (smalls[1]) smalls[1].textContent = linkOk ? Math.round(opPct * 100) + '% of total fleet' : 'awaiting backend';
+
+	try {
+		if (linkOk) updateHero(scopeName, { totalAssets, operationalAssets, criticalCount, alertCount, opPct, stockHealth });
+		refreshHeaderDate();
+		const now = new Date();
+		const hhmm = String(now.getUTCHours()).padStart(2, '0') + ':' + String(now.getUTCMinutes()).padStart(2, '0');
+		const sub = document.querySelector('.page-subtitle');
+		if (sub) sub.textContent = linkOk
+			? totalAssets + ' assets · ' + inventory.length + ' stock lines · scope ' + scopeName.toLowerCase() + ' · synced ' + hhmm + ' UTC'
+			: 'Backend unreachable · ' + hhmm + ' UTC';
+	} catch (e) { console.warn('[dashboard.js] hero update failed:', e); }
+
+	try {
+		const realAlerts = [];
+		inventory.filter(item => item.status === 'Critical' || item.status === 'Low').forEach(item => {
+			realAlerts.push({
+				level: item.status === 'Critical' ? 'red' : 'yellow',
+				title: item.item + ' stock is ' + item.status.toLowerCase(),
+				meta: item.station + ' / ' + item.quantity + ' ' + item.unit + ' remaining (Threshold: ' + item.threshold + ')'
+			});
+		});
+		assets.filter(a => a.status === 'Maintenance' || a.status === 'Damaged' || a.status === 'Missing').forEach(a => {
+			realAlerts.push({
+				level: a.status === 'Damaged' || a.status === 'Missing' ? 'red' : 'yellow',
+				title: a.name + ' requires attention',
+				meta: a.station + ' / Status: ' + a.status
+			});
+		});
+		const alertListEl = document.getElementById('alert-list');
+		if (alertListEl) {
+			if (!linkOk) {
+				alertListEl.innerHTML = '<li class="loading">Backend unreachable</li>';
+			} else if (realAlerts.length) {
+				alertListEl.innerHTML = realAlerts.slice(0, 5).map(alert =>
+					'<li><span class="alert-icon ' + alert.level + '"></span><div class="alert-copy"><strong>' + alert.title + '</strong><small>' + alert.meta + '</small></div></li>'
+				).join('');
+			} else {
+				alertListEl.innerHTML = '<li class="loading">No critical alerts at this time</li>';
+			}
+		}
+	} catch (e) { console.warn('[dashboard.js] alert feed failed:', e); }
+
+	const emergency = document.body.dataset.theme === 'emergency';
+	const chartColors = emergency
+		? { blue: '#fff200', gold: '#ffb800', green: '#ff6a00', red: '#ff3b00', surface: '#4a1000', grid: '#ff5a00' }
+		: { blue: '#62b9e8', gold: '#f2bd4b', green: '#43c66e', red: '#d99200', surface: '#102f46', grid: '#2e6385' };
+
+	try {
+		const healthCounts = {
+			Operational: assets.filter(a => a.status === 'Operational').length,
+			Maintenance: assets.filter(a => a.status === 'Maintenance').length,
+			Damaged: assets.filter(a => a.status === 'Damaged').length,
+			Missing: assets.filter(a => a.status === 'Missing').length
+		};
+		if (window.assetHealthChartInstance) window.assetHealthChartInstance.destroy();
+		window.assetHealthChartInstance = new Chart(document.getElementById('assetHealthChart'), {
+			type: 'doughnut',
+			data: {
+				labels: Object.keys(healthCounts),
+				datasets: [{
+					data: Object.values(healthCounts),
+					backgroundColor: [chartColors.blue, chartColors.gold, chartColors.green, chartColors.red],
+					borderWidth: 0
+				}]
+			},
+			options: {
+				cutout: '68%',
+				plugins: { legend: { position: 'bottom', labels: { boxWidth: 8, color: chartColors.gold, font: { size: 10 } } } }
+			}
+		});
+	} catch (e) { console.warn('[dashboard.js] health chart failed:', e); }
+
+	try {
+		const consumCanvas = document.getElementById('consumptionChart');
+		if (window.consumptionChartInstance) window.consumptionChartInstance.destroy();
+		if (analytics.consumption && analytics.consumption.length && consumCanvas) {
+			consumCanvas.style.display = '';
+			window.consumptionChartInstance = new Chart(consumCanvas, {
+				type: 'line',
+				data: {
+					labels: analytics.consumption.map(point => point.day),
+					datasets: [{
+						data: analytics.consumption.map(point => point.value),
+						borderColor: chartColors.blue,
+						backgroundColor: chartColors.surface,
+						fill: true,
+						tension: 0.35,
+						pointRadius: 2
+					}]
+				},
+				options: {
+					maintainAspectRatio: false,
+					plugins: { legend: { display: false } },
+					scales: {
+						x: { ticks: { color: chartColors.gold }, grid: { display: false } },
+						y: { ticks: { color: chartColors.gold }, grid: { color: chartColors.grid } }
+					}
+				}
+			});
+		} else if (consumCanvas) {
+			consumCanvas.style.display = 'none';
+			const panel = consumCanvas.closest('.panel-card, .card');
+			const note = panel ? panel.querySelector('p') : null;
+			if (note) note.textContent = linkOk ? 'No consumption logs recorded yet.' : 'Backend unreachable.';
+		}
+	} catch (e) { console.warn('[dashboard.js] consumption chart failed:', e); }
+
+	console.log('[dashboard.js] render complete · linkOk =', linkOk, '· scope =', scopeCode);
+}
+
+if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initDashboard);
+else initDashboard();
