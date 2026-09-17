@@ -1,20 +1,21 @@
 // js/doa.js — self-contained Days-of-Availability panel (backend03 /api/inventory-doa)
 (function () {
 	const PAGE = document.body.dataset.page;
-	if (PAGE !== 'analytics' && PAGE !== 'inventory') return; // move guard if DoA lives elsewhere
+	if (PAGE !== 'analytics' && PAGE !== 'inventory') return;
 
 	const pick = (o, keys) => { for (const k of keys) { const v = o && o[k]; if (v !== undefined && v !== null && v !== '') return v; } return undefined; };
 	const num = (o, keys) => { const v = pick(o, keys); return v === undefined ? null : Number(v); };
 
 	const norm = (rows) => (rows || []).map((r) => {
-		const qty = num(r, ['quantity', 'current_quantity', 'on_hand']);
-		const rate = num(r, ['daily_rate', 'consumption_rate', 'avg_daily_use']);
-		let doa = num(r, ['days_remaining', 'days_of_availability', 'doa', 'days_left']);
+		const qty = num(r, ['quantity', 'current_quantity', 'on_hand', 'qty']);
+		const rate = num(r, ['daily_rate', 'consumption_rate', 'avg_daily_use', 'rate']);
+		let doa = num(r, ['days_remaining', 'days_of_availability', 'doa', 'days_left', 'doA']);
 		if ((doa === null || !isFinite(doa)) && qty !== null && rate) doa = rate > 0 ? qty / rate : Infinity;
 		return {
 			id: pick(r, ['id', 'inventory_id']),
-			item: pick(r, ['item', 'item_name']) || 'Item',
+			item: pick(r, ['item', 'item_name', 'name']) || 'Item',
 			station: pick(r, ['stationCode', 'station_id', 'station']) || '--',
+			unit: pick(r, ['unit']) || '',
 			qty, rate, doa
 		};
 	}).filter((r) => r.doa !== null);
@@ -39,11 +40,17 @@
 
 	async function render() {
 		const host = document.getElementById('doa-host');
-		if (!host) return;
+		if (!host) {
+			console.warn('[doa] no #doa-host element in DOM');
+			return;
+		}
 
-		let rows;
+		let raw, rows;
 		try {
-			rows = norm(await getInventoryWithDoA());
+			raw = await getInventoryWithDoA();
+			if (raw && raw[0]) console.log('[doa] sample row keys:', Object.keys(raw[0]));
+			rows = norm(raw);
+			console.log('[doa] normalised rows:', rows.length);
 		} catch (error) {
 			host.innerHTML = `<section class="card panel-card"><div class="panel-heading"><div>
 				<h2>Consumable runway (DoA)</h2>
@@ -55,7 +62,7 @@
 		if (!rows.length) {
 			host.innerHTML = `<section class="card panel-card"><div class="panel-heading"><div>
 				<h2>Consumable runway (DoA)</h2>
-				<p>No consumption data yet — DoA appears once usage is logged.</p>
+				<p>No usable DoA data yet — ${raw ? raw.length : 0} backend rows, but no rate/quantity pairs to compute runway.</p>
 			</div></div></section>`;
 			return;
 		}
@@ -115,15 +122,23 @@
 		}
 	}
 
-	// create the mount point right after the page header if the HTML doesn't have one
-	const main = document.querySelector('.page-content');
-	if (main && !document.getElementById('doa-host')) {
+	// Inject the mount point after the page header
+	function ensureHost() {
+		if (document.getElementById('doa-host')) return document.getElementById('doa-host');
+		const main = document.querySelector('main.page-content');
+		if (!main) return null;
 		const host = document.createElement('div');
 		host.id = 'doa-host';
-		const anchor = main.querySelector('.page-header');
-		if (anchor) anchor.insertAdjacentElement('afterend', host);
+		const anchor = main.querySelector('.page-header, header.page-header, header');
+		if (anchor && anchor.parentNode === main) anchor.insertAdjacentElement('afterend', host);
 		else main.appendChild(host);
+		return host;
 	}
 
-	render();
+	if (document.readyState === 'loading') {
+		document.addEventListener('DOMContentLoaded', () => { ensureHost(); render(); });
+	} else {
+		ensureHost();
+		render();
+	}
 })();
