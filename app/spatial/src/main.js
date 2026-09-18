@@ -32,7 +32,7 @@ controls.minDistance = 1.5;
 /* ---------------- Post-processing (tuned bloom) ---------------- */
 const composer = new EffectComposer(renderer);
 composer.addPass(new RenderPass(scene, camera));
-const bloomPass = new UnrealBloomPass(new THREE.Vector2(innerWidth, innerHeight), 0.45, 0.35, 0.25);
+const bloomPass = new UnrealBloomPass(new THREE.Vector2(innerWidth, innerHeight), 0.45, 0.35, 0.4);
 composer.addPass(bloomPass);
 composer.addPass(new OutputPass());
 
@@ -174,6 +174,13 @@ crates.instanceMatrix.needsUpdate = true;
 if (crates.instanceColor) crates.instanceColor.needsUpdate = true;
 store.add(crates);
 
+const selectionCage = new THREE.LineSegments(
+  new THREE.EdgesGeometry(new THREE.BoxGeometry(0.8, 0.8, 0.8)),
+  new THREE.LineBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0.95 })
+);
+selectionCage.visible = false;
+store.add(selectionCage);
+
 /* ---------------- Peel-away exterior ---------------- */
 const peelSlider = document.getElementById("peel");
 
@@ -243,11 +250,8 @@ function showAsset(i) {
 
 function hideAsset() {
   panel.classList.add("hidden");
-  if (selectedInstance !== null) {
-    crates.setColorAt(selectedInstance, originalColors[selectedInstance]);
-    selectedInstance = null;
-    crates.instanceColor.needsUpdate = true;
-  }
+  selectionCage.visible = false;
+  selectedInstance = null;
 }
 document.getElementById("asset-close").addEventListener("click", hideAsset);
 
@@ -255,7 +259,6 @@ document.getElementById("asset-close").addEventListener("click", hideAsset);
 const raycaster = new THREE.Raycaster();
 const pointer = new THREE.Vector2();
 let selectedInstance = null;
-const selectedColor = new THREE.Color(0xffffff);
 
 let downX = 0, downY = 0;
 renderer.domElement.addEventListener("pointerdown", (e) => { downX = e.clientX; downY = e.clientY; });
@@ -268,10 +271,15 @@ renderer.domElement.addEventListener("pointerup", (e) => {
 
   const crateHits = raycaster.intersectObject(crates, false);
   if (crateHits.length && crateHits[0].instanceId !== undefined) {
-    if (selectedInstance !== null) crates.setColorAt(selectedInstance, originalColors[selectedInstance]);
     selectedInstance = crateHits[0].instanceId;
-    crates.setColorAt(selectedInstance, selectedColor);
-    crates.instanceColor.needsUpdate = true;
+
+    const m = new THREE.Matrix4();
+    crates.getMatrixAt(selectedInstance, m);
+    const p = new THREE.Vector3().setFromMatrixPosition(m);
+
+    selectionCage.position.copy(p);
+    selectionCage.visible = true;
+
     showAsset(selectedInstance);
     return;
   }
@@ -299,10 +307,10 @@ function animate() {
   const t = clock.getElapsedTime();
 
   if (selectedInstance !== CRITICAL_INDEX) {
-    const pulse = 0.45 + 0.55 * (0.5 + 0.5 * Math.sin(t * 4));
-    tmpColor.copy(criticalColor).multiplyScalar(pulse);
-    crates.setColorAt(CRITICAL_INDEX, tmpColor);
-    crates.instanceColor.needsUpdate = true;
+      const pulse = 0.45 + 0.55 * (0.5 + 0.5 * Math.sin(t * 4));
+      tmpColor.copy(criticalColor).multiplyScalar(pulse);
+      crates.setColorAt(CRITICAL_INDEX, tmpColor);
+      crates.instanceColor.needsUpdate = true;
   }
 
   controls.update();
