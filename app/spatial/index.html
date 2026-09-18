@@ -5,68 +5,61 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>PLOROPSIS Spatial</title>
     <style>
-      html,
-      body {
-        margin: 0;
-        width: 100%;
-        height: 100%;
-        overflow: hidden;
-        background: #030614;
-        font-family: Inter, Segoe UI, Arial, sans-serif;
-      }
+      html, body { margin: 0; width: 100%; height: 100%; overflow: hidden; background: #030614; font-family: Inter, "Segoe UI", Arial, sans-serif; }
+      #app { width: 100%; height: 100%; }
 
-      #app {
-        width: 100%;
-        height: 100%;
-      }
+      .hud { position: fixed; top: 18px; left: 18px; z-index: 10; color: #d9fbff; pointer-events: none; text-shadow: 0 0 12px rgba(51,246,255,.35); }
+      .hud h1 { margin: 0; font-size: 18px; letter-spacing: .12em; text-transform: uppercase; color: #33f6ff; }
+      .hud p { margin: 6px 0 0; font-size: 12px; color: rgba(217,251,255,.72); }
+      .hud .tag { display: inline-block; margin-top: 8px; padding: 4px 8px; border: 1px solid rgba(51,246,255,.35); border-radius: 4px; color: #8ff7ff; font-size: 10px; letter-spacing: .14em; text-transform: uppercase; }
 
-      .hud {
-        position: fixed;
-        top: 18px;
-        left: 18px;
-        z-index: 10;
-        color: #d9fbff;
-        pointer-events: none;
-        text-shadow: 0 0 12px rgba(51, 246, 255, 0.35);
-      }
+      .controls { position: fixed; left: 18px; bottom: 18px; z-index: 10; display: flex; flex-direction: column; gap: 10px; padding: 14px 16px; background: rgba(3,10,20,.72); border: 1px solid rgba(51,246,255,.25); border-radius: 8px; backdrop-filter: blur(6px); }
+      .controls label { font-size: 10px; letter-spacing: .14em; text-transform: uppercase; color: #8ff7ff; }
+      .controls input[type="range"] { width: 220px; accent-color: #33f6ff; }
+      .btn-row { display: flex; gap: 8px; }
+      .btn-row button { flex: 1; padding: 8px 10px; font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: #031018; background: #33f6ff; border: none; border-radius: 4px; cursor: pointer; }
+      .btn-row button.secondary { background: transparent; color: #8ff7ff; border: 1px solid rgba(51,246,255,.4); }
+      .btn-row button:hover { filter: brightness(1.15); }
 
-      .hud h1 {
-        margin: 0;
-        font-size: 18px;
-        letter-spacing: 0.12em;
-        text-transform: uppercase;
-        color: #33f6ff;
-      }
-
-      .hud p {
-        margin: 6px 0 0;
-        font-size: 12px;
-        color: rgba(217, 251, 255, 0.72);
-      }
-
-      .hud .tag {
-        display: inline-block;
-        margin-top: 8px;
-        padding: 4px 8px;
-        border: 1px solid rgba(51, 246, 255, 0.35);
-        border-radius: 4px;
-        color: #8ff7ff;
-        font-size: 10px;
-        letter-spacing: 0.14em;
-        text-transform: uppercase;
-      }
+      .asset-panel { position: fixed; top: 18px; right: 18px; z-index: 10; width: 260px; padding: 14px 16px; background: rgba(3,10,20,.82); border: 1px solid rgba(51,246,255,.3); border-radius: 8px; color: #d9fbff; backdrop-filter: blur(6px); }
+      .asset-panel.hidden { display: none; }
+      .asset-head { display: flex; justify-content: space-between; align-items: center; font-size: 13px; letter-spacing: .08em; }
+      .status { font-size: 10px; padding: 3px 7px; border-radius: 3px; letter-spacing: .12em; }
+      .status.normal { color: #031018; background: #19e3ff; }
+      .status.warning { color: #031018; background: #ffbf39; }
+      .status.critical { color: #fff; background: #ff3b5c; }
+      .asset-body { margin-top: 10px; font-size: 12px; line-height: 1.7; color: rgba(217,251,255,.8); }
+      .asset-body b { color: #8ff7ff; font-weight: 600; }
+      #asset-close { margin-top: 10px; width: 100%; padding: 7px; font-size: 10px; letter-spacing: .12em; text-transform: uppercase; background: transparent; color: #8ff7ff; border: 1px solid rgba(51,246,255,.4); border-radius: 4px; cursor: pointer; }
     </style>
   </head>
   <body>
     <div class="hud">
       <h1>PLOROPSIS Spatial</h1>
       <p>Maitri Prototype — Neon Digital Twin</p>
-      <p>Drag to orbit • Scroll to zoom • Click crates to inspect</p>
-      <span class="tag">Core Spatial Engine</span>
+      <p>Drag to orbit • Scroll to zoom • Click crates • Click right wing to enter store</p>
+      <span class="tag">Core Spatial Engine v0.2</span>
+    </div>
+
+    <div class="controls">
+      <label for="peel">Peel-Away Exterior</label>
+      <input id="peel" type="range" min="0" max="100" value="0" />
+      <div class="btn-row">
+        <button id="btn-store">Enter Store</button>
+        <button id="btn-reset" class="secondary">Reset View</button>
+      </div>
+    </div>
+
+    <div id="asset-panel" class="asset-panel hidden">
+      <div class="asset-head">
+        <span id="asset-id">—</span>
+        <span id="asset-status" class="status normal">—</span>
+      </div>
+      <div id="asset-body" class="asset-body"></div>
+      <button id="asset-close">Close</button>
     </div>
 
     <div id="app"></div>
-
     <script type="module" src="/src/main.js"></script>
   </body>
 </html>
