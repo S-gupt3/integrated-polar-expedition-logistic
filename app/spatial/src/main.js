@@ -20,7 +20,7 @@ const renderer = new THREE.WebGLRenderer({ antialias: true, powerPreference: "hi
 renderer.setSize(innerWidth, innerHeight);
 renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
 renderer.toneMapping = THREE.ACESFilmicToneMapping;
-renderer.toneMappingExposure = 1.15;
+renderer.toneMappingExposure = 1.05;
 app.appendChild(renderer.domElement);
 
 const controls = new OrbitControls(camera, renderer.domElement);
@@ -32,7 +32,7 @@ controls.minDistance = 1.5;
 /* ---------------- Post-processing (tuned bloom) ---------------- */
 const composer = new EffectComposer(renderer);
 composer.addPass(new RenderPass(scene, camera));
-const bloomPass = new UnrealBloomPass(new THREE.Vector2(innerWidth, innerHeight), 0.55, 0.4, 0.18);
+const bloomPass = new UnrealBloomPass(new THREE.Vector2(innerWidth, innerHeight), 0.45, 0.35, 0.25);
 composer.addPass(bloomPass);
 composer.addPass(new OutputPass());
 
@@ -44,7 +44,7 @@ scene.add(keyLight);
 
 const grid = new THREE.GridHelper(180, 180, 0x33f6ff, 0x0e3a5a);
 grid.material.transparent = true;
-grid.material.opacity = 0.22;
+grid.material.opacity = 0.3;
 scene.add(grid);
 
 /* ---------------- Neon shell builder ---------------- */
@@ -121,8 +121,8 @@ store.name = "maitri-right-store";
 store.position.set(6.2, baseY - 1.45, 2.4);
 maitri.add(store);
 
-const shelfMaterial = new THREE.MeshBasicMaterial({ color: 0x14405c, transparent: true, opacity: 0.38 });
-const shelfEdgeMaterial = new THREE.LineBasicMaterial({ color: 0x23b7e8, transparent: true, opacity: 0.72 });
+const shelfMaterial = new THREE.MeshBasicMaterial({ color: 0x1b5a7a, transparent: true, opacity: 0.5 });
+const shelfEdgeMaterial = new THREE.LineBasicMaterial({ color: 0x2fd0f5, transparent: true, opacity: 0.9 });
 
 for (let level = 0; level < 3; level++) {
   const shelfGeometry = new THREE.BoxGeometry(3.8, 0.08, 7.2);
@@ -146,9 +146,9 @@ const crates = new THREE.InstancedMesh(crateGeometry, crateMaterial, crateCount)
 
 const dummy = new THREE.Object3D();
 const originalColors = [];
-const normalColor = new THREE.Color(0x12cfe8);
-const warningColor = new THREE.Color(0xffbf39);
-const criticalColor = new THREE.Color(0xff3b5c);
+const normalColor = new THREE.Color(0x0d9db8);
+const warningColor = new THREE.Color(0xd99a2b);
+const criticalColor = new THREE.Color(0xe02c4c);
 
 let instanceIndex = 0;
 for (let level = 0; level < 3; level++) {
@@ -188,7 +188,7 @@ peelSlider.addEventListener("input", () => setPeel(peelSlider.value / 100));
 /* ---------------- Camera sweeps (GSAP) ---------------- */
 const VIEWS = {
   overview: { pos: new THREE.Vector3(26, 18, 28), target: new THREE.Vector3(0, 4.2, 0) },
-  store: { pos: new THREE.Vector3(6.2, 4.8, 7.2), target: new THREE.Vector3(6.2, 3.9, 0.4) }
+  store: { pos: new THREE.Vector3(13.5, 7.5, 12.0), target: new THREE.Vector3(6.2, 3.2, 2.2) }
 };
 
 function flyTo(view, duration = 1.8) {
