@@ -11,9 +11,9 @@ const app = document.querySelector("#app");
 
 const scene = new THREE.Scene();
 scene.background = new THREE.Color(0x030614);
-scene.fog = new THREE.FogExp2(0x030614, 0.01);
+scene.fog = new THREE.FogExp2(0x030614, 0.005);
 
-const camera = new THREE.PerspectiveCamera(45, innerWidth / innerHeight, 0.1, 400);
+const camera = new THREE.PerspectiveCamera(45, innerWidth / innerHeight, 0.1, 500);
 camera.position.set(26, 18, 28);
 
 const renderer = new THREE.WebGLRenderer({ antialias: true, powerPreference: "high-performance" });
@@ -26,7 +26,7 @@ app.appendChild(renderer.domElement);
 const controls = new OrbitControls(camera, renderer.domElement);
 controls.target.set(0, 4.2, 0);
 controls.enableDamping = true;
-controls.maxDistance = 120;
+controls.maxDistance = 220;
 controls.minDistance = 1.5;
 
 /* ---------------- Post-processing ---------------- */
@@ -42,9 +42,10 @@ const keyLight = new THREE.DirectionalLight(0xcfefff, 0.9);
 keyLight.position.set(20, 30, 14);
 scene.add(keyLight);
 
-const grid = new THREE.GridHelper(180, 180, 0x33f6ff, 0x0e3a5a);
+const grid = new THREE.GridHelper(260, 260, 0x33f6ff, 0x0e3a5a);
 grid.material.transparent = true;
 grid.material.opacity = 0.3;
+grid.position.x = 46;
 scene.add(grid);
 
 /* ---------------- Shell registry (peel-away) ---------------- */
@@ -114,12 +115,11 @@ function makeCrateSet(positions, size, { warning, critical, perLevel, label, pre
   return set;
 }
 
-/* ---------------- Maitri base ---------------- */
+/* ================= MAITRI ================= */
 const maitri = new THREE.Group();
 maitri.name = "Maitri";
 scene.add(maitri);
 
-/* Maitri ground pad circle (matches Himadri snowfield) */
 const maitriPad = new THREE.Mesh(
   new THREE.CircleGeometry(14, 48),
   new THREE.MeshBasicMaterial({ color: 0x0a2a3a, transparent: true, opacity: 0.5 })
@@ -167,7 +167,7 @@ for (const [x, y, z] of stiltPositions) {
   maitri.add(ring);
 }
 
-/* ---------------- Maitri store room (right wing) ---------------- */
+/* Maitri store room (right wing) */
 const store = new THREE.Group();
 store.name = "maitri-right-store";
 store.position.set(6.2, baseY - 1.45, 2.4);
@@ -204,18 +204,13 @@ const maitriSet = makeCrateSet(maitriCratePositions, 0.62, {
 });
 store.add(maitriSet.mesh);
 
-/* ---------------- Himadri base (house-like main building) ----------------
+/* ================= HIMADRI =================
    LOCKED SPEC:
-   Total built-up = 2400 sq ft = 222.97 m²
-     -> 2 floors x (13.4m x 8.3m) = 2 x 111.2 m² = 222.4 m² = 2394 sq ft (~2400 ✓)
-   Ground-floor store room = 120 sq ft = 11.15 m²
-     -> 4.0m x 2.8m = 11.2 m² = 120.6 sq ft (~120 ✓)
-   Entrance: gable end (+X face), per station sketches
-   Dormers: CROSS-GABLES (ridge perpendicular to main ridge), centered x=0,
-            mirrored on opposite slopes, tall paired windows on gable face
-   Windows: GROUND FLOOR + DORMERS ONLY (no upper-floor / attic windows)
-   NO flag, NO antenna/mast, NO annex building
-------------------------------------------------------------------------- */
+   Total built-up = 2400 sq ft (2 floors x 13.4m x 8.3m = 222.4 m² = 2394 sq ft)
+   Ground store = 120 sq ft (4.0m x 2.8m = 11.2 m² = 120.6 sq ft)
+   Entrance on gable end; cross-gable dormers centered & mirrored;
+   windows ground floor + dormers only; no flag/mast/annex
+---------------------------------------------- */
 const himadri = new THREE.Group();
 himadri.name = "Himadri";
 himadri.position.set(38, 0, -2);
@@ -260,7 +255,6 @@ function gableRoof(widthSpan, length, pitchScale) {
   return geo;
 }
 
-/* Main house body: two storeys, 13.4m x 8.3m footprint (1200 sq ft per floor) */
 const bodyGeo = new THREE.BoxGeometry(13.4, 6, 8.3);
 const body = new THREE.Mesh(bodyGeo, cabinFill);
 body.position.y = 3;
@@ -270,13 +264,11 @@ body.add(bodyEdges);
 himadri.add(body);
 registerShell(body, bodyEdges, 0.14);
 
-/* Floor band line between ground and first floor */
 const bandGeo = new THREE.BoxGeometry(13.44, 0.06, 8.34);
 const band = new THREE.LineSegments(new THREE.EdgesGeometry(bandGeo), cabinEdgeMat);
 band.position.y = 3;
 himadri.add(band);
 
-/* Steep pitched roof */
 const roofGeo = gableRoof(8.9, 14.1, 0.5);
 const roof = new THREE.Mesh(roofGeo, cabinFill);
 roof.position.y = 6 + 0.5 * (8.9 / 1.732) * 0.5;
@@ -285,7 +277,7 @@ roof.add(roofEdges);
 himadri.add(roof);
 registerShell(roof, roofEdges, 0.14);
 
-/* Cross-gable dormers: ridge PERPENDICULAR to main ridge, centered, mirrored */
+/* Cross-gable dormers: centered, mirrored, ridge perpendicular */
 const dormerDefs = [
   { z: 2.2, faceRot: 0 },
   { z: -2.2, faceRot: Math.PI }
@@ -306,7 +298,6 @@ for (const dd of dormerDefs) {
   dRoof.add(dRoofEdges);
   himadri.add(dRoof);
 
-  /* Tall paired windows on the outward gable face (like the real photo) */
   for (const wx of [-0.4, 0.4]) {
     const dWin = new THREE.Mesh(new THREE.PlaneGeometry(0.55, 1.4), litWindowMat);
     dWin.position.set(wx, 7.5, dd.z + (dd.z > 0 ? 1.61 : -1.61));
@@ -315,7 +306,6 @@ for (const dd of dormerDefs) {
   }
 }
 
-/* Windows: GROUND FLOOR ONLY (+ dormer windows above) */
 function addWindow(x, y, z, rotY, w, h, mat) {
   const win = new THREE.Mesh(new THREE.PlaneGeometry(w, h), mat || litWindowMat);
   win.position.set(x, y, z);
@@ -323,28 +313,20 @@ function addWindow(x, y, z, rotY, w, h, mat) {
   himadri.add(win);
 }
 
-/* Front facade (z+) ground floor */
 addWindow(-5.2, 1.6, 4.16, 0, 1.1, 1.3);
 addWindow(-2.6, 1.6, 4.16, 0, 1.1, 1.3);
 addWindow(2.6, 1.6, 4.16, 0, 1.1, 1.3);
 addWindow(5.2, 1.6, 4.16, 0, 1.1, 1.3);
-
-/* Back facade (z-) ground floor */
 addWindow(-5.2, 1.6, -4.16, Math.PI, 1.1, 1.3);
 addWindow(-2.6, 1.6, -4.16, Math.PI, 1.1, 1.3);
 addWindow(2.6, 1.6, -4.16, Math.PI, 1.1, 1.3);
 addWindow(5.2, 1.6, -4.16, Math.PI, 1.1, 1.3);
-
-/* Gable ends: ground-floor windows flanking the entrance / rear */
 addWindow(6.71, 1.6, 2.8, Math.PI / 2, 1.1, 1.3);
 addWindow(6.71, 1.6, -2.8, Math.PI / 2, 1.1, 1.3);
 addWindow(-6.71, 1.6, 2.8, -Math.PI / 2, 1.1, 1.3);
 addWindow(-6.71, 1.6, -2.8, -Math.PI / 2, 1.1, 1.3);
-
-/* ENTRANCE: door on the gable-end front face (+X) */
 addWindow(6.71, 1.1, 0, Math.PI / 2, 1.4, 2.2, doorMat);
 
-/* Porch on the front (gable end): canopy, posts, steps */
 const canopyGeo = new THREE.BoxGeometry(1.5, 0.12, 2.6);
 const canopy = new THREE.Mesh(canopyGeo, cabinFill);
 canopy.position.set(7.3, 2.75, 0);
@@ -375,7 +357,6 @@ for (const [dx, h, dz, y, x] of stepDefs) {
   himadri.add(step);
 }
 
-/* Walkway from front steps */
 const walkway = new THREE.Line(
   new THREE.BufferGeometry().setFromPoints([
     new THREE.Vector3(8.3, 0.06, 0),
@@ -386,10 +367,7 @@ const walkway = new THREE.Line(
 );
 himadri.add(walkway);
 
-/* ---------------- Himadri ground-floor store: 120 sq ft (west half) -------
-   Interior 4.0m x 2.8m = 11.2 m² = 120.6 sq ft
-   Racking: 2 rows x 4 slots x 3 levels = 24 crate slots
-------------------------------------------------------------------------- */
+/* Himadri ground store: 120 sq ft (west half) */
 const hStore = new THREE.Group();
 hStore.name = "himadri-ground-store";
 hStore.position.set(-4.5, 0, 0);
@@ -438,6 +416,252 @@ const himadriSet = makeCrateSet(himadriCratePositions, 0.5, {
 });
 hStore.add(himadriSet.mesh);
 
+/* ================= BHARATI =================
+   Elevated linear volume on pilotis + V-struts
+   Chamfered hexagonal cross-section (extruded profile)
+   Ribbon glazing band H2-H3, setback penthouse H4 (sloped end + chimneys)
+   Roof terrace railing, ground base block, external stairs
+   Store: first floor, per longitudinal section room 1.5
+------------------------------------------------ */
+const bharati = new THREE.Group();
+bharati.name = "Bharati";
+bharati.position.set(92, 0, -2);
+scene.add(bharati);
+
+const bharatiColor = 0xd24dff;
+
+const bharatiPad = new THREE.Mesh(
+  new THREE.CircleGeometry(36, 64),
+  new THREE.MeshBasicMaterial({ color: 0x170a2a, transparent: true, opacity: 0.5 })
+);
+bharatiPad.rotation.x = -Math.PI / 2;
+bharatiPad.position.y = 0.02;
+bharati.add(bharatiPad);
+
+const bharatiRim = new THREE.Mesh(
+  new THREE.RingGeometry(35.7, 36, 64),
+  new THREE.MeshBasicMaterial({ color: bharatiColor, transparent: true, opacity: 0.5, side: THREE.DoubleSide })
+);
+bharatiRim.rotation.x = -Math.PI / 2;
+bharatiRim.position.y = 0.03;
+bharati.add(bharatiRim);
+
+const bharatiFill = new THREE.MeshPhysicalMaterial({
+  color: new THREE.Color(bharatiColor).multiplyScalar(0.12),
+  transparent: true,
+  opacity: 0.14,
+  roughness: 0.25,
+  metalness: 0.1,
+  emissive: new THREE.Color(bharatiColor).multiplyScalar(0.05),
+  side: THREE.DoubleSide,
+  depthWrite: false
+});
+const bharatiEdgeMat = new THREE.LineBasicMaterial({ color: bharatiColor, transparent: true, opacity: 0.95 });
+const bharatiEdgeDim = new THREE.LineBasicMaterial({ color: bharatiColor, transparent: true, opacity: 0.5 });
+const bharatiLitMat = new THREE.MeshBasicMaterial({ color: 0xe6c9ff, transparent: true, opacity: 0.8, side: THREE.DoubleSide });
+const bharatiDoorMat = new THREE.MeshBasicMaterial({ color: 0x2a1440, transparent: true, opacity: 0.9, side: THREE.DoubleSide });
+const bharatiSteel = new THREE.MeshStandardMaterial({ color: 0x241a33, metalness: 0.6, roughness: 0.35, emissive: 0x0d0716 });
+
+/* Chamfered hull: extruded cross-section profile */
+const hullProfile = new THREE.Shape();
+hullProfile.moveTo(-5, 2);
+hullProfile.lineTo(5, 2);
+hullProfile.lineTo(7, 4);
+hullProfile.lineTo(7, 6.6);
+hullProfile.lineTo(-7, 6.6);
+hullProfile.lineTo(-7, 4);
+hullProfile.closePath();
+
+const hullGeo = new THREE.ExtrudeGeometry(hullProfile, { depth: 66, bevelEnabled: false });
+hullGeo.rotateY(Math.PI / 2);
+hullGeo.translate(-33, 0, 0);
+
+const hull = new THREE.Mesh(hullGeo, bharatiFill);
+hull.name = "bharati-main-body";
+const hullEdges = new THREE.LineSegments(new THREE.EdgesGeometry(hullGeo, 20), bharatiEdgeMat);
+hull.add(hullEdges);
+bharati.add(hull);
+registerShell(hull, hullEdges, 0.14);
+
+/* Roof slab */
+const roofSlabGeo = new THREE.BoxGeometry(66.8, 0.3, 14.8);
+const roofSlab = new THREE.Mesh(roofSlabGeo, bharatiFill);
+roofSlab.position.y = 6.75;
+const roofSlabEdges = new THREE.LineSegments(new THREE.EdgesGeometry(roofSlabGeo), bharatiEdgeMat);
+roofSlab.add(roofSlabEdges);
+bharati.add(roofSlab);
+registerShell(roofSlab, roofSlabEdges, 0.14);
+
+/* Ribbon glazing: upper band + lower chamfer band */
+for (const s of [1, -1]) {
+  const upperBand = new THREE.Mesh(new THREE.PlaneGeometry(59, 1.0), bharatiLitMat);
+  upperBand.position.set(0, 5.3, s * 7.02);
+  upperBand.rotation.y = s > 0 ? 0 : Math.PI;
+  bharati.add(upperBand);
+
+  const lowerBand = new THREE.Mesh(new THREE.PlaneGeometry(59, 0.8), bharatiLitMat);
+  lowerBand.position.set(0, 3.0, s * 6.02);
+  lowerBand.rotation.x = s > 0 ? -Math.PI / 4 : Math.PI / 4;
+  bharati.add(lowerBand);
+}
+
+/* Penthouse H4: sloped-end block + chimneys + louvers */
+const pentProfile = new THREE.Shape();
+pentProfile.moveTo(-20, 6.9);
+pentProfile.lineTo(4, 6.9);
+pentProfile.lineTo(4, 9.2);
+pentProfile.lineTo(-16, 9.2);
+pentProfile.closePath();
+
+const pentGeo = new THREE.ExtrudeGeometry(pentProfile, { depth: 8, bevelEnabled: false });
+pentGeo.translate(0, 0, -4);
+
+const pent = new THREE.Mesh(pentGeo, bharatiFill);
+pent.name = "bharati-penthouse";
+const pentEdges = new THREE.LineSegments(new THREE.EdgesGeometry(pentGeo, 20), bharatiEdgeMat);
+pent.add(pentEdges);
+bharati.add(pent);
+registerShell(pent, pentEdges, 0.14);
+
+const chimneyGeo = new THREE.CylinderGeometry(0.22, 0.3, 1.2, 10);
+for (const cx of [-17.5, -16.5, -15.5]) {
+  const chimney = new THREE.Mesh(chimneyGeo, bharatiSteel);
+  chimney.position.set(cx, 9.8, 0);
+  bharati.add(chimney);
+}
+
+const louverMat = new THREE.MeshBasicMaterial({ color: 0x6a3d99, transparent: true, opacity: 0.6, side: THREE.DoubleSide });
+for (const lx of [-14, -9, -4, 1]) {
+  for (const s of [1, -1]) {
+    const louver = new THREE.Mesh(new THREE.PlaneGeometry(2.5, 1.5), louverMat);
+    louver.position.set(lx, 8.1, s * 4.02);
+    louver.rotation.y = s > 0 ? 0 : Math.PI;
+    bharati.add(louver);
+  }
+}
+
+/* Roof terrace railing */
+const railGeo = new THREE.BoxGeometry(26, 1, 12);
+const railing = new THREE.LineSegments(new THREE.EdgesGeometry(railGeo), bharatiEdgeDim);
+railing.position.set(17, 7.45, 0);
+bharati.add(railing);
+
+/* Pilotis grid */
+const pilotisGeo = new THREE.CylinderGeometry(0.22, 0.22, 2, 10);
+for (let px = -30; px <= 30; px += 6) {
+  for (const pz of [-4, 4]) {
+    const p = new THREE.Mesh(pilotisGeo, bharatiSteel);
+    p.position.set(px, 1, pz);
+    bharati.add(p);
+  }
+}
+
+/* V-struts */
+const legGeo = new THREE.CylinderGeometry(0.16, 0.16, 3.4, 8);
+for (const vx of [-12, 12]) {
+  const legA = new THREE.Mesh(legGeo, bharatiSteel);
+  legA.position.set(vx, 1.2, 1.8);
+  legA.rotation.x = -Math.PI / 4;
+  bharati.add(legA);
+
+  const legB = new THREE.Mesh(legGeo, bharatiSteel);
+  legB.position.set(vx, 1.2, -1.8);
+  legB.rotation.x = Math.PI / 4;
+  bharati.add(legB);
+}
+
+/* Ground base block (garage / genset) */
+const baseBlockGeo = new THREE.BoxGeometry(16, 2.2, 9);
+const baseBlock = new THREE.Mesh(
+  baseBlockGeo,
+  new THREE.MeshPhysicalMaterial({
+    color: 0x140b20,
+    transparent: true,
+    opacity: 0.55,
+    roughness: 0.5,
+    metalness: 0.1,
+    side: THREE.DoubleSide,
+    depthWrite: false
+  })
+);
+baseBlock.position.set(-24, 1.1, 0);
+const baseBlockEdges = new THREE.LineSegments(new THREE.EdgesGeometry(baseBlockGeo), bharatiEdgeDim);
+baseBlock.add(baseBlockEdges);
+bharati.add(baseBlock);
+
+/* Entrance door on chamfer + external stair */
+const bDoor = new THREE.Mesh(new THREE.PlaneGeometry(2, 1.8), bharatiDoorMat);
+bDoor.position.set(-6, 3.0, 6.0);
+bDoor.rotation.x = -Math.PI / 4;
+bharati.add(bDoor);
+
+for (let i = 0; i < 8; i++) {
+  const stGeo = new THREE.BoxGeometry(2.2, 0.22, 0.4);
+  const st = new THREE.Mesh(stGeo, bharatiFill);
+  st.position.set(-6, 0.14 + i * 0.26, 8.8 - i * 0.32);
+  const stEdges = new THREE.LineSegments(new THREE.EdgesGeometry(stGeo), bharatiEdgeDim);
+  st.add(stEdges);
+  bharati.add(st);
+}
+
+/* End stairs (both ends, per cross-section) */
+for (const s of [-1, 1]) {
+  const esGeo = new THREE.BoxGeometry(7, 0.15, 1.4);
+  const es = new THREE.LineSegments(new THREE.EdgesGeometry(esGeo), bharatiEdgeDim);
+  es.position.set(s * 36.5, 1.1, 0);
+  es.rotation.z = -s * 0.35;
+  bharati.add(es);
+}
+
+/* Bharati first-floor store (section room 1.5) */
+const bStore = new THREE.Group();
+bStore.name = "bharati-first-floor-store";
+bStore.position.set(6, 0, 0);
+bharati.add(bStore);
+
+const bRoomOutline = new THREE.LineSegments(
+  new THREE.EdgesGeometry(new THREE.BoxGeometry(12, 1.8, 6)),
+  new THREE.LineBasicMaterial({ color: bharatiColor, transparent: true, opacity: 0.55 })
+);
+bRoomOutline.position.y = 2.9;
+bStore.add(bRoomOutline);
+
+const bShelfMat = new THREE.MeshBasicMaterial({ color: 0x3a1a5a, transparent: true, opacity: 0.5 });
+const bShelfEdgeMat = new THREE.LineBasicMaterial({ color: bharatiColor, transparent: true, opacity: 0.7 });
+
+const bRackRowsZ = [-2, 0, 2];
+const bLevelYs = [2.4, 3.2];
+
+for (const rz of bRackRowsZ) {
+  for (const ly of bLevelYs) {
+    const sGeo = new THREE.BoxGeometry(10, 0.06, 0.8);
+    const shelf = new THREE.Mesh(sGeo, bShelfMat);
+    shelf.position.set(0, ly, rz);
+    bStore.add(shelf);
+
+    const sEdges = new THREE.LineSegments(new THREE.EdgesGeometry(sGeo), bShelfEdgeMat);
+    sEdges.position.copy(shelf.position);
+    bStore.add(sEdges);
+  }
+}
+
+const bharatiCratePositions = [];
+for (const ly of bLevelYs) {
+  for (const rz of bRackRowsZ) {
+    for (let slot = 0; slot < 8; slot++) {
+      bharatiCratePositions.push([-4.2 + slot * 1.2, ly + 0.3, rz]);
+    }
+  }
+}
+const bharatiSet = makeCrateSet(bharatiCratePositions, 0.5, {
+  warning: 13,
+  critical: 35,
+  perLevel: 24,
+  label: "Bharati First-Floor Store • Section 1.5",
+  prefix: "BHR"
+});
+bStore.add(bharatiSet.mesh);
+
 /* ---------------- Selection cage (scene-level) ---------------- */
 const selectionCage = new THREE.LineSegments(
   new THREE.EdgesGeometry(new THREE.BoxGeometry(0.65, 0.65, 0.65)),
@@ -459,11 +683,13 @@ peelSlider.addEventListener("input", () => setPeel(peelSlider.value / 100));
 
 /* ---------------- Camera sweeps (GSAP) ---------------- */
 const VIEWS = {
-  overview: { pos: new THREE.Vector3(18, 26, 58), target: new THREE.Vector3(18, 2.5, 0) },
+  overview: { pos: new THREE.Vector3(46, 42, 108), target: new THREE.Vector3(46, 2, 0) },
   maitri: { pos: new THREE.Vector3(26, 18, 28), target: new THREE.Vector3(0, 4.2, 0) },
   store: { pos: new THREE.Vector3(13.5, 7.5, 12.0), target: new THREE.Vector3(6.2, 3.2, 2.2) },
   himadri: { pos: new THREE.Vector3(54, 10, 16), target: new THREE.Vector3(38, 3.5, -2) },
-  himadriStore: { pos: new THREE.Vector3(38, 4.5, 8), target: new THREE.Vector3(33.5, 1.3, -2) }
+  himadriStore: { pos: new THREE.Vector3(38, 4.5, 8), target: new THREE.Vector3(33.5, 1.3, -2) },
+  bharati: { pos: new THREE.Vector3(132, 18, 46), target: new THREE.Vector3(92, 4, -2) },
+  bharatiStore: { pos: new THREE.Vector3(108, 6, 12), target: new THREE.Vector3(98, 2.9, -2) }
 };
 
 let currentStation = "maitri";
@@ -474,7 +700,9 @@ function flyTo(view, duration = 1.8) {
 }
 
 function enterStore() {
-  flyTo(currentStation === "himadri" ? VIEWS.himadriStore : VIEWS.store);
+  if (currentStation === "himadri") flyTo(VIEWS.himadriStore);
+  else if (currentStation === "bharati") flyTo(VIEWS.bharatiStore);
+  else flyTo(VIEWS.store);
   peelSlider.value = 90;
   setPeel(0.9);
 }
@@ -482,6 +710,7 @@ function enterStore() {
 document.getElementById("btn-store").addEventListener("click", enterStore);
 document.getElementById("btn-maitri").addEventListener("click", () => { currentStation = "maitri"; flyTo(VIEWS.maitri); });
 document.getElementById("btn-himadri").addEventListener("click", () => { currentStation = "himadri"; flyTo(VIEWS.himadri); });
+document.getElementById("btn-bharati").addEventListener("click", () => { currentStation = "bharati"; flyTo(VIEWS.bharati); });
 document.getElementById("btn-reset").addEventListener("click", () => {
   currentStation = "maitri";
   flyTo(VIEWS.overview);
@@ -564,6 +793,7 @@ renderer.domElement.addEventListener("pointerup", (e) => {
     const name = shellHits[0].object.name || shellHits[0].object.parent.name;
     if (name === "maitri-right-wing") { currentStation = "maitri"; enterStore(); }
     if (name === "himadri-main-body") { currentStation = "himadri"; enterStore(); }
+    if (name === "bharati-main-body") { currentStation = "bharati"; enterStore(); }
   }
 });
 
