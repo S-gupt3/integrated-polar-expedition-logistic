@@ -6,12 +6,20 @@ import { UnrealBloomPass } from "three/addons/postprocessing/UnrealBloomPass.js"
 import { OutputPass } from "three/addons/postprocessing/OutputPass.js";
 import gsap from "gsap";
 
+/* ---------------- Unified palette (dark blue identity) ---------------- */
+const NEON = 0x4da8ff;
+const LIT = 0xbfd9ff;
+const STEEL = 0x16283f;
+const PAD = 0x081a2e;
+const DOOR = 0x12233a;
+const SHELF_FILL = 0x12304f;
+
 /* ---------------- Scene / Camera / Renderer ---------------- */
 const app = document.querySelector("#app");
 
 const scene = new THREE.Scene();
-scene.background = new THREE.Color(0x030614);
-scene.fog = new THREE.FogExp2(0x030614, 0.005);
+scene.background = new THREE.Color(0x05070f);
+scene.fog = new THREE.FogExp2(0x05070f, 0.005);
 
 const camera = new THREE.PerspectiveCamera(45, innerWidth / innerHeight, 0.1, 500);
 camera.position.set(26, 18, 28);
@@ -37,14 +45,14 @@ composer.addPass(bloomPass);
 composer.addPass(new OutputPass());
 
 /* ---------------- Lights & ground ---------------- */
-scene.add(new THREE.AmbientLight(0x88bbff, 0.4));
-const keyLight = new THREE.DirectionalLight(0xcfefff, 0.9);
+scene.add(new THREE.AmbientLight(0x88aaff, 0.4));
+const keyLight = new THREE.DirectionalLight(0xcfe4ff, 0.9);
 keyLight.position.set(20, 30, 14);
 scene.add(keyLight);
 
-const grid = new THREE.GridHelper(260, 260, 0x33f6ff, 0x0e3a5a);
+const grid = new THREE.GridHelper(260, 260, NEON, 0x0d2440);
 grid.material.transparent = true;
-grid.material.opacity = 0.3;
+grid.material.opacity = 0.25;
 grid.position.x = 46;
 scene.add(grid);
 
@@ -54,7 +62,7 @@ function registerShell(fill, edges, baseOpacity) {
   exteriorShells.push({ fill, edges, baseOpacity });
 }
 
-function createNeonBox({ width = 1, height = 1, depth = 1, color = 0x33f6ff, opacity = 0.16, position = [0, 0, 0], name = "" }) {
+function createNeonBox({ width = 1, height = 1, depth = 1, color = NEON, opacity = 0.16, position = [0, 0, 0], name = "" }) {
   const group = new THREE.Group();
   const geometry = new THREE.BoxGeometry(width, height, depth);
 
@@ -84,7 +92,7 @@ function createNeonBox({ width = 1, height = 1, depth = 1, color = 0x33f6ff, opa
 
 /* ---------------- Crate set factory ---------------- */
 const CRATE_SETS = [];
-const normalColor = new THREE.Color(0x0d9db8);
+const normalColor = new THREE.Color(0x2e86d4);
 const warningColor = new THREE.Color(0xd99a2b);
 const criticalColor = new THREE.Color(0xe02c4c);
 
@@ -115,26 +123,48 @@ function makeCrateSet(positions, size, { warning, critical, perLevel, label, pre
   return set;
 }
 
+/* ---------------- Shared materials ---------------- */
+const steelMat = new THREE.MeshStandardMaterial({ color: STEEL, metalness: 0.65, roughness: 0.32, emissive: 0x081422 });
+const ringMat = new THREE.MeshBasicMaterial({ color: NEON });
+const shelfEdgeMat = new THREE.LineBasicMaterial({ color: NEON, transparent: true, opacity: 0.85 });
+const shelfFillMat = new THREE.MeshBasicMaterial({ color: SHELF_FILL, transparent: true, opacity: 0.5 });
+const litMat = new THREE.MeshBasicMaterial({ color: LIT, transparent: true, opacity: 0.82, side: THREE.DoubleSide });
+const doorMat = new THREE.MeshBasicMaterial({ color: DOOR, transparent: true, opacity: 0.9, side: THREE.DoubleSide });
+
+function makePad(radius, segments) {
+  const g = new THREE.Group();
+  const disc = new THREE.Mesh(
+    new THREE.CircleGeometry(radius, segments),
+    new THREE.MeshBasicMaterial({ color: PAD, transparent: true, opacity: 0.55 })
+  );
+  disc.rotation.x = -Math.PI / 2;
+  disc.position.y = 0.02;
+  g.add(disc);
+
+  const rim = new THREE.Mesh(
+    new THREE.RingGeometry(radius - 0.3, radius, segments),
+    new THREE.MeshBasicMaterial({ color: NEON, transparent: true, opacity: 0.5, side: THREE.DoubleSide })
+  );
+  rim.rotation.x = -Math.PI / 2;
+  rim.position.y = 0.03;
+  g.add(rim);
+  return g;
+}
+
+function gableRoof(widthSpan, length, pitchScale) {
+  const r = widthSpan / 1.732;
+  const geo = new THREE.CylinderGeometry(r, r, length, 3, 1);
+  geo.rotateZ(Math.PI / 2);
+  geo.rotateX(-Math.PI / 2);
+  geo.scale(1, pitchScale, 1);
+  return geo;
+}
+
 /* ================= MAITRI ================= */
 const maitri = new THREE.Group();
 maitri.name = "Maitri";
 scene.add(maitri);
-
-const maitriPad = new THREE.Mesh(
-  new THREE.CircleGeometry(14, 48),
-  new THREE.MeshBasicMaterial({ color: 0x0a2a3a, transparent: true, opacity: 0.5 })
-);
-maitriPad.rotation.x = -Math.PI / 2;
-maitriPad.position.y = 0.02;
-maitri.add(maitriPad);
-
-const maitriRim = new THREE.Mesh(
-  new THREE.RingGeometry(13.7, 14, 48),
-  new THREE.MeshBasicMaterial({ color: 0x33f6ff, transparent: true, opacity: 0.5, side: THREE.DoubleSide })
-);
-maitriRim.rotation.x = -Math.PI / 2;
-maitriRim.position.y = 0.03;
-maitri.add(maitriRim);
+maitri.add(makePad(14, 48));
 
 const baseY = 4.2;
 
@@ -143,9 +173,7 @@ maitri.add(createNeonBox({ width: 4.6, height: 3.2, depth: 10.5, position: [-6.2
 maitri.add(createNeonBox({ width: 4.6, height: 3.2, depth: 10.5, position: [6.2, baseY, 2.4], name: "maitri-right-wing" }));
 
 const stiltGeometry = new THREE.CylinderGeometry(0.18, 0.22, baseY, 12);
-const stiltMaterial = new THREE.MeshStandardMaterial({ color: 0x1d3a55, metalness: 0.65, roughness: 0.32, emissive: 0x0a1e30 });
 const ringGeometry = new THREE.TorusGeometry(0.34, 0.035, 12, 32);
-const ringMaterial = new THREE.MeshBasicMaterial({ color: 0x33f6ff });
 
 const stiltPositions = [
   [-7.2, baseY / 2, -4.2],
@@ -157,11 +185,11 @@ const stiltPositions = [
 ];
 
 for (const [x, y, z] of stiltPositions) {
-  const stilt = new THREE.Mesh(stiltGeometry, stiltMaterial);
+  const stilt = new THREE.Mesh(stiltGeometry, steelMat);
   stilt.position.set(x, y, z);
   maitri.add(stilt);
 
-  const ring = new THREE.Mesh(ringGeometry, ringMaterial);
+  const ring = new THREE.Mesh(ringGeometry, ringMat);
   ring.rotation.x = Math.PI / 2;
   ring.position.set(x, 0.6, z);
   maitri.add(ring);
@@ -173,16 +201,13 @@ store.name = "maitri-right-store";
 store.position.set(6.2, baseY - 1.45, 2.4);
 maitri.add(store);
 
-const shelfMaterial = new THREE.MeshBasicMaterial({ color: 0x1b5a7a, transparent: true, opacity: 0.5 });
-const shelfEdgeMaterial = new THREE.LineBasicMaterial({ color: 0x2fd0f5, transparent: true, opacity: 0.9 });
-
 for (let level = 0; level < 3; level++) {
   const shelfGeometry = new THREE.BoxGeometry(3.8, 0.08, 7.2);
-  const shelf = new THREE.Mesh(shelfGeometry, shelfMaterial);
+  const shelf = new THREE.Mesh(shelfGeometry, shelfFillMat);
   shelf.position.set(0, 0.55 + level * 1.05, 0);
   store.add(shelf);
 
-  const shelfEdges = new THREE.LineSegments(new THREE.EdgesGeometry(shelfGeometry), shelfEdgeMaterial);
+  const shelfEdges = new THREE.LineSegments(new THREE.EdgesGeometry(shelfGeometry), shelfEdgeMat);
   shelfEdges.position.copy(shelf.position);
   store.add(shelfEdges);
 }
@@ -205,55 +230,27 @@ const maitriSet = makeCrateSet(maitriCratePositions, 0.62, {
 store.add(maitriSet.mesh);
 
 /* ================= HIMADRI =================
-   LOCKED SPEC:
-   Total built-up = 2400 sq ft (2 floors x 13.4m x 8.3m = 222.4 m² = 2394 sq ft)
-   Ground store = 120 sq ft (4.0m x 2.8m = 11.2 m² = 120.6 sq ft)
-   Entrance on gable end; cross-gable dormers centered & mirrored;
+   LOCKED SPEC: 2400 sq ft total built-up; 120 sq ft ground store;
+   gable-end entrance; centered mirrored cross-gable dormers;
    windows ground floor + dormers only; no flag/mast/annex
 ---------------------------------------------- */
 const himadri = new THREE.Group();
 himadri.name = "Himadri";
 himadri.position.set(38, 0, -2);
 scene.add(himadri);
-
-const snowField = new THREE.Mesh(
-  new THREE.CircleGeometry(15, 48),
-  new THREE.MeshBasicMaterial({ color: 0x0f3346, transparent: true, opacity: 0.5 })
-);
-snowField.rotation.x = -Math.PI / 2;
-snowField.position.y = 0.02;
-himadri.add(snowField);
-
-const snowRim = new THREE.Mesh(
-  new THREE.RingGeometry(14.7, 15, 48),
-  new THREE.MeshBasicMaterial({ color: 0x9fd8ff, transparent: true, opacity: 0.55, side: THREE.DoubleSide })
-);
-snowRim.rotation.x = -Math.PI / 2;
-snowRim.position.y = 0.03;
-himadri.add(snowRim);
+himadri.add(makePad(15, 48));
 
 const cabinFill = new THREE.MeshPhysicalMaterial({
-  color: new THREE.Color(0xff9a4d).multiplyScalar(0.12),
+  color: new THREE.Color(NEON).multiplyScalar(0.12),
   transparent: true,
   opacity: 0.14,
   roughness: 0.3,
   metalness: 0.05,
-  emissive: new THREE.Color(0xff9a4d).multiplyScalar(0.05),
+  emissive: new THREE.Color(NEON).multiplyScalar(0.05),
   side: THREE.DoubleSide,
   depthWrite: false
 });
-const cabinEdgeMat = new THREE.LineBasicMaterial({ color: 0xffb36b, transparent: true, opacity: 0.95 });
-const litWindowMat = new THREE.MeshBasicMaterial({ color: 0xffc46b, transparent: true, opacity: 0.85, side: THREE.DoubleSide });
-const doorMat = new THREE.MeshBasicMaterial({ color: 0x7a4a22, transparent: true, opacity: 0.9, side: THREE.DoubleSide });
-
-function gableRoof(widthSpan, length, pitchScale) {
-  const r = widthSpan / 1.732;
-  const geo = new THREE.CylinderGeometry(r, r, length, 3, 1);
-  geo.rotateZ(Math.PI / 2);
-  geo.rotateX(-Math.PI / 2);
-  geo.scale(1, pitchScale, 1);
-  return geo;
-}
+const cabinEdgeMat = new THREE.LineBasicMaterial({ color: NEON, transparent: true, opacity: 0.95 });
 
 const bodyGeo = new THREE.BoxGeometry(13.4, 6, 8.3);
 const body = new THREE.Mesh(bodyGeo, cabinFill);
@@ -299,7 +296,7 @@ for (const dd of dormerDefs) {
   himadri.add(dRoof);
 
   for (const wx of [-0.4, 0.4]) {
-    const dWin = new THREE.Mesh(new THREE.PlaneGeometry(0.55, 1.4), litWindowMat);
+    const dWin = new THREE.Mesh(new THREE.PlaneGeometry(0.55, 1.4), litMat);
     dWin.position.set(wx, 7.5, dd.z + (dd.z > 0 ? 1.61 : -1.61));
     dWin.rotation.y = dd.faceRot;
     himadri.add(dWin);
@@ -307,7 +304,7 @@ for (const dd of dormerDefs) {
 }
 
 function addWindow(x, y, z, rotY, w, h, mat) {
-  const win = new THREE.Mesh(new THREE.PlaneGeometry(w, h), mat || litWindowMat);
+  const win = new THREE.Mesh(new THREE.PlaneGeometry(w, h), mat || litMat);
   win.position.set(x, y, z);
   win.rotation.y = rotY || 0;
   himadri.add(win);
@@ -335,10 +332,7 @@ canopy.add(canopyEdges);
 himadri.add(canopy);
 
 for (const pz of [-1.1, 1.1]) {
-  const post = new THREE.Mesh(
-    new THREE.CylinderGeometry(0.07, 0.07, 2.7, 8),
-    new THREE.MeshStandardMaterial({ color: 0x3a2a1a, metalness: 0.3, roughness: 0.6 })
-  );
+  const post = new THREE.Mesh(new THREE.CylinderGeometry(0.07, 0.07, 2.7, 8), steelMat);
   post.position.set(7.7, 1.35, pz);
   himadri.add(post);
 }
@@ -363,7 +357,7 @@ const walkway = new THREE.Line(
     new THREE.Vector3(11, 0.06, 2),
     new THREE.Vector3(13.5, 0.06, 3)
   ]),
-  new THREE.LineBasicMaterial({ color: 0xffd9a8, transparent: true, opacity: 0.5 })
+  new THREE.LineBasicMaterial({ color: 0x9fc3ff, transparent: true, opacity: 0.5 })
 );
 himadri.add(walkway);
 
@@ -375,13 +369,10 @@ himadri.add(hStore);
 
 const roomOutline = new THREE.LineSegments(
   new THREE.EdgesGeometry(new THREE.BoxGeometry(4.0, 2.8, 2.8)),
-  new THREE.LineBasicMaterial({ color: 0xffb36b, transparent: true, opacity: 0.55 })
+  new THREE.LineBasicMaterial({ color: NEON, transparent: true, opacity: 0.55 })
 );
 roomOutline.position.y = 1.4;
 hStore.add(roomOutline);
-
-const hShelfMat = new THREE.MeshBasicMaterial({ color: 0x5a3a1e, transparent: true, opacity: 0.5 });
-const hShelfEdgeMat = new THREE.LineBasicMaterial({ color: 0xffb36b, transparent: true, opacity: 0.7 });
 
 const rackRowsZ = [-0.75, 0.75];
 const levelYs = [0.5, 1.3, 2.1];
@@ -389,11 +380,11 @@ const levelYs = [0.5, 1.3, 2.1];
 for (const rz of rackRowsZ) {
   for (const ly of levelYs) {
     const sGeo = new THREE.BoxGeometry(3.6, 0.06, 0.8);
-    const shelf = new THREE.Mesh(sGeo, hShelfMat);
+    const shelf = new THREE.Mesh(sGeo, shelfFillMat);
     shelf.position.set(0, ly, rz);
     hStore.add(shelf);
 
-    const sEdges = new THREE.LineSegments(new THREE.EdgesGeometry(sGeo), hShelfEdgeMat);
+    const sEdges = new THREE.LineSegments(new THREE.EdgesGeometry(sGeo), shelfEdgeMat);
     sEdges.position.copy(shelf.position);
     hStore.add(sEdges);
   }
@@ -417,50 +408,28 @@ const himadriSet = makeCrateSet(himadriCratePositions, 0.5, {
 hStore.add(himadriSet.mesh);
 
 /* ================= BHARATI =================
-   Elevated linear volume on pilotis + V-struts
-   Chamfered hexagonal cross-section (extruded profile)
-   Ribbon glazing band H2-H3, setback penthouse H4 (sloped end + chimneys)
-   Roof terrace railing, ground base block, external stairs
-   Store: first floor, per longitudinal section room 1.5
+   Elevated chamfered hull on pilotis + V-struts; ribbon glazing;
+   H4 penthouse with sloped end + chimneys; roof terrace railing;
+   ground base block; external stairs; first-floor store (section 1.5)
 ------------------------------------------------ */
 const bharati = new THREE.Group();
 bharati.name = "Bharati";
 bharati.position.set(92, 0, -2);
 scene.add(bharati);
-
-const bharatiColor = 0xd24dff;
-
-const bharatiPad = new THREE.Mesh(
-  new THREE.CircleGeometry(36, 64),
-  new THREE.MeshBasicMaterial({ color: 0x170a2a, transparent: true, opacity: 0.5 })
-);
-bharatiPad.rotation.x = -Math.PI / 2;
-bharatiPad.position.y = 0.02;
-bharati.add(bharatiPad);
-
-const bharatiRim = new THREE.Mesh(
-  new THREE.RingGeometry(35.7, 36, 64),
-  new THREE.MeshBasicMaterial({ color: bharatiColor, transparent: true, opacity: 0.5, side: THREE.DoubleSide })
-);
-bharatiRim.rotation.x = -Math.PI / 2;
-bharatiRim.position.y = 0.03;
-bharati.add(bharatiRim);
+bharati.add(makePad(36, 64));
 
 const bharatiFill = new THREE.MeshPhysicalMaterial({
-  color: new THREE.Color(bharatiColor).multiplyScalar(0.12),
+  color: new THREE.Color(NEON).multiplyScalar(0.12),
   transparent: true,
   opacity: 0.14,
   roughness: 0.25,
   metalness: 0.1,
-  emissive: new THREE.Color(bharatiColor).multiplyScalar(0.05),
+  emissive: new THREE.Color(NEON).multiplyScalar(0.05),
   side: THREE.DoubleSide,
   depthWrite: false
 });
-const bharatiEdgeMat = new THREE.LineBasicMaterial({ color: bharatiColor, transparent: true, opacity: 0.95 });
-const bharatiEdgeDim = new THREE.LineBasicMaterial({ color: bharatiColor, transparent: true, opacity: 0.5 });
-const bharatiLitMat = new THREE.MeshBasicMaterial({ color: 0xe6c9ff, transparent: true, opacity: 0.8, side: THREE.DoubleSide });
-const bharatiDoorMat = new THREE.MeshBasicMaterial({ color: 0x2a1440, transparent: true, opacity: 0.9, side: THREE.DoubleSide });
-const bharatiSteel = new THREE.MeshStandardMaterial({ color: 0x241a33, metalness: 0.6, roughness: 0.35, emissive: 0x0d0716 });
+const bharatiEdgeMat = new THREE.LineBasicMaterial({ color: NEON, transparent: true, opacity: 0.95 });
+const bharatiEdgeDim = new THREE.LineBasicMaterial({ color: NEON, transparent: true, opacity: 0.5 });
 
 /* Chamfered hull: extruded cross-section profile */
 const hullProfile = new THREE.Shape();
@@ -492,20 +461,20 @@ roofSlab.add(roofSlabEdges);
 bharati.add(roofSlab);
 registerShell(roofSlab, roofSlabEdges, 0.14);
 
-/* Ribbon glazing: upper band + lower chamfer band */
+/* Ribbon glazing */
 for (const s of [1, -1]) {
-  const upperBand = new THREE.Mesh(new THREE.PlaneGeometry(59, 1.0), bharatiLitMat);
+  const upperBand = new THREE.Mesh(new THREE.PlaneGeometry(59, 1.0), litMat);
   upperBand.position.set(0, 5.3, s * 7.02);
   upperBand.rotation.y = s > 0 ? 0 : Math.PI;
   bharati.add(upperBand);
 
-  const lowerBand = new THREE.Mesh(new THREE.PlaneGeometry(59, 0.8), bharatiLitMat);
+  const lowerBand = new THREE.Mesh(new THREE.PlaneGeometry(59, 0.8), litMat);
   lowerBand.position.set(0, 3.0, s * 6.02);
   lowerBand.rotation.x = s > 0 ? -Math.PI / 4 : Math.PI / 4;
   bharati.add(lowerBand);
 }
 
-/* Penthouse H4: sloped-end block + chimneys + louvers */
+/* Penthouse H4 */
 const pentProfile = new THREE.Shape();
 pentProfile.moveTo(-20, 6.9);
 pentProfile.lineTo(4, 6.9);
@@ -525,12 +494,12 @@ registerShell(pent, pentEdges, 0.14);
 
 const chimneyGeo = new THREE.CylinderGeometry(0.22, 0.3, 1.2, 10);
 for (const cx of [-17.5, -16.5, -15.5]) {
-  const chimney = new THREE.Mesh(chimneyGeo, bharatiSteel);
+  const chimney = new THREE.Mesh(chimneyGeo, steelMat);
   chimney.position.set(cx, 9.8, 0);
   bharati.add(chimney);
 }
 
-const louverMat = new THREE.MeshBasicMaterial({ color: 0x6a3d99, transparent: true, opacity: 0.6, side: THREE.DoubleSide });
+const louverMat = new THREE.MeshBasicMaterial({ color: 0x1d3a63, transparent: true, opacity: 0.6, side: THREE.DoubleSide });
 for (const lx of [-14, -9, -4, 1]) {
   for (const s of [1, -1]) {
     const louver = new THREE.Mesh(new THREE.PlaneGeometry(2.5, 1.5), louverMat);
@@ -550,7 +519,7 @@ bharati.add(railing);
 const pilotisGeo = new THREE.CylinderGeometry(0.22, 0.22, 2, 10);
 for (let px = -30; px <= 30; px += 6) {
   for (const pz of [-4, 4]) {
-    const p = new THREE.Mesh(pilotisGeo, bharatiSteel);
+    const p = new THREE.Mesh(pilotisGeo, steelMat);
     p.position.set(px, 1, pz);
     bharati.add(p);
   }
@@ -559,30 +528,22 @@ for (let px = -30; px <= 30; px += 6) {
 /* V-struts */
 const legGeo = new THREE.CylinderGeometry(0.16, 0.16, 3.4, 8);
 for (const vx of [-12, 12]) {
-  const legA = new THREE.Mesh(legGeo, bharatiSteel);
+  const legA = new THREE.Mesh(legGeo, steelMat);
   legA.position.set(vx, 1.2, 1.8);
   legA.rotation.x = -Math.PI / 4;
   bharati.add(legA);
 
-  const legB = new THREE.Mesh(legGeo, bharatiSteel);
+  const legB = new THREE.Mesh(legGeo, steelMat);
   legB.position.set(vx, 1.2, -1.8);
   legB.rotation.x = Math.PI / 4;
   bharati.add(legB);
 }
 
-/* Ground base block (garage / genset) */
+/* Ground base block */
 const baseBlockGeo = new THREE.BoxGeometry(16, 2.2, 9);
 const baseBlock = new THREE.Mesh(
   baseBlockGeo,
-  new THREE.MeshPhysicalMaterial({
-    color: 0x140b20,
-    transparent: true,
-    opacity: 0.55,
-    roughness: 0.5,
-    metalness: 0.1,
-    side: THREE.DoubleSide,
-    depthWrite: false
-  })
+  new THREE.MeshPhysicalMaterial({ color: 0x0a1626, transparent: true, opacity: 0.55, roughness: 0.5, metalness: 0.1, side: THREE.DoubleSide, depthWrite: false })
 );
 baseBlock.position.set(-24, 1.1, 0);
 const baseBlockEdges = new THREE.LineSegments(new THREE.EdgesGeometry(baseBlockGeo), bharatiEdgeDim);
@@ -590,7 +551,7 @@ baseBlock.add(baseBlockEdges);
 bharati.add(baseBlock);
 
 /* Entrance door on chamfer + external stair */
-const bDoor = new THREE.Mesh(new THREE.PlaneGeometry(2, 1.8), bharatiDoorMat);
+const bDoor = new THREE.Mesh(new THREE.PlaneGeometry(2, 1.8), doorMat);
 bDoor.position.set(-6, 3.0, 6.0);
 bDoor.rotation.x = -Math.PI / 4;
 bharati.add(bDoor);
@@ -604,7 +565,7 @@ for (let i = 0; i < 8; i++) {
   bharati.add(st);
 }
 
-/* End stairs (both ends, per cross-section) */
+/* End stairs */
 for (const s of [-1, 1]) {
   const esGeo = new THREE.BoxGeometry(7, 0.15, 1.4);
   const es = new THREE.LineSegments(new THREE.EdgesGeometry(esGeo), bharatiEdgeDim);
@@ -613,7 +574,7 @@ for (const s of [-1, 1]) {
   bharati.add(es);
 }
 
-/* Bharati first-floor store (section room 1.5) */
+/* Bharati first-floor store (section 1.5) */
 const bStore = new THREE.Group();
 bStore.name = "bharati-first-floor-store";
 bStore.position.set(6, 0, 0);
@@ -621,13 +582,10 @@ bharati.add(bStore);
 
 const bRoomOutline = new THREE.LineSegments(
   new THREE.EdgesGeometry(new THREE.BoxGeometry(12, 1.8, 6)),
-  new THREE.LineBasicMaterial({ color: bharatiColor, transparent: true, opacity: 0.55 })
+  new THREE.LineBasicMaterial({ color: NEON, transparent: true, opacity: 0.55 })
 );
 bRoomOutline.position.y = 2.9;
 bStore.add(bRoomOutline);
-
-const bShelfMat = new THREE.MeshBasicMaterial({ color: 0x3a1a5a, transparent: true, opacity: 0.5 });
-const bShelfEdgeMat = new THREE.LineBasicMaterial({ color: bharatiColor, transparent: true, opacity: 0.7 });
 
 const bRackRowsZ = [-2, 0, 2];
 const bLevelYs = [2.4, 3.2];
@@ -635,11 +593,11 @@ const bLevelYs = [2.4, 3.2];
 for (const rz of bRackRowsZ) {
   for (const ly of bLevelYs) {
     const sGeo = new THREE.BoxGeometry(10, 0.06, 0.8);
-    const shelf = new THREE.Mesh(sGeo, bShelfMat);
+    const shelf = new THREE.Mesh(sGeo, shelfFillMat);
     shelf.position.set(0, ly, rz);
     bStore.add(shelf);
 
-    const sEdges = new THREE.LineSegments(new THREE.EdgesGeometry(sGeo), bShelfEdgeMat);
+    const sEdges = new THREE.LineSegments(new THREE.EdgesGeometry(sGeo), shelfEdgeMat);
     sEdges.position.copy(shelf.position);
     bStore.add(sEdges);
   }
@@ -662,7 +620,7 @@ const bharatiSet = makeCrateSet(bharatiCratePositions, 0.5, {
 });
 bStore.add(bharatiSet.mesh);
 
-/* ---------------- Selection cage (scene-level) ---------------- */
+/* ---------------- Selection cage ---------------- */
 const selectionCage = new THREE.LineSegments(
   new THREE.EdgesGeometry(new THREE.BoxGeometry(0.65, 0.65, 0.65)),
   new THREE.LineBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0.95 })
@@ -681,7 +639,7 @@ function setPeel(t) {
 }
 peelSlider.addEventListener("input", () => setPeel(peelSlider.value / 100));
 
-/* ---------------- Camera sweeps (GSAP) ---------------- */
+/* ---------------- Camera sweeps + home screen flow ---------------- */
 const VIEWS = {
   overview: { pos: new THREE.Vector3(46, 42, 108), target: new THREE.Vector3(46, 2, 0) },
   maitri: { pos: new THREE.Vector3(26, 18, 28), target: new THREE.Vector3(0, 4.2, 0) },
@@ -692,14 +650,46 @@ const VIEWS = {
   bharatiStore: { pos: new THREE.Vector3(108, 6, 12), target: new THREE.Vector3(98, 2.9, -2) }
 };
 
-let currentStation = "maitri";
+let currentStation = null;
+
+const STATION_META = {
+  maitri: { label: "MAITRI", assets: 54 },
+  himadri: { label: "HIMADRI", assets: 24 },
+  bharati: { label: "BHARATI", assets: 48 }
+};
+
+const homeScreen = document.getElementById("home-screen");
+const stationChip = document.getElementById("station-chip");
+
+function updateChip() {
+  const meta = STATION_META[currentStation];
+  stationChip.textContent = meta ? `${meta.label} • ${meta.assets} ASSETS` : "NO STATION SELECTED";
+}
 
 function flyTo(view, duration = 1.8) {
   gsap.to(camera.position, { x: view.pos.x, y: view.pos.y, z: view.pos.z, duration, ease: "power2.inOut" });
   gsap.to(controls.target, { x: view.target.x, y: view.target.y, z: view.target.z, duration, ease: "power2.inOut", onUpdate: () => controls.update() });
 }
 
+function enterStation(st) {
+  currentStation = st;
+  updateChip();
+  homeScreen.classList.add("hidden");
+  flyTo(VIEWS[st]);
+}
+
+function goHome() {
+  currentStation = null;
+  updateChip();
+  peelSlider.value = 0;
+  setPeel(0);
+  hideAsset();
+  homeScreen.classList.remove("hidden");
+  flyTo(VIEWS.overview);
+}
+
 function enterStore() {
+  if (!currentStation) return;
   if (currentStation === "himadri") flyTo(VIEWS.himadriStore);
   else if (currentStation === "bharati") flyTo(VIEWS.bharatiStore);
   else flyTo(VIEWS.store);
@@ -707,13 +697,14 @@ function enterStore() {
   setPeel(0.9);
 }
 
+document.querySelectorAll("[data-station]").forEach((card) => {
+  card.addEventListener("click", () => enterStation(card.dataset.station));
+});
+document.getElementById("btn-home").addEventListener("click", goHome);
 document.getElementById("btn-store").addEventListener("click", enterStore);
-document.getElementById("btn-maitri").addEventListener("click", () => { currentStation = "maitri"; flyTo(VIEWS.maitri); });
-document.getElementById("btn-himadri").addEventListener("click", () => { currentStation = "himadri"; flyTo(VIEWS.himadri); });
-document.getElementById("btn-bharati").addEventListener("click", () => { currentStation = "bharati"; flyTo(VIEWS.bharati); });
 document.getElementById("btn-reset").addEventListener("click", () => {
-  currentStation = "maitri";
-  flyTo(VIEWS.overview);
+  if (!currentStation) return;
+  flyTo(VIEWS[currentStation]);
   peelSlider.value = 0;
   setPeel(0);
   hideAsset();
@@ -757,7 +748,7 @@ function hideAsset() {
 }
 document.getElementById("asset-close").addEventListener("click", hideAsset);
 
-/* ---------------- Picking (click, not drag) ---------------- */
+/* ---------------- Picking ---------------- */
 const raycaster = new THREE.Raycaster();
 const pointer = new THREE.Vector2();
 let selectedInstance = null;
@@ -791,9 +782,9 @@ renderer.domElement.addEventListener("pointerup", (e) => {
   const shellHits = raycaster.intersectObjects(exteriorShells.map((s) => s.fill), false);
   if (shellHits.length) {
     const name = shellHits[0].object.name || shellHits[0].object.parent.name;
-    if (name === "maitri-right-wing") { currentStation = "maitri"; enterStore(); }
-    if (name === "himadri-main-body") { currentStation = "himadri"; enterStore(); }
-    if (name === "bharati-main-body") { currentStation = "bharati"; enterStore(); }
+    if (name === "maitri-right-wing") { currentStation = "maitri"; updateChip(); enterStore(); }
+    if (name === "himadri-main-body") { currentStation = "himadri"; updateChip(); enterStore(); }
+    if (name === "bharati-main-body") { currentStation = "bharati"; updateChip(); enterStore(); }
   }
 });
 
