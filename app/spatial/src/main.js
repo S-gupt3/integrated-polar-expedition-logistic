@@ -193,6 +193,9 @@ store.add(maitriSet.mesh);
      -> 2 floors x (13.4m x 8.3m) = 2 x 111.2 m² = 222.4 m² = 2394 sq ft (~2400 ✓)
    Ground-floor store room = 120 sq ft = 11.15 m²
      -> 4.0m x 2.8m = 11.2 m² = 120.6 sq ft (~120 ✓)
+   Entrance: gable end (+X face), per station sketches
+   Dormers: one per roof slope (opposite sides), enlarged
+   NO flag, NO antenna/mast, NO annex building
 ------------------------------------------------------------------------- */
 const himadri = new THREE.Group();
 himadri.name = "Himadri";
@@ -263,46 +266,31 @@ roof.add(roofEdges);
 himadri.add(roof);
 registerShell(roof, roofEdges, 0.14);
 
-const ridgeY = roof.position.y + (8.9 / 1.732) * 0.5;
-
-/* Dormers on front slope */
-for (const dx of [-3.5, 3.5]) {
-  const dGeo = new THREE.BoxGeometry(1.5, 1.1, 1.2);
+/* Dormers: OPPOSITE slopes, enlarged */
+const dormerDefs = [
+  { x: -2.5, z: 2.6, winRot: 0 },
+  { x: 2.5, z: -2.6, winRot: Math.PI }
+];
+for (const dd of dormerDefs) {
+  const dGeo = new THREE.BoxGeometry(2.2, 1.6, 1.6);
   const dormer = new THREE.Mesh(dGeo, cabinFill);
-  dormer.position.set(dx, 7.8, 2.4);
+  dormer.position.set(dd.x, 7.7, dd.z);
   const dEdges = new THREE.LineSegments(new THREE.EdgesGeometry(dGeo), cabinEdgeMat);
   dormer.add(dEdges);
   himadri.add(dormer);
 
-  const drGeo = gableRoof(1.7, 1.4, 0.6);
+  const drGeo = gableRoof(2.4, 2.0, 0.6);
   const dRoof = new THREE.Mesh(drGeo, cabinFill);
-  dRoof.position.set(dx, 8.35 + 0.5 * (1.7 / 1.732) * 0.6, 2.4);
+  dRoof.position.set(dd.x, 8.5 + 0.5 * (2.4 / 1.732) * 0.6, dd.z);
   const dRoofEdges = new THREE.LineSegments(new THREE.EdgesGeometry(drGeo), cabinEdgeMat);
   dRoof.add(dRoofEdges);
   himadri.add(dRoof);
 
-  const dWin = new THREE.Mesh(new THREE.PlaneGeometry(0.8, 0.8), litWindowMat);
-  dWin.position.set(dx, 7.8, 3.01);
+  const dWin = new THREE.Mesh(new THREE.PlaneGeometry(1.2, 1.2), litWindowMat);
+  dWin.position.set(dd.x, 7.7, dd.z + (dd.z > 0 ? 0.81 : -0.81));
+  dWin.rotation.y = dd.winRot;
   himadri.add(dWin);
 }
-
-/* Flag pole + tricolor on ridge */
-const pole = new THREE.Mesh(
-  new THREE.CylinderGeometry(0.04, 0.06, 1.8, 8),
-  new THREE.MeshStandardMaterial({ color: 0x44505c, metalness: 0.7, roughness: 0.35 })
-);
-pole.position.set(0, ridgeY + 0.9, 0);
-himadri.add(pole);
-
-const flagColors = [0xff9933, 0xffffff, 0x138808];
-flagColors.forEach((c, i) => {
-  const stripe = new THREE.Mesh(
-    new THREE.PlaneGeometry(1.0, 0.22),
-    new THREE.MeshBasicMaterial({ color: c, transparent: true, opacity: 0.9, side: THREE.DoubleSide })
-  );
-  stripe.position.set(0.52, ridgeY + 1.62 - i * 0.22, 0);
-  himadri.add(stripe);
-});
 
 /* Windows */
 function addWindow(x, y, z, rotY, w, h, mat) {
@@ -312,6 +300,7 @@ function addWindow(x, y, z, rotY, w, h, mat) {
   himadri.add(win);
 }
 
+/* Long front facade (z+) */
 addWindow(-5.2, 1.6, 4.16, 0, 1.1, 1.3);
 addWindow(-2.6, 1.6, 4.16, 0, 1.1, 1.3);
 addWindow(2.6, 1.6, 4.16, 0, 1.1, 1.3);
@@ -321,99 +310,65 @@ addWindow(-2.6, 4.6, 4.16, 0, 1.1, 1.3);
 addWindow(0, 4.6, 4.16, 0, 1.1, 1.3);
 addWindow(2.6, 4.6, 4.16, 0, 1.1, 1.3);
 addWindow(5.2, 4.6, 4.16, 0, 1.1, 1.3);
-addWindow(6.71, 4.6, 0, Math.PI / 2, 1.0, 1.2);
-addWindow(6.71, 7.6, 0, Math.PI / 2, 0.8, 0.8);
-addWindow(-6.71, 4.6, 0, Math.PI / 2, 1.0, 1.2);
 
-/* Door */
-addWindow(0, 1.1, 4.16, 0, 1.4, 2.2, doorMat);
+/* Gable ends */
+addWindow(6.71, 4.6, 0, Math.PI / 2, 1.2, 1.4);
+addWindow(6.71, 7.6, 0, Math.PI / 2, 0.9, 0.9);
+addWindow(-6.71, 4.6, 0, -Math.PI / 2, 1.2, 1.4);
+addWindow(-6.71, 7.6, 0, -Math.PI / 2, 0.9, 0.9);
 
-/* Porch: canopy, posts, steps */
-const canopyGeo = new THREE.BoxGeometry(2.6, 0.12, 1.4);
+/* ENTRANCE: door on the gable-end front face (+X) */
+addWindow(6.71, 1.1, 0, Math.PI / 2, 1.4, 2.2, doorMat);
+
+/* Porch on the front (gable end): canopy, posts, steps */
+const canopyGeo = new THREE.BoxGeometry(1.5, 0.12, 2.6);
 const canopy = new THREE.Mesh(canopyGeo, cabinFill);
-canopy.position.set(0, 2.75, 4.75);
+canopy.position.set(7.3, 2.75, 0);
 const canopyEdges = new THREE.LineSegments(new THREE.EdgesGeometry(canopyGeo), cabinEdgeMat);
 canopy.add(canopyEdges);
 himadri.add(canopy);
 
-for (const px of [-1.1, 1.1]) {
+for (const pz of [-1.1, 1.1]) {
   const post = new THREE.Mesh(
     new THREE.CylinderGeometry(0.07, 0.07, 2.7, 8),
     new THREE.MeshStandardMaterial({ color: 0x3a2a1a, metalness: 0.3, roughness: 0.6 })
   );
-  post.position.set(px, 1.35, 5.2);
+  post.position.set(7.7, 1.35, pz);
   himadri.add(post);
 }
 
 const stepDefs = [
-  [2.8, 0.16, 0.8, 0.08, 5.3],
-  [2.6, 0.16, 0.7, 0.24, 4.95],
-  [2.4, 0.16, 0.6, 0.4, 4.6]
+  [0.6, 0.16, 2.4, 0.4, 7.05],
+  [0.7, 0.16, 2.6, 0.24, 7.4],
+  [0.8, 0.16, 2.8, 0.08, 7.75]
 ];
-for (const [w, h, d, y, z] of stepDefs) {
-  const stepGeo = new THREE.BoxGeometry(w, h, d);
+for (const [dx, h, dz, y, x] of stepDefs) {
+  const stepGeo = new THREE.BoxGeometry(dx, h, dz);
   const step = new THREE.Mesh(stepGeo, cabinFill);
-  step.position.set(0, y, z);
+  step.position.set(x, y, 0);
   const stepEdges = new THREE.LineSegments(new THREE.EdgesGeometry(stepGeo), cabinEdgeMat);
   step.add(stepEdges);
   himadri.add(step);
 }
 
-/* Angled annex wing */
-const annex = new THREE.Group();
-annex.position.set(-10.5, 0, -4);
-annex.rotation.y = 0.5;
-himadri.add(annex);
-
-const aBodyGeo = new THREE.BoxGeometry(5, 3.4, 4.6);
-const aBody = new THREE.Mesh(aBodyGeo, cabinFill);
-aBody.position.y = 1.7;
-const aBodyEdges = new THREE.LineSegments(new THREE.EdgesGeometry(aBodyGeo), cabinEdgeMat);
-aBody.add(aBodyEdges);
-annex.add(aBody);
-registerShell(aBody, aBodyEdges, 0.14);
-
-const aRoofGeo = gableRoof(5.1, 5.6, 0.6);
-const aRoof = new THREE.Mesh(aRoofGeo, cabinFill);
-aRoof.position.y = 3.4 + 0.5 * (5.1 / 1.732) * 0.6;
-const aRoofEdges = new THREE.LineSegments(new THREE.EdgesGeometry(aRoofGeo), cabinEdgeMat);
-aRoof.add(aRoofEdges);
-annex.add(aRoof);
-registerShell(aRoof, aRoofEdges, 0.14);
-
-/* Comms mast + beacon */
-const mast = new THREE.Mesh(
-  new THREE.CylinderGeometry(0.06, 0.1, 7, 8),
-  new THREE.MeshStandardMaterial({ color: 0x33404d, metalness: 0.7, roughness: 0.35 })
-);
-mast.position.set(-11.5, 3.5, 7);
-himadri.add(mast);
-
-const beacon = new THREE.Mesh(
-  new THREE.SphereGeometry(0.22, 16, 16),
-  new THREE.MeshBasicMaterial({ color: 0xff5577, transparent: true, opacity: 0.9 })
-);
-beacon.position.set(-11.5, 7.1, 7);
-himadri.add(beacon);
-
-/* Walkway: porch to annex */
+/* Walkway from front steps */
 const walkway = new THREE.Line(
   new THREE.BufferGeometry().setFromPoints([
-    new THREE.Vector3(0, 0.06, 5.6),
-    new THREE.Vector3(-4.5, 0.06, 3),
-    new THREE.Vector3(-8.5, 0.06, -1.5)
+    new THREE.Vector3(8.3, 0.06, 0),
+    new THREE.Vector3(11, 0.06, 2),
+    new THREE.Vector3(13.5, 0.06, 3)
   ]),
   new THREE.LineBasicMaterial({ color: 0xffd9a8, transparent: true, opacity: 0.5 })
 );
 himadri.add(walkway);
 
-/* ---------------- Himadri ground-floor store: 120 sq ft ----------------
+/* ---------------- Himadri ground-floor store: 120 sq ft (west half) -------
    Interior 4.0m x 2.8m = 11.2 m² = 120.6 sq ft
    Racking: 2 rows x 4 slots x 3 levels = 24 crate slots
 ------------------------------------------------------------------------- */
 const hStore = new THREE.Group();
 hStore.name = "himadri-ground-store";
-hStore.position.set(4.5, 0, 0);
+hStore.position.set(-4.5, 0, 0);
 himadri.add(hStore);
 
 const roomOutline = new THREE.LineSegments(
@@ -484,7 +439,7 @@ const VIEWS = {
   maitri: { pos: new THREE.Vector3(26, 18, 28), target: new THREE.Vector3(0, 4.2, 0) },
   store: { pos: new THREE.Vector3(13.5, 7.5, 12.0), target: new THREE.Vector3(6.2, 3.2, 2.2) },
   himadri: { pos: new THREE.Vector3(54, 10, 16), target: new THREE.Vector3(38, 3.5, -2) },
-  himadriStore: { pos: new THREE.Vector3(48.5, 4.5, 6.5), target: new THREE.Vector3(42.5, 1.3, -2) }
+  himadriStore: { pos: new THREE.Vector3(38, 4.5, 8), target: new THREE.Vector3(33.5, 1.3, -2) }
 };
 
 let currentStation = "maitri";
@@ -612,7 +567,6 @@ function animate() {
   }
 
   if (selectionCage.visible) selectionCage.rotation.y = t * 0.8;
-  beacon.material.opacity = 0.35 + 0.6 * (0.5 + 0.5 * Math.sin(t * 2.2));
 
   controls.update();
   composer.render();
