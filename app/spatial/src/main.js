@@ -119,6 +119,23 @@ const maitri = new THREE.Group();
 maitri.name = "Maitri";
 scene.add(maitri);
 
+/* Maitri ground pad circle (matches Himadri snowfield) */
+const maitriPad = new THREE.Mesh(
+  new THREE.CircleGeometry(14, 48),
+  new THREE.MeshBasicMaterial({ color: 0x0a2a3a, transparent: true, opacity: 0.5 })
+);
+maitriPad.rotation.x = -Math.PI / 2;
+maitriPad.position.y = 0.02;
+maitri.add(maitriPad);
+
+const maitriRim = new THREE.Mesh(
+  new THREE.RingGeometry(13.7, 14, 48),
+  new THREE.MeshBasicMaterial({ color: 0x33f6ff, transparent: true, opacity: 0.5, side: THREE.DoubleSide })
+);
+maitriRim.rotation.x = -Math.PI / 2;
+maitriRim.position.y = 0.03;
+maitri.add(maitriRim);
+
 const baseY = 4.2;
 
 maitri.add(createNeonBox({ width: 15, height: 3.2, depth: 4.2, position: [0, baseY, -2.4], name: "maitri-main-hall" }));
@@ -194,8 +211,9 @@ store.add(maitriSet.mesh);
    Ground-floor store room = 120 sq ft = 11.15 m²
      -> 4.0m x 2.8m = 11.2 m² = 120.6 sq ft (~120 ✓)
    Entrance: gable end (+X face), per station sketches
-   Dormers: CENTERED on each slope (x = 0), mirrored across the ridge
-   Window grid: identical on front and back facades; glazing double-sided
+   Dormers: CROSS-GABLES (ridge perpendicular to main ridge), centered x=0,
+            mirrored on opposite slopes, tall paired windows on gable face
+   Windows: GROUND FLOOR + DORMERS ONLY (no upper-floor / attic windows)
    NO flag, NO antenna/mast, NO annex building
 ------------------------------------------------------------------------- */
 const himadri = new THREE.Group();
@@ -267,33 +285,37 @@ roof.add(roofEdges);
 himadri.add(roof);
 registerShell(roof, roofEdges, 0.14);
 
-/* Dormers: CENTERED (x = 0), one per slope, mirrored across the ridge */
+/* Cross-gable dormers: ridge PERPENDICULAR to main ridge, centered, mirrored */
 const dormerDefs = [
-  { x: 0, z: 2.6, winRot: 0 },
-  { x: 0, z: -2.6, winRot: Math.PI }
+  { z: 2.2, faceRot: 0 },
+  { z: -2.2, faceRot: Math.PI }
 ];
 for (const dd of dormerDefs) {
-  const dGeo = new THREE.BoxGeometry(2.2, 1.6, 1.6);
+  const dGeo = new THREE.BoxGeometry(2.6, 2.2, 3.2);
   const dormer = new THREE.Mesh(dGeo, cabinFill);
-  dormer.position.set(dd.x, 7.7, dd.z);
+  dormer.position.set(0, 7.4, dd.z);
   const dEdges = new THREE.LineSegments(new THREE.EdgesGeometry(dGeo), cabinEdgeMat);
   dormer.add(dEdges);
   himadri.add(dormer);
 
-  const drGeo = gableRoof(2.4, 2.0, 0.6);
+  const drGeo = gableRoof(3.0, 3.8, 0.45);
+  drGeo.rotateY(Math.PI / 2);
   const dRoof = new THREE.Mesh(drGeo, cabinFill);
-  dRoof.position.set(dd.x, 8.5 + 0.5 * (2.4 / 1.732) * 0.6, dd.z);
+  dRoof.position.set(0, 8.5 + 0.5 * (3.0 / 1.732) * 0.45, dd.z);
   const dRoofEdges = new THREE.LineSegments(new THREE.EdgesGeometry(drGeo), cabinEdgeMat);
   dRoof.add(dRoofEdges);
   himadri.add(dRoof);
 
-  const dWin = new THREE.Mesh(new THREE.PlaneGeometry(1.2, 1.2), litWindowMat);
-  dWin.position.set(dd.x, 7.7, dd.z + (dd.z > 0 ? 0.81 : -0.81));
-  dWin.rotation.y = dd.winRot;
-  himadri.add(dWin);
+  /* Tall paired windows on the outward gable face (like the real photo) */
+  for (const wx of [-0.4, 0.4]) {
+    const dWin = new THREE.Mesh(new THREE.PlaneGeometry(0.55, 1.4), litWindowMat);
+    dWin.position.set(wx, 7.5, dd.z + (dd.z > 0 ? 1.61 : -1.61));
+    dWin.rotation.y = dd.faceRot;
+    himadri.add(dWin);
+  }
 }
 
-/* Windows */
+/* Windows: GROUND FLOOR ONLY (+ dormer windows above) */
 function addWindow(x, y, z, rotY, w, h, mat) {
   const win = new THREE.Mesh(new THREE.PlaneGeometry(w, h), mat || litWindowMat);
   win.position.set(x, y, z);
@@ -301,33 +323,23 @@ function addWindow(x, y, z, rotY, w, h, mat) {
   himadri.add(win);
 }
 
-/* Front facade (z+) : ground 4 + upper 5 */
+/* Front facade (z+) ground floor */
 addWindow(-5.2, 1.6, 4.16, 0, 1.1, 1.3);
 addWindow(-2.6, 1.6, 4.16, 0, 1.1, 1.3);
 addWindow(2.6, 1.6, 4.16, 0, 1.1, 1.3);
 addWindow(5.2, 1.6, 4.16, 0, 1.1, 1.3);
-addWindow(-5.2, 4.6, 4.16, 0, 1.1, 1.3);
-addWindow(-2.6, 4.6, 4.16, 0, 1.1, 1.3);
-addWindow(0, 4.6, 4.16, 0, 1.1, 1.3);
-addWindow(2.6, 4.6, 4.16, 0, 1.1, 1.3);
-addWindow(5.2, 4.6, 4.16, 0, 1.1, 1.3);
 
-/* Back facade (z-) : exact mirror of front */
+/* Back facade (z-) ground floor */
 addWindow(-5.2, 1.6, -4.16, Math.PI, 1.1, 1.3);
 addWindow(-2.6, 1.6, -4.16, Math.PI, 1.1, 1.3);
 addWindow(2.6, 1.6, -4.16, Math.PI, 1.1, 1.3);
 addWindow(5.2, 1.6, -4.16, Math.PI, 1.1, 1.3);
-addWindow(-5.2, 4.6, -4.16, Math.PI, 1.1, 1.3);
-addWindow(-2.6, 4.6, -4.16, Math.PI, 1.1, 1.3);
-addWindow(0, 4.6, -4.16, Math.PI, 1.1, 1.3);
-addWindow(2.6, 4.6, -4.16, Math.PI, 1.1, 1.3);
-addWindow(5.2, 4.6, -4.16, Math.PI, 1.1, 1.3);
 
-/* Gable ends: identical set on both */
-addWindow(6.71, 4.6, 0, Math.PI / 2, 1.2, 1.4);
-addWindow(6.71, 7.6, 0, Math.PI / 2, 0.9, 0.9);
-addWindow(-6.71, 4.6, 0, -Math.PI / 2, 1.2, 1.4);
-addWindow(-6.71, 7.6, 0, -Math.PI / 2, 0.9, 0.9);
+/* Gable ends: ground-floor windows flanking the entrance / rear */
+addWindow(6.71, 1.6, 2.8, Math.PI / 2, 1.1, 1.3);
+addWindow(6.71, 1.6, -2.8, Math.PI / 2, 1.1, 1.3);
+addWindow(-6.71, 1.6, 2.8, -Math.PI / 2, 1.1, 1.3);
+addWindow(-6.71, 1.6, -2.8, -Math.PI / 2, 1.1, 1.3);
 
 /* ENTRANCE: door on the gable-end front face (+X) */
 addWindow(6.71, 1.1, 0, Math.PI / 2, 1.4, 2.2, doorMat);
