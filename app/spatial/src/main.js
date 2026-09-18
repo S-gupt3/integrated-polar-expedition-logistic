@@ -194,7 +194,8 @@ store.add(maitriSet.mesh);
    Ground-floor store room = 120 sq ft = 11.15 m²
      -> 4.0m x 2.8m = 11.2 m² = 120.6 sq ft (~120 ✓)
    Entrance: gable end (+X face), per station sketches
-   Dormers: one per roof slope (opposite sides), enlarged
+   Dormers: CENTERED on each slope (x = 0), mirrored across the ridge
+   Window grid: identical on front and back facades; glazing double-sided
    NO flag, NO antenna/mast, NO annex building
 ------------------------------------------------------------------------- */
 const himadri = new THREE.Group();
@@ -229,8 +230,8 @@ const cabinFill = new THREE.MeshPhysicalMaterial({
   depthWrite: false
 });
 const cabinEdgeMat = new THREE.LineBasicMaterial({ color: 0xffb36b, transparent: true, opacity: 0.95 });
-const litWindowMat = new THREE.MeshBasicMaterial({ color: 0xffc46b, transparent: true, opacity: 0.85 });
-const doorMat = new THREE.MeshBasicMaterial({ color: 0x7a4a22, transparent: true, opacity: 0.9 });
+const litWindowMat = new THREE.MeshBasicMaterial({ color: 0xffc46b, transparent: true, opacity: 0.85, side: THREE.DoubleSide });
+const doorMat = new THREE.MeshBasicMaterial({ color: 0x7a4a22, transparent: true, opacity: 0.9, side: THREE.DoubleSide });
 
 function gableRoof(widthSpan, length, pitchScale) {
   const r = widthSpan / 1.732;
@@ -266,10 +267,10 @@ roof.add(roofEdges);
 himadri.add(roof);
 registerShell(roof, roofEdges, 0.14);
 
-/* Dormers: OPPOSITE slopes, enlarged */
+/* Dormers: CENTERED (x = 0), one per slope, mirrored across the ridge */
 const dormerDefs = [
-  { x: -2.5, z: 2.6, winRot: 0 },
-  { x: 2.5, z: -2.6, winRot: Math.PI }
+  { x: 0, z: 2.6, winRot: 0 },
+  { x: 0, z: -2.6, winRot: Math.PI }
 ];
 for (const dd of dormerDefs) {
   const dGeo = new THREE.BoxGeometry(2.2, 1.6, 1.6);
@@ -300,7 +301,7 @@ function addWindow(x, y, z, rotY, w, h, mat) {
   himadri.add(win);
 }
 
-/* Long front facade (z+) */
+/* Front facade (z+) : ground 4 + upper 5 */
 addWindow(-5.2, 1.6, 4.16, 0, 1.1, 1.3);
 addWindow(-2.6, 1.6, 4.16, 0, 1.1, 1.3);
 addWindow(2.6, 1.6, 4.16, 0, 1.1, 1.3);
@@ -311,7 +312,18 @@ addWindow(0, 4.6, 4.16, 0, 1.1, 1.3);
 addWindow(2.6, 4.6, 4.16, 0, 1.1, 1.3);
 addWindow(5.2, 4.6, 4.16, 0, 1.1, 1.3);
 
-/* Gable ends */
+/* Back facade (z-) : exact mirror of front */
+addWindow(-5.2, 1.6, -4.16, Math.PI, 1.1, 1.3);
+addWindow(-2.6, 1.6, -4.16, Math.PI, 1.1, 1.3);
+addWindow(2.6, 1.6, -4.16, Math.PI, 1.1, 1.3);
+addWindow(5.2, 1.6, -4.16, Math.PI, 1.1, 1.3);
+addWindow(-5.2, 4.6, -4.16, Math.PI, 1.1, 1.3);
+addWindow(-2.6, 4.6, -4.16, Math.PI, 1.1, 1.3);
+addWindow(0, 4.6, -4.16, Math.PI, 1.1, 1.3);
+addWindow(2.6, 4.6, -4.16, Math.PI, 1.1, 1.3);
+addWindow(5.2, 4.6, -4.16, Math.PI, 1.1, 1.3);
+
+/* Gable ends: identical set on both */
 addWindow(6.71, 4.6, 0, Math.PI / 2, 1.2, 1.4);
 addWindow(6.71, 7.6, 0, Math.PI / 2, 0.9, 0.9);
 addWindow(-6.71, 4.6, 0, -Math.PI / 2, 1.2, 1.4);
