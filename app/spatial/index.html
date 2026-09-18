@@ -5,54 +5,129 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>PLOROPSIS Spatial</title>
     <style>
-      html, body { margin: 0; width: 100%; height: 100%; overflow: hidden; background: #030614; font-family: Inter, "Segoe UI", Arial, sans-serif; }
+      :root {
+        --bg: #05070f;
+        --panel: rgba(10, 13, 20, 0.82);
+        --line: rgba(255, 255, 255, 0.08);
+        --text: #dce3ee;
+        --muted: #8b93a7;
+        --accent: #3b82f6;
+        --neon: #4da8ff;
+      }
+      * { box-sizing: border-box; }
+      html, body { margin: 0; width: 100%; height: 100%; overflow: hidden; background: var(--bg); font-family: Inter, "Segoe UI", Arial, sans-serif; color: var(--text); }
       #app { width: 100%; height: 100%; }
 
-      .hud { position: fixed; top: 18px; left: 18px; z-index: 10; color: #d9fbff; pointer-events: none; text-shadow: 0 0 12px rgba(51,246,255,.35); }
-      .hud h1 { margin: 0; font-size: 18px; letter-spacing: .12em; text-transform: uppercase; color: #33f6ff; }
-      .hud p { margin: 6px 0 0; font-size: 12px; color: rgba(217,251,255,.72); }
-      .hud .tag { display: inline-block; margin-top: 8px; padding: 4px 8px; border: 1px solid rgba(51,246,255,.35); border-radius: 4px; color: #8ff7ff; font-size: 10px; letter-spacing: .14em; text-transform: uppercase; }
+      /* ---------- Top bar ---------- */
+      #topbar { position: fixed; top: 0; left: 0; right: 0; z-index: 50; height: 56px; display: flex; align-items: center; justify-content: space-between; padding: 0 18px; background: rgba(6, 8, 14, 0.82); border-bottom: 1px solid var(--line); backdrop-filter: blur(8px); }
+      .brand { display: flex; align-items: center; gap: 10px; }
+      .brand-name { display: block; font-size: 14px; font-weight: 700; letter-spacing: .18em; color: #fff; }
+      .brand-sub { display: block; font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+      .top-right { display: flex; align-items: center; gap: 14px; }
+      .sys { display: flex; align-items: center; gap: 6px; font-size: 11px; color: var(--muted); }
+      .dot { width: 7px; height: 7px; border-radius: 50%; background: #34d399; box-shadow: 0 0 8px #34d399; }
+      .date { font-size: 11px; color: var(--muted); }
+      .chip { font-family: ui-monospace, Consolas, monospace; font-size: 10px; letter-spacing: .14em; padding: 5px 10px; border: 1px solid rgba(59, 130, 246, 0.45); border-radius: 999px; color: #9ec5ff; background: rgba(59, 130, 246, 0.12); }
+      .ghost-btn { padding: 7px 12px; font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--text); background: transparent; border: 1px solid var(--line); border-radius: 6px; cursor: pointer; }
+      .ghost-btn:hover { border-color: rgba(255,255,255,.25); }
+      .primary-btn { padding: 8px 12px; font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: #04101f; background: var(--accent); border: none; border-radius: 6px; cursor: pointer; font-weight: 600; }
+      .primary-btn:hover { filter: brightness(1.12); }
 
-      .controls { position: fixed; left: 18px; bottom: 18px; z-index: 10; display: flex; flex-direction: column; gap: 10px; padding: 14px 16px; background: rgba(3,10,20,.72); border: 1px solid rgba(51,246,255,.25); border-radius: 8px; backdrop-filter: blur(6px); }
-      .controls label { font-size: 10px; letter-spacing: .14em; text-transform: uppercase; color: #8ff7ff; }
-      .controls input[type="range"] { width: 220px; accent-color: #33f6ff; }
+      /* ---------- Home screen ---------- */
+      #home-screen { position: fixed; inset: 56px 0 0 0; z-index: 40; display: flex; align-items: center; justify-content: center; background: rgba(4, 6, 12, 0.88); backdrop-filter: blur(10px); transition: opacity .45s ease, visibility .45s; }
+      #home-screen.hidden { opacity: 0; visibility: hidden; }
+      .home-inner { text-align: center; }
+      .eyebrow { font-size: 10px; letter-spacing: .22em; text-transform: uppercase; color: var(--muted); }
+      .home-inner h1 { margin: 10px 0 6px; font-size: 34px; font-weight: 700; letter-spacing: .02em; color: #fff; }
+      .home-meta { margin: 0 0 28px; font-size: 12px; color: var(--muted); }
+      .station-grid { display: grid; grid-template-columns: repeat(3, minmax(230px, 1fr)); gap: 14px; width: min(960px, 92vw); }
+      .station-card { text-align: left; padding: 18px; background: var(--panel); border: 1px solid var(--line); border-radius: 12px; cursor: pointer; color: var(--text); transition: transform .18s ease, border-color .18s ease, box-shadow .18s ease; font-family: inherit; }
+      .station-card:hover { transform: translateY(-4px); border-color: rgba(77, 168, 255, 0.55); box-shadow: 0 12px 40px rgba(59, 130, 246, 0.18); }
+      .card-name { display: block; font-size: 18px; font-weight: 700; color: #fff; }
+      .card-region { display: block; margin-top: 3px; font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+      .card-desc { margin: 12px 0; font-size: 12px; line-height: 1.6; color: rgba(220, 227, 238, 0.78); }
+      .card-spec { font-family: ui-monospace, Consolas, monospace; font-size: 10px; letter-spacing: .08em; color: #9ec5ff; }
+      .card-cta { margin-top: 14px; font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--neon); }
+      .home-foot { margin: 26px 0 0; font-size: 11px; color: var(--muted); }
+
+      /* ---------- Controls ---------- */
+      .controls { position: fixed; left: 18px; bottom: 18px; z-index: 30; display: flex; flex-direction: column; gap: 10px; width: 260px; padding: 14px 16px; background: var(--panel); border: 1px solid var(--line); border-radius: 12px; backdrop-filter: blur(8px); }
+      .controls label { font-size: 10px; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); }
+      .controls input[type="range"] { width: 100%; accent-color: var(--accent); }
       .btn-row { display: flex; gap: 8px; }
-      .btn-row button { flex: 1; padding: 8px 10px; font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: #031018; background: #33f6ff; border: none; border-radius: 4px; cursor: pointer; }
-      .btn-row button.secondary { background: transparent; color: #8ff7ff; border: 1px solid rgba(51,246,255,.4); }
-      .btn-row button:hover { filter: brightness(1.15); }
+      .btn-row .ghost-btn, .btn-row .primary-btn { flex: 1; }
+      .hint { margin: 2px 0 0; font-size: 10px; line-height: 1.5; color: var(--muted); }
 
-      .asset-panel { position: fixed; top: 18px; right: 18px; z-index: 10; width: 260px; padding: 14px 16px; background: rgba(3,10,20,.82); border: 1px solid rgba(51,246,255,.3); border-radius: 8px; color: #d9fbff; backdrop-filter: blur(6px); }
+      /* ---------- Asset panel ---------- */
+      .asset-panel { position: fixed; top: 72px; right: 18px; z-index: 30; width: 280px; padding: 14px 16px; background: var(--panel); border: 1px solid var(--line); border-radius: 12px; backdrop-filter: blur(8px); }
       .asset-panel.hidden { display: none; }
-      .asset-head { display: flex; justify-content: space-between; align-items: center; font-size: 13px; letter-spacing: .08em; }
-      .status { font-size: 10px; padding: 3px 7px; border-radius: 3px; letter-spacing: .12em; }
-      .status.normal { color: #031018; background: #19e3ff; }
-      .status.warning { color: #031018; background: #ffbf39; }
-      .status.critical { color: #fff; background: #ff3b5c; }
-      .asset-body { margin-top: 10px; font-size: 12px; line-height: 1.7; color: rgba(217,251,255,.8); }
-      .asset-body b { color: #8ff7ff; font-weight: 600; }
-      #asset-close { margin-top: 10px; width: 100%; padding: 7px; font-size: 10px; letter-spacing: .12em; text-transform: uppercase; background: transparent; color: #8ff7ff; border: 1px solid rgba(51,246,255,.4); border-radius: 4px; cursor: pointer; }
+      .asset-head { display: flex; justify-content: space-between; align-items: center; font-family: ui-monospace, Consolas, monospace; font-size: 13px; letter-spacing: .06em; color: #fff; }
+      .status { font-size: 9px; padding: 3px 8px; border-radius: 999px; letter-spacing: .14em; font-family: Inter, sans-serif; font-weight: 600; }
+      .status.normal { color: #04101f; background: var(--accent); }
+      .status.warning { color: #04101f; background: #f5b13d; }
+      .status.critical { color: #fff; background: #ef4056; }
+      .asset-body { margin-top: 10px; font-size: 12px; line-height: 1.7; color: rgba(220, 227, 238, 0.8); }
+      .asset-body b { color: #9ec5ff; font-weight: 600; }
+      #asset-close { margin-top: 10px; width: 100%; padding: 7px; font-size: 10px; letter-spacing: .12em; text-transform: uppercase; background: transparent; color: var(--text); border: 1px solid var(--line); border-radius: 6px; cursor: pointer; }
     </style>
   </head>
   <body>
-    <div class="hud">
-      <h1>PLOROPSIS Spatial</h1>
-      <p>Tri-Station Digital Twin — Maitri • Himadri • Bharati</p>
-      <p>Drag to orbit • Scroll to zoom • Click crates • Click a station hull to enter its store</p>
-      <span class="tag">Core Spatial Engine v0.12</span>
+    <header id="topbar">
+      <div class="brand">
+        <svg width="22" height="22" viewBox="0 0 24 24"><path d="M12 2 L20 12 L12 22 L4 12 Z" fill="none" stroke="#3b82f6" stroke-width="1.6"/><path d="M12 6 L16.5 12 L12 18 L7.5 12 Z" fill="#3b82f6" opacity=".35"/></svg>
+        <div class="brand-text">
+          <span class="brand-name">PLOROPSIS</span>
+          <span class="brand-sub">NCPOR command</span>
+        </div>
+      </div>
+      <div class="top-right">
+        <span class="sys"><i class="dot"></i>Systems nominal</span>
+        <span class="date">18 Sept 2026</span>
+        <span id="station-chip" class="chip">NO STATION SELECTED</span>
+        <button id="btn-home" class="ghost-btn">Home</button>
+      </div>
+    </header>
+
+    <div id="home-screen">
+      <div class="home-inner">
+        <div class="eyebrow">NCPOR / Polar Expedition Logistics</div>
+        <h1>Select a centre</h1>
+        <p class="home-meta">3 stations • 126 tracked assets • offline-first twin • synced 18 Sept 2026</p>
+        <div class="station-grid">
+          <button class="station-card" data-station="maitri">
+            <span class="card-name">Maitri</span>
+            <span class="card-region">Schirmacher Oasis • Antarctica</span>
+            <p class="card-desc">U-shaped modular block elevated on glowing steel stilts above the ice shelf.</p>
+            <div class="card-spec">54 ASSETS • RIGHT-WING STORE</div>
+            <div class="card-cta">Enter digital twin →</div>
+          </button>
+          <button class="station-card" data-station="himadri">
+            <span class="card-name">Himadri</span>
+            <span class="card-region">Ny-Ålesund • Svalbard (Arctic)</span>
+            <p class="card-desc">Two-storey house-like main building, 2400 sq ft built-up, cross-gable dormers.</p>
+            <div class="card-spec">24 ASSETS • 120 SQ FT GROUND STORE</div>
+            <div class="card-cta">Enter digital twin →</div>
+          </button>
+          <button class="station-card" data-station="bharati">
+            <span class="card-name">Bharati</span>
+            <span class="card-region">Larsemann Hills • Antarctica</span>
+            <p class="card-desc">Elevated chamfered hull on pilotis with V-struts and H4 penthouse terrace.</p>
+            <div class="card-spec">48 ASSETS • FIRST-FLOOR STORE</div>
+            <div class="card-cta">Enter digital twin →</div>
+          </button>
+        </div>
+        <p class="home-foot">Click a centre to open its twin • Peel walls • Inspect every crate</p>
+      </div>
     </div>
 
     <div class="controls">
       <label for="peel">Peel-Away Exterior</label>
       <input id="peel" type="range" min="0" max="100" value="0" />
       <div class="btn-row">
-        <button id="btn-store">Enter Store</button>
-        <button id="btn-reset" class="secondary">Reset View</button>
+        <button id="btn-store" class="primary-btn">Enter Store</button>
+        <button id="btn-reset" class="ghost-btn">Reset View</button>
       </div>
-      <div class="btn-row">
-        <button id="btn-maitri" class="secondary">Maitri</button>
-        <button id="btn-himadri" class="secondary">Himadri</button>
-        <button id="btn-bharati" class="secondary">Bharati</button>
-      </div>
+      <p class="hint">Drag orbit • Scroll zoom • Click crates • Click a hull to enter its store</p>
     </div>
 
     <div id="asset-panel" class="asset-panel hidden">
