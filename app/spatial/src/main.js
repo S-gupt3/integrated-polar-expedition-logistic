@@ -29,7 +29,7 @@ controls.enableDamping = true;
 controls.maxDistance = 120;
 controls.minDistance = 1.5;
 
-/* ---------------- Post-processing (tuned bloom) ---------------- */
+/* ---------------- Post-processing ---------------- */
 const composer = new EffectComposer(renderer);
 composer.addPass(new RenderPass(scene, camera));
 const bloomPass = new UnrealBloomPass(new THREE.Vector2(innerWidth, innerHeight), 0.45, 0.35, 0.4);
@@ -47,8 +47,11 @@ grid.material.transparent = true;
 grid.material.opacity = 0.3;
 scene.add(grid);
 
-/* ---------------- Neon shell builder ---------------- */
+/* ---------------- Shell registry (peel-away) ---------------- */
 const exteriorShells = [];
+function registerShell(fill, edges, baseOpacity) {
+  exteriorShells.push({ fill, edges, baseOpacity });
+}
 
 function createNeonBox({ width = 1, height = 1, depth = 1, color = 0x33f6ff, opacity = 0.16, position = [0, 0, 0], name = "" }) {
   const group = new THREE.Group();
@@ -64,7 +67,6 @@ function createNeonBox({ width = 1, height = 1, depth = 1, color = 0x33f6ff, opa
     side: THREE.DoubleSide,
     depthWrite: false
   });
-
   const edgeMaterial = new THREE.LineBasicMaterial({ color, transparent: true, opacity: 0.95 });
 
   const fill = new THREE.Mesh(geometry, fillMaterial);
@@ -75,8 +77,41 @@ function createNeonBox({ width = 1, height = 1, depth = 1, color = 0x33f6ff, opa
   group.position.set(...position);
   group.name = name;
 
-  exteriorShells.push({ fill, edges, baseOpacity: opacity });
+  registerShell(fill, edges, opacity);
   return group;
+}
+
+/* ---------------- Crate set factory ---------------- */
+const CRATE_SETS = [];
+const normalColor = new THREE.Color(0x0d9db8);
+const warningColor = new THREE.Color(0xd99a2b);
+const criticalColor = new THREE.Color(0xe02c4c);
+
+function makeCrateSet(positions, size, { warning, critical, perLevel, label, prefix }) {
+  const geometry = new THREE.BoxGeometry(size, size, size);
+  const material = new THREE.MeshBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0.85 });
+  const mesh = new THREE.InstancedMesh(geometry, material, positions.length);
+
+  const dummy = new THREE.Object3D();
+  positions.forEach((p, i) => {
+    dummy.position.set(p[0], p[1], p[2]);
+    dummy.rotation.set(0, 0, 0);
+    dummy.scale.set(1, 1, 1);
+    dummy.updateMatrix();
+    mesh.setMatrixAt(i, dummy.matrix);
+
+    let color = normalColor;
+    if (i === warning) color = warningColor;
+    if (i === critical) color = criticalColor;
+    mesh.setColorAt(i, color);
+  });
+
+  mesh.instanceMatrix.needsUpdate = true;
+  if (mesh.instanceColor) mesh.instanceColor.needsUpdate = true;
+
+  const set = { mesh, warning, critical, perLevel, label, prefix, count: positions.length };
+  CRATE_SETS.push(set);
+  return set;
 }
 
 /* ---------------- Maitri base ---------------- */
@@ -115,98 +150,7 @@ for (const [x, y, z] of stiltPositions) {
   maitri.add(ring);
 }
 
-/* ---------------- Himadri base (snowfield cabins) ---------------- */
-const himadri = new THREE.Group();
-himadri.name = "Himadri";
-himadri.position.set(38, 0, -2);
-scene.add(himadri);
-
-const snowField = new THREE.Mesh(
-  new THREE.CircleGeometry(16, 48),
-  new THREE.MeshBasicMaterial({ color: 0x0f3346, transparent: true, opacity: 0.5 })
-);
-snowField.rotation.x = -Math.PI / 2;
-snowField.position.y = 0.02;
-himadri.add(snowField);
-
-const snowRim = new THREE.Mesh(
-  new THREE.RingGeometry(15.7, 16, 48),
-  new THREE.MeshBasicMaterial({ color: 0x9fd8ff, transparent: true, opacity: 0.55, side: THREE.DoubleSide })
-);
-snowRim.rotation.x = -Math.PI / 2;
-snowRim.position.y = 0.03;
-himadri.add(snowRim);
-
-const cabinFill = new THREE.MeshPhysicalMaterial({
-  color: new THREE.Color(0xff9a4d).multiplyScalar(0.12),
-  transparent: true,
-  opacity: 0.14,
-  roughness: 0.3,
-  metalness: 0.05,
-  emissive: new THREE.Color(0xff9a4d).multiplyScalar(0.05),
-  side: THREE.DoubleSide,
-  depthWrite: false
-});
-const cabinEdgeMat = new THREE.LineBasicMaterial({ color: 0xffb36b, transparent: true, opacity: 0.95 });
-
-function createCabin({ w = 3.2, h = 2.2, d = 4.4, position = [0, 0, 0], rotation = 0, name = "" }) {
-  const cabin = new THREE.Group();
-
-  const bodyGeo = new THREE.BoxGeometry(w, h, d);
-  const body = new THREE.Mesh(bodyGeo, cabinFill);
-  body.position.y = h / 2;
-  body.add(new THREE.LineSegments(new THREE.EdgesGeometry(bodyGeo), cabinEdgeMat));
-  cabin.add(body);
-
-  const r = w / 1.732 + 0.25;
-  const pitch = r * 0.62;
-  const roofGeo = new THREE.CylinderGeometry(r, r, d + 0.4, 3, 1);
-  roofGeo.rotateZ(Math.PI / 2);
-  roofGeo.rotateX(-Math.PI / 2);
-  roofGeo.scale(1, 0.62, 1);
-
-  const roof = new THREE.Mesh(roofGeo, cabinFill);
-  roof.position.y = h + pitch * 0.5;
-  roof.add(new THREE.LineSegments(new THREE.EdgesGeometry(roofGeo), cabinEdgeMat));
-  cabin.add(roof);
-
-  cabin.rotation.y = rotation;
-  cabin.position.set(...position);
-  cabin.name = name;
-  return cabin;
-}
-
-const cabinLayout = [
-  { position: [0, 0, 0], rotation: 0.15, name: "himadri-main-hut", w: 4.2, h: 2.6, d: 5.6 },
-  { position: [-6.5, 0, -4.5], rotation: -0.35, name: "himadri-lab-hut" },
-  { position: [5.5, 0, -6], rotation: 0.5, name: "himadri-store-hut" },
-  { position: [7, 0, 3.5], rotation: -0.15, name: "himadri-gen-hut" },
-  { position: [-5, 0, 5], rotation: 0.8, name: "himadri-comms-hut" }
-];
-for (const c of cabinLayout) himadri.add(createCabin(c));
-
-const pathPoints = cabinLayout.map((c) => new THREE.Vector3(c.position[0], 0.06, c.position[2]));
-const walkway = new THREE.Line(
-  new THREE.BufferGeometry().setFromPoints(pathPoints),
-  new THREE.LineBasicMaterial({ color: 0xffd9a8, transparent: true, opacity: 0.5 })
-);
-himadri.add(walkway);
-
-const mast = new THREE.Mesh(
-  new THREE.CylinderGeometry(0.06, 0.1, 7, 8),
-  new THREE.MeshStandardMaterial({ color: 0x33404d, metalness: 0.7, roughness: 0.35 })
-);
-mast.position.set(-5, 3.5, 5);
-himadri.add(mast);
-
-const beacon = new THREE.Mesh(
-  new THREE.SphereGeometry(0.22, 16, 16),
-  new THREE.MeshBasicMaterial({ color: 0xff5577, transparent: true, opacity: 0.9 })
-);
-beacon.position.set(-5, 7.1, 5);
-himadri.add(beacon);
-
-/* ---------------- Store room (right wing) ---------------- */
+/* ---------------- Maitri store room (right wing) ---------------- */
 const store = new THREE.Group();
 store.name = "maitri-right-store";
 store.position.set(6.2, baseY - 1.45, 2.4);
@@ -226,49 +170,302 @@ for (let level = 0; level < 3; level++) {
   store.add(shelfEdges);
 }
 
-/* ---------------- Instanced crates ---------------- */
-const WARNING_INDEX = 10;
-const CRITICAL_INDEX = 23;
-
-const crateGeometry = new THREE.BoxGeometry(0.62, 0.62, 0.62);
-const crateMaterial = new THREE.MeshBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0.85 });
-const crateCount = 54;
-const crates = new THREE.InstancedMesh(crateGeometry, crateMaterial, crateCount);
-
-const dummy = new THREE.Object3D();
-const normalColor = new THREE.Color(0x0d9db8);
-const warningColor = new THREE.Color(0xd99a2b);
-const criticalColor = new THREE.Color(0xe02c4c);
-
-let instanceIndex = 0;
+const maitriCratePositions = [];
 for (let level = 0; level < 3; level++) {
   for (let z = 0; z < 6; z++) {
     for (let x = 0; x < 3; x++) {
-      dummy.position.set(-1.15 + x * 1.15, 0.98 + level * 1.05, -2.45 + z * 0.98);
-      dummy.rotation.set(0, 0, 0);
-      dummy.scale.set(1, 1, 1);
-      dummy.updateMatrix();
-      crates.setMatrixAt(instanceIndex, dummy.matrix);
-
-      let color = normalColor;
-      if (instanceIndex === WARNING_INDEX) color = warningColor;
-      if (instanceIndex === CRITICAL_INDEX) color = criticalColor;
-
-      crates.setColorAt(instanceIndex, color);
-      instanceIndex++;
+      maitriCratePositions.push([-1.15 + x * 1.15, 0.98 + level * 1.05, -2.45 + z * 0.98]);
     }
   }
 }
-crates.instanceMatrix.needsUpdate = true;
-if (crates.instanceColor) crates.instanceColor.needsUpdate = true;
-store.add(crates);
+const maitriSet = makeCrateSet(maitriCratePositions, 0.62, {
+  warning: 10,
+  critical: 23,
+  perLevel: 18,
+  label: "Maitri Right Store",
+  prefix: "CRT"
+});
+store.add(maitriSet.mesh);
 
+/* ---------------- Himadri base (house-like main building) ----------------
+   LOCKED SPEC:
+   Total built-up = 2400 sq ft = 222.97 m²
+     -> 2 floors x (13.4m x 8.3m) = 2 x 111.2 m² = 222.4 m² = 2394 sq ft (~2400 ✓)
+   Ground-floor store room = 120 sq ft = 11.15 m²
+     -> 4.0m x 2.8m = 11.2 m² = 120.6 sq ft (~120 ✓)
+------------------------------------------------------------------------- */
+const himadri = new THREE.Group();
+himadri.name = "Himadri";
+himadri.position.set(38, 0, -2);
+scene.add(himadri);
+
+const snowField = new THREE.Mesh(
+  new THREE.CircleGeometry(15, 48),
+  new THREE.MeshBasicMaterial({ color: 0x0f3346, transparent: true, opacity: 0.5 })
+);
+snowField.rotation.x = -Math.PI / 2;
+snowField.position.y = 0.02;
+himadri.add(snowField);
+
+const snowRim = new THREE.Mesh(
+  new THREE.RingGeometry(14.7, 15, 48),
+  new THREE.MeshBasicMaterial({ color: 0x9fd8ff, transparent: true, opacity: 0.55, side: THREE.DoubleSide })
+);
+snowRim.rotation.x = -Math.PI / 2;
+snowRim.position.y = 0.03;
+himadri.add(snowRim);
+
+const cabinFill = new THREE.MeshPhysicalMaterial({
+  color: new THREE.Color(0xff9a4d).multiplyScalar(0.12),
+  transparent: true,
+  opacity: 0.14,
+  roughness: 0.3,
+  metalness: 0.05,
+  emissive: new THREE.Color(0xff9a4d).multiplyScalar(0.05),
+  side: THREE.DoubleSide,
+  depthWrite: false
+});
+const cabinEdgeMat = new THREE.LineBasicMaterial({ color: 0xffb36b, transparent: true, opacity: 0.95 });
+const litWindowMat = new THREE.MeshBasicMaterial({ color: 0xffc46b, transparent: true, opacity: 0.85 });
+const doorMat = new THREE.MeshBasicMaterial({ color: 0x7a4a22, transparent: true, opacity: 0.9 });
+
+function gableRoof(widthSpan, length, pitchScale) {
+  const r = widthSpan / 1.732;
+  const geo = new THREE.CylinderGeometry(r, r, length, 3, 1);
+  geo.rotateZ(Math.PI / 2);
+  geo.rotateX(-Math.PI / 2);
+  geo.scale(1, pitchScale, 1);
+  return geo;
+}
+
+/* Main house body: two storeys, 13.4m x 8.3m footprint (1200 sq ft per floor) */
+const bodyGeo = new THREE.BoxGeometry(13.4, 6, 8.3);
+const body = new THREE.Mesh(bodyGeo, cabinFill);
+body.position.y = 3;
+body.name = "himadri-main-body";
+const bodyEdges = new THREE.LineSegments(new THREE.EdgesGeometry(bodyGeo), cabinEdgeMat);
+body.add(bodyEdges);
+himadri.add(body);
+registerShell(body, bodyEdges, 0.14);
+
+/* Floor band line between ground and first floor */
+const bandGeo = new THREE.BoxGeometry(13.44, 0.06, 8.34);
+const band = new THREE.LineSegments(new THREE.EdgesGeometry(bandGeo), cabinEdgeMat);
+band.position.y = 3;
+himadri.add(band);
+
+/* Steep pitched roof */
+const roofGeo = gableRoof(8.9, 14.1, 0.5);
+const roof = new THREE.Mesh(roofGeo, cabinFill);
+roof.position.y = 6 + 0.5 * (8.9 / 1.732) * 0.5;
+const roofEdges = new THREE.LineSegments(new THREE.EdgesGeometry(roofGeo), cabinEdgeMat);
+roof.add(roofEdges);
+himadri.add(roof);
+registerShell(roof, roofEdges, 0.14);
+
+const ridgeY = roof.position.y + (8.9 / 1.732) * 0.5;
+
+/* Dormers on front slope */
+for (const dx of [-3.5, 3.5]) {
+  const dGeo = new THREE.BoxGeometry(1.5, 1.1, 1.2);
+  const dormer = new THREE.Mesh(dGeo, cabinFill);
+  dormer.position.set(dx, 7.8, 2.4);
+  const dEdges = new THREE.LineSegments(new THREE.EdgesGeometry(dGeo), cabinEdgeMat);
+  dormer.add(dEdges);
+  himadri.add(dormer);
+
+  const drGeo = gableRoof(1.7, 1.4, 0.6);
+  const dRoof = new THREE.Mesh(drGeo, cabinFill);
+  dRoof.position.set(dx, 8.35 + 0.5 * (1.7 / 1.732) * 0.6, 2.4);
+  const dRoofEdges = new THREE.LineSegments(new THREE.EdgesGeometry(drGeo), cabinEdgeMat);
+  dRoof.add(dRoofEdges);
+  himadri.add(dRoof);
+
+  const dWin = new THREE.Mesh(new THREE.PlaneGeometry(0.8, 0.8), litWindowMat);
+  dWin.position.set(dx, 7.8, 3.01);
+  himadri.add(dWin);
+}
+
+/* Flag pole + tricolor on ridge */
+const pole = new THREE.Mesh(
+  new THREE.CylinderGeometry(0.04, 0.06, 1.8, 8),
+  new THREE.MeshStandardMaterial({ color: 0x44505c, metalness: 0.7, roughness: 0.35 })
+);
+pole.position.set(0, ridgeY + 0.9, 0);
+himadri.add(pole);
+
+const flagColors = [0xff9933, 0xffffff, 0x138808];
+flagColors.forEach((c, i) => {
+  const stripe = new THREE.Mesh(
+    new THREE.PlaneGeometry(1.0, 0.22),
+    new THREE.MeshBasicMaterial({ color: c, transparent: true, opacity: 0.9, side: THREE.DoubleSide })
+  );
+  stripe.position.set(0.52, ridgeY + 1.62 - i * 0.22, 0);
+  himadri.add(stripe);
+});
+
+/* Windows */
+function addWindow(x, y, z, rotY, w, h, mat) {
+  const win = new THREE.Mesh(new THREE.PlaneGeometry(w, h), mat || litWindowMat);
+  win.position.set(x, y, z);
+  win.rotation.y = rotY || 0;
+  himadri.add(win);
+}
+
+addWindow(-5.2, 1.6, 4.16, 0, 1.1, 1.3);
+addWindow(-2.6, 1.6, 4.16, 0, 1.1, 1.3);
+addWindow(2.6, 1.6, 4.16, 0, 1.1, 1.3);
+addWindow(5.2, 1.6, 4.16, 0, 1.1, 1.3);
+addWindow(-5.2, 4.6, 4.16, 0, 1.1, 1.3);
+addWindow(-2.6, 4.6, 4.16, 0, 1.1, 1.3);
+addWindow(0, 4.6, 4.16, 0, 1.1, 1.3);
+addWindow(2.6, 4.6, 4.16, 0, 1.1, 1.3);
+addWindow(5.2, 4.6, 4.16, 0, 1.1, 1.3);
+addWindow(6.71, 4.6, 0, Math.PI / 2, 1.0, 1.2);
+addWindow(6.71, 7.6, 0, Math.PI / 2, 0.8, 0.8);
+addWindow(-6.71, 4.6, 0, Math.PI / 2, 1.0, 1.2);
+
+/* Door */
+addWindow(0, 1.1, 4.16, 0, 1.4, 2.2, doorMat);
+
+/* Porch: canopy, posts, steps */
+const canopyGeo = new THREE.BoxGeometry(2.6, 0.12, 1.4);
+const canopy = new THREE.Mesh(canopyGeo, cabinFill);
+canopy.position.set(0, 2.75, 4.75);
+const canopyEdges = new THREE.LineSegments(new THREE.EdgesGeometry(canopyGeo), cabinEdgeMat);
+canopy.add(canopyEdges);
+himadri.add(canopy);
+
+for (const px of [-1.1, 1.1]) {
+  const post = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.07, 0.07, 2.7, 8),
+    new THREE.MeshStandardMaterial({ color: 0x3a2a1a, metalness: 0.3, roughness: 0.6 })
+  );
+  post.position.set(px, 1.35, 5.2);
+  himadri.add(post);
+}
+
+const stepDefs = [
+  [2.8, 0.16, 0.8, 0.08, 5.3],
+  [2.6, 0.16, 0.7, 0.24, 4.95],
+  [2.4, 0.16, 0.6, 0.4, 4.6]
+];
+for (const [w, h, d, y, z] of stepDefs) {
+  const stepGeo = new THREE.BoxGeometry(w, h, d);
+  const step = new THREE.Mesh(stepGeo, cabinFill);
+  step.position.set(0, y, z);
+  const stepEdges = new THREE.LineSegments(new THREE.EdgesGeometry(stepGeo), cabinEdgeMat);
+  step.add(stepEdges);
+  himadri.add(step);
+}
+
+/* Angled annex wing */
+const annex = new THREE.Group();
+annex.position.set(-10.5, 0, -4);
+annex.rotation.y = 0.5;
+himadri.add(annex);
+
+const aBodyGeo = new THREE.BoxGeometry(5, 3.4, 4.6);
+const aBody = new THREE.Mesh(aBodyGeo, cabinFill);
+aBody.position.y = 1.7;
+const aBodyEdges = new THREE.LineSegments(new THREE.EdgesGeometry(aBodyGeo), cabinEdgeMat);
+aBody.add(aBodyEdges);
+annex.add(aBody);
+registerShell(aBody, aBodyEdges, 0.14);
+
+const aRoofGeo = gableRoof(5.1, 5.6, 0.6);
+const aRoof = new THREE.Mesh(aRoofGeo, cabinFill);
+aRoof.position.y = 3.4 + 0.5 * (5.1 / 1.732) * 0.6;
+const aRoofEdges = new THREE.LineSegments(new THREE.EdgesGeometry(aRoofGeo), cabinEdgeMat);
+aRoof.add(aRoofEdges);
+annex.add(aRoof);
+registerShell(aRoof, aRoofEdges, 0.14);
+
+/* Comms mast + beacon */
+const mast = new THREE.Mesh(
+  new THREE.CylinderGeometry(0.06, 0.1, 7, 8),
+  new THREE.MeshStandardMaterial({ color: 0x33404d, metalness: 0.7, roughness: 0.35 })
+);
+mast.position.set(-11.5, 3.5, 7);
+himadri.add(mast);
+
+const beacon = new THREE.Mesh(
+  new THREE.SphereGeometry(0.22, 16, 16),
+  new THREE.MeshBasicMaterial({ color: 0xff5577, transparent: true, opacity: 0.9 })
+);
+beacon.position.set(-11.5, 7.1, 7);
+himadri.add(beacon);
+
+/* Walkway: porch to annex */
+const walkway = new THREE.Line(
+  new THREE.BufferGeometry().setFromPoints([
+    new THREE.Vector3(0, 0.06, 5.6),
+    new THREE.Vector3(-4.5, 0.06, 3),
+    new THREE.Vector3(-8.5, 0.06, -1.5)
+  ]),
+  new THREE.LineBasicMaterial({ color: 0xffd9a8, transparent: true, opacity: 0.5 })
+);
+himadri.add(walkway);
+
+/* ---------------- Himadri ground-floor store: 120 sq ft ----------------
+   Interior 4.0m x 2.8m = 11.2 m² = 120.6 sq ft
+   Racking: 2 rows x 4 slots x 3 levels = 24 crate slots
+------------------------------------------------------------------------- */
+const hStore = new THREE.Group();
+hStore.name = "himadri-ground-store";
+hStore.position.set(4.5, 0, 0);
+himadri.add(hStore);
+
+const roomOutline = new THREE.LineSegments(
+  new THREE.EdgesGeometry(new THREE.BoxGeometry(4.0, 2.8, 2.8)),
+  new THREE.LineBasicMaterial({ color: 0xffb36b, transparent: true, opacity: 0.55 })
+);
+roomOutline.position.y = 1.4;
+hStore.add(roomOutline);
+
+const hShelfMat = new THREE.MeshBasicMaterial({ color: 0x5a3a1e, transparent: true, opacity: 0.5 });
+const hShelfEdgeMat = new THREE.LineBasicMaterial({ color: 0xffb36b, transparent: true, opacity: 0.7 });
+
+const rackRowsZ = [-0.75, 0.75];
+const levelYs = [0.5, 1.3, 2.1];
+
+for (const rz of rackRowsZ) {
+  for (const ly of levelYs) {
+    const sGeo = new THREE.BoxGeometry(3.6, 0.06, 0.8);
+    const shelf = new THREE.Mesh(sGeo, hShelfMat);
+    shelf.position.set(0, ly, rz);
+    hStore.add(shelf);
+
+    const sEdges = new THREE.LineSegments(new THREE.EdgesGeometry(sGeo), hShelfEdgeMat);
+    sEdges.position.copy(shelf.position);
+    hStore.add(sEdges);
+  }
+}
+
+const himadriCratePositions = [];
+for (const ly of levelYs) {
+  for (const rz of rackRowsZ) {
+    for (let slot = 0; slot < 4; slot++) {
+      himadriCratePositions.push([-1.35 + slot * 0.9, ly + 0.3, rz]);
+    }
+  }
+}
+const himadriSet = makeCrateSet(himadriCratePositions, 0.5, {
+  warning: 5,
+  critical: 17,
+  perLevel: 8,
+  label: "Himadri Ground Store • 120 sq ft",
+  prefix: "HMS"
+});
+hStore.add(himadriSet.mesh);
+
+/* ---------------- Selection cage (scene-level) ---------------- */
 const selectionCage = new THREE.LineSegments(
-  new THREE.EdgesGeometry(new THREE.BoxGeometry(0.8, 0.8, 0.8)),
+  new THREE.EdgesGeometry(new THREE.BoxGeometry(0.65, 0.65, 0.65)),
   new THREE.LineBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0.95 })
 );
 selectionCage.visible = false;
-store.add(selectionCage);
+scene.add(selectionCage);
 
 /* ---------------- Peel-away exterior ---------------- */
 const peelSlider = document.getElementById("peel");
@@ -283,11 +480,14 @@ peelSlider.addEventListener("input", () => setPeel(peelSlider.value / 100));
 
 /* ---------------- Camera sweeps (GSAP) ---------------- */
 const VIEWS = {
-  overview: { pos: new THREE.Vector3(16, 22, 50), target: new THREE.Vector3(16, 2.5, 0) },
+  overview: { pos: new THREE.Vector3(18, 26, 58), target: new THREE.Vector3(18, 2.5, 0) },
   maitri: { pos: new THREE.Vector3(26, 18, 28), target: new THREE.Vector3(0, 4.2, 0) },
   store: { pos: new THREE.Vector3(13.5, 7.5, 12.0), target: new THREE.Vector3(6.2, 3.2, 2.2) },
-  himadri: { pos: new THREE.Vector3(52, 14, 22), target: new THREE.Vector3(38, 2, -2) }
+  himadri: { pos: new THREE.Vector3(54, 10, 16), target: new THREE.Vector3(38, 3.5, -2) },
+  himadriStore: { pos: new THREE.Vector3(48.5, 4.5, 6.5), target: new THREE.Vector3(42.5, 1.3, -2) }
 };
+
+let currentStation = "maitri";
 
 function flyTo(view, duration = 1.8) {
   gsap.to(camera.position, { x: view.pos.x, y: view.pos.y, z: view.pos.z, duration, ease: "power2.inOut" });
@@ -295,15 +495,16 @@ function flyTo(view, duration = 1.8) {
 }
 
 function enterStore() {
-  flyTo(VIEWS.store);
+  flyTo(currentStation === "himadri" ? VIEWS.himadriStore : VIEWS.store);
   peelSlider.value = 90;
   setPeel(0.9);
 }
 
 document.getElementById("btn-store").addEventListener("click", enterStore);
-document.getElementById("btn-maitri").addEventListener("click", () => flyTo(VIEWS.maitri));
-document.getElementById("btn-himadri").addEventListener("click", () => flyTo(VIEWS.himadri));
+document.getElementById("btn-maitri").addEventListener("click", () => { currentStation = "maitri"; flyTo(VIEWS.maitri); });
+document.getElementById("btn-himadri").addEventListener("click", () => { currentStation = "himadri"; flyTo(VIEWS.himadri); });
 document.getElementById("btn-reset").addEventListener("click", () => {
+  currentStation = "maitri";
   flyTo(VIEWS.overview);
   peelSlider.value = 0;
   setPeel(0);
@@ -318,19 +519,19 @@ const assetBodyEl = document.getElementById("asset-body");
 
 const CATALOG = ["Pasta Rations", "Medical Kit", "Fuel Canister", "Battery Pack", "Spare Filters", "Science Samples"];
 
-function assetFor(i) {
-  const status = i === WARNING_INDEX ? "warning" : i === CRITICAL_INDEX ? "critical" : "normal";
+function assetFor(set, i) {
+  const status = i === set.warning ? "warning" : i === set.critical ? "critical" : "normal";
   return {
-    id: `CRT-${1000 + i}`,
+    id: `${set.prefix}-${1000 + i}`,
     name: CATALOG[i % CATALOG.length],
     status,
     expiry: status === "critical" ? "2026-10-15" : status === "warning" ? "2026-12-02" : "2027-03-01",
-    location: `Right Store • Level ${Math.floor(i / 18) + 1} • Slot ${(i % 18) + 1}`
+    location: `${set.label} • Level ${Math.floor(i / set.perLevel) + 1} • Slot ${(i % set.perLevel) + 1}`
   };
 }
 
-function showAsset(i) {
-  const a = assetFor(i);
+function showAsset(set, i) {
+  const a = assetFor(set, i);
   assetIdEl.textContent = a.id;
   assetStatusEl.textContent = a.status.toUpperCase();
   assetStatusEl.className = "status " + a.status;
@@ -362,24 +563,28 @@ renderer.domElement.addEventListener("pointerup", (e) => {
   pointer.y = -(e.clientY / innerHeight) * 2 + 1;
   raycaster.setFromCamera(pointer, camera);
 
-  const crateHits = raycaster.intersectObject(crates, false);
-  if (crateHits.length && crateHits[0].instanceId !== undefined) {
-    selectedInstance = crateHits[0].instanceId;
+  for (const set of CRATE_SETS) {
+    const hits = raycaster.intersectObject(set.mesh, false);
+    if (hits.length && hits[0].instanceId !== undefined) {
+      selectedInstance = hits[0].instanceId;
 
-    const m = new THREE.Matrix4();
-    crates.getMatrixAt(selectedInstance, m);
-    const p = new THREE.Vector3().setFromMatrixPosition(m);
+      const m = new THREE.Matrix4();
+      set.mesh.getMatrixAt(selectedInstance, m);
+      const world = set.mesh.localToWorld(new THREE.Vector3().setFromMatrixPosition(m));
 
-    selectionCage.position.copy(p);
-    selectionCage.visible = true;
+      selectionCage.position.copy(world);
+      selectionCage.visible = true;
 
-    showAsset(selectedInstance);
-    return;
+      showAsset(set, selectedInstance);
+      return;
+    }
   }
 
   const shellHits = raycaster.intersectObjects(exteriorShells.map((s) => s.fill), false);
-  if (shellHits.length && shellHits[0].object.parent.name === "maitri-right-wing") {
-    enterStore();
+  if (shellHits.length) {
+    const name = shellHits[0].object.name || shellHits[0].object.parent.name;
+    if (name === "maitri-right-wing") { currentStation = "maitri"; enterStore(); }
+    if (name === "himadri-main-body") { currentStation = "himadri"; enterStore(); }
   }
 });
 
@@ -400,9 +605,11 @@ function animate() {
   const t = clock.getElapsedTime();
 
   const pulse = 0.45 + 0.55 * (0.5 + 0.5 * Math.sin(t * 4));
-  tmpColor.copy(criticalColor).multiplyScalar(pulse);
-  crates.setColorAt(CRITICAL_INDEX, tmpColor);
-  crates.instanceColor.needsUpdate = true;
+  for (const set of CRATE_SETS) {
+    tmpColor.copy(criticalColor).multiplyScalar(pulse);
+    set.mesh.setColorAt(set.critical, tmpColor);
+    set.mesh.instanceColor.needsUpdate = true;
+  }
 
   if (selectionCage.visible) selectionCage.rotation.y = t * 0.8;
   beacon.material.opacity = 0.35 + 0.6 * (0.5 + 0.5 * Math.sin(t * 2.2));
